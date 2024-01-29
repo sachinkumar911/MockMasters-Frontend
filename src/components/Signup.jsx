@@ -8,7 +8,7 @@ import avatar4 from "../assets/avatar4.png";
 import avatar5 from "../assets/avatar5.png";
 import toast, { Toaster } from "react-hot-toast";
 import validator from "validator";
-// import EmailVerify from "./EmailVerify";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const toastId = React.useRef(null);
@@ -16,6 +16,8 @@ const Signup = () => {
   const sendingnotify = (msg) => (toastId.current = toast.loading(msg));
   const dismiss = () => toast.dismiss(toastId.current);
   const successnotify = (msg) => toast.success(msg);
+
+  const Navigate = useNavigate();
 
   const [validusername, setvalidusername] = useState("");
   const checkUsername = async () => {
@@ -42,8 +44,8 @@ const Signup = () => {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
-    password: "1111111",
-    confirmpassword: "1111111",
+    password: "11111111",
+    confirmpassword: "11111111",
     category: "Open",
     avatar: 1,
   });
@@ -80,7 +82,10 @@ const Signup = () => {
       );
       dismiss();
       successnotify(response.data.message);
-      console.log(response.data);
+      // console.log(response.data);
+      setTimeout(() => {
+        Navigate("/emailverify");
+      }, 2000);
     } catch (error) {
       dismiss();
       errornotify(error.response.data.message);
