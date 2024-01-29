@@ -82,10 +82,15 @@ const Signup = () => {
       );
       dismiss();
       successnotify(response.data.message);
-      // console.log(response.data);
+      sessionStorage.setItem("username", formData.username);
+      sessionStorage.setItem("email", formData.email);
+      sessionStorage.setItem("password", formData.password);
+      sessionStorage.setItem("confirmpassword", formData.confirmpassword);
+      sessionStorage.setItem("category", formData.category);
+      sessionStorage.setItem("avatar", formData.avatar);
       setTimeout(() => {
         Navigate("/emailverify");
-      }, 2000);
+      }, 1000);
     } catch (error) {
       dismiss();
       errornotify(error.response.data.message);

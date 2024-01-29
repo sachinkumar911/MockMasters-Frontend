@@ -1,6 +1,7 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const EmailVerify = () => {
   const toastId = React.useRef(null);
@@ -8,6 +9,8 @@ const EmailVerify = () => {
   const sendingnotify = (msg) => (toastId.current = toast.loading(msg));
   const dismiss = () => toast.dismiss(toastId.current);
   const successnotify = (msg) => toast.success(msg);
+
+  const Navigate = useNavigate();
 
   const [otp, setOtp] = useState(Array(6).fill(""));
   const [error, setError] = useState("");
@@ -46,18 +49,59 @@ const EmailVerify = () => {
             withCredentials: true,
           }
         );
-
+        sessionStorage.clear();
         dismiss();
         successnotify("Account verified successfully");
+        setTimeout(() => {
+          Navigate("/login");
+        }, 1000);
       } catch (error) {
         dismiss();
         errornotify(error.response.data.message);
         console.error(error.response.data.message);
+        setOtp(Array(6).fill(""));
       }
     } else {
       setError("Please enter a valid OTP");
     }
   };
+
+  const resendOTP = async (e) => {
+    e.preventDefault();
+    sendingnotify("Sending OTP again...");
+    setOtp(Array(6).fill(""));
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/api/v1/users/register",
+        {
+          username: sessionStorage.getItem("username"),
+          email: sessionStorage.getItem("email"),
+          password: sessionStorage.getItem("password"),
+          confirmpassword: sessionStorage.getItem("confirmpassword"),
+          category: sessionStorage.getItem("category"),
+          avatar: sessionStorage.getItem("avatar"),
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+      dismiss();
+      successnotify(response.data.message);
+    } catch (error) {
+      dismiss();
+      errornotify(error.response.data.message);
+      console.error(error.response.data.message);
+    }
+  };
+
+  useEffect(() => {
+    if (!sessionStorage.getItem("username")) {
+      Navigate("/");
+    }
+  }, []);
 
   return (
     <>
@@ -102,14 +146,12 @@ const EmailVerify = () => {
                     </div>
                     <div className="flex flex-row items-center justify-center text-center text-sm font-medium space-x-1 text-gray-500">
                       <p>Didn't recieve code?</p>{" "}
-                      <a
+                      <button
+                        onClick={resendOTP}
                         className="flex flex-row items-center text-blue-600"
-                        href="http://"
-                        target="_blank"
-                        rel="noopener noreferrer"
                       >
                         Resend
-                      </a>
+                      </button>
                     </div>
                   </div>
                 </div>
