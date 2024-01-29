@@ -44,8 +44,8 @@ const Signup = () => {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
-    password: "11111111",
-    confirmpassword: "11111111",
+    password: "",
+    confirmpassword: "",
     category: "Open",
     avatar: 1,
   });
@@ -306,7 +306,7 @@ const Signup = () => {
             <p className="text-sm font-light text-gray-500">
               Already have an account?
               <Link
-                to="/EmailVerify"
+                to="/login"
                 className="font-medium text-blue-600 hover:underline"
               >
                 Login here

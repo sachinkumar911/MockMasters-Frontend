@@ -1,9 +1,68 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
+import axios from "axios";
+import validator from "validator";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const toastId = React.useRef(null);
+  const errornotify = (msg) => toast.error(msg);
+  const sendingnotify = (msg) => (toastId.current = toast.loading(msg));
+  const dismiss = () => toast.dismiss(toastId.current);
+  const successnotify = (msg) => toast.success(msg);
+
+  const Navigate = useNavigate();
+
+  const [username, setusername] = useState("");
+  const [password, setpassword] = useState("");
+
+  const tryLogin = async () => {
+    if (username === "" || password === "") {
+      errornotify("All fields are required");
+      return;
+    }
+    let formData;
+    if (validator.isEmail(username)) {
+      formData = {
+        email: username,
+        username: "",
+        password,
+      };
+    } else {
+      formData = {
+        email: "",
+        username,
+        password,
+      };
+    }
+    sendingnotify("Verifying...");
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/api/v1/users/login",
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+      dismiss();
+      successnotify(response.data.message);
+      setTimeout(() => {
+        Navigate("/");
+      }, 1000);
+    } catch (error) {
+      dismiss();
+      errornotify(error.response.data.message);
+      console.error(error.response.data.message);
+    }
+  };
+
   return (
     <>
+      <Toaster position="bottom-left" reverseOrder={false} />
       <section className="bg-gray-50 h-screen flex flex-col justify-center items-center">
         <div className="p-6 space-y-4 bg-white w-[28%] shadow-md ">
           <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900">
@@ -22,6 +81,10 @@ const Login = () => {
                 id="email"
                 name="email"
                 placeholder="example@gmail.com"
+                onChange={(e) => {
+                  setusername(e.target.value);
+                }}
+                value={username}
                 className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg block p-2.5"
                 required=""
               ></input>
@@ -38,6 +101,10 @@ const Login = () => {
                 id="password"
                 name="password"
                 placeholder="••••••••"
+                onChange={(e) => {
+                  setpassword(e.target.value);
+                }}
+                value={password}
                 className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg block w-full p-2.5"
               ></input>
             </div>
@@ -66,7 +133,8 @@ const Login = () => {
               </Link>
             </div>
             <button
-              type="submit"
+              type="button"
+              onClick={tryLogin}
               className="w-full bg-blue-600 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center "
             >
               Sign in
