@@ -8,7 +8,7 @@ import avatar4 from "../assets/avatar4.png";
 import avatar5 from "../assets/avatar5.png";
 import toast, { Toaster } from "react-hot-toast";
 import validator from "validator";
-// import EmailVerify from './EmailVerify';
+// import EmailVerify from "./EmailVerify";
 
 const Signup = () => {
   const toastId = React.useRef(null);
@@ -296,7 +296,7 @@ const Signup = () => {
             <p className="text-sm font-light text-gray-500">
               Already have an account?
               <Link
-                to="/login"
+                to="/EmailVerify"
                 className="font-medium text-blue-600 hover:underline"
               >
                 Login here
