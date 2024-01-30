@@ -4,8 +4,13 @@ import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import validator from "validator";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../context/UserContext.jsx";
+import { useContext } from "react";
 
 const Login = () => {
+  const { setislogin } = useContext(UserContext);
+  const { setuserdetail } = useContext(UserContext);
+
   const toastId = React.useRef(null);
   const errornotify = (msg) => toast.error(msg);
   const sendingnotify = (msg) => (toastId.current = toast.loading(msg));
@@ -50,6 +55,8 @@ const Login = () => {
       );
       dismiss();
       successnotify(response.data.message);
+      setuserdetail(response.data.data.user);
+      setislogin(true);
       setTimeout(() => {
         Navigate("/");
       }, 1000);
