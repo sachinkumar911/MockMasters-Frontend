@@ -4,7 +4,8 @@ import "./App.css";
 import axios from "axios";
 import { UserContext } from "./context/UserContext.jsx";
 import Header from "./components/Header";
-import Signup from "./components/Signup";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 import EmailVerify from "./components/EmailVerify";
 import AuthSignup from "./Authenticator/AuthSignup.jsx";
 import AuthLogin from "./Authenticator/AuthLogin.jsx";
@@ -65,7 +66,16 @@ function App() {
     <UserContext.Provider value={values}>
       <Router>
         <Routes>
-          <Route path="/" element={<Header />} />
+          <Route
+            path="/"
+            element={
+              <>
+                <Header />
+                <Contact />
+                <Footer />
+              </>
+            }
+          />
           <Route path="/login" element={<AuthLogin />} />
           <Route path="/Signup" element={<AuthSignup />} />
           <Route path="/EmailVerify" element={<EmailVerify />} />
