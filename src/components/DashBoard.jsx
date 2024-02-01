@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Header from './Header';
+import TestSeries from './TestSeries';
+import TestResult from './TestResult';
+import IncompleteTest from './IncompleteTest';
 // import avatar1 from './images/avatar1.png'
 
 
@@ -50,8 +54,8 @@ const DashBoard = () => {
       </nav> */}
 
 
-      <section id='sidebar-section' className=' bg-gray-800'>
-        <aside id="default-sidebar" className=" left-0 z-40 w-[18%] h-screen  transition-transform -translate-x-full sm:translate-x-0 border-r-2" aria-label="Sidebar">
+      <section id='sidebar-section' className=' flex'>
+        <aside id="default-sidebar" className=" w-[18%] h-screen  transition-transform -translate-x-full sm:translate-x-0 border-r-2" aria-label="Sidebar">
           <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50">
             <ul className="space-y-4 font-medium ">
               <li>
@@ -111,12 +115,11 @@ const DashBoard = () => {
             </ul>
           </div>
         </aside>
-      </section>
-
-      <section id='center-section'>
-        <div>
-              
-        </div>
+        <section id='' className=' w-full'>
+            <TestSeries/>   
+            {/* <TestResult/>
+            <IncompleteTest/> */}
+        </section>
       </section>
       </>
   )

@@ -5,7 +5,7 @@ const TestSeries = () => {
     <>
         <section id='test-section' class="mt-10">
         <div class="flex flex-col justify-center items-center space-y-6">
-          <div id='NIMCET-001' class=" rounded-lg bg-white shadow-md w-[35%]">
+          <div id='NIMCET-001' class=" rounded-lg bg-white shadow-md w-[45%]">
             <h5 class="border border-neutral-100 px-6 py-3 text-xl font-medium leading-tight ">
               NIMCET-001
             </h5>
@@ -25,7 +25,7 @@ const TestSeries = () => {
               </button>
             </div>
           </div>
-          <div id='NIMCET-001' class=" rounded-lg bg-white shadow-md w-[35%]">
+          <div id='NIMCET-001' class=" rounded-lg bg-white shadow-md w-[45%]">
             <h5 class="border border-neutral-100 px-6 py-3 text-xl font-medium leading-tight">
               NIMCET-002
             </h5>
@@ -46,7 +46,7 @@ const TestSeries = () => {
               </button>
             </div>
           </div>
-          <div id='NIMCET-001' class=" rounded-lg bg-white shadow-md w-[35%]">
+          <div id='NIMCET-001' class=" rounded-lg bg-white shadow-md w-[45%]">
             <h5 class="border border-neutral-100 px-6 py-3 text-xl font-medium leading-tight">
               NIMCET-003
             </h5>
