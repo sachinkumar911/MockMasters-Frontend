@@ -10,7 +10,7 @@ import EmailVerify from "./components/EmailVerify";
 import AuthSignup from "./Authenticator/AuthSignup.jsx";
 import AuthLogin from "./Authenticator/AuthLogin.jsx";
 import DashBoard from "./components/DashBoard.jsx";
-import Contact from "./components/Contact.jsx"
+import Contact from "./components/Contact.jsx";
 
 function App() {
   const [userdetail, setuserdetail] = useState();
@@ -81,13 +81,16 @@ function App() {
           <Route path="/login" element={<AuthLogin />} />
           <Route path="/Signup" element={<AuthSignup />} />
           <Route path="/EmailVerify" element={<EmailVerify />} />
-          <Route path="/dashboard" element={
-            <>
+          <Route
+            path="/dashboard/*"
+            element={
+              <>
                 <Header />
                 <DashBoard />
                 <Footer />
               </>
-          } />
+            }
+          />
         </Routes>
       </Router>
     </UserContext.Provider>
