@@ -134,7 +134,7 @@ const Login = () => {
               </div>
               <Link
                 to="/Forgotpassword"
-                className="text-sm font-medium text-blue-600 hover:underline"
+                className="text-sm font-medium text-gray-600 hover:underline"
               >
                 Forgot password
               </Link>
@@ -142,7 +142,7 @@ const Login = () => {
             <button
               type="button"
               onClick={tryLogin}
-              className="w-full bg-blue-600 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center "
+              className="w-full bg-gray-800 hover:bg-opacity-90 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center "
             >
               Sign in
             </button>
@@ -150,7 +150,7 @@ const Login = () => {
               Don't have Account Yet?
               <Link
                 to="/Signup"
-                className="font-medium text-blue-600 hover:underline"
+                className="font-medium text-gray-600 hover:underline"
               >
                 Sign up
               </Link>

@@ -115,7 +115,7 @@ const Signup = () => {
                 alt="Avatar 1"
                 className={`cursor-pointer border-4 rounded-full transition-transform transform-gpu ${
                   formData.avatar === 1
-                    ? "w-12 h-12 mr-2 border-blue-600 hover:scale-110 focus:outline-none"
+                    ? "w-12 h-12 mr-2 border-gray-600 hover:scale-110 focus:outline-none"
                     : "w-11 h-11 mr-2 hover:scale-110"
                 }`}
                 onClick={() => {
@@ -127,7 +127,7 @@ const Signup = () => {
                 alt="Avatar 1"
                 className={`cursor-pointer border-4 rounded-full transition-transform transform-gpu ${
                   formData.avatar === 2
-                    ? "w-12 h-12 mr-2 border-blue-600 hover:scale-110 focus:outline-none"
+                    ? "w-12 h-12 mr-2 border-gray-600 hover:scale-110 focus:outline-none"
                     : "w-11 h-11 mr-2 hover:scale-110"
                 }`}
                 onClick={() => {
@@ -139,7 +139,7 @@ const Signup = () => {
                 alt="Avatar 1"
                 className={`cursor-pointer border-4 rounded-full transition-transform transform-gpu ${
                   formData.avatar === 3
-                    ? "w-12 h-12 mr-2 border-blue-600 hover:scale-110 focus:outline-none"
+                    ? "w-12 h-12 mr-2 border-gray-600 hover:scale-110 focus:outline-none"
                     : "w-11 h-11 mr-2 hover:scale-110"
                 }`}
                 onClick={() => {
@@ -151,7 +151,7 @@ const Signup = () => {
                 alt="Avatar 1"
                 className={`cursor-pointer border-4 rounded-full transition-transform transform-gpu ${
                   formData.avatar === 4
-                    ? "w-12 h-12 mr-2 border-blue-600 hover:scale-110 focus:outline-none"
+                    ? "w-12 h-12 mr-2 border-gray-600 hover:scale-110 focus:outline-none"
                     : "w-11 h-11 mr-2 hover:scale-110"
                 }`}
                 onClick={() => {
@@ -163,7 +163,7 @@ const Signup = () => {
                 alt="Avatar 1"
                 className={`cursor-pointer border-4 rounded-full transition-transform transform-gpu ${
                   formData.avatar === 5
-                    ? "w-12 h-12 mr-2 border-blue-600 hover:scale-110 focus:outline-none"
+                    ? "w-12 h-12 mr-2 border-gray-600 hover:scale-110 focus:outline-none"
                     : "w-11 h-11 mr-2 hover:scale-110"
                 }`}
                 onClick={() => {
@@ -298,7 +298,7 @@ const Signup = () => {
 
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white hover:bg-primary-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center disabled:opacity-25"
+              className="w-full  text-white bg-gray-800 hover:bg-opacity-90 font-medium rounded-lg text-sm px-5 py-2.5 text-center disabled:opacity-25"
               disabled={validusername !== "username available"}
             >
               Create Account
@@ -307,7 +307,7 @@ const Signup = () => {
               Already have an account?
               <Link
                 to="/login"
-                className="font-medium text-blue-600 hover:underline"
+                className="font-medium text-gray-600 hover:underline"
               >
                 Login here
               </Link>
