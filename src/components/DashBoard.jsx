@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import avatar1 from './images/avatar1.png'
+// import avatar1 from './images/avatar1.png'
 
 
 const DashBoard = () => {  
-  const [isDropdownOpen, setDropdownOpen] = useState(false);
+  // const [isDropdownOpen, setDropdownOpen] = useState(false);
 
-  const toggleDropdown = () => {
-    setDropdownOpen(!isDropdownOpen);
-  };
+  // const toggleDropdown = () => {
+  //   setDropdownOpen(!isDropdownOpen);
+  // };
 
-  const handleLogout = () => {
-    console.log('Logging out...');
-  };
+  // const handleLogout = () => {
+  //   console.log('Logging out...');
+  // };
   return (
     <>
-      <nav className="shadow-md border">
+      {/* <nav className="shadow-md border">
         <div className="flex flex-wrap items-center justify-between mx-auto p-4">
           <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
             <span className="self-center text-2xl font-semibold whitespace-nowrap">MockMasters.</span>
@@ -47,11 +47,11 @@ const DashBoard = () => {
             </button>
           </div>
         </div>
-      </nav>
+      </nav> */}
 
 
-      <section id='sidebar-section'>
-        <aside id="default-sidebar" className="fixed left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 border-r-2" aria-label="Sidebar">
+      <section id='sidebar-section' className=' bg-gray-800'>
+        <aside id="default-sidebar" className=" left-0 z-40 w-[18%] h-screen  transition-transform -translate-x-full sm:translate-x-0 border-r-2" aria-label="Sidebar">
           <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50">
             <ul className="space-y-4 font-medium ">
               <li>
@@ -88,9 +88,6 @@ const DashBoard = () => {
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
                   </svg>
-
-
-
                   <span className="flex-1 ms-3 whitespace-nowrap">Progress Report</span>
                 </a>
               </li>
@@ -111,15 +108,17 @@ const DashBoard = () => {
                   </svg><span className="flex-1 ms-3 whitespace-nowrap">Unattempted Test</span>
                 </a>
               </li>
-
             </ul>
           </div>
         </aside>
       </section>
 
-      
-
-    </>
+      <section id='center-section'>
+        <div>
+              
+        </div>
+      </section>
+      </>
   )
 }
 
