@@ -12,6 +12,12 @@ const Header = () => {
               </span>
             </a>
             <div className="flex order-2 space-x-3">
+            <button
+                type="button"
+                className="border-2 hover:bg-gray-800 hover:text-white font-medium rounded-lg text-base px-3 py-2 text-center "
+              >
+                <Link to="/Signup">Admin</Link>
+              </button>
               <button
                 type="button"
                 className=" font-medium hover:bg-opacity-50 rounded-lg text-base text-center"

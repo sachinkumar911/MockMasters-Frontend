@@ -5,6 +5,7 @@ import TestSeries from "./TestSeries";
 import TestResult from "./TestResult";
 import IncompleteTest from "./IncompleteTest";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import coin from '../assets/coin.png'
 
 const DashBoard = () => {
   return (
@@ -51,6 +52,12 @@ const DashBoard = () => {
         >
           <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50">
             <ul className="space-y-4 font-medium ">
+              <li>
+                <a href="#" className="flex text-white items-center p-4 bg-blue-400 rounded-lg hover:bg-gray-400  group bg-gradient-to-tr from-gray-300 via-gray-800 to-gray-900">
+                  <img src={coin} alt='' className=' h-6' />
+                  <span className="ms-3">500 Elite Coins</span>
+                </a>
+              </li>
               <li>
                 <Link
                   to="/dashboard"
