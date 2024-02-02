@@ -4,13 +4,13 @@ import "./App.css";
 import axios from "axios";
 import { UserContext } from "./context/UserContext.jsx";
 import Header from "./components/Header";
-// import DashBoard from "./components/Contact";
 import Footer from "./components/Footer";
 import EmailVerify from "./components/EmailVerify";
 import AuthSignup from "./Authenticator/AuthSignup.jsx";
 import AuthLogin from "./Authenticator/AuthLogin.jsx";
-import DashBoard from "./components/DashBoard.jsx";
+import AuthDashboard from "./Authenticator/AuthDashboard.jsx";
 import Contact from "./components/Contact.jsx";
+import TeamMember from "./components/TeamMember.jsx";
 
 function App() {
   const [userdetail, setuserdetail] = useState();
@@ -60,7 +60,7 @@ function App() {
         tryRefreshingToken();
       }
     }
-    
+
     verifyAccessToken();
   }, []);
 
@@ -74,6 +74,7 @@ function App() {
             element={
               <>
                 <Header />
+                <TeamMember />
                 <Contact />
                 <Footer />
               </>
@@ -82,16 +83,7 @@ function App() {
           <Route path="/login" element={<AuthLogin />} />
           <Route path="/Signup" element={<AuthSignup />} />
           <Route path="/EmailVerify" element={<EmailVerify />} />
-          <Route
-            path="/dashboard/*"
-            element={
-              <>
-                <Header />
-                <DashBoard />
-                <Footer />
-              </>
-            }
-          />
+          <Route path="/dashboard/*" element={<AuthDashboard />} />
         </Routes>
       </Router>
     </UserContext.Provider>

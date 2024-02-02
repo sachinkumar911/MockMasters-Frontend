@@ -5,8 +5,8 @@ import TestSeries from "./TestSeries";
 import TestResult from "./TestResult";
 import IncompleteTest from "./IncompleteTest";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import coin from '../assets/coin.png'
-import Profile from './Profile'
+import coin from "../assets/coin.png";
+import Profile from "./Profile";
 const DashBoard = () => {
   return (
     <>
@@ -53,8 +53,11 @@ const DashBoard = () => {
           <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50">
             <ul className="space-y-4 font-medium ">
               <li>
-                <a href="#" className="flex text-white items-center p-4 bg-blue-400 rounded-lg hover:bg-gray-400  group bg-gradient-to-tr from-gray-300 via-gray-800 to-gray-900">
-                  <img src={coin} alt='' className=' h-6' />
+                <a
+                  href="#"
+                  className="flex text-white items-center p-4 bg-blue-400 rounded-lg hover:bg-gray-400  group bg-gradient-to-tr from-gray-300 via-gray-800 to-gray-900"
+                >
+                  <img src={coin} alt="" className=" h-6" />
                   <span className="ms-3">500 Elite Coins</span>
                 </a>
               </li>
@@ -157,10 +160,20 @@ const DashBoard = () => {
                   to="/dashboard/attempted-test"
                   className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"
+                    />
                   </svg>
-
 
                   <span className="flex-1 ms-3 whitespace-nowrap">
                     Change Password
