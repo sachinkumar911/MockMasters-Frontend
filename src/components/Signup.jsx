@@ -12,14 +12,16 @@ import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const toastId = React.useRef(null);
-  const errornotify = (msg) => toast.error(msg);
   const sendingnotify = (msg) => (toastId.current = toast.loading(msg));
   const dismiss = () => toast.dismiss(toastId.current);
+  
+  const errornotify = (msg) => toast.error(msg);
   const successnotify = (msg) => toast.success(msg);
 
   const Navigate = useNavigate();
 
   const [validusername, setvalidusername] = useState("");
+  
   const checkUsername = async () => {
     try {
       const response = await axios.post(
@@ -41,15 +43,6 @@ const Signup = () => {
     }
   };
 
-  const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
-    confirmpassword: "",
-    category: "Open",
-    avatar: 1,
-  });
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -60,6 +53,7 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
     if (!validator.isEmail(formData.email)) {
       errornotify("Invalid Email");
       return;
