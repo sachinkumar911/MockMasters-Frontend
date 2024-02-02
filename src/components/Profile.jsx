@@ -1,9 +1,9 @@
 // Profile.js
-import avatar1 from './images/avatar1.png'
-import avatar2 from './images/avatar2.png'
-import avatar3 from './images/avatar3.png'
-import avatar4 from './images/avatar4.png'
-import avatar5 from './images/avatar5.png'
+import avatar1 from '../assets/avatar1.png'
+import avatar2 from '../assets/avatar2.png'
+import avatar3 from '../assets/avatar3.png'
+import avatar4 from '../assets/avatar4.png'
+import avatar5 from '../assets/avatar5.png'
 import React, { useState } from 'react';
 
 const Profile = () => {
@@ -22,9 +22,9 @@ const Profile = () => {
       };
     return (
         <>
-            <section id='profile-section' className='min-h-screen p-6  flex items-center justify-center'>
-                <div className="container w-[50%] mx-auto">
-                    <div className="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6 flex flex-col lg:flex-row">
+            <section id='profile-section' className='min-h-screen flex items-center justify-center'>
+                <div className="container w-[60%] mx-auto mt-[-60px]">
+                    <div className="bg-white rounded shadow-lg p-4 px-4 md:p-8 flex flex-col lg:flex-row">
                         <div className="lg:w-1/3 text-gray-900">
                             <p className="text-xl font-bold">Personal Details</p>
                             {/* <p>Please fill out your Details.</p> */}
