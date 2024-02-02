@@ -42,7 +42,15 @@ const Signup = () => {
       setvalidusername(error.response.data.message);
     }
   };
-
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    password: "",
+    confirmpassword: "",
+    category: "Open",
+    avatar: 1,
+  });
+  
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });

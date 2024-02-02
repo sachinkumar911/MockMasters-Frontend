@@ -140,7 +140,7 @@ const EmailVerify = () => {
                   {error && <p className="text-red-500 mt-2">{error}</p>}
                   <div className="flex flex-col space-y-5">
                     <div>
-                      <button className="flex flex-row items-center justify-center text-center w-full border rounded-xl outline-none py-5 bg-gray-600 hover:bg-opacity-90 border-none text-white text-sm shadow-sm">
+                      <button className="flex flex-row items-center justify-center text-center w-full border rounded-xl outline-none py-5 bg-gray-800 hover:bg-opacity-90 border-none text-white text-sm shadow-sm">
                         Verify Account
                       </button>
                     </div>

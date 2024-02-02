@@ -6,7 +6,7 @@ import TestResult from "./TestResult";
 import IncompleteTest from "./IncompleteTest";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import coin from '../assets/coin.png'
-
+import Profile from './Profile'
 const DashBoard = () => {
   return (
     <>
@@ -152,12 +152,27 @@ const DashBoard = () => {
                   </span>
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/dashboard/attempted-test"
+                  className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                  </svg>
+
+
+                  <span className="flex-1 ms-3 whitespace-nowrap">
+                    Change Password
+                  </span>
+                </Link>
+              </li>
             </ul>
           </div>
         </aside>
         <section id="" className=" w-full">
           <Routes>
-            {/* <Route path="/" element={<Profile />} /> */}
+            <Route path="/" element={<Profile />} />
             <Route path="/test-series" element={<TestSeries />} />
             <Route path="/attempted-test" element={<TestResult />} />
           </Routes>
