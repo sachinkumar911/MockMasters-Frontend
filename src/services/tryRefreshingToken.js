@@ -13,6 +13,7 @@ const tryRefreshingToken = async () => {
         );
         if (response.data.message === "Access token refreshed") {
             // setuserdetail(response.data.data);
+            // console.log(response);
             return response.data.data;
         }
         // console.log(response.data);
