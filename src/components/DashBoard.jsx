@@ -5,6 +5,10 @@ import TestResult from "./TestResult";
 import { Route, Routes } from "react-router-dom";
 import coin from "../assets/coin.png";
 import Profile from "./Profile";
+import ChangePassword from "./ChangePassword";
+import ForgetPass from "./ForgetPass";
+import EmailVerify from "./EmailVerify";
+
 const DashBoard = () => {
   return (
     <>
@@ -155,7 +159,7 @@ const DashBoard = () => {
               </li>
               <li>
                 <Link
-                  to="/dashboard/attempted-test"
+                  to="/dashboard/change-password"
                   className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
                 >
                   <svg
@@ -178,6 +182,56 @@ const DashBoard = () => {
                   </span>
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/dashboard/forget-password"
+                  className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"
+                    />
+                  </svg>
+
+                  <span className="flex-1 ms-3 whitespace-nowrap">
+                    Forget Password
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/dashboard/email-verify"
+                  className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"
+                    />
+                  </svg>
+
+                  <span className="flex-1 ms-3 whitespace-nowrap">
+                    Email Verify
+                  </span>
+                </Link>
+              </li>
             </ul>
           </div>
         </aside>
@@ -186,6 +240,9 @@ const DashBoard = () => {
             <Route path="/" element={<Profile />} />
             <Route path="/test-series" element={<TestSeries />} />
             <Route path="/attempted-test" element={<TestResult />} />
+            <Route path="/change-password" element={<ChangePassword />} />
+            <Route path="/forget-password" element={<ForgetPass />} />
+            <Route path="/email-verify" element={<EmailVerify />} />
           </Routes>
         </section>
       </section>

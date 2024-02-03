@@ -97,11 +97,11 @@ const EmailVerify = () => {
     }
   };
 
-  useEffect(() => {
-    if (!sessionStorage.getItem("username")) {
-      Navigate("/");
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (!sessionStorage.getItem("username")) {
+  //     Navigate("/");
+  //   }
+  // }, []);
 
   return (
     <>
@@ -148,7 +148,8 @@ const EmailVerify = () => {
                       <p>Didn't recieve code?</p>{" "}
                       <button
                         onClick={resendOTP}
-                        className="flex flex-row items-center text-gray-600 hover:underline">
+                        className="flex flex-row items-center text-gray-600 hover:underline"
+                      >
                         Resend
                       </button>
                     </div>

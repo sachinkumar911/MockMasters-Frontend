@@ -5,7 +5,7 @@ import "./App.css";
 import { UserContext } from "./context/UserContext.jsx";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import EmailVerify from "./components/EmailVerify";
+import AuthEmailVerify from "./Authenticator/AuthEmailVerify.jsx";
 import AuthSignup from "./Authenticator/AuthSignup.jsx";
 import AuthLogin from "./Authenticator/AuthLogin.jsx";
 import AuthDashboard from "./Authenticator/AuthDashboard.jsx";
@@ -47,7 +47,7 @@ function App() {
           />
           <Route path="/login" element={<AuthLogin />} />
           <Route path="/Signup" element={<AuthSignup />} />
-          <Route path="/EmailVerify" element={<EmailVerify />} />
+          <Route path="/EmailVerify" element={<AuthEmailVerify />} />
           <Route path="/dashboard/*" element={<AuthDashboard />} />
         </Routes>
       </Router>
