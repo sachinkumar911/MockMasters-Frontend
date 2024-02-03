@@ -1,10 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Header from "./Header";
 import TestSeries from "./TestSeries";
 import TestResult from "./TestResult";
-import IncompleteTest from "./IncompleteTest";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import coin from "../assets/coin.png";
 import Profile from "./Profile";
 const DashBoard = () => {
