@@ -1,12 +1,16 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
 import EmailVerify from "../components/EmailVerify";
+import LogoHeader from "../components/LogoHeader";
 
 const AuthEmailVerify = () => {
   return (
     <>
       {sessionStorage.getItem("email") ? (
-        <EmailVerify />
+        <>
+          <LogoHeader />
+          <EmailVerify />
+        </>
       ) : (
         <Navigate replace to="/" />
       )}

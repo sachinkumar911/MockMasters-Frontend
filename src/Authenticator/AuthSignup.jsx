@@ -3,10 +3,22 @@ import { UserContext } from "../context/UserContext.jsx";
 import { useContext } from "react";
 import { Navigate } from "react-router-dom";
 import Signup from "../components/Signup.jsx";
+import LogoHeader from "../components/LogoHeader.jsx";
 
 const AuthSignup = () => {
   const { islogin } = useContext(UserContext);
-  return <>{!islogin ? <Signup /> : <Navigate replace to="/" />}</>;
+  return (
+    <>
+      {!islogin ? (
+        <>
+          <LogoHeader />
+          <Signup />
+        </>
+      ) : (
+        <Navigate replace to="/" />
+      )}
+    </>
+  );
 };
 
 export default AuthSignup;

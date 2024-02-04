@@ -65,6 +65,7 @@ const Profile = () => {
       );
       dismiss();
       successnotify(response.data.message);
+      setIsEditMode(!isEditMode);
       setTimeout(() => {
         window.location.reload(false);
       }, 2000);
