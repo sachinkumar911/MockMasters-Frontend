@@ -12,6 +12,8 @@ import AuthDashboard from "./Authenticator/AuthDashboard.jsx";
 import Contact from "./components/Contact.jsx";
 import TeamMember from "./components/TeamMember.jsx";
 import { verifyAccessToken } from "./services/verifyAccessToken.js";
+import ForgetPass from "./components/ForgetPass.jsx";
+import ForgetVerifyOTP from "./components/ForgetVerifyOTP.jsx";
 
 function App() {
   const [userdetail, setuserdetail] = useState();
@@ -49,6 +51,8 @@ function App() {
           <Route path="/Signup" element={<AuthSignup />} />
           <Route path="/EmailVerify" element={<AuthEmailVerify />} />
           <Route path="/dashboard/*" element={<AuthDashboard />} />
+          <Route path="/Forgotpassword" element={<ForgetPass />} />
+          <Route path="/verifyotp" element={<ForgetVerifyOTP />} />
         </Routes>
       </Router>
     </UserContext.Provider>

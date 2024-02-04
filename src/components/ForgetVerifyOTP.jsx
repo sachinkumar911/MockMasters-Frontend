@@ -3,7 +3,7 @@ import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const EmailVerify = () => {
+const ForgetVerifyOTP = () => {
   const toastId = React.useRef(null);
   const errornotify = (msg) => toast.error(msg);
   const sendingnotify = (msg) => (toastId.current = toast.loading(msg));
@@ -37,11 +37,11 @@ const EmailVerify = () => {
     const enteredOtp = otp.join("");
 
     if (/^[0-9a-zA-Z]{6}$/.test(enteredOtp)) {
-      sendingnotify("Verifying account...");
+      sendingnotify("Verifying OTP...");
       try {
         const response = await axios.post(
           "http://localhost:8000/api/v1/users/verifyotp",
-          { token: enteredOtp, reason: "verify" },
+          { token: enteredOtp, reason: "forget" },
           {
             headers: {
               "Content-Type": "application/json",
@@ -51,10 +51,10 @@ const EmailVerify = () => {
         );
         sessionStorage.clear();
         dismiss();
-        successnotify("Account verified successfully");
+        successnotify("New password sent on mail");
         setTimeout(() => {
           Navigate("/login");
-        }, 1000);
+        }, 2000);
       } catch (error) {
         dismiss();
         errornotify(error.response.data.message);
@@ -111,7 +111,7 @@ const EmailVerify = () => {
           <div className="mx-auto flex w-full max-w-md flex-col space-y-16">
             <div className="flex flex-col items-center justify-center text-center space-y-2">
               <div className="font-semibold text-3xl">
-                <p>Email Verification</p>
+                <p>OTP Verification</p>
               </div>
               <div className="flex flex-row text-sm font-medium text-gray-400">
                 <p>We have sent a code to your email</p>
@@ -141,7 +141,7 @@ const EmailVerify = () => {
                   <div className="flex flex-col space-y-5">
                     <div>
                       <button className="flex flex-row items-center justify-center text-center w-full border rounded-xl outline-none py-5 bg-gray-800 hover:bg-opacity-90 border-none text-white text-sm shadow-sm">
-                        Verify Account
+                        Verify OTP
                       </button>
                     </div>
                     <div className="flex flex-row items-center justify-center text-center text-sm font-medium space-x-1 text-gray-500">
@@ -164,4 +164,4 @@ const EmailVerify = () => {
   );
 };
 
-export default EmailVerify;
+export default ForgetVerifyOTP;

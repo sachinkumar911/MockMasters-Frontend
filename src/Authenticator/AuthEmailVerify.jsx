@@ -5,7 +5,7 @@ import EmailVerify from "../components/EmailVerify";
 const AuthEmailVerify = () => {
   return (
     <>
-      {sessionStorage.getItem("username") ? (
+      {sessionStorage.getItem("email") ? (
         <EmailVerify />
       ) : (
         <Navigate replace to="/" />
