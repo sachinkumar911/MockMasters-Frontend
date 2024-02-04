@@ -2,9 +2,16 @@ import React from "react";
 import { UserContext } from "../context/UserContext.jsx";
 import { useContext } from "react";
 import avatar1 from "../assets/avatar1.png";
+import avatar2 from "../assets/avatar2.png";
+import avatar3 from "../assets/avatar3.png";
+import avatar4 from "../assets/avatar4.png";
+import avatar5 from "../assets/avatar5.png";
 import { Link } from "react-router-dom";
+
 const Header = () => {
-  const { islogin } = useContext(UserContext);
+  const { islogin, userdetail } = useContext(UserContext);
+  let avatars = [avatar1, avatar2, avatar3, avatar4, avatar5];
+
   return (
     <>
       <header className="header top-0 left-0 w-full">
@@ -19,7 +26,7 @@ const Header = () => {
               {islogin ? (
                 <Link to="/dashboard">
                   <img
-                    src={avatar1}
+                    src={avatars[userdetail.avatar - 1]}
                     alt="Avatar"
                     className={`cursor-pointer border-4 rounded-full transition-transform transform-gpu w-10 h-10 mr-2 border-gray-600 hover:scale-110 focus:outline-none`}
                   />

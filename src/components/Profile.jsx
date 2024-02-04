@@ -4,23 +4,80 @@ import avatar3 from "../assets/avatar3.png";
 import avatar4 from "../assets/avatar4.png";
 import avatar5 from "../assets/avatar5.png";
 import React, { useState } from "react";
+import { UserContext } from "../context/UserContext.jsx";
+import { useContext } from "react";
+import toast, { Toaster } from "react-hot-toast";
+import validator from "validator";
+import axios from "axios";
 
 const Profile = () => {
+  const { userdetail } = useContext(UserContext);
+
+  const toastId = React.useRef(null);
+  const sendingnotify = (msg) => (toastId.current = toast.loading(msg));
+  const dismiss = () => toast.dismiss(toastId.current);
+  const errornotify = (msg) => toast.error(msg);
+  const successnotify = (msg) => toast.success(msg);
+
   const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
-    confirmpassword: "",
-    category: "Open",
-    avatar: 1,
+    category: userdetail.category,
+    avatar: userdetail.avatar,
+    fullname: userdetail.fullname ? userdetail.fullname : "",
+    phone: userdetail.phone ? userdetail.phone : "",
+    gender: userdetail.gender,
+    linkedin: userdetail.linkedin ? userdetail.linkedin : "",
+    github: userdetail.github ? userdetail.github : "",
   });
   const [isEditMode, setIsEditMode] = useState(false);
 
   const handleEditClick = () => {
     setIsEditMode(!isEditMode);
   };
+
+  const updateprofile = async () => {
+    if (
+      formData.avatar === userdetail.avatar &&
+      formData.fullname === userdetail.fullname &&
+      formData.phone === userdetail.phone &&
+      formData.gender === userdetail.gender &&
+      formData.category === userdetail.category &&
+      formData.linkedin === userdetail.linkedin &&
+      formData.github === userdetail.github
+    ) {
+      errornotify("Nothing to update");
+      return;
+    }
+    if (!validator.isMobilePhone(formData.phone)) {
+      errornotify("Invalid mobile no.");
+      return;
+    }
+    sendingnotify("Updating user profile...");
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/api/v1/users/updateprofile",
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+      dismiss();
+      successnotify(response.data.message);
+      setTimeout(() => {
+        window.location.reload(false);
+      }, 2000);
+    } catch (error) {
+      dismiss();
+      errornotify(error.response.data.message);
+      console.error(error);
+    }
+  };
+
   return (
     <>
+      <Toaster position="bottom-left" reverseOrder={false} />
       <section
         id="profile-section"
         className="min-h-screen flex items-center justify-center"
@@ -46,7 +103,9 @@ const Profile = () => {
                         : "w-11 h-11 mr-2 hover:scale-110 mb-1"
                     }`}
                     onClick={() => {
-                      setFormData({ ...formData, avatar: 1 });
+                      if (isEditMode) {
+                        setFormData({ ...formData, avatar: 1 });
+                      }
                     }}
                   />
                   <img
@@ -58,7 +117,9 @@ const Profile = () => {
                         : "w-11 h-11 mr-2 hover:scale-110 mb-1"
                     }`}
                     onClick={() => {
-                      setFormData({ ...formData, avatar: 2 });
+                      if (isEditMode) {
+                        setFormData({ ...formData, avatar: 2 });
+                      }
                     }}
                   />
                   <img
@@ -70,7 +131,9 @@ const Profile = () => {
                         : "w-11 h-11 mr-2 hover:scale-110 mb-1"
                     }`}
                     onClick={() => {
-                      setFormData({ ...formData, avatar: 3 });
+                      if (isEditMode) {
+                        setFormData({ ...formData, avatar: 3 });
+                      }
                     }}
                   />
                   <img
@@ -82,7 +145,9 @@ const Profile = () => {
                         : "w-11 h-11 mr-2 hover:scale-110 mb-1"
                     }`}
                     onClick={() => {
-                      setFormData({ ...formData, avatar: 4 });
+                      if (isEditMode) {
+                        setFormData({ ...formData, avatar: 4 });
+                      }
                     }}
                   />
                   <img
@@ -94,7 +159,9 @@ const Profile = () => {
                         : "w-11 h-11 mr-2 hover:scale-110 mb-1"
                     }`}
                     onClick={() => {
-                      setFormData({ ...formData, avatar: 5 });
+                      if (isEditMode) {
+                        setFormData({ ...formData, avatar: 5 });
+                      }
                     }}
                   />
                 </div>
@@ -102,24 +169,14 @@ const Profile = () => {
             </div>
 
             <div className=" ml-0 lg:ml-12 flex flex-col">
-              <label htmlFor="full_name">Username</label>
+              <label htmlFor="username">Username</label>
               <input
                 type="text"
-                name="full_name"
-                id="full_name"
-                className="h-10 border mt-1 mb-3 rounded px-4 w-full bg-gray-50"
-                value=""
-                disabled={!isEditMode}
-              />
-
-              <label htmlFor="full_name">Full Name</label>
-              <input
-                type="text"
-                name="full_name"
-                id="full_name"
-                className="h-10 border mt-1 mb-3 rounded px-4 w-full bg-gray-50"
-                value=""
-                disabled={!isEditMode}
+                name="username"
+                id="username"
+                className="h-10 border mt-1 mb-3 rounded px-4 w-full bg-gray-50 text-gray-500"
+                value={userdetail.username}
+                disabled
               />
 
               <label htmlFor="email">Email Address</label>
@@ -127,10 +184,22 @@ const Profile = () => {
                 type="text"
                 name="email"
                 id="email"
-                className="h-10 border mt-1 mb-3 rounded px-4 w-full bg-gray-50"
-                value=""
-                placeholder="email@domain.com"
+                className="h-10 border mt-1 mb-3 rounded px-4 w-full bg-gray-50 text-gray-500"
+                value={userdetail.email}
+                disabled
+              />
+
+              <label htmlFor="full_name">Full Name</label>
+              <input
+                type="text"
+                name="full_name"
+                id="full_name"
+                className="h-10 border mt-1 mb-3 rounded px-4 w-full bg-gray-50 text-gray-700"
+                value={formData.fullname}
                 disabled={!isEditMode}
+                onChange={(e) => {
+                  setFormData({ ...formData, fullname: e.target.value });
+                }}
               />
 
               <div className="flex mb-3">
@@ -140,10 +209,12 @@ const Profile = () => {
                     type="text"
                     name="mobile"
                     id="mobile"
-                    className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                    value=""
-                    placeholder=""
+                    className="h-10 border mt-1 rounded px-4 w-full bg-gray-50 text-gray-700"
+                    value={formData.phone}
                     disabled={!isEditMode}
+                    onChange={(e) => {
+                      setFormData({ ...formData, phone: e.target.value });
+                    }}
                   />
                 </div>
                 <div className="flex flex-col mt-1 w-1/2 ml-3">
@@ -151,11 +222,43 @@ const Profile = () => {
                   <select
                     id="gender"
                     name="gender"
-                    className="h-10 border rounded px-4 bg-gray-50"
+                    className="mt-1 h-10 border rounded px-4 bg-gray-50"
+                    value={formData.gender}
+                    disabled={!isEditMode}
+                    onChange={(e) => {
+                      setFormData({ ...formData, gender: e.target.value });
+                    }}
                   >
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                     <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="flex mb-3">
+                <div className="flex flex-col mt-1 w-[100%] ">
+                  <label htmlFor="category">Category</label>
+                  <select
+                    name="category"
+                    id="category"
+                    value={formData.category}
+                    disabled={!isEditMode}
+                    className="mt-1 h-10 border rounded px-4 bg-gray-50"
+                    required=""
+                    onChange={(e) => {
+                      setFormData({ ...formData, category: e.target.value });
+                    }}
+                  >
+                    <option value="OBC-NCL">OBC-NCL</option>
+                    <option value="ST">ST</option>
+                    <option value="OBC-NCL (PwD)">OBC-NCL (PwD)</option>
+                    <option value="Gen-EWS">Gen-EWS</option>
+                    <option value="Open">Open</option>
+                    <option value="Open (PwD)">Open (PwD)</option>
+                    <option value="SC">SC</option>
+                    <option value="SC (PwD)">SC (PwD)</option>
+                    <option value="Gen-EWS (PwD)">Gen-EWS (PwD)</option>
                   </select>
                 </div>
               </div>
@@ -176,7 +279,11 @@ const Profile = () => {
                   id="website-admin"
                   className="rounded-none rounded-e-lg bg-gray-50 border text-gray-900  block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 "
                   placeholder="Username"
+                  value={formData.linkedin}
                   disabled={!isEditMode}
+                  onChange={(e) => {
+                    setFormData({ ...formData, linkedin: e.target.value });
+                  }}
                 />
               </div>
 
@@ -196,33 +303,48 @@ const Profile = () => {
                   id="website-admin"
                   className="rounded-none rounded-e-lg bg-gray-50 border text-gray-900  block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 "
                   placeholder="Username"
+                  value={formData.github}
                   disabled={!isEditMode}
+                  onChange={(e) => {
+                    setFormData({ ...formData, github: e.target.value });
+                  }}
                 />
               </div>
               <div className="text-left mt-4 space-x-2 flex">
-                <button
-                  className=" hover:bg-opacity-90 font-semibold py-2 px-2 rounded flex items-center border border-black "
-                  onClick={handleEditClick}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    className="w-6 h-6 mr-2"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"
-                    />
-                  </svg>
-                  Edit
-                </button>
-                <button className="bg-green-600 hover:bg-opacity-90 text-white  font-semibold py-2 px-5 rounded">
-                  Save
-                </button>
+                {!isEditMode ? (
+                  <>
+                    <button
+                      className=" hover:bg-opacity-90 font-semibold py-1 px-2 rounded flex items-center border border-black hover:bg-slate-200"
+                      onClick={handleEditClick}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth="1.5"
+                        stroke="currentColor"
+                        className="w-6 h-6 mr-2"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"
+                        />
+                      </svg>
+                      Edit
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <button
+                      type="button"
+                      onClick={updateprofile}
+                      className="bg-green-600 hover:bg-opacity-90 text-white  font-semibold py-2 px-5 rounded"
+                    >
+                      Save
+                    </button>
+                  </>
+                )}
               </div>
             </div>
           </div>

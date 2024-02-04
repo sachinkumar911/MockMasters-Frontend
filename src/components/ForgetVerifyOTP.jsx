@@ -72,14 +72,9 @@ const ForgetVerifyOTP = () => {
     setOtp(Array(6).fill(""));
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/v1/users/register",
+        "http://localhost:8000/api/v1/users/forget-password",
         {
-          username: sessionStorage.getItem("username"),
           email: sessionStorage.getItem("email"),
-          password: sessionStorage.getItem("password"),
-          confirmpassword: sessionStorage.getItem("confirmpassword"),
-          category: sessionStorage.getItem("category"),
-          avatar: sessionStorage.getItem("avatar"),
         },
         {
           headers: {
