@@ -8,6 +8,7 @@ import Profile from "./Profile";
 import ChangePassword from "./ChangePassword";
 import ForgetPass from "./ForgetPass";
 import EmailVerify from "./EmailVerify";
+import CreateQuestion from "./CreateQuestion";
 
 const DashBoard = () => {
   return (
@@ -182,6 +183,31 @@ const DashBoard = () => {
                   </span>
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/dashboard/create-question"
+                  className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                    />
+                  </svg>
+
+                  <span className="flex-1 ms-3 whitespace-nowrap">
+                    Add Question
+                  </span>
+                </Link>
+              </li>
             </ul>
           </div>
         </aside>
@@ -191,6 +217,7 @@ const DashBoard = () => {
             <Route path="/test-series" element={<TestSeries />} />
             <Route path="/attempted-test" element={<TestResult />} />
             <Route path="/change-password" element={<ChangePassword />} />
+            <Route path="/create-question" element={<CreateQuestion />} />
           </Routes>
         </section>
       </section>

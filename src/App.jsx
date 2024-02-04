@@ -9,6 +9,8 @@ import AuthEmailVerify from "./Authenticator/AuthEmailVerify.jsx";
 import AuthSignup from "./Authenticator/AuthSignup.jsx";
 import AuthLogin from "./Authenticator/AuthLogin.jsx";
 import AuthDashboard from "./Authenticator/AuthDashboard.jsx";
+import AuthForgetPass from "./Authenticator/AuthForgetPass.jsx";
+import AuthForgetVerifyOTP from "./Authenticator/AuthForgetVerifyOTP.jsx";
 import Contact from "./components/Contact.jsx";
 import TeamMember from "./components/TeamMember.jsx";
 import { verifyAccessToken } from "./services/verifyAccessToken.js";
@@ -51,8 +53,8 @@ function App() {
           <Route path="/Signup" element={<AuthSignup />} />
           <Route path="/EmailVerify" element={<AuthEmailVerify />} />
           <Route path="/dashboard/*" element={<AuthDashboard />} />
-          <Route path="/Forgotpassword" element={<ForgetPass />} />
-          <Route path="/verifyotp" element={<ForgetVerifyOTP />} />
+          <Route path="/Forgotpassword" element={<AuthForgetPass />} />
+          <Route path="/verifyotp" element={<AuthForgetVerifyOTP />} />
         </Routes>
       </Router>
     </UserContext.Provider>
