@@ -6,11 +6,12 @@ import { Route, Routes } from "react-router-dom";
 import coin from "../assets/coin.png";
 import Profile from "./Profile";
 import ChangePassword from "./ChangePassword";
-import ForgetPass from "./ForgetPass";
-import EmailVerify from "./EmailVerify";
+import { UserContext } from "../context/UserContext.jsx";
+import { useContext } from "react";
 import CreateQuestion from "./CreateQuestion";
 
 const DashBoard = () => {
+  const { userdetail } = useContext(UserContext);
   return (
     <>
       {/* <nav className="shadow-md border">
@@ -61,7 +62,9 @@ const DashBoard = () => {
                   className="flex text-white items-center p-4 bg-blue-400 rounded-lg hover:bg-gray-400  group bg-gradient-to-tr from-gray-300 via-gray-800 to-gray-900"
                 >
                   <img src={coin} alt="" className=" h-6" />
-                  <span className="ms-3">500 Elite Coins</span>
+                  <span className="ms-3">
+                    {userdetail.elitecoin} Elite Coins
+                  </span>
                 </a>
               </li>
               <li>

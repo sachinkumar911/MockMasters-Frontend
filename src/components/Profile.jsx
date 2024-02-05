@@ -45,6 +45,7 @@ const Profile = () => {
       formData.github === userdetail.github
     ) {
       errornotify("Nothing to update");
+      setIsEditMode(!isEditMode);
       return;
     }
     if (!validator.isMobilePhone(formData.phone)) {

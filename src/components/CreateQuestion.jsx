@@ -128,12 +128,12 @@ const CreateQuestion = () => {
                 <option className="text-gray-400">
                   choose subject from the list
                 </option>
-                <option value="MATHEMATICS">MATHEMATICS</option>
-                <option value="ANALYTICAL ABILITY AND LOGICAL REASONING">
-                  ANALYTICAL ABILITY AND LOGICAL REASONING
+                <option value="Mathematics">Mathematics</option>
+                <option value="Analytical Ability And Logical Reasoning">
+                  Analytical Ability And Logical Reasoning
                 </option>
-                <option value="COMPUTER AWARENESS">COMPUTER AWARENESS</option>
-                <option value="GENERAL ENGLISH">GENERAL ENGLISH</option>
+                <option value="Computer Awareness">Computer Awareness</option>
+                <option value="General English">General English</option>
               </select>
             </div>
             {/*  */}
