@@ -38,10 +38,12 @@ const Signup = () => {
       if (response.data.message === "valid username") {
         setvalidusername("username available");
       }
-    } catch (error) {
+    } catch (error) 
+    {
       setvalidusername(error.response.data.message);
     }
   };
+  
   const [formData, setFormData] = useState({
     username: "",
     email: "",
