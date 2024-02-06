@@ -1,10 +1,11 @@
+/* eslint-disable react/jsx-no-target-blank */
 import React from "react";
 
 const TeamMember = () => {
   return (
     <>
       <section className="bg-white">
-        <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
+        <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6 ">
           <div className="mx-auto mb-8 max-w-screen-sm lg:mb-16">
             <h2 className="mb-4 text-5xl tracking-tight font-semibold text-gray-900">
               MockMasters Team
@@ -15,7 +16,7 @@ const TeamMember = () => {
               through innovative solutions.
             </p>
           </div>
-          <div className="grid gap-8 lg:gap-16 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
+          <div className="grid gap-6  grid-cols-1 md:grid-cols-4 md:px-5">
             <div className="text-center text-gray-500 ">
               <img
                 className="mx-auto mb-4 w-36 h-36 rounded-full"
