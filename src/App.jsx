@@ -1,7 +1,6 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./App.css";
-
 import { UserContext } from "./context/UserContext.jsx";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -14,8 +13,6 @@ import AuthForgetVerifyOTP from "./Authenticator/AuthForgetVerifyOTP.jsx";
 import Contact from "./components/Contact.jsx";
 import TeamMember from "./components/TeamMember.jsx";
 import { verifyAccessToken } from "./services/verifyAccessToken.js";
-import ForgetPass from "./components/ForgetPass.jsx";
-import ForgetVerifyOTP from "./components/ForgetVerifyOTP.jsx";
 
 function App() {
   const [userdetail, setuserdetail] = useState();
