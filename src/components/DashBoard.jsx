@@ -15,40 +15,6 @@ const DashBoard = () => {
   const { userdetail } = useContext(UserContext);
   return (
     <>
-      {/* <nav className="shadow-md border">
-        <div className="flex flex-wrap items-center justify-between mx-auto p-4">
-          <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
-            <span className="self-center text-2xl font-semibold whitespace-nowrap">MockMasters.</span>
-          </a>
-          <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            <button
-              type="button"
-              className="flex items-center text-sm rounded-full md:me-0 relative"
-              id="profile-button"
-              onClick={toggleDropdown}
-            >
-              <p className="font-medium mx-2 text-lg">Hi, username</p>
-              <img className="w-8 h-8 rounded-full" src={avatar1} alt="user photo" />
-              {isDropdownOpen && (
-                <div className="absolute right-0 mt-20 bg-white border rounded-md shadow-md">
-                  <ul className="">
-                    <li>
-                      <button
-                        type="button"
-                        className="block px-4 py-2 text-gray-800 hover:bg-gray-200 w-full text-left"
-                        onClick={handleLogout}
-                      >
-                        Logout
-                      </button>
-                    </li>
-                  </ul>
-                </div>
-              )}
-            </button>
-          </div>
-        </div>
-      </nav> */}
-
       <section id="sidebar-section" className=" flex">
         <aside
           id="default-sidebar"
