@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { UserContext } from "../context/UserContext.jsx";
 import { useContext } from "react";
@@ -6,7 +7,8 @@ import avatar2 from "../assets/avatar2.png";
 import avatar3 from "../assets/avatar3.png";
 import avatar4 from "../assets/avatar4.png";
 import avatar5 from "../assets/avatar5.png";
-import { Link } from "react-router-dom";
+import { Link } from "react-scroll";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   const { islogin, userdetail } = useContext(UserContext);
@@ -20,11 +22,11 @@ const Header = () => {
       <header className="header top-0 left-0 w-full">
         <nav className="bg-white  w-full z-20  border-b shadow-sm border-gray-200">
           <div className="flex flex-row justify-around items-center flex-wrap p-3 w-full">
-            <Link to="/" className="flex items-center ">
+            <NavLink to="/" className="flex items-center ">
               <span className="self-center md:text-2xl  font-semibold">
                 MockMasters.
               </span>
-            </Link>
+            </NavLink>
 
             <div className="flex items-center justify-between xl:mr-14 " id="">
               <input
@@ -60,7 +62,7 @@ const Header = () => {
                   </li>
                   <li className="">
                     <Link
-                      to="/"
+                      to="about"
                       className="group relative before:absolute before:inset-x-0 before:bottom-0 before:h-2 hover:cursor-pointer font-semibold text-lg block py-2 px-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent smooth: 'easeInOutQuint'  duration={500} md:hover:text-blue-700 md:p-0"
                       onClick={closeNavbar}
                     >
@@ -69,7 +71,7 @@ const Header = () => {
                   </li>
                   <li className="">
                     <Link
-                      to="/"
+                      to="team"
                       className="group relative before:absolute before:inset-x-0 before:bottom-0 before:h-2 hover:cursor-pointer font-semibold text-lg block py-2 px-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent smooth: 'easeInOutQuint'  duration={500} md:hover:text-blue-700 md:p-0"
                       onClick={closeNavbar}
                     >
@@ -78,7 +80,8 @@ const Header = () => {
                   </li>
                   <li className="">
                     <Link
-                      to="/"
+                      to="contact"
+                      smooth={'easeOutQuint'}
                       className="group relative before:absolute before:inset-x-0 before:bottom-0 before:h-2 hover:cursor-pointer font-semibold text-lg block py-2 px-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent smooth: 'easeInOutQuint'  duration={500} md:hover:text-blue-700 md:p-0 lg:mr-4"
                       onClick={closeNavbar}
                     >
@@ -89,14 +92,14 @@ const Header = () => {
                 <div className="lg:p-0 p-12 flex  justify-center ">
                   <div className="flex flex-col justify-center items-center gap-8 lg:gap-0 lg:flex-row text-lg lg:text-base lg:space-x-8">
                     {islogin ? (
-                      <Link to="/dashboard">
+                      <NavLink to="/dashboard">
                         <img
                           src={avatars[userdetail.avatar - 1]}
                           alt="Avatar"
                           className={`cursor-pointer border-4 rounded-full transition-transform transform-gpu md:w-10 md:h-10 w-fit md:mr-2 
                     border-gray-600 hover:scale-110 focus:outline-none`}
                         />
-                      </Link>
+                      </NavLink>
                     ) : (
                       <>
                         <button
@@ -104,14 +107,14 @@ const Header = () => {
                           className="lg:font-medium font-semibold
                     hover:bg-opacity-50 rounded-lg text-base text-center"
                         >
-                          <Link to="/Login">Login</Link>
+                          <NavLink to="/Login">Login</NavLink>
                         </button>
                         <p className="hidden lg:block   ">|</p>
                         <button
                           type="button"
                           className="text-white bg-gray-800 hover:bg-opacity-90 md:font-medium rounded-lg md:text-base px-3 py-2 text-center  "
                         >
-                          <Link to="/Signup">Sign up</Link>
+                          <NavLink to="/Signup">Sign up</NavLink>
                         </button>
                       </>
                     )}
