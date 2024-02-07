@@ -73,19 +73,39 @@ const SamplePaper = () => {
         }
       );
       setexaminfo(response.data.data[0]);
-      console.log(response.data.data[0]);
     } catch (error) {
       setexaminfo();
       // console.error(error.response.data.message);
     }
   };
 
-  const [expanded, setExpanded] = useState("");
+  // const [SelectedQuestions, setSelectedQuestions] = useState({});
 
-  const handleChange = (panel, key) => (event, newExpanded) => {
+  const [expanded, setExpanded] = useState("");
+  const [Questions, setQuestions] = useState({});
+
+  const handleChange = (panel, key) => async (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
     if (newExpanded) {
-      console.log(examinfo?.markingschema[key].subjectname.subjectname);
+      const subname = examinfo?.markingschema[key].subjectname.subjectname;
+      if (Questions[subname]) {
+        return;
+      }
+      try {
+        const response = await axios.post(
+          "http://localhost:8000/api/v1/questions/get-all-questions-subject",
+          { subject: subname },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+            withCredentials: true,
+          }
+        );
+        setQuestions({ ...Questions, [subname]: response.data.data });
+      } catch (error) {
+        // console.error(error.response.data.message);
+      }
     }
   };
   //MUI
@@ -141,86 +161,47 @@ const SamplePaper = () => {
                     </Typography>
                   </AccordionSummary>
                   <AccordionDetails>
-                    {/* <div className="overflow-auto max-h-48 overflow-x-hidden ">
-                      <div className="flex items-center my-1 ps-4 border border-gray-200 rounded ">
-                        <input
-                          id="bordered-radio-1"
-                          type="checkbox"
-                          name="bordered-radio"
-                          className="cursor-pointer text-blue-600 w-4 h-4 bg-gray-100 border-gray-300 focus:ring-blue-500"
-                        />
-                        <label
-                          type="text"
-                          className="w-full py-4 ms-2 text-sm font-medium text-gray-900 outline-none"
-                          placeholder="Enter Choice"
+                    {Questions[item.subjectname.subjectname]?.map(
+                      (item, key) => (
+                        <div
+                          key={key}
+                          className="overflow-auto max-h-48 overflow-x-hidden "
                         >
-                          Solve the following equation for x:2x+5
-                        </label>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          className="w-6 h-6 fill-green-600"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M4.5 7.5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-9a3 3 0 0 1-3-3v-9Z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                      </div>
-                      <div className="flex items-center my-1 ps-4 border border-gray-200 rounded ">
-                        <input
-                          id="bordered-radio-1"
-                          type="checkbox"
-                          name="bordered-radio"
-                          className="cursor-pointer text-blue-600 w-4 h-4 bg-gray-100 border-gray-300 focus:ring-blue-500"
-                        />
-                        <label
-                          type="text"
-                          className="w-full py-4 ms-2 text-sm font-medium text-gray-900 outline-none"
-                          placeholder="Enter Choice"
-                        >
-                          Solve the following equation for x:2x+5
-                        </label>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          className="w-6 h-6 fill-yellow-500"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M4.5 7.5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-9a3 3 0 0 1-3-3v-9Z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                      </div>
-                      <div className="flex items-center my-1 ps-4 border border-gray-200 rounded ">
-                        <input
-                          id="bordered-radio-1"
-                          type="checkbox"
-                          name="bordered-radio"
-                          className="cursor-pointer text-blue-600 w-4 h-4 bg-gray-100 border-gray-300 focus:ring-blue-500"
-                        />
-                        <label
-                          type="text"
-                          className="w-full py-4 ms-2 text-sm font-medium text-gray-900 outline-none"
-                          placeholder="Enter Choice"
-                        >
-                          Solve the following equation for x:2x+5
-                        </label>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          className="w-6 h-6 fill-red-600"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M4.5 7.5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-9a3 3 0 0 1-3-3v-9Z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                      </div>
-                    </div> */}
+                          <div className="flex items-center my-1 ps-4 border border-gray-200 rounded ">
+                            <input
+                              id="bordered-radio-1"
+                              type="checkbox"
+                              name="bordered-radio"
+                              className="cursor-pointer text-blue-600 w-4 h-4 bg-gray-100 border-gray-300 focus:ring-blue-500"
+                            />
+                            <label
+                              type="text"
+                              className="w-full overflow-hidden py-4 ms-2 text-sm font-medium text-gray-900 outline-none"
+                              placeholder="Enter Choice"
+                            >
+                              {item.txtquestion}
+                            </label>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              className={`w-6 h-6 ${
+                                item.complexity === 1
+                                  ? "fill-green-600"
+                                  : item.complexity === 2
+                                  ? "fill-yellow-500"
+                                  : "fill-red-600"
+                              }`}
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M4.5 7.5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-9a3 3 0 0 1-3-3v-9Z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                      )
+                    )}
                   </AccordionDetails>
                 </Accordion>
               ))}
