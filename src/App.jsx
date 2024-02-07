@@ -1,9 +1,14 @@
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import {
+  Route,
+  BrowserRouter as Router,
+  Routes,
+} from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./App.css";
 import { UserContext } from "./context/UserContext.jsx";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { Element } from "react-scroll";
 import AuthEmailVerify from "./Authenticator/AuthEmailVerify.jsx";
 import AuthSignup from "./Authenticator/AuthSignup.jsx";
 import AuthLogin from "./Authenticator/AuthLogin.jsx";
@@ -40,8 +45,12 @@ function App() {
             element={
               <>
                 <Header />
-                <TeamMember />
-                <Contact />
+                <Element name="team">
+                  <TeamMember />{" "}
+                </Element>
+                <Element name="contact">
+                  <Contact />
+                </Element>
                 <Footer />
               </>
             }
