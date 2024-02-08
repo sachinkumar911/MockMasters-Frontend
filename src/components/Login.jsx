@@ -71,7 +71,7 @@ const Login = () => {
     <>
       <Toaster position="bottom-left" reverseOrder={false} />
       <section className="bg-gray-50 h-screen flex flex-col justify-center items-center">
-        <div className="p-6 space-y-4 bg-white w-fit shadow-md ">
+        <div className="p-6 space-y-4 bg-white w-fit lg:w-[28%] h-fit shadow-md ">
           <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900">
             Sign in to your Account
           </h1>
