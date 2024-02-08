@@ -79,8 +79,6 @@ const SamplePaper = () => {
     }
   };
 
-  // const [SelectedQuestions, setSelectedQuestions] = useState({});
-
   const [expanded, setExpanded] = useState("");
   const [Questions, setQuestions] = useState({});
 
@@ -109,6 +107,20 @@ const SamplePaper = () => {
     }
   };
   //MUI
+
+  const [SelectedQuestions, setSelectedQuestions] = useState({});
+
+  function temptemp(it, item) {
+    let arr = SelectedQuestions[item] ? SelectedQuestions[item] : [];
+
+    if (!arr?.includes(it._id)) {
+      arr?.push(it._id);
+      setSelectedQuestions({ ...SelectedQuestions, [item]: arr });
+    } else {
+      let newArray = arr.filter((j) => j !== it._id);
+      setSelectedQuestions({ ...SelectedQuestions, [item]: newArray });
+    }
+  }
 
   useEffect(() => {
     examhandleChange(0, 0);
@@ -156,52 +168,55 @@ const SamplePaper = () => {
                     <Typography className="w-full flex justify-between">
                       <span>{item.subjectname.subjectname}</span>
                       <span className="font-semibold">
-                        0/{item?.noofquestions}
+                        {SelectedQuestions[item.subjectname.subjectname]
+                          ?.length || 0}
+                        /{item?.noofquestions}
                       </span>
                     </Typography>
                   </AccordionSummary>
                   <AccordionDetails>
-                    {Questions[item.subjectname.subjectname]?.map(
-                      (item, key) => (
-                        <div
-                          key={key}
-                          className="overflow-auto max-h-48 overflow-x-hidden "
-                        >
-                          <div className="flex items-center my-1 ps-4 border border-gray-200 rounded ">
-                            <input
-                              id="bordered-radio-1"
-                              type="checkbox"
-                              name="bordered-radio"
-                              className="cursor-pointer text-blue-600 w-4 h-4 bg-gray-100 border-gray-300 focus:ring-blue-500"
+                    {Questions[item.subjectname.subjectname]?.map((it, key) => (
+                      <div
+                        key={key}
+                        className="overflow-auto max-h-48 overflow-x-hidden "
+                      >
+                        <div className="flex items-center my-1 ps-4 border border-gray-200 rounded ">
+                          <input
+                            id="bordered-radio-1"
+                            type="checkbox"
+                            name="bordered-radio"
+                            className="cursor-pointer text-blue-600 w-4 h-4 bg-gray-100 border-gray-300 focus:ring-blue-500"
+                            onClick={() => {
+                              temptemp(it, item.subjectname.subjectname);
+                            }}
+                          />
+                          <label
+                            type="text"
+                            className="w-full overflow-hidden py-4 ms-2 text-sm font-medium text-gray-900 outline-none"
+                            placeholder="Enter Choice"
+                          >
+                            {it.txtquestion}
+                          </label>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            className={`w-6 h-6 ${
+                              it.complexity === 1
+                                ? "fill-green-600"
+                                : it.complexity === 2
+                                ? "fill-yellow-500"
+                                : "fill-red-600"
+                            }`}
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M4.5 7.5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-9a3 3 0 0 1-3-3v-9Z"
+                              clipRule="evenodd"
                             />
-                            <label
-                              type="text"
-                              className="w-full overflow-hidden py-4 ms-2 text-sm font-medium text-gray-900 outline-none"
-                              placeholder="Enter Choice"
-                            >
-                              {item.txtquestion}
-                            </label>
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 24 24"
-                              className={`w-6 h-6 ${
-                                item.complexity === 1
-                                  ? "fill-green-600"
-                                  : item.complexity === 2
-                                  ? "fill-yellow-500"
-                                  : "fill-red-600"
-                              }`}
-                            >
-                              <path
-                                fillRule="evenodd"
-                                d="M4.5 7.5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-9a3 3 0 0 1-3-3v-9Z"
-                                clipRule="evenodd"
-                              />
-                            </svg>
-                          </div>
+                          </svg>
                         </div>
-                      )
-                    )}
+                      </div>
+                    ))}
                   </AccordionDetails>
                 </Accordion>
               ))}
