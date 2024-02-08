@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
+import coin from "../assets/coin.png";
 //MUI
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
@@ -11,6 +12,9 @@ import MuiAccordion from "@mui/material/Accordion";
 import MuiAccordionSummary from "@mui/material/AccordionSummary";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import InputAdornment from "@mui/material/InputAdornment";
+import FormControl from "@mui/material/FormControl";
 //MUI
 
 //MUI
@@ -53,6 +57,12 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 //MUI
 
 const SamplePaper = () => {
+  const toastId = React.useRef(null);
+  const sendingnotify = (msg) => (toastId.current = toast.loading(msg));
+  const dismiss = () => toast.dismiss(toastId.current);
+  const errornotify = (msg) => toast.error(msg);
+  const successnotify = (msg) => toast.success(msg);
+
   const [examinfo, setexaminfo] = useState();
 
   //MUI
@@ -133,6 +143,44 @@ const SamplePaper = () => {
     examhandleChange(0, 0);
   }, []);
 
+  const [price, setprice] = useState(0);
+
+  const finalSubmitExamSet = async () => {
+    for (let i = 0; i < examinfo.markingschema.length; i++) {
+      if (
+        examinfo.markingschema[i].noofquestions !==
+        SelectedQuestions[examinfo.markingschema[i].subjectname.subjectname]
+          ?.length
+      ) {
+        errornotify("Insufficient Questions");
+        return;
+      }
+    }
+    sendingnotify("Creaing new ExamSet...");
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/api/v1/create-examset",
+        {
+          questions: SelectedQuestions,
+          price,
+          examtype: ExamTypeArray[value],
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+      dismiss();
+      successnotify("New ExamSet created");
+    } catch (error) {
+      dismiss();
+      errornotify(error.response.data.message);
+      console.error(error.response.data.message);
+    }
+  };
+
   return (
     <>
       <Toaster position="bottom-left" reverseOrder={false} />
@@ -174,7 +222,7 @@ const SamplePaper = () => {
                   >
                     <Typography className="w-full flex justify-between">
                       <span>{item.subjectname.subjectname}</span>
-                      <span className="font-semibold">
+                      <span className="font-semibold bg-white px-2 rounded-lg shadow-[inset_-2px_-6px_4px_#46464620]">
                         {SelectedQuestions[item.subjectname.subjectname]
                           ?.length || 0}
                         /{item?.noofquestions}
@@ -233,6 +281,28 @@ const SamplePaper = () => {
                 </Accordion>
               ))}
             </div>
+            <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
+              <OutlinedInput
+                type="number"
+                inputProps={{ min: 0, value: price }}
+                onChange={(e) => {
+                  setprice(e.target.value);
+                }}
+                endAdornment={
+                  <InputAdornment position="end" className="w-full">
+                    <img className="w-6 h-6" src={coin} alt="" />
+                    Elite Coins
+                  </InputAdornment>
+                }
+              />
+            </FormControl>
+            <button
+              type="button"
+              className="mt-10 w-full bg-gray-800 hover:bg-opacity-90 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center "
+              onClick={finalSubmitExamSet}
+            >
+              Submit Exam Set
+            </button>
           </div>
         </div>
       </section>
