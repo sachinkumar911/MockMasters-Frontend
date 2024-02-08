@@ -73,6 +73,9 @@ const SamplePaper = () => {
         }
       );
       setexaminfo(response.data.data[0]);
+      setSelectedQuestions({});
+      setQuestions({});
+      setExpanded("");
     } catch (error) {
       setexaminfo();
       // console.error(error.response.data.message);
@@ -110,10 +113,14 @@ const SamplePaper = () => {
 
   const [SelectedQuestions, setSelectedQuestions] = useState({});
 
-  function temptemp(it, item) {
+  function selectingQuestion(e, it, item, noofquestions) {
     let arr = SelectedQuestions[item] ? SelectedQuestions[item] : [];
 
     if (!arr?.includes(it._id)) {
+      if (arr.length === noofquestions) {
+        e.target.checked = false;
+        return;
+      }
       arr?.push(it._id);
       setSelectedQuestions({ ...SelectedQuestions, [item]: arr });
     } else {
@@ -186,8 +193,13 @@ const SamplePaper = () => {
                             type="checkbox"
                             name="bordered-radio"
                             className="cursor-pointer text-blue-600 w-4 h-4 bg-gray-100 border-gray-300 focus:ring-blue-500"
-                            onClick={() => {
-                              temptemp(it, item.subjectname.subjectname);
+                            onClick={(e) => {
+                              selectingQuestion(
+                                e,
+                                it,
+                                item.subjectname.subjectname,
+                                item?.noofquestions
+                              );
                             }}
                           />
                           <label
