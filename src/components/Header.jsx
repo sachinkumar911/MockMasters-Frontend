@@ -93,34 +93,34 @@ const Header = () => {
                   </li>
                 </ul>
                 <div className="flex flex-col justify-center items-center lg:flex-row text-lg lg:text-base lg:gap-4 lg:hidden  pt-14 gap-14">
-              {islogin ? (
-                <NavLink to="/dashboard">
-                  <img
-                    src={avatars[userdetail.avatar - 1]}
-                    alt="Avatar"
-                    className={`cursor-pointer border-4 rounded-full transition-transform transform-gpu md:w-10 md:h-10 w-fit md:mr-2 
+                  {islogin ? (
+                    <NavLink to="/dashboard">
+                      <img
+                        src={avatars[userdetail.avatar - 1]}
+                        alt="Avatar"
+                        className={`cursor-pointer border-4 rounded-full transition-transform transform-gpu md:w-10 md:h-10 h-10 w-fit md:mr-2 
                     border-gray-600 hover:scale-110 focus:outline-none`}
-                  />
-                </NavLink>
-              ) : (
-                <>
-                  <button
-                    type="button"
-                    className="lg:font-medium font-semibold bg-slate-200 px-4 py-2
+                      />
+                    </NavLink>
+                  ) : (
+                    <>
+                      <button
+                        type="button"
+                        className="lg:font-medium font-semibold bg-slate-200 px-4 py-2
                     hover:bg-opacity-50 rounded-lg text-base text-center shadow-md "
-                  >
-                    <NavLink to="/Login">Login</NavLink>
-                  </button>
-                  {/* <p className="hidden lg:block   ">|</p> */}
-                  <button
-                    type="button"
-                    className="text-white bg-gray-800 hover:bg-opacity-90 md:font-medium rounded-lg md:text-base px-3 py-2 text-center  "
-                  >
-                    <NavLink to="/Signup">Sign up</NavLink>
-                  </button>
-                </>
-              )}
-            </div>
+                      >
+                        <NavLink to="/Login">Login</NavLink>
+                      </button>
+                      {/* <p className="hidden lg:block   ">|</p> */}
+                      <button
+                        type="button"
+                        className="text-white bg-gray-800 hover:bg-opacity-90 md:font-medium rounded-lg md:text-base px-3 py-2 text-center  "
+                      >
+                        <NavLink to="/Signup">Sign up</NavLink>
+                      </button>
+                    </>
+                  )}
+                </div>
               </div>
             </div>
 
