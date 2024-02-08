@@ -84,14 +84,14 @@ const Profile = () => {
         id="profile-section"
         className="min-h-screen flex items-center justify-center"
       >
-        <div className="container w-[60%] mx-auto ">
-          <div className="bg-white rounded shadow-lg p-4 px-4 md:p-8 flex flex-col lg:flex-row">
+        <div className="container w-fit lg:w-[75%] mx-auto lg:mx-14">
+          <div className="bg-white rounded shadow-lg p-4 px-4 md:p-8 flex flex-col lg:flex-row w-full">
             <div className="lg:w-1/3 text-gray-900">
-              <p className="text-xl font-bold">Personal Details</p>
+              <p className="text-xl font-bold text-center">Personal Details</p>
               {/* <p>Please fill out your Details.</p> */}
               <div className="flex flex-col justify-center items-center">
                 <div>
-                  <h2 className="  text-xl leading-tight tracking-tight text-gray-900 mb-4 mt-7">
+                  <h2 className="  text-xl leading-tight tracking-tight text-gray-900 mb-4 mt-7 text-center">
                     <p>Choose Your Avatar</p>
                   </h2>
                 </div>
@@ -170,7 +170,7 @@ const Profile = () => {
               </div>
             </div>
 
-            <div className=" ml-0 lg:ml-12 flex flex-col">
+            <div className=" ml-0 lg:ml-10 flex flex-col">
               <label htmlFor="username">Username</label>
               <input
                 type="text"

@@ -18,10 +18,10 @@ const DashBoard = () => {
       <section id="sidebar-section" className=" flex">
         <aside
           id="default-sidebar"
-          className=" w-[18%] h-screen  transition-transform -translate-x-full sm:translate-x-0 border-r-2"
+          className="w-0 md:w-[22%] lg:w-[18%] h-screen  transition-transform -translate-x-full sm:translate-x-0 border-r-2"
           aria-label="Sidebar"
         >
-          <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50">
+          <div className="h-full md:px-3 md:py-4 px-0 overflow-y-auto bg-gray-50">
             <ul className="space-y-4 font-medium ">
               <li>
                 <a
