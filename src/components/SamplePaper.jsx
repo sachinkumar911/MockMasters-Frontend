@@ -15,6 +15,11 @@ import Typography from "@mui/material/Typography";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
+//blurbackground mui
+import Button from "@mui/material/Button";
+import Modal from "@mui/material/Modal";
+import InputLabel from "@mui/material/InputLabel";
+import TextField from "@mui/material/TextField";
 //MUI
 
 //MUI
@@ -68,6 +73,15 @@ const SamplePaper = () => {
   //MUI
   const [value, setValue] = useState(0);
   const ExamTypeArray = ["NIMCET", "TACTM", "JEE"];
+  const[displayQues,setDisplayQues] = useState();
+  //MUI for Backgorund
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = (it) => {
+    setOpen(true);
+    setDisplayQues(it);
+    // console.log(it);
+  };
+  const handleClose = () => setOpen(false);
 
   const examhandleChange = async (event, newValue) => {
     setValue(newValue);
@@ -252,10 +266,12 @@ const SamplePaper = () => {
                           />
                           <label
                             type="text"
-                            className="w-full overflow-hidden py-4 ms-2 text-sm font-medium text-gray-900 outline-none"
+                            className="w-full overflow-hidden cursor-pointer py-4 ms-2 text-sm font-medium text-gray-900 outline-none"
                             placeholder="Enter Choice"
+                            onClick={()=>{handleOpen(it)}}
                           >
                             {it.txtquestion}
+                            
                           </label>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -281,21 +297,52 @@ const SamplePaper = () => {
                 </Accordion>
               ))}
             </div>
-            <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
-              <OutlinedInput
-                type="number"
-                inputProps={{ min: 0, value: price }}
-                onChange={(e) => {
-                  setprice(e.target.value);
+            <Box
+              component="form"
+              sx={{
+                "& > :not(style)": { m: 1, width: "12ch" },
+                mt:2,
+              }}
+              noValidate
+              autoComplete="off"
+            >
+              <TextField
+                id="outlined-basic"
+                label="Price"
+                variant="outlined"
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end" className="w-full">
+                      <img className="w-6 h-6" src={coin} alt="" />
+                    </InputAdornment>
+                  ),
                 }}
-                endAdornment={
-                  <InputAdornment position="end" className="w-full">
-                    <img className="w-6 h-6" src={coin} alt="" />
-                    Elite Coins
-                  </InputAdornment>
-                }
               />
-            </FormControl>
+            </Box>
+            <div>
+             
+              <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+                style={{ backdropFilter: "blur(4px)" }}
+              >
+                <Box className="w-[500px] bg-gray-100 p-6 rounded-md shadow-lg absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                  <Typography
+                    id="modal-modal-title"
+                    variant="h6"
+                    component="h2"
+                    className="text-2xl font-semibold mb-4"
+                  >
+                    {displayQues?.txtquestion}
+                  </Typography>
+                  {displayQues?.options.map((item,key)=>(
+                    <Typography key={key} className="mb-2 text-lg">{key+1}) {item}</Typography>
+                  ))}
+                </Box>
+              </Modal>
+            </div>
             <button
               type="button"
               className="mt-10 w-full bg-gray-800 hover:bg-opacity-90 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center "
