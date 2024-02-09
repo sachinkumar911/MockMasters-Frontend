@@ -15,6 +15,8 @@ import Contact from "./components/Contact.jsx";
 import TeamMember from "./components/TeamMember.jsx";
 import { verifyAccessToken } from "./services/verifyAccessToken.js";
 import { dailyEliteCoin } from "./services/dailyEliteCoin.js";
+import toast, { Toaster } from "react-hot-toast";
+import coinspin from "./assets/coin-flip-1.gif";
 
 function App() {
   const [userdetail, setuserdetail] = useState();
@@ -33,6 +35,13 @@ function App() {
             data.coingiven = ECoin;
             data.elitecoin = data.elitecoin + 1;
             setuserdetail(data);
+
+            toast((t) => (
+              <span className="flex items-center">
+                <img src={coinspin} className="w-6" alt="" />
+                <p>+1 Daily Check-In</p>
+              </span>
+            ));
           }
         }
       }
@@ -52,6 +61,17 @@ function App() {
             path="/"
             element={
               <>
+                <Toaster
+                  position="top-center"
+                  reverseOrder={false}
+                  toastOptions={{
+                    style: {
+                      borderRadius: "10px",
+                      background: "#333",
+                      color: "#fff",
+                    },
+                  }}
+                />
                 <Header />
                 <Element name="team">
                   <TeamMember />{" "}

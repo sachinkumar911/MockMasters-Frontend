@@ -6,7 +6,6 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import DashBoard from "../components/DashBoard.jsx";
 import { verifyAccessToken } from "../services/verifyAccessToken.js";
-import { dailyEliteCoin } from "../services/dailyEliteCoin.js";
 
 const AuthDashboard = (props) => {
   const { userdetail, setuserdetail, islogin, setislogin } =

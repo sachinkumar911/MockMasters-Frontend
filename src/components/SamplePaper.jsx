@@ -73,7 +73,7 @@ const SamplePaper = () => {
   //MUI
   const [value, setValue] = useState(0);
   const ExamTypeArray = ["NIMCET", "TACTM", "JEE"];
-  const[displayQues,setDisplayQues] = useState();
+  const [displayQues, setDisplayQues] = useState();
   //MUI for Backgorund
   const [open, setOpen] = React.useState(false);
   const handleOpen = (it) => {
@@ -268,10 +268,11 @@ const SamplePaper = () => {
                             type="text"
                             className="w-full overflow-hidden cursor-pointer py-4 ms-2 text-sm font-medium text-gray-900 outline-none"
                             placeholder="Enter Choice"
-                            onClick={()=>{handleOpen(it)}}
+                            onClick={() => {
+                              handleOpen(it);
+                            }}
                           >
                             {it.txtquestion}
-                            
                           </label>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -301,7 +302,7 @@ const SamplePaper = () => {
               component="form"
               sx={{
                 "& > :not(style)": { m: 1, width: "12ch" },
-                mt:2,
+                mt: 2,
               }}
               noValidate
               autoComplete="off"
@@ -320,7 +321,6 @@ const SamplePaper = () => {
               />
             </Box>
             <div>
-             
               <Modal
                 open={open}
                 onClose={handleClose}
@@ -337,8 +337,10 @@ const SamplePaper = () => {
                   >
                     {displayQues?.txtquestion}
                   </Typography>
-                  {displayQues?.options.map((item,key)=>(
-                    <Typography key={key} className="mb-2 text-lg">{key+1}) {item}</Typography>
+                  {displayQues?.options?.map((item, key) => (
+                    <Typography key={key} className="mb-2 text-lg">
+                      {key + 1}) {item}
+                    </Typography>
                   ))}
                 </Box>
               </Modal>
