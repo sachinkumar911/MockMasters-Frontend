@@ -1,8 +1,4 @@
-import {
-  Route,
-  BrowserRouter as Router,
-  Routes,
-} from "react-router-dom";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./App.css";
 import { UserContext } from "./context/UserContext.jsx";
@@ -18,21 +14,33 @@ import AuthForgetVerifyOTP from "./Authenticator/AuthForgetVerifyOTP.jsx";
 import Contact from "./components/Contact.jsx";
 import TeamMember from "./components/TeamMember.jsx";
 import { verifyAccessToken } from "./services/verifyAccessToken.js";
+import { dailyEliteCoin } from "./services/dailyEliteCoin.js";
 
 function App() {
   const [userdetail, setuserdetail] = useState();
   const [islogin, setislogin] = useState(false);
 
   useEffect(() => {
+    let isMounted = true;
     (async () => {
       if (!islogin) {
         const data = await verifyAccessToken();
         if (data) {
           setuserdetail(data);
           setislogin(true);
+          if (isMounted && data?.coingiven === false) {
+            const ECoin = await dailyEliteCoin(1);
+            data.coingiven = ECoin;
+            data.elitecoin = data.elitecoin + 1;
+            setuserdetail(data);
+          }
         }
       }
     })();
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   const values = { userdetail, setuserdetail, islogin, setislogin };

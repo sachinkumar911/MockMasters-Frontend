@@ -146,7 +146,7 @@ const SamplePaper = () => {
   const [price, setprice] = useState(0);
 
   const finalSubmitExamSet = async () => {
-    for (let i = 0; i < examinfo.markingschema.length; i++) {
+    for (let i = 0; i < examinfo?.markingschema?.length; i++) {
       if (
         examinfo.markingschema[i].noofquestions !==
         SelectedQuestions[examinfo.markingschema[i].subjectname.subjectname]

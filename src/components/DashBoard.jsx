@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import TestSeries from "./TestSeries";
 import TestResult from "./TestResult";
@@ -13,6 +13,11 @@ import SamplePaper from "./SamplePaper.jsx";
 
 const DashBoard = () => {
   const { userdetail } = useContext(UserContext);
+  const [cc, setcc] = useState(0);
+
+  useEffect(() => {
+    setcc(userdetail.elitecoin);
+  }, [userdetail]);
   return (
     <>
       <section id="sidebar-section" className=" flex">
@@ -29,9 +34,7 @@ const DashBoard = () => {
                   className="flex text-white items-center p-4 bg-blue-400 rounded-lg hover:bg-gray-400  group bg-gradient-to-tr from-gray-300 via-gray-800 to-gray-900"
                 >
                   <img src={coin} alt="" className=" h-6" />
-                  <span className="ms-3">
-                    {userdetail.elitecoin} Elite Coins
-                  </span>
+                  <span className="ms-3">{cc} Elite Coins</span>
                 </a>
               </li>
               <li>

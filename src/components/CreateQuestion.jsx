@@ -198,13 +198,13 @@ const CreateQuestion = () => {
               >
                 <button
                   type="button"
-                  className={`px-4 py-2 text-sm font-medium border-gray-200 rounded-s-lg hover:bg-green-600 hover:text-gray-100 ${
-                    question.complexity === 1
+                  className={`px-4 py-2 text-sm font-medium text-gray-900 border-gray-200 rounded-s-lg hover:bg-green-600 hover:text-gray-100 ${
+                    question["complexity"] === 1
                       ? "bg-green-600 text-gray-100"
                       : "text-gray-900 bg-white border"
                   }`}
                   onClick={() => {
-                    setquestion({ ...question, complexity: 1 });
+                    setquestion({ ...question, ["complexity"]: 1 });
                   }}
                 >
                   Easy
@@ -212,25 +212,25 @@ const CreateQuestion = () => {
                 <button
                   type="button"
                   className={`px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 hover:bg-yellow-500 hover:text-gray-100 ${
-                    question.complexity === 2
+                    question["complexity"] === 2
                       ? "bg-yellow-500 text-gray-100"
                       : "text-gray-900 bg-white border"
                   }`}
                   onClick={() => {
-                    setquestion({ ...question, complexity: 2 });
+                    setquestion({ ...question, ["complexity"]: 2 });
                   }}
                 >
                   Medium
                 </button>
                 <button
                   type="button"
-                  className={`px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-e-lg hover:bg-red-600 hover:text-gray-100 ${
-                    question.complexity === 3
+                  className={`px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-e-lg hover:bg-red-600  hover:text-gray-100 ${
+                    question["complexity"] === 3
                       ? "bg-red-600 text-gray-100"
                       : "text-gray-900 bg-white border"
                   }`}
                   onClick={() => {
-                    setquestion({ ...question, complexity: 3 });
+                    setquestion({ ...question, ["complexity"]: 3 });
                   }}
                 >
                   Hard
