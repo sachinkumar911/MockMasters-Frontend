@@ -15,7 +15,7 @@ const dailyEliteCoin = async (amount) => {
             }
         );
         if (response.data.success) {
-            console.log(response.data.message);
+            // console.log(response.data.message);
             return response.data.success;
         }
     } catch (error) {
