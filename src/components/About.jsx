@@ -10,7 +10,7 @@ const About = () => {
             <div className="w-full px-4 mb-10  lg:w-1/2 lg:mb-0">
               <div className="lg:max-w-md">
                 <h2 className="mt-1 mb-6 text-2xl font-bold ">
-                  Welcome to MOCKMASTER - Your Ultimate NIMCET Test Companion!
+                  MOCKMASTER - Your Ultimate NIMCET Test Companion!
                 </h2>
                 <p className="mb-10 text-gray-900 text-lg text-wrap">
                   At MOCKMASTER, we&apos;re committed to providing students with
