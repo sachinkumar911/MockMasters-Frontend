@@ -66,7 +66,7 @@ const Header = () => {
                       Home
                     </Link>
                   </li>
-                  <li className="">
+                  <li className="about">
                     <Link
                       to="about"
                       smooth={"easeOutQuint"}

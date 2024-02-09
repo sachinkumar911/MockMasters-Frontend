@@ -17,6 +17,7 @@ import { verifyAccessToken } from "./services/verifyAccessToken.js";
 import { dailyEliteCoin } from "./services/dailyEliteCoin.js";
 import toast, { Toaster } from "react-hot-toast";
 import coinspin from "./assets/coin-flip-1.gif";
+import About from "./components/About.jsx";
 
 function App() {
   const [userdetail, setuserdetail] = useState();
@@ -73,6 +74,10 @@ function App() {
                   }}
                 />
                 <Header />
+                <Element name="about">
+                  <About/>
+
+                </Element>
                 <Element name="team">
                   <TeamMember />{" "}
                 </Element>
