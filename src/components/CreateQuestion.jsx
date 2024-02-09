@@ -110,10 +110,10 @@ const CreateQuestion = () => {
         id="create-question"
         className="min-h-screen flex items-center justify-center"
       >
-        <div className="container w-[60%] mx-auto">
-          <div className="bg-white rounded shadow-lg p-4 px-4 md:p-8 flex flex-col">
-            <p className="text-xl font-semibold">Add New Question</p>
-            <div className="flex flex-col mt-8 ml-3">
+        <div className="container w-full md:w-[70%]  lg:w-[60%] mx-auto">
+          <div className="bg-white rounded shadow-lg p-4 px-4 md:p-8 flex flex-col  w-full">
+            <p className="md:text-xl  text-lg font-semibold">Add New Question</p>
+            <div className="flex flex-col mt-8 ml-3 md:text-base text-sm">
               <label htmlFor="subject" className="text-sm">
                 Subject<span className="text-red-700">*</span>
               </label>
@@ -137,12 +137,12 @@ const CreateQuestion = () => {
               </select>
             </div>
             {/*  */}
-            <div className="flex flex-col mt-4 ml-3">
+            <div className="flex flex-col mt-4 ml-3md:text-lg text-sm ">
               <label htmlFor="subject" className="text-sm">
                 Choose Topics
               </label>
               <div className="bg-gray-100 flex flex-wrap p-2 rounded-lg">
-                {selectedTopics.map((item, key) => (
+                {selectedTopics.map((item) => (
                   <span
                     key={item}
                     className=" flex items-center cursor-pointer bg-blue-500 m-2 p-[6px] px-3 rounded-3xl"

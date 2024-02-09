@@ -61,7 +61,7 @@ const ChangePassword = () => {
     <>
       <Toaster position="bottom-left" reverseOrder={false} />
       <section className="">
-        <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+        <div className="flex flex-col items-center mt-5 px-6 py-8 mx-auto md:h-screen lg:py-0">
           <div className="w-full p-6 bg-white rounded-lg shadow-md md:mt-0 sm:max-w-md  sm:p-8">
             <div className="flex flex-col items-center justify-center text-center space-y-2">
               <div className="font-bold text-2xl">

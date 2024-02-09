@@ -33,7 +33,7 @@ const Header = () => {
               </span>
             </NavLink>
 
-            <div className="flex items-center justify-center   " id="">
+            <div className="flex items-center justify-center lg:mr-16 lg:pr-10  " id="">
               <input
                 type="checkbox"
                 name="hamburger"
@@ -54,7 +54,7 @@ const Header = () => {
                   className="m-auto mt-2 h-0.5 w-6 rounded bg-sky-900 transition duration-300"
                 ></div>
               </label>
-              <div className="peer-checked:translate-x-0 fixed inset-0 w-full translate-x-[-100%] shadow-xl transition duration-300 lg:border-r-0 lg:w-auto lg:static lg:shadow-none lg:translate-x-0 min-[0px]:bg-white lg:bg-transparent  lg:flex  lg:pt-0 pt-20 lg:z-0 z-10">
+              <div className={`peer-checked:translate-x-0 fixed inset-0 w-full translate-x-[-100%] shadow-xl transition duration-300 lg:border-r-0 lg:w-auto lg:static lg:shadow-none lg:translate-x-0 min-[0px]:bg-white lg:bg-transparent  lg:flex  lg:pt-0 pt-20 lg:z-0 z-10 `}>
                 <ul className=" text-gray-700 space-y-16 flex flex-col justify-between items-center lg:flex-row  lg:space-y-0 lg:flex lg:space-x-16  ">
                   <li className="">
                     <Link
@@ -119,13 +119,13 @@ const Header = () => {
                               xmlns="http://www.w3.org/2000/svg"
                               fill="none"
                               viewBox="0 0 24 24"
-                              stroke-width="1.5"
+                              strokeWidth="1.5"
                               stroke="currentColor"
-                              class="w-5 h-5 opacity-85"
+                              className="w-5 h-5 opacity-85"
                             >
                               <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeLinecap="round"
+                                strokeWidth="round"
                                 d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
                               />
                             </svg>

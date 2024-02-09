@@ -199,7 +199,7 @@ const SamplePaper = () => {
     <>
       <Toaster position="bottom-left" reverseOrder={false} />
       <section id="sample-paper" className=" flex items-center justify-center">
-        <div className="container w-[60%] mx-auto">
+        <div className="container w-full lg:w-[60%] md:w-[75%] mx-auto">
           <div className="bg-white rounded shadow-lg p-4 px-4 md:p-8 flex flex-col">
             <p className="text-2xl font-semibold mb-5">Create Exam Paper</p>
             <div className="mb-6">

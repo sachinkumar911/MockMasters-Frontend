@@ -8,7 +8,7 @@ const TestSeries = () => {
         <div className="flex flex-col justify-center items-center space-y-6">
           <div
             id="NIMCET-001"
-            className=" rounded-lg bg-white shadow-md w-fit lg:w-[50%]"
+            className=" rounded-lg bg-white shadow-md  md:w-[65%] w-[80%]  lg:w-[50%]"
           >
             <h5 className="border border-neutral-100 px-6 py-3 md:text-xl text-sm font-medium leading-tight ">
               NIMCET-001
@@ -32,7 +32,7 @@ const TestSeries = () => {
           </div>
           <div
             id="NIMCET-001"
-            className=" rounded-lg bg-white shadow-md w-fit lg:w-[50%]"
+            className=" rounded-lg bg-white shadow-md  lg:w-[50%] md:w-[65%] w-[80%]"
           >
             <h5 className="border border-neutral-100 px-6 py-3 md:text-xl text-sm font-medium leading-tight">
               NIMCET-002
@@ -57,7 +57,7 @@ const TestSeries = () => {
           </div>
           <div
             id="NIMCET-001"
-            className="rounded-lg bg-white shadow-md w-fit lg:w-[50%]"
+            className="rounded-lg bg-white shadow-md md:w-[65%] w-[80%] lg:w-[50%]"
           >
             <h5 className="border border-neutral-100 px-6 py-3 md:text-xl text-sm font-medium leading-tight">
               NIMCET-003
