@@ -60,9 +60,9 @@ const ChangePassword = () => {
   return (
     <>
       <Toaster position="bottom-left" reverseOrder={false} />
-      <section className="">
+      <section className="pt-[90px]">
         <div className="flex flex-col items-center mt-5 px-6 py-8 mx-auto md:h-screen lg:py-0">
-          <div className="w-full p-6 bg-white rounded-lg shadow-md md:mt-0 sm:max-w-md  sm:p-8">
+          <div className="w-full p-6 bg-white rounded-lg shadow-lg md:mt-0 sm:max-w-md  sm:p-8">
             <div className="flex flex-col items-center justify-center text-center space-y-2">
               <div className="font-bold text-2xl">
                 <p>Change Password</p>
@@ -74,7 +74,7 @@ const ChangePassword = () => {
                   htmlFor="currpassword"
                   className="block mb-2 text-sm font-medium text-gray-900"
                 >
-                  current Password
+                  Current Password
                 </label>
                 <input
                   type="password"
