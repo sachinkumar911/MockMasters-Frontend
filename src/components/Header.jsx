@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { UserContext } from "../context/UserContext.jsx";
 import { useContext } from "react";
@@ -124,7 +123,7 @@ const Header = () => {
                                 className=" flex items-center gap-3 font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
                               >
                                 <svg
-                                  class="w-[27px] h-[27px] text-gray-800 dark:text-white"
+                                  className="w-[27px] h-[27px] text-gray-800 dark:text-white"
                                   aria-hidden="true"
                                   xmlns="http://www.w3.org/2000/svg"
                                   fill="none"
@@ -132,9 +131,9 @@ const Header = () => {
                                 >
                                   <path
                                     stroke="currentColor"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="1.1"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="1.1"
                                     d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a9 9 0 0 0 5-1.5 4 4 0 0 0-4-3.5h-2a4 4 0 0 0-4 3.5 9 9 0 0 0 5 1.5Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
                                   />
                                 </svg>
@@ -146,7 +145,7 @@ const Header = () => {
                                 className=" flex items-center gap-3 font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
                               >
                                 <svg
-                                  class="w-[27px] h-[27px] text-gray-800 dark:text-white"
+                                  className="w-[27px] h-[27px] text-gray-800 dark:text-white"
                                   aria-hidden="true"
                                   xmlns="http://www.w3.org/2000/svg"
                                   fill="none"
@@ -154,9 +153,9 @@ const Header = () => {
                                 >
                                   <path
                                     stroke="currentColor"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="1.1"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="1.1"
                                     d="M9.1 4H5c-.5 0-.9.4-.9.9V9c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9V5c0-.5-.4-.9-.9-.9Zm10 0H15c-.5 0-.9.4-.9.9V9c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9V5c0-.5-.4-.9-.9-.9Zm-10 10H5c-.5 0-.9.4-.9.9V19c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9v-4c0-.5-.4-.9-.9-.9Zm10 0H15c-.5 0-.9.4-.9.9V19c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9v-4c0-.5-.4-.9-.9-.9Z"
                                   />
                                 </svg>
@@ -166,11 +165,10 @@ const Header = () => {
 
                               <button
                                 type="button"
-                                // onClick={handleLogoutClick}
                                 className="flex items-center gap-3 font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
                               >
                                 <svg
-                                  class="w-[27px] h-[27px] text-gray-800 dark:text-white"
+                                  className="w-[27px] h-[27px] text-gray-800"
                                   aria-hidden="true"
                                   xmlns="http://www.w3.org/2000/svg"
                                   fill="none"
@@ -178,9 +176,9 @@ const Header = () => {
                                 >
                                   <path
                                     stroke="currentColor"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="1.1"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="1.1"
                                     d="M20 12H8m12 0-4 4m4-4-4-4M9 4H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h2"
                                   />
                                 </svg>
@@ -248,70 +246,82 @@ const Header = () => {
                         <div className="absolute   mt-1  bg-white  rounded-xl shadow-lg z-10 w-[100%]">
                           <button
                             type="button"
-                            className=" flex items-center gap-3 font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
+                            className=" flex items-center font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
                           >
-                            <svg
-                              class="w-[27px] h-[27px] text-gray-800 dark:text-white"
-                              aria-hidden="true"
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 24 24"
+                            <NavLink
+                              to="/Dashboard"
+                              className="flex items-center gap-3"
                             >
-                              <path
-                                stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="1.1"
-                                d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a9 9 0 0 0 5-1.5 4 4 0 0 0-4-3.5h-2a4 4 0 0 0-4 3.5 9 9 0 0 0 5 1.5Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-                              />
-                            </svg>
-
-                            <NavLink to="/Dashboard">My Profile</NavLink>
+                              <svg
+                                className="w-[27px] h-[27px] text-gray-800"
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke="currentColor"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="1.1"
+                                  d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a9 9 0 0 0 5-1.5 4 4 0 0 0-4-3.5h-2a4 4 0 0 0-4 3.5 9 9 0 0 0 5 1.5Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                                />
+                              </svg>
+                              My Profile
+                            </NavLink>
                           </button>
                           <button
                             type="button"
-                            className=" flex items-center gap-3 font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
+                            className=" flex items-center font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
                           >
-                            <svg
-                              class="w-[27px] h-[27px] text-gray-800 dark:text-white"
-                              aria-hidden="true"
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 24 24"
+                            <NavLink
+                              to="/Dashboard"
+                              className="flex items-center gap-3"
                             >
-                              <path
-                                stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="1.1"
-                                d="M9.1 4H5c-.5 0-.9.4-.9.9V9c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9V5c0-.5-.4-.9-.9-.9Zm10 0H15c-.5 0-.9.4-.9.9V9c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9V5c0-.5-.4-.9-.9-.9Zm-10 10H5c-.5 0-.9.4-.9.9V19c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9v-4c0-.5-.4-.9-.9-.9Zm10 0H15c-.5 0-.9.4-.9.9V19c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9v-4c0-.5-.4-.9-.9-.9Z"
-                              />
-                            </svg>
-
-                            <NavLink to="/Dashboard">Dashboard</NavLink>
+                              <svg
+                                className="w-[27px] h-[27px] text-gray-800"
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke="currentColor"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="1.1"
+                                  d="M9.1 4H5c-.5 0-.9.4-.9.9V9c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9V5c0-.5-.4-.9-.9-.9Zm10 0H15c-.5 0-.9.4-.9.9V9c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9V5c0-.5-.4-.9-.9-.9Zm-10 10H5c-.5 0-.9.4-.9.9V19c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9v-4c0-.5-.4-.9-.9-.9Zm10 0H15c-.5 0-.9.4-.9.9V19c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9v-4c0-.5-.4-.9-.9-.9Z"
+                                />
+                              </svg>
+                              Dashboard
+                            </NavLink>
                           </button>
 
                           <button
                             type="button"
-                            // onClick={handleLogoutClick}
-                            className="flex items-center gap-3 font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
+                            className="flex items-center font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
                           >
-                            <svg
-                              class="w-[27px] h-[27px] text-gray-800 dark:text-white"
-                              aria-hidden="true"
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 24 24"
+                            <NavLink
+                              to="/logout"
+                              className="flex items-center gap-3"
                             >
-                              <path
-                                stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="1.1"
-                                d="M20 12H8m12 0-4 4m4-4-4-4M9 4H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h2"
-                              />
-                            </svg>
-                            Logout
+                              <svg
+                                className="w-[27px] h-[27px] text-gray-800"
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke="currentColor"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="1.1"
+                                  d="M20 12H8m12 0-4 4m4-4-4-4M9 4H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h2"
+                                />
+                              </svg>
+                              Logout
+                            </NavLink>
                           </button>
                         </div>
                       )}

@@ -319,6 +319,10 @@ const SamplePaper = () => {
                 id="outlined-basic"
                 label="Price"
                 variant="outlined"
+                value={price}
+                onChange={(e) => {
+                  setprice(e.target.value);
+                }}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position="end" className="w-full">
