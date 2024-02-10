@@ -160,6 +160,8 @@ const SamplePaper = () => {
   const [price, setprice] = useState(0);
 
   const finalSubmitExamSet = async () => {
+    let totalmarks = 0;
+    let noofquestions = 0;
     for (let i = 0; i < examinfo?.markingschema?.length; i++) {
       if (
         examinfo.markingschema[i].noofquestions !==
@@ -169,15 +171,21 @@ const SamplePaper = () => {
         errornotify("Insufficient Questions");
         return;
       }
+      noofquestions += examinfo.markingschema[i].noofquestions;
+      totalmarks +=
+        examinfo.markingschema[i].noofquestions *
+        examinfo.markingschema[i].posmarks;
     }
     sendingnotify("Creaing new ExamSet...");
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/v1/create-examset",
+        "http://localhost:8000/api/v1/examset/create",
         {
           questions: SelectedQuestions,
           price,
           examtype: ExamTypeArray[value],
+          noofquestions,
+          totalmarks,
         },
         {
           headers: {

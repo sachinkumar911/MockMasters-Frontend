@@ -112,7 +112,9 @@ const CreateQuestion = () => {
       >
         <div className="container w-full md:w-[70%]  lg:w-[60%] mx-auto">
           <div className="bg-white rounded shadow-lg p-4 px-4 md:p-8 flex flex-col  w-full">
-            <p className="md:text-xl  text-lg font-semibold">Add New Question</p>
+            <p className="md:text-xl  text-lg font-semibold">
+              Add New Question
+            </p>
             <div className="flex flex-col mt-8 ml-3 md:text-base text-sm">
               <label htmlFor="subject" className="text-sm">
                 Subject<span className="text-red-700">*</span>
