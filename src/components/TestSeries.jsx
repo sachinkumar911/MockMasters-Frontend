@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import coinimage from '../assets/coin.png'
+import coinimage from "../assets/coin.png";
 const TestSeries = () => {
   return (
     <>
@@ -16,7 +16,7 @@ const TestSeries = () => {
               </div>
             </div>
             <h5 className=" border-neutral-100 px-6 py-3 md:text-xl text-sm font-medium leading-tight">
-              NIMCET-002
+              NIMCET-001
             </h5>
             <div className="p-5 flex  md:text-lg text-xs">
               <p className="px-1">120 Questions</p>
@@ -48,7 +48,7 @@ const TestSeries = () => {
                     d="M21 11.25v8.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 1 0 9.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1 1 14.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"
                   />
                 </svg>
-                5% of marks rewarded as coins
+                10% of marks rewarded as coins
               </div>
             </div>
           </div>
@@ -58,9 +58,8 @@ const TestSeries = () => {
           >
             <div class="absolute right-0 top-0 h-16 w-16">
               <div class="absolute transform flex items-center gap-1 justify-center rotate-45 bg-gray-600 text-center text-white font-semibold py-1 right-[-35px] top-[32px] w-[170px]">
-              100
-               <img src={coinimage} alt="coinimage" className="h-4 w-4"></img>
-              
+                50
+                <img src={coinimage} alt="coinimage" className="h-4 w-4"></img>
               </div>
             </div>
             <h5 className=" border-neutral-100 px-6 py-3 md:text-xl text-sm font-medium leading-tight">
@@ -96,7 +95,7 @@ const TestSeries = () => {
                     d="M21 11.25v8.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 1 0 9.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1 1 14.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"
                   />
                 </svg>
-                5% of marks rewarded as coins
+                15% of marks rewarded as coins
               </div>
             </div>
           </div>
