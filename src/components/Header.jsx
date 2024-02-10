@@ -25,7 +25,7 @@ const Header = () => {
   return (
     <>
       <header className="header top-0 left-0 w-full">
-        <nav className="bg-white  w-full z-20  border-b shadow-sm border-gray-200">
+        <nav className="  w-full z-20  border-b shadow-md border-gray-200">
           <div className="flex flex-row justify-around items-center flex-wrap p-3 w-full  ">
             <NavLink to="/" className="flex items-center ">
               <span className="self-center md:text-2xl  font-semibold">
@@ -33,7 +33,10 @@ const Header = () => {
               </span>
             </NavLink>
 
-            <div className="flex items-center justify-center lg:mr-16 lg:pr-10  " id="">
+            <div
+              className="flex items-center justify-center lg:mr-16 lg:pr-10  "
+              id=""
+            >
               <input
                 type="checkbox"
                 name="hamburger"
@@ -54,7 +57,9 @@ const Header = () => {
                   className="m-auto mt-2 h-0.5 w-6 rounded bg-sky-900 transition duration-300"
                 ></div>
               </label>
-              <div className={`peer-checked:translate-x-0 fixed inset-0 w-full translate-x-[-100%] shadow-xl transition duration-300 lg:border-r-0 lg:w-auto lg:static lg:shadow-none lg:translate-x-0 min-[0px]:bg-white lg:bg-transparent  lg:flex  lg:pt-0 pt-20 lg:z-0 z-10 `}>
+              <div
+                className={`peer-checked:translate-x-0 fixed inset-0 w-full translate-x-[-100%] shadow-xl transition duration-300 lg:border-r-0 lg:w-auto lg:static lg:shadow-none lg:translate-x-0 min-[0px]:bg-white lg:bg-transparent  lg:flex  lg:pt-0 pt-20 lg:z-0 z-10 `}
+              >
                 <ul className=" text-gray-700 space-y-16 flex flex-col justify-between items-center lg:flex-row  lg:space-y-0 lg:flex lg:space-x-16  ">
                   <li className="">
                     <Link
@@ -102,82 +107,88 @@ const Header = () => {
                     <div className="lg:flex flex-col justify-center items-center lg:flex-row text-lg lg:text-base lg:gap-4">
                       {islogin ? (
                         <div className="relative inline-block group">
-                      <img
-                        src={avatars[userdetail.avatar - 1]}
-                        alt="Avatar"
-                        onClick={handleImageClick}
-                        className={`cursor-pointer  rounded-full transition-transform transform-gpu md:w-10 md:h-10 h-10 w-fit md:mr-2 
-                        border-gray-600  focus:outline-none`}
-                      />
-                      {isDropdownVisible && (
-                        <div className="absolute  mt-0 bg-white border rounded-lg shadow-md z-10">
-                          <button
-                            type="button"
-                            className=" flex items-center gap-1 px-2 py-2 text-base text-gray-700 hover:bg-gray-100 w-full text-left"
-                          >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              strokeWidth="1.5"
-                              stroke="currentColor"
-                              className="w-5 h-5 opacity-85"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeWidth="round"
-                                d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
-                              />
-                            </svg>
+                          <div className="flex font-semibold text-lg items-center gap-2">
+                            <h1>Hi, Vikash</h1>
+                            <img
+                              src={avatars[userdetail.avatar - 1]}
+                              alt="Avatar"
+                              onClick={handleImageClick}
+                              className={`cursor-pointer  rounded-full shadow-lg  border-4 border-white transition-transform transform-gpu md:w-11 md:h-11 h-10 w-fit md:mr-2 
+                          focus:outline-none`}
+                            />
+                          </div>
+                          {isDropdownVisible && (
+                            <div className="absolute   mt-1  bg-white  rounded-xl shadow-lg z-10 w-[100%]">
+                              <button
+                                type="button"
+                                className=" flex items-center gap-3 font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
+                              >
+                                <svg
+                                  class="w-[27px] h-[27px] text-gray-800 dark:text-white"
+                                  aria-hidden="true"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    stroke="currentColor"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.1"
+                                    d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a9 9 0 0 0 5-1.5 4 4 0 0 0-4-3.5h-2a4 4 0 0 0-4 3.5 9 9 0 0 0 5 1.5Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                                  />
+                                </svg>
 
-                            <NavLink to="/dashboard">Profile</NavLink>
-                          </button>
-                          <button
-                            type="button"
-                            className=" flex items-center gap-1 px-2 py-2 text-base text-gray-700 hover:bg-gray-100 w-full text-left"
-                          >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke-width="1.5"
-                              stroke="currentColor"
-                              class="w-5 h-5 opacity-85"
-                            >
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25"
-                              />
-                            </svg>
+                                <NavLink to="/Dashboard">My Profile</NavLink>
+                              </button>
+                              <button
+                                type="button"
+                                className=" flex items-center gap-3 font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
+                              >
+                                <svg
+                                  class="w-[27px] h-[27px] text-gray-800 dark:text-white"
+                                  aria-hidden="true"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    stroke="currentColor"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.1"
+                                    d="M9.1 4H5c-.5 0-.9.4-.9.9V9c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9V5c0-.5-.4-.9-.9-.9Zm10 0H15c-.5 0-.9.4-.9.9V9c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9V5c0-.5-.4-.9-.9-.9Zm-10 10H5c-.5 0-.9.4-.9.9V19c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9v-4c0-.5-.4-.9-.9-.9Zm10 0H15c-.5 0-.9.4-.9.9V19c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9v-4c0-.5-.4-.9-.9-.9Z"
+                                  />
+                                </svg>
 
-                            <NavLink to="/dashboard">Dashboard</NavLink>
-                          </button>
+                                <NavLink to="/Dashboard">Dashboard</NavLink>
+                              </button>
 
-                          <button
-                            type="button"
-                            // onClick={handleLogoutClick}
-                            className="flex items-center px-2  py-2 gap-1  text-base text-gray-700 hover:bg-gray-100 w-full text-left"
-                          >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke-width="1.5"
-                              stroke="currentColor"
-                              class="w-5 h-5 opacity-85"
-                            >
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9"
-                              />
-                            </svg>
-                            Logout
-                          </button>
+                              <button
+                                type="button"
+                                // onClick={handleLogoutClick}
+                                className="flex items-center gap-3 font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
+                              >
+                                <svg
+                                  class="w-[27px] h-[27px] text-gray-800 dark:text-white"
+                                  aria-hidden="true"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    stroke="currentColor"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.1"
+                                    d="M20 12H8m12 0-4 4m4-4-4-4M9 4H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h2"
+                                  />
+                                </svg>
+                                Logout
+                              </button>
+                            </div>
+                          )}
                         </div>
-                      )}
-                    </div>
                       ) : (
                         <>
                           <button
@@ -223,75 +234,81 @@ const Header = () => {
                 <div className="lg:flex flex-col justify-center items-center lg:flex-row text-lg lg:text-base lg:gap-4">
                   {islogin ? (
                     <div className="relative inline-block group">
-                      <img
-                        src={avatars[userdetail.avatar - 1]}
-                        alt="Avatar"
-                        onClick={handleImageClick}
-                        className={`cursor-pointer  rounded-full transition-transform transform-gpu md:w-10 md:h-10 h-10 w-fit md:mr-2 
-                        border-gray-600  focus:outline-none`}
-                      />
+                      <div className="flex font-semibold text-lg items-center gap-2">
+                        <h1>Hi, Vikash</h1>
+                        <img
+                          src={avatars[userdetail.avatar - 1]}
+                          alt="Avatar"
+                          onClick={handleImageClick}
+                          className={`cursor-pointer  rounded-full shadow-lg  border-4 border-white transition-transform transform-gpu md:w-11 md:h-11 h-10 w-fit md:mr-2 
+                          focus:outline-none`}
+                        />
+                      </div>
                       {isDropdownVisible && (
-                        <div className="absolute  mt-0 bg-white border rounded-lg shadow-md z-10">
+                        <div className="absolute   mt-1  bg-white  rounded-xl shadow-lg z-10 w-[100%]">
                           <button
                             type="button"
-                            className=" flex items-center gap-1 px-2 py-2 text-base text-gray-700 hover:bg-gray-100 w-full text-left"
+                            className=" flex items-center gap-3 font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
                           >
                             <svg
+                              class="w-[27px] h-[27px] text-gray-800 dark:text-white"
+                              aria-hidden="true"
                               xmlns="http://www.w3.org/2000/svg"
                               fill="none"
                               viewBox="0 0 24 24"
-                              stroke-width="1.5"
-                              stroke="currentColor"
-                              class="w-5 h-5 opacity-85"
                             >
                               <path
+                                stroke="currentColor"
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
-                                d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+                                stroke-width="1.1"
+                                d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a9 9 0 0 0 5-1.5 4 4 0 0 0-4-3.5h-2a4 4 0 0 0-4 3.5 9 9 0 0 0 5 1.5Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
                               />
                             </svg>
 
-                            <NavLink to="/dashboard">Profile</NavLink>
+                            <NavLink to="/Dashboard">My Profile</NavLink>
                           </button>
                           <button
                             type="button"
-                            className=" flex items-center gap-1 px-2 py-2 text-base text-gray-700 hover:bg-gray-100 w-full text-left"
+                            className=" flex items-center gap-3 font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
                           >
                             <svg
+                              class="w-[27px] h-[27px] text-gray-800 dark:text-white"
+                              aria-hidden="true"
                               xmlns="http://www.w3.org/2000/svg"
                               fill="none"
                               viewBox="0 0 24 24"
-                              stroke-width="1.5"
-                              stroke="currentColor"
-                              class="w-5 h-5 opacity-85"
                             >
                               <path
+                                stroke="currentColor"
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
-                                d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25"
+                                stroke-width="1.1"
+                                d="M9.1 4H5c-.5 0-.9.4-.9.9V9c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9V5c0-.5-.4-.9-.9-.9Zm10 0H15c-.5 0-.9.4-.9.9V9c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9V5c0-.5-.4-.9-.9-.9Zm-10 10H5c-.5 0-.9.4-.9.9V19c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9v-4c0-.5-.4-.9-.9-.9Zm10 0H15c-.5 0-.9.4-.9.9V19c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9v-4c0-.5-.4-.9-.9-.9Z"
                               />
                             </svg>
 
-                            <NavLink to="/dashboard">Dashboard</NavLink>
+                            <NavLink to="/Dashboard">Dashboard</NavLink>
                           </button>
 
                           <button
                             type="button"
                             // onClick={handleLogoutClick}
-                            className="flex items-center px-2  py-2 gap-1  text-base text-gray-700 hover:bg-gray-100 w-full text-left"
+                            className="flex items-center gap-3 font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
                           >
                             <svg
+                              class="w-[27px] h-[27px] text-gray-800 dark:text-white"
+                              aria-hidden="true"
                               xmlns="http://www.w3.org/2000/svg"
                               fill="none"
                               viewBox="0 0 24 24"
-                              stroke-width="1.5"
-                              stroke="currentColor"
-                              class="w-5 h-5 opacity-85"
                             >
                               <path
+                                stroke="currentColor"
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
-                                d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9"
+                                stroke-width="1.1"
+                                d="M20 12H8m12 0-4 4m4-4-4-4M9 4H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h2"
                               />
                             </svg>
                             Logout
