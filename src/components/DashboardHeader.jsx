@@ -64,54 +64,15 @@ const DashboardHeader = () => {
               <div
                 className={`peer-checked:translate-x-0 fixed inset-0 w-full translate-x-[-100%] shadow-xl transition duration-300 lg:border-r-0 lg:w-auto lg:static lg:shadow-none lg:translate-x-0 min-[0px]:bg-white lg:bg-transparent  lg:flex  lg:pt-0 pt-16 lg:z-0 z-10 `}
               >
-                {/* <ul className=" text-gray-700 space-y-16 flex flex-col justify-between items-center lg:flex-row  lg:space-y-0 lg:flex lg:space-x-16  ">
-              <li className="">
-                <Link
-                  to="/"
-                  smooth={"easeOutQuint"}
-                  className="group relative before:absolute before:inset-x-0 before:bottom-0 before:h-2 hover:cursor-pointer font-semibold text-lg block py-2 px-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent smooth: 'easeInOutQuint'  duration={500} md:hover:text-blue-700 md:p-0 "
-                  onClick={closeNavbar}
-                >
-                  Home
-                </Link>
-              </li>
-              <li className="">
-                <Link
-                  to="about"
-                  smooth={"easeOutQuint"}
-                  className="group relative before:absolute before:inset-x-0 before:bottom-0 before:h-2 hover:cursor-pointer font-semibold text-lg block py-2 px-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent smooth: 'easeInOutQuint'  duration={500} md:hover:text-blue-700 md:p-0"
-                  onClick={closeNavbar}
-                >
-                  About
-                </Link>
-              </li>
-              <li className="">
-                <Link
-                  to="team"
-                  smooth={"easeOutQuint"}
-                  className="group relative before:absolute before:inset-x-0 before:bottom-0 before:h-2 hover:cursor-pointer font-semibold text-lg block py-2 px-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent smooth: 'easeInOutQuint'  duration={500} md:hover:text-blue-700 md:p-0"
-                  onClick={closeNavbar}
-                >
-                  Team
-                </Link>
-              </li>
-              <li className="">
-                <Link
-                  to="contact"
-                  smooth={"easeOutQuint"}
-                  className="group relative before:absolute before:inset-x-0 before:bottom-0 before:h-2 hover:cursor-pointer font-semibold text-lg block py-2 px-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent smooth: 'easeInOutQuint'  duration={500} md:hover:text-blue-700 md:p-0 "
-                  onClick={closeNavbar}
-                >
-                  Contact
-                </Link>
-              </li>
-            </ul> */}
+              
                 <div className="flex flex-col h-full items-center lg:flex-row text-lg lg:text-base lg:gap-4 lg:hidden  pt-1 gap-14">
                   {islogin ? (
                     <div className="lg:flex flex-col justify-around items-center lg:flex-row text-lg lg:text-base lg:gap-4">
                       {islogin ? (
                         <div className="relative inline-block group">
+                          <div className="flex flex-col justify-center items-center gap-5">
                           <div className="flex font-semibold text-lg items-center gap-2">
+
                             <h1>Hi, Vikash</h1>
                             <img
                               src={avatars[userdetail.avatar - 1]}
@@ -121,36 +82,37 @@ const DashboardHeader = () => {
                           focus:outline-none`}
                             />
                           </div>
-                          {isDropdownVisible && (
-                            <div className="absolute   mt-1  bg-white  rounded-xl shadow-lg z-10 w-[100%]">
-                              <button
+                          <button
                                 type="button"
+                                onClick={handleclick}
                                 className=" flex items-center gap-3 font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
                               >
                                 <svg
-                                  class="w-[27px] h-[27px] text-gray-800 dark:text-white"
+                                  className="w-[27px] h-[27px] text-gray-800 "
                                   aria-hidden="true"
                                   xmlns="http://www.w3.org/2000/svg"
-                                  fill="none"
+                                  fill="#0000"
                                   viewBox="0 0 24 24"
                                 >
                                   <path
                                     stroke="currentColor"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="1.1"
+                                   strokeLinecap="round"
+                                   strokeLinejoin="round"
+                                    strokeWidth="1.1"
                                     d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a9 9 0 0 0 5-1.5 4 4 0 0 0-4-3.5h-2a4 4 0 0 0-4 3.5 9 9 0 0 0 5 1.5Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
                                   />
                                 </svg>
 
                                 <NavLink to="/Dashboard">My Profile</NavLink>
                               </button>
+
                               <button
                                 type="button"
+                                onClick={handleclick}
                                 className=" flex items-center gap-3 font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
                               >
                                 <svg
-                                  class="w-[27px] h-[27px] text-gray-800 dark:text-white"
+                                  className="w-[27px] h-[27px] text-gray-800 "
                                   aria-hidden="true"
                                   xmlns="http://www.w3.org/2000/svg"
                                   fill="none"
@@ -158,9 +120,9 @@ const DashboardHeader = () => {
                                 >
                                   <path
                                     stroke="currentColor"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="1.1"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="1.1"
                                     d="M9.1 4H5c-.5 0-.9.4-.9.9V9c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9V5c0-.5-.4-.9-.9-.9Zm10 0H15c-.5 0-.9.4-.9.9V9c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9V5c0-.5-.4-.9-.9-.9Zm-10 10H5c-.5 0-.9.4-.9.9V19c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9v-4c0-.5-.4-.9-.9-.9Zm10 0H15c-.5 0-.9.4-.9.9V19c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9v-4c0-.5-.4-.9-.9-.9Z"
                                   />
                                 </svg>
@@ -174,24 +136,25 @@ const DashboardHeader = () => {
                                 className="flex items-center gap-3 font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
                               >
                                 <svg
-                                  class="w-[27px] h-[27px] text-gray-800 dark:text-white"
+                                  className="w-[27px] h-[27px] text-gray-800 "
                                   aria-hidden="true"
                                   xmlns="http://www.w3.org/2000/svg"
-                                  fill="none"
+                                  fill="#0000"
                                   viewBox="0 0 24 24"
                                 >
                                   <path
                                     stroke="currentColor"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="1.1"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="1.1"
                                     d="M20 12H8m12 0-4 4m4-4-4-4M9 4H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h2"
                                   />
                                 </svg>
                                 Logout
                               </button>
-                            </div>
-                          )}
+
+
+                          </div>
                         </div>
                       ) : (
                         <>
@@ -252,20 +215,21 @@ const DashboardHeader = () => {
                         <div className="absolute ml-0 mt-0 bg-white  rounded-xl shadow-lg z-10 w-[100%]">
                           <button
                             type="button"
+                            onClick={()=>setIsDropdownVisible(!isDropdownVisible)}
                             className=" flex items-center gap-3 font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
                           >
                             <svg
-                              class="w-[27px] h-[27px] text-gray-800 dark:text-white"
+                              className="w-[27px] h-[27px] text-gray-800"
                               aria-hidden="true"
                               xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
+                              fill="#0000"
                               viewBox="0 0 24 24"
                             >
                               <path
                                 stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="1.1"
+                               strokeLinecap="round"
+                               strokeLinejoin="round"
+                                strokeWidth="1.1"
                                 d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a9 9 0 0 0 5-1.5 4 4 0 0 0-4-3.5h-2a4 4 0 0 0-4 3.5 9 9 0 0 0 5 1.5Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
                               />
                             </svg>
@@ -274,20 +238,21 @@ const DashboardHeader = () => {
                           </button>
                           <button
                             type="button"
+                            onClick={()=>setIsDropdownVisible(!isDropdownVisible)}
                             className=" flex items-center gap-3 font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
                           >
                             <svg
-                              class="w-[27px] h-[27px] text-gray-800 dark:text-white"
+                              className="w-[27px] h-[27px] text-gray-800 "
                               aria-hidden="true"
                               xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
+                              fill="#0000"
                               viewBox="0 0 24 24"
                             >
                               <path
                                 stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="1.1"
+                               strokeLinecap="round"
+                               strokeLinejoin="round"
+                                strokeWidth="1.1"
                                 d="M9.1 4H5c-.5 0-.9.4-.9.9V9c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9V5c0-.5-.4-.9-.9-.9Zm10 0H15c-.5 0-.9.4-.9.9V9c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9V5c0-.5-.4-.9-.9-.9Zm-10 10H5c-.5 0-.9.4-.9.9V19c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9v-4c0-.5-.4-.9-.9-.9Zm10 0H15c-.5 0-.9.4-.9.9V19c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9v-4c0-.5-.4-.9-.9-.9Z"
                               />
                             </svg>
@@ -301,17 +266,17 @@ const DashboardHeader = () => {
                             className="flex items-center gap-3 font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
                           >
                             <svg
-                              class="w-[27px] h-[27px] text-gray-800 dark:text-white"
+                              className="w-[27px] h-[27px] text-gray-800"
                               aria-hidden="true"
                               xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
+                              fill="#0000"
                               viewBox="0 0 24 24"
                             >
                               <path
                                 stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="1.1"
+                               strokeLinecap="round"
+                               strokeLinejoin="round"
+                                strokeWidth="1.1"
                                 d="M20 12H8m12 0-4 4m4-4-4-4M9 4H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h2"
                               />
                             </svg>

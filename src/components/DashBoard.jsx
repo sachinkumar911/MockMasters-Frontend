@@ -24,7 +24,7 @@ const DashBoard = () => {
       <section id="sidebar-section" className=" flex">
         <aside
           id="default-sidebar"
-          className="w-0 md:w-[22%] lg:w-[18%] h-screen  transition-transform -translate-x-full sm:translate-x-0 border-r-2"
+          className="w-0 md:w-[25%] lg:w-[20%] h-screen  transition-transform -translate-x-full sm:translate-x-0 border-r-2"
           aria-label="Sidebar"
         >
           <div className="h-full md:px-3 md:py-4 px-0 overflow-y-auto bg-gray-50">
@@ -45,7 +45,7 @@ const DashBoard = () => {
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
+                    fill="#0000"
                     viewBox="0 0 24 24"
                     strokeWidth="1.5"
                     stroke="currentColor"
@@ -128,7 +128,7 @@ const DashBoard = () => {
                     />
                   </svg>
 
-                  <span className="flex-1 ms-3 whitespace-nowrap">
+                  <span className="flex-1 whitespace-nowrap ms-3">
                     Attempted Test
                   </span>
                 </Link>
@@ -136,24 +136,27 @@ const DashBoard = () => {
               <li>
                 <Link
                   to="/dashboard/change-password"
-                  className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+                  className="flex items-center  p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    className="w-6 h-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"
-                    />
-                  </svg>
-
-                  <span className="flex-1 ms-3 whitespace-nowrap">
+                  <div className="flex items-center w-6 h-6">
+                    {" "}
+                    {/* Container for SVG */}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      className="w-full h-full"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={1.5}
+                        d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"
+                      />
+                    </svg>
+                  </div>
+                  <span className=" flex text-wrap ms-3">
                     Change Password
                   </span>
                 </Link>
