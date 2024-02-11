@@ -8,6 +8,9 @@ import avatar3 from "../assets/avatar3.png";
 import avatar4 from "../assets/avatar4.png";
 import avatar5 from "../assets/avatar5.png";
 import { NavLink } from "react-router-dom";
+import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
+
 //MUI
 
 const DashboardHeader = () => {
@@ -24,6 +27,30 @@ const DashboardHeader = () => {
   const handleclick = () => {
     closeNavbar();
     handleImageClick();
+  };
+
+  const errornotify = (msg) => toast.error(msg);
+  const successnotify = (msg) => toast.success(msg);
+
+  const logoutuser = async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:8000/api/v1/users/logout",
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+      successnotify(response.data.message);
+      setTimeout(() => {
+        window.location.reload();
+      }, 1500);
+    } catch (error) {
+      errornotify("Something went wrong!!");
+      console.error(error.response.data.message);
+    }
   };
 
   return (
@@ -131,6 +158,7 @@ const DashboardHeader = () => {
                             <button
                               type="button"
                               // onClick={handleLogoutClick}
+                              onClick={logoutuser}
                               className="flex items-center gap-3 font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
                             >
                               <svg
@@ -263,6 +291,7 @@ const DashboardHeader = () => {
                           <button
                             type="button"
                             // onClick={handleLogoutClick}
+                            onClick={logoutuser}
                             className="flex items-center gap-3 font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
                           >
                             <svg

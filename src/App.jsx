@@ -20,6 +20,9 @@ import coinspin from "./assets/coin-flip-1.gif";
 import About from "./components/About.jsx";
 import Hero from "./components/Hero.jsx";
 import Mockup from "./components/Mockup.jsx";
+import Temp from "./components/Instructionfirst.jsx";
+import Temp2 from "./components/InstructionSecond.jsx";
+import Temp3 from "./components/Pattern.jsx";
 
 function App() {
   const [userdetail, setuserdetail] = useState();
@@ -64,25 +67,19 @@ function App() {
             path="/"
             element={
               <>
-                <Toaster
-                  position="top-center"
-                  reverseOrder={false}
-                 
-                />
+                <Toaster position="top-center" reverseOrder={false} />
                 <Header />
                 <Element name="hero">
-                  <Hero/>
+                  <Hero />
                 </Element>
-                
-                <Element name="about">
-                  <About/>
 
+                <Element name="about">
+                  <About />
                 </Element>
                 <Element name="mockup">
-                  <Mockup/>
-
+                  <Mockup />
                 </Element>
-                
+
                 <Element name="team">
                   <TeamMember />{" "}
                 </Element>
@@ -99,6 +96,9 @@ function App() {
           <Route path="/dashboard/*" element={<AuthDashboard />} />
           <Route path="/Forgotpassword" element={<AuthForgetPass />} />
           <Route path="/verifyotp" element={<AuthForgetVerifyOTP />} />
+          <Route path="/temp" element={<Temp />} />
+          <Route path="/temp2" element={<Temp2 />} />
+          <Route path="/temp3" element={<Temp3 />} />
         </Routes>
       </Router>
     </UserContext.Provider>

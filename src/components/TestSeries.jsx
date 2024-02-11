@@ -23,6 +23,11 @@ const TestSeries = () => {
       }
     })();
   }, []);
+
+  const startTest = (item) => {
+    console.log(item);
+  };
+
   return (
     <>
       <section id="test-section" className="mt-10">
@@ -67,6 +72,7 @@ const TestSeries = () => {
               </div>
               <div className="mx-6 mb-3 flex items-center justify-between">
                 <button
+                  onClick={() => startTest(item)}
                   type="button"
                   href="/"
                   className="inline-block rounded text-white bg-blue-500 hover:bg-blue-600 px-4 pb-2 pt-2.5 text-sm font-medium leading-normal"

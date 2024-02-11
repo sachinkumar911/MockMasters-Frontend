@@ -8,9 +8,11 @@ import avatar4 from "../assets/avatar4.png";
 import avatar5 from "../assets/avatar5.png";
 import { Link } from "react-scroll";
 import { NavLink } from "react-router-dom";
+import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
 
 const Header = () => {
-  const { islogin, userdetail } = useContext(UserContext);
+  const { islogin, userdetail, setuserdetail } = useContext(UserContext);
   let avatars = [avatar1, avatar2, avatar3, avatar4, avatar5];
   const closeNavbar = () => {
     document.getElementById("hamburger").checked = false;
@@ -21,8 +23,33 @@ const Header = () => {
     setIsDropdownVisible(!isDropdownVisible);
   };
 
+  const errornotify = (msg) => toast.error(msg);
+  const successnotify = (msg) => toast.success(msg);
+
+  const logoutuser = async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:8000/api/v1/users/logout",
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+      successnotify(response.data.message);
+      setTimeout(() => {
+        window.location.reload();
+      }, 1500);
+    } catch (error) {
+      errornotify("Something went wrong!!");
+      console.error(error.response.data.message);
+    }
+  };
+
   return (
     <>
+      <Toaster position="bottom-left" reverseOrder={false} />
       <header className="header top-0 left-0 w-full h-[10vh]">
         <nav className="  w-full z-20  border-b shadow-md border-gray-200">
           <div className="flex flex-row justify-around items-center flex-wrap p-3 w-full  ">
@@ -109,7 +136,7 @@ const Header = () => {
                           <div className="flex font-semibold text-lg items-center gap-2">
                             <h1>Hi, Vikash</h1>
                             <img
-                              src={avatars[userdetail.avatar - 1]}
+                              src={avatars[userdetail?.avatar - 1]}
                               alt="Avatar"
                               onClick={handleImageClick}
                               className={`cursor-pointer  rounded-full shadow-lg  border-4 border-white transition-transform transform-gpu md:w-11 md:h-11 h-10 w-fit md:mr-2 
@@ -164,6 +191,7 @@ const Header = () => {
                               </button>
 
                               <button
+                                onClick={logoutuser}
                                 type="button"
                                 className="flex items-center gap-3 font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
                               >
@@ -235,7 +263,7 @@ const Header = () => {
                       <div className="flex font-semibold text-lg items-center gap-2">
                         <h1>Hi, Vikash</h1>
                         <img
-                          src={avatars[userdetail.avatar - 1]}
+                          src={avatars[userdetail?.avatar - 1]}
                           alt="Avatar"
                           onClick={handleImageClick}
                           className={`cursor-pointer  rounded-full shadow-lg  border-4 border-white transition-transform transform-gpu md:w-11 md:h-11 h-10 w-fit md:mr-2 
@@ -298,30 +326,26 @@ const Header = () => {
                           </button>
 
                           <button
+                            onClick={logoutuser}
                             type="button"
-                            className="flex items-center font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
+                            className="flex items-center font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left gap-3"
                           >
-                            <NavLink
-                              to="/logout"
-                              className="flex items-center gap-3"
+                            <svg
+                              className="w-[27px] h-[27px] text-gray-800"
+                              aria-hidden="true"
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
                             >
-                              <svg
-                                className="w-[27px] h-[27px] text-gray-800"
-                                aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  stroke="currentColor"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth="1.1"
-                                  d="M20 12H8m12 0-4 4m4-4-4-4M9 4H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h2"
-                                />
-                              </svg>
-                              Logout
-                            </NavLink>
+                              <path
+                                stroke="currentColor"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="1.1"
+                                d="M20 12H8m12 0-4 4m4-4-4-4M9 4H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h2"
+                              />
+                            </svg>
+                            Logout
                           </button>
                         </div>
                       )}
