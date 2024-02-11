@@ -15,19 +15,26 @@ import SamplePaper from "./SamplePaper.jsx";
 const DashBoard = () => {
   const { userdetail } = useContext(UserContext);
   const [cc, setcc] = useState(0);
+  const [side, setside] = useState(false);
+
+  const handleside = () => {};
 
   useEffect(() => {
     setcc(userdetail.elitecoin);
   }, [userdetail]);
   return (
     <>
-      <section id="sidebar-section" className=" flex">
+      <section id="sidebar-section" className=" flex justify-center ">
         <aside
           id="default-sidebar"
-          className="w-0 md:w-[25%] lg:w-[20%] h-screen  transition-transform -translate-x-full sm:translate-x-0 border-r-2"
+          className={`w-0 md:w-[25%] lg:w-[20%]  h-screen  transition-transform -translate-x-full md:translate-x-0 border-r-2 ${
+            side
+              ? " max-sm:absolute  top-[5.5rem] left-[-1rem]   duration-300 transition-transform translate-x-[10%] w-fit z-20 rounded-md shadow-2xl   "
+              : "  "
+          }`}
           aria-label="Sidebar"
         >
-          <div className="h-full md:px-3 md:py-4 px-0 overflow-y-auto bg-gray-50">
+          <div className="  h-full md:px-3 md:py-4 px-0 overflow-y-auto bg-gray-50">
             <ul className="space-y-4 font-medium ">
               <li>
                 <a
@@ -41,6 +48,7 @@ const DashBoard = () => {
               <li>
                 <Link
                   to="/dashboard"
+                  onClick={() => setside(!side)}
                   className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100  group"
                 >
                   <svg
@@ -64,6 +72,7 @@ const DashBoard = () => {
               <li>
                 <Link
                   to="/dashboard/test-series"
+                  onClick={() => setside(!side)}
                   className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100 group"
                 >
                   <svg
@@ -86,6 +95,7 @@ const DashBoard = () => {
               <li>
                 <Link
                   to="/dashboard/progress-report"
+                  onClick={() => setside(!side)}
                   className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100 group"
                 >
                   <svg
@@ -111,6 +121,7 @@ const DashBoard = () => {
               <li>
                 <Link
                   to="/dashboard/attempted-test"
+                  onClick={() => setside(!side)}
                   className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
                 >
                   <svg
@@ -136,11 +147,11 @@ const DashBoard = () => {
               <li>
                 <Link
                   to="/dashboard/change-password"
+                  onClick={() => setside(!side)}
                   className="flex items-center  p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
                 >
                   <div className="flex items-center w-6 h-6">
                     {" "}
-                    {/* Container for SVG */}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -156,14 +167,13 @@ const DashBoard = () => {
                       />
                     </svg>
                   </div>
-                  <span className=" flex text-wrap ms-3">
-                    Change Password
-                  </span>
+                  <span className=" flex text-wrap ms-3">Change Password</span>
                 </Link>
               </li>
               <li>
                 <Link
                   to="/dashboard/create-question"
+                  onClick={() => setside(!side)}
                   className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
                 >
                   <svg
@@ -189,6 +199,7 @@ const DashBoard = () => {
               <li>
                 <Link
                   to="/dashboard/create-test"
+                  onClick={() => setside(!side)}
                   className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
                 >
                   <svg
@@ -214,6 +225,31 @@ const DashBoard = () => {
             </ul>
           </div>
         </aside>
+        <div className=" absolute  top-5  left-0  md:hidden  ">
+          <button
+            type="button"
+            onClick={() => setside(!side)}
+            className="text-white bg-blue-300 h-10 fixed hover:bg-blue-800 focus:ring-4  focus:outline-none font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center me-2 transition-transform translate-x-[-25px] hover:translate-x-1 duration-300"
+          >
+            <svg
+              className="w-5 h-5"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 14 10"
+            >
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M1 5h12m0 0L9 1m4 4L9 9"
+              />
+            </svg>
+            <span className="sr-only">Icon description</span>
+          </button>
+        </div>
+
         <section id="" className=" w-full">
           <Routes>
             <Route path="/" element={<Profile />} />

@@ -33,7 +33,7 @@ const AuthDashboard = (props) => {
     <>
       {islogin ? (
         <>
-          {/* <Header/> */}
+        
           <DashboardHeader/>
           <DashBoard />
           <Footer />
