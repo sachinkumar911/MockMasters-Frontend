@@ -23,7 +23,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="header top-0 left-0 w-full">
+      <header className="header top-0 left-0 w-full h-[10vh]">
         <nav className="  w-full z-20  border-b shadow-md border-gray-200">
           <div className="flex flex-row justify-around items-center flex-wrap p-3 w-full  ">
             <NavLink to="/" className="flex items-center ">
