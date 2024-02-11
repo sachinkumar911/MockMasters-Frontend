@@ -11,9 +11,8 @@ const TeamMember = () => {
               MockMasters Team
             </h2>
             <p className="text-gray-500 sm:text-xl">
-              Embark on a journey with our MockMasters Team – a dedicated team
-              harmonizing expertise to elevate your NIMCET exam readiness
-              through innovative solutions.
+            Explore success with the MockMasters Team—
+            Your dedicated allies for NIMCET preparation, blending expertise and innovation.  
             </p>
           </div>
           <div className="grid gap-6  grid-cols-1 md:grid-cols-4 md:px-5">
