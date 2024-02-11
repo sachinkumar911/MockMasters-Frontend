@@ -8,7 +8,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'hero-bg': '#F8FAFB',
+      },
+    },
 
   },
   plugins: [],
