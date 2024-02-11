@@ -9,7 +9,7 @@ const Hero = () => {
   return (
     <>
     {/* bg-gradient-to-r from-green-50 to-purple-200 */}
-      <section id="hero-section" className="h-[94vh] pt-[90px] bg-hero-bg ">
+      <section id="hero-section" className="h-[90vh] pt-[90px] bg-hero-bg relative">
         <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 ">
           <div className="mr-auto place-self-center lg:col-span-7">
             <h1 className=" mb-4 text-6xl font-semibold  tracking-normal leading-none md:text-5xl xl:text-6xl">
@@ -30,13 +30,13 @@ const Hero = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
+                strokeWidth="1.5"
                 stroke="currentColor"
                 className="w-6 h-6"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   d="m8.25 4.5 7.5 7.5-7.5 7.5"
                 />
               </svg>
@@ -53,9 +53,9 @@ const Hero = () => {
       
         </div>
 
-        <div class="max-w-[75%] px-4 py-10 sm:px-6 lg:px-8 lg:py-4 mt-20 mx-auto  rounded-xl shadow-lg bg-white">
-          <div class="text-center mb-5"></div>
-          <div class=" grid gap-6 grid-cols-2 sm:gap-12 lg:grid-cols-4 lg:gap-8 ">
+        <div className=" absolute left-[50%] bottom-[0%] translate-x-[-50%]  translate-y-[50%] w-[75%] px-4 py-10 sm:px-6 lg:px-8 lg:py-4 mx-auto  rounded-xl shadow-lg bg-white">
+          <div className="text-center mb-5"></div>
+          <div className=" grid gap-6 grid-cols-2 sm:gap-12 lg:grid-cols-4 lg:gap-8 ">
             <div className="items-center justify-center flex flex-col  border-r">
               <img
                 src={mockimage}
