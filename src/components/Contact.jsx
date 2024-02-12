@@ -3,11 +3,12 @@ import React from "react";
 const Contact = () => {
   return (
     <>
-      <section id="contact-form" className="pt-16 ">
+      <section id="contact-form" className="pt-16">
         <div className="py-4 px-4 mb-10 mx-auto max-w-screen-md border shadow-lg">
           <h2 className="mb-4 text-4xl tracking-tight font-semibold text-center">
             Contact Us
           </h2>
+          
           {/* <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 sm:text-xl">Got a technical issue? Want to send feedback about a beta feature? Need details about our Business plan? Let us know.</p> */}
           <form action="#" className="space-y-8">
             <div>

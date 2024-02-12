@@ -1,7 +1,7 @@
 import React from "react";
 import heroimage from "../assets/Desktopimage.svg";
 import mockimage from "../assets/mock.png";
-import rewardimg from "../assets/rewardhero.webp";
+import rewardimg from "../assets/reward.png";
 import usersimg from "../assets/usersimage.png";
 import graphimg from "../assets/graoh.png";
 
@@ -87,7 +87,7 @@ const Hero = () => {
               <img  
                 src={graphimg}
                 alt="Your Image Alt Text"
-                className="sm:w-12 sm:h-12 w-8 h-8 bg-center bg-no-repeat bg-cover"
+                className="sm:w-16 sm:h-16 w-8 h-8 bg-center bg-no-repeat bg-cover"
               />
               <h4 className="text-sm md:text-xl font-bold text-[#1B2124] mt-2">
                 Analytics
@@ -97,10 +97,10 @@ const Hero = () => {
               </div>
             </div>
             <div className="items-center justify-center flex flex-col ">
-              <img
+            <img
                 src={rewardimg}
                 alt="Your Image Alt Text"
-                className="sm:w-11 sm:h-11 w-8 h-8 bg-center bg-no-repeat bg-cover"
+                className="sm:w-16  sm:h-16 w-8 h-8 bg-center bg-no-repeat bg-cover"
               />
               <h4 className="text-sm md:text-xl font-bold text-[#1B2124] mt-2">
                 Coins

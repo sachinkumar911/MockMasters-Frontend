@@ -1,14 +1,14 @@
 import React from "react";
-import mocktestimg from "../assets/mocktestimg.png";
+import mocktestimg from "../assets/mockup1.png";
 import mobileimg from "../assets/mobileimg.jpg";
 const Mockup = () => {
   return (
     <>
       <section
         id="mock-section"
-        className=" flex flex-col items-center justify-center mb-20"
+        className=" flex flex-col items-center justify-center  mb-18"
       >
-        <div className="bg-orange-100 pt-16 pr-36  pl-36 rounded-xl">
+        <div className="bg-orange-100 pt-[64px] pr-[146px]  pl-[146px] rounded-xl rela">
           <div className="flex flex-col justify-center items-center mb-8">
             <h2 className="text-2xl font-bold text-gray-800 uppercase">
               Ace Your Tests
