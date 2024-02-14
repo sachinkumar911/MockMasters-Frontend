@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import coinimage from "../assets/coin.png";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const TestSeries = () => {
   const [examsets, setexamsets] = useState();
+  const Navigate = useNavigate();
+
   useEffect(() => {
     (async () => {
       try {
@@ -25,7 +28,10 @@ const TestSeries = () => {
   }, []);
 
   const startTest = (item) => {
+    // check wallet
     console.log(item);
+    sessionStorage.setItem("Data", JSON.stringify(item));
+    Navigate("/marking-scheme");
   };
 
   return (
