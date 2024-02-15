@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Box from "@mui/material/Box";
+import { typography } from "@mui/system";
 
 const OnlineExam = () => {
   const [AllData, setAllData] = useState();
   const [currentDisplay, setcurrentDisplay] = useState();
   const [currentPanel, setcurrentPanel] = useState();
+  const [currsubject, setcurrsubject] = useState(0);
 
   const Navigate = useNavigate();
   useEffect(() => {
@@ -36,26 +41,27 @@ const OnlineExam = () => {
             JSON.stringify(response.data.data[0])
           );
           setAllData(response.data.data[0]);
+          setcurrentPanel(response.data.data[0]?.questions[0]?.questionIds);
           // console.log(response.data.data[0]);
         }
       } catch (error) {
         console.error(error.response.data.message);
         if (sessionStorage.getItem("All-Set")) {
           setAllData(JSON.parse(sessionStorage.getItem("All-Set")));
+          setcurrentPanel(
+            JSON.parse(sessionStorage.getItem("All-Set"))?.questions[0]
+              ?.questionIds
+          );
         }
       }
     })();
   }, []);
 
-  const changesubjectpanel = (e) => {
-    // console.log(e.target.value);
-    for (let i = 0; i < AllData?.questions.length; i++) {
-      if (e.target.value === AllData?.questions[i].subjectname) {
-        setcurrentPanel(AllData?.questions[i].questionIds);
-        break;
-      }
-    }
+  const changesubjectpanel = (event, newValue) => {
+    setcurrentPanel(AllData?.questions[newValue].questionIds);
+    setcurrsubject(newValue);
   };
+
   const changeDisplay = (key) => {
     // console.log(currentPanel[key]);
     setcurrentDisplay(currentPanel[key]);
@@ -64,72 +70,32 @@ const OnlineExam = () => {
   return (
     <>
       <section>
-        <div className="h-[8vh] py-4 flex items-center justify-center">
+        <div className="h-[8vh] py-4 flex items-center justify-center text-xl font-semibold">
           {AllData?.qpname}
         </div>
-        {/* <div className="h-fit py-4 bg-red-200 flex items-center justify-center">
-          <select
-            onChange={(e) => {
-              changesubjectpanel(e);
+        <div className="max-h-[8vh] bg-red-200 flex items-center px-24">
+          <Box
+            className="lg:w-[65vw]"
+            sx={{
+              bgcolor: "#fafafa",
             }}
           >
-            <option>choose subject</option>
-            {AllData?.questions?.map((item, key) => (
-              <option key={key} value={item.subjectname}>
-                {item.subjectname}
-              </option>
-            ))}
-          </select>
-        </div> */}
-        <div className=" bg-gray-100  h-fit ">
-          <div className="sm:hidden flex justify-between ">
-            <label htmlFor="Tab" className="sr-only">
-              Tab
-            </label>
-
-            <select id="Tab" className="w-1/2 rounded-md border-gray-200">
-              <option>Mathematics</option>
-              <option>Logical Reasoning</option>
-              <option>Computer</option>
-              <option>English</option>
-            </select>
-          </div>
-
-          <div className="hidden sm:block">
-            <div className=" ">
-              <nav className="flex  justify-between items-center mx-20">
-                <div className="flex -mb-px  gap-3 ">
-                  <button
-                    href="#"
-                    className="shrink-0 border border-transparent p-3 text-sm font-medium text-gray-500 hover:text-gray-700"
-                  >
-                    Mathematics
-                  </button>
-
-                  <button
-                    href="#"
-                    className="shrink-0 border border-transparent p-3 text-sm font-medium text-gray-500 hover:text-gray-700"
-                  >
-                    Logical Reasoning
-                  </button>
-
-                  <button
-                    href="#"
-                    className="shrink-0 border border-transparent p-3 text-sm font-medium text-gray-500 hover:text-gray-700"
-                  >
-                    Computer
-                  </button>
-
-                  <button
-                    href="#"
-                    className="shrink-0 rounded-t-lg border  border-transparent text-sm font-medium text-sky-600"
-                  >
-                    English
-                  </button>
-                </div>
-              </nav>
-            </div>
-          </div>
+            <Tabs
+              value={currsubject}
+              onChange={changesubjectpanel}
+              variant="scrollable"
+              scrollButtons="auto"
+              aria-label="scrollable auto tabs example"
+            >
+              {AllData?.questions?.map((item, key) => (
+                <Tab
+                  key={key}
+                  sx={{ fontSize: 12, fontWeight: "bold" }}
+                  label={item.subjectname}
+                />
+              ))}
+            </Tabs>
+          </Box>
         </div>
 
         <div className="flex justify-center items-center mx-24">
