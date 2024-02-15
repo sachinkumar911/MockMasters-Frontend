@@ -1,17 +1,66 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../context/UserContext.jsx";
+import { useContext } from "react";
+import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
+
 const Pattern = () => {
+  const errornotify = (msg) => toast.error(msg);
+  const successnotify = (msg) => toast.success(msg);
+
   const [Data, setData] = useState();
+  const Navigate = useNavigate();
   useEffect(() => {
-    setData(JSON.parse(sessionStorage.getItem("Data")));
+    if (sessionStorage.getItem("Data")) {
+      setData(JSON.parse(sessionStorage.getItem("Data")));
+    } else {
+      Navigate("/");
+    }
+    //
   }, []);
 
-  const finalStart = () => {
+  const { userdetail } = useContext(UserContext);
+
+  const finalStart = async () => {
     // Deduct Coins
+    // console.log(Data);
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/api/v1/test/start-test",
+        {
+          userId: userdetail?._id,
+          qpsetId: Data?._id,
+          timeleft: Data?.examinfo?.duration,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+      successnotify(response.data.message);
+      sessionStorage.removeItem("Data");
+      sessionStorage.setItem("startTest_id", response.data.data);
+      sessionStorage.setItem("Question_id", Data._id);
+      setTimeout(() => {
+        Navigate("/test/ongoing");
+      }, 1000);
+    } catch (error) {
+      console.error(error.response);
+      errornotify(error.response.data.message);
+      sessionStorage.removeItem("Data");
+      setTimeout(() => {
+        Navigate("/dashboard/test-series");
+      }, 1500);
+    }
   };
 
   return (
     <>
+      <Toaster position="bottom-left" reverseOrder={false} />
       <h3 className="text-xl font-bold mt-20 mb-10 text-center">
         {Data?.qpname} ( Subject-wise distribution of Marks )
       </h3>

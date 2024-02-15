@@ -29,9 +29,9 @@ const TestSeries = () => {
 
   const startTest = (item) => {
     // check wallet
-    console.log(item);
+    // console.log(item);
     sessionStorage.setItem("Data", JSON.stringify(item));
-    Navigate("/marking-scheme");
+    Navigate("/test/marking-scheme");
   };
 
   return (

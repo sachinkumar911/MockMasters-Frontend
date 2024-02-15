@@ -1,134 +1,132 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const OnlineExam = () => {
-  const subjects = ["Math", "Science", "History"];
-  const questions = [
-    {
-      id: 1,
-      subject: "Math",
-      content: "What is 2 + 2?",
-      options: ["3", "4", "5", "6"],
-      correctAnswer: "4",
-    },
-    {
-      id: 2,
-      subject: "Science",
-      content: "What is the capital of France?",
-      options: ["Berlin", "Madrid", "Paris", "Rome"],
-      correctAnswer: "Paris",
-    },
-    // Add more questions for other subjects
-  ];
+  const [AllData, setAllData] = useState();
+  const [currentDisplay, setcurrentDisplay] = useState();
+  const [currentPanel, setcurrentPanel] = useState();
 
-  const [currentSubject, setCurrentSubject] = useState(subjects[0]);
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const Navigate = useNavigate();
+  useEffect(() => {
+    if (
+      !sessionStorage.getItem("Question_id") &&
+      !sessionStorage.getItem("All-Set")
+    ) {
+      Navigate("/dashboard/test-series");
+    }
+    (async () => {
+      try {
+        const response = await axios.post(
+          "http://localhost:8000/api/v1/examset/get-all-questions",
+          {
+            Q_id: sessionStorage.getItem("Question_id"),
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+            withCredentials: true,
+          }
+        );
+        if (response.data.success) {
+          sessionStorage.removeItem("Question_id");
+          sessionStorage.setItem(
+            "All-Set",
+            JSON.stringify(response.data.data[0])
+          );
+          setAllData(response.data.data[0]);
+          // console.log(response.data.data[0]);
+        }
+      } catch (error) {
+        console.error(error.response.data.message);
+        if (sessionStorage.getItem("All-Set")) {
+          setAllData(JSON.parse(sessionStorage.getItem("All-Set")));
+        }
+      }
+    })();
+  }, []);
 
-  const handleSubjectChange = (subject) => {
-    setCurrentSubject(subject);
-    setCurrentQuestionIndex(0);
-  };
-
-  const handleNextQuestion = () => {
-    if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex(currentQuestionIndex + 1);
+  const changesubjectpanel = (e) => {
+    // console.log(e.target.value);
+    for (let i = 0; i < AllData?.questions.length; i++) {
+      if (e.target.value === AllData?.questions[i].subjectname) {
+        setcurrentPanel(AllData?.questions[i].questionIds);
+        break;
+      }
     }
   };
-
-  const handlePreviousQuestion = () => {
-    if (currentQuestionIndex > 0) {
-      setCurrentQuestionIndex(currentQuestionIndex - 1);
-    }
+  const changeDisplay = (key) => {
+    // console.log(currentPanel[key]);
+    setcurrentDisplay(currentPanel[key]);
   };
-
-  const handleSubmit = () => {
-    console.log("Submitting answers...");
-    // Implement your submission logic here
-  };
-
-  const currentQuestion = questions.find(
-    (q) => q.subject === currentSubject && q.id === currentQuestionIndex + 1
-  );
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-4">Online Exam</h1>
-
-      <div className="flex">
-        <div className="w-1/4 pr-4">
-          <h2 className="text-2xl mb-2">Subjects</h2>
-          <ul>
-            {subjects.map((subject) => (
-              <li
-                key={subject}
-                className={`cursor-pointer hover:text-blue-500 ${
-                  currentSubject === subject && "text-blue-500"
-                }`}
-                onClick={() => handleSubjectChange(subject)}
-              >
-                {subject}
-              </li>
-            ))}
-          </ul>
+    <>
+      <section>
+        <div className="bg-gray-200 h-[10vh] flex items-center justify-center">
+          {AllData?.qpname}
         </div>
-
-        <div className="w-1/2">
-          <h2 className="text-2xl mb-2">
-            {currentSubject} - Question {currentQuestionIndex + 1}
-          </h2>
-          {currentQuestion && (
-            <div>
-              <p>{currentQuestion.content}</p>
-              <ul>
-                {currentQuestion.options.map((option, index) => (
-                  <li key={index}>{option}</li>
-                ))}
-              </ul>
+        <div className="h-[10vh] bg-red-200 flex items-center justify-center">
+          <select
+            onChange={(e) => {
+              changesubjectpanel(e);
+            }}
+          >
+            <option>choose subject</option>
+            {AllData?.questions?.map((item, key) => (
+              <option key={key} value={item.subjectname}>
+                {item.subjectname}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="flex">
+          <div className="h-[70vh] bg-green-200 w-[75vw]">
+            <div>{currentDisplay?.txtquestion}</div>
+            {currentDisplay?.options?.map((item, key) => (
+              <div key={key}>
+                <input
+                  type="radio"
+                  name={currentDisplay?._id}
+                  id={currentDisplay?._id + key}
+                />
+                <label htmlFor={currentDisplay?._id + key}>{item}</label>
+              </div>
+            ))}
+          </div>
+          <div className="h-[70vh] bg-yellow-200 w-[25vw]">
+            <div className="flex flex-wrap">
+              {currentPanel?.map((item, key) => (
+                <div
+                  key={key}
+                  onClick={() => {
+                    changeDisplay(key);
+                  }}
+                  className="w-5 h-5 bg-blue-900 m-2 flex justify-center items-center rounded-sm"
+                >
+                  {key + 1}
+                </div>
+              ))}
             </div>
-          )}
-          <div className="mt-4">
-            <button
-              className="bg-blue-500 text-white px-4 py-2 mr-2 rounded"
-              onClick={handlePreviousQuestion}
-              disabled={currentQuestionIndex === 0}
-            >
-              Previous
-            </button>
-            <button
-              className="bg-blue-500 text-white px-4 py-2 rounded"
-              onClick={handleNextQuestion}
-              disabled={currentQuestionIndex === questions.length - 1}
-            >
-              Next
-            </button>
           </div>
         </div>
-
-        <div className="w-1/4 pl-4">
-          <h2 className="text-2xl mb-2">All Questions</h2>
-          <ul>
-            {questions
-              .filter((q) => q.subject === currentSubject)
-              .map((q) => (
-                <li
-                  key={q.id}
-                  className={`cursor-pointer hover:text-blue-500 ${
-                    currentQuestionIndex === q.id - 1 && "text-blue-500"
-                  }`}
-                  onClick={() => setCurrentQuestionIndex(q.id - 1)}
-                >
-                  {q.id}
-                </li>
-              ))}
-          </ul>
-          <button
-            className="bg-green-500 text-white px-4 py-2 mt-4 rounded"
-            onClick={handleSubmit}
-          >
+        <div className="h-[10vh] bg-blue-400 flex items-center justify-evenly">
+          <button className="border-2 border-white rounded-md py-1 px-3 bg-blue-600">
+            prev
+          </button>
+          <button className="border-2 border-white rounded-md py-1 px-3 bg-blue-600">
+            mark for review
+          </button>
+          <button className="border-2 border-white rounded-md py-1 px-3 bg-blue-600">
+            next
+          </button>
+          <button className="border-2 border-white rounded-md py-1 px-3 bg-blue-600">
             Submit
           </button>
         </div>
-      </div>
-    </div>
+      </section>
+    </>
   );
 };
 
