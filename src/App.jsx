@@ -96,8 +96,8 @@ function App() {
           <Route path="/dashboard/*" element={<AuthDashboard />} />
           <Route path="/Forgotpassword" element={<AuthForgetPass />} />
           <Route path="/verifyotp" element={<AuthForgetVerifyOTP />} />
-          <Route path="/marking-scheme" element={<Pattern />} />
-          <Route path="/exam" element={<OnlineExam />} />
+          <Route path="/test/marking-scheme" element={<Pattern />} />
+          <Route path="/test/ongoing" element={<OnlineExam />} />
         </Routes>
       </Router>
     </UserContext.Provider>
