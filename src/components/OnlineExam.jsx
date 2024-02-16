@@ -4,13 +4,14 @@ import { useNavigate } from "react-router-dom";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-import { typography } from "@mui/system";
 
 const OnlineExam = () => {
   const [AllData, setAllData] = useState();
   const [currentDisplay, setcurrentDisplay] = useState();
   const [currentPanel, setcurrentPanel] = useState();
   const [currsubject, setcurrsubject] = useState(0);
+
+  const [Answers, setAnswer] = useState({});
 
   const Navigate = useNavigate();
   useEffect(() => {
@@ -42,6 +43,9 @@ const OnlineExam = () => {
           );
           setAllData(response.data.data[0]);
           setcurrentPanel(response.data.data[0]?.questions[0]?.questionIds);
+          setcurrentDisplay(
+            response.data.data[0]?.questions[0]?.questionIds[0]
+          );
           // console.log(response.data.data[0]);
         }
       } catch (error) {
@@ -52,6 +56,10 @@ const OnlineExam = () => {
             JSON.parse(sessionStorage.getItem("All-Set"))?.questions[0]
               ?.questionIds
           );
+          setcurrentDisplay(
+            JSON.parse(sessionStorage.getItem("All-Set"))?.questions[0]
+              ?.questionIds[0]
+          );
         }
       }
     })();
@@ -60,11 +68,30 @@ const OnlineExam = () => {
   const changesubjectpanel = (event, newValue) => {
     setcurrentPanel(AllData?.questions[newValue].questionIds);
     setcurrsubject(newValue);
+    setcurrentDisplay(AllData?.questions[newValue].questionIds[0]);
   };
 
   const changeDisplay = (key) => {
     // console.log(currentPanel[key]);
     setcurrentDisplay(currentPanel[key]);
+  };
+
+  const setanswer = () => {
+    var op;
+    for (let i = 0; i < currentDisplay.options.length; i++) {
+      if (document.getElementById(`${currentDisplay._id + i}`).checked) {
+        op = currentDisplay.options[i];
+        break;
+      }
+    }
+    let x = Answers[AllData?.questions[currsubject].subjectname];
+    setAnswer({
+      ...Answers,
+      [AllData?.questions[currsubject].subjectname]: {
+        ...Answers[AllData?.questions[currsubject].subjectname],
+        [currentDisplay._id]: op,
+      },
+    });
   };
 
   return (
@@ -108,7 +135,12 @@ const OnlineExam = () => {
                   name={currentDisplay?._id}
                   id={currentDisplay?._id + key}
                 />
-                <label htmlFor={currentDisplay?._id + key}>{item}</label>
+                <label
+                  htmlFor={currentDisplay?._id + key}
+                  id={currentDisplay?._id + key}
+                >
+                  {item}
+                </label>
               </div>
             ))}
           </div>
@@ -169,6 +201,8 @@ const OnlineExam = () => {
                 duration-300
                 hover:bg-blue-700 bg-white font-semibold`}
             id="save"
+            type="button"
+            onClick={setanswer}
           >
             Save &amp; Next
           </button>
