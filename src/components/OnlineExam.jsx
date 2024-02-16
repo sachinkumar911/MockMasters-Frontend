@@ -10,6 +10,7 @@ const OnlineExam = () => {
   const [currentDisplay, setcurrentDisplay] = useState();
   const [currentPanel, setcurrentPanel] = useState();
   const [currsubject, setcurrsubject] = useState(0);
+  const [selectedOption, setSelectedOption] = useState(null);
 
   const [Answers, setAnswer] = useState({});
 
@@ -79,7 +80,7 @@ const OnlineExam = () => {
   const setanswer = () => {
     var op;
     for (let i = 0; i < currentDisplay.options.length; i++) {
-      if (document.getElementById(`${currentDisplay._id + i}`).checked) {
+      if (document.getElementById(`${currentDisplay?._id}_${i}`).checked) {
         op = currentDisplay.options[i];
         break;
       }
@@ -92,6 +93,7 @@ const OnlineExam = () => {
         [currentDisplay._id]: op,
       },
     });
+    setSelectedOption(null);
   };
 
   return (
@@ -158,15 +160,14 @@ const OnlineExam = () => {
                 <input
                   type="radio"
                   name={currentDisplay?._id}
-                  id={currentDisplay?._id + key}
-                  className=" h-6 w-6 bg-slate-200 "
+                  id={`${currentDisplay?._id}_${key}`}
+                  className=" h-6 w-6 bg-slate-200"
+                  checked={selectedOption === `${currentDisplay?._id}_${key}`}
+                  onChange={() =>
+                    setSelectedOption(`${currentDisplay?._id}_${key}`)
+                  }
                 />
-                <label
-                  htmlFor={currentDisplay?._id + key}
-                  id={currentDisplay?._id + key}
-                >
-                  {item}
-                </label>
+                <label htmlFor={`${currentDisplay?._id}_${key}`}>{item}</label>
               </div>
             ))}
             <div className=" w-full   ">
@@ -175,23 +176,13 @@ const OnlineExam = () => {
               >
                 <div className=" ms-2  flex bg-slate-50  py-3 px-2 justify-between">
                   <button
-                    className={`px-4
-              py-2
-              rounded
-              transition-colors
-              duration-300
-              hover:bg-blue-700 bg-green-500`}
+                    className={`px-4 py-2 rounded transition-colors duration-300 hover:bg-blue-700 bg-green-500`}
                     id="review"
                   >
                     Mark for Review &amp; Next
                   </button>
                   <button
-                    className={`px-4
-              py-2
-              rounded
-              transition-colors
-              duration-300
-              hover:bg-blue-700 bg-indigo-700`}
+                    className={`px-4 py-2 rounded transition-colors duration-300 hover:bg-blue-700 bg-indigo-700`}
                     id="clear"
                   >
                     Clear Response
@@ -200,20 +191,16 @@ const OnlineExam = () => {
                 <div className="flex justify-between items-center mt-4 bg-slate-50 py-3 px-2 ">
                   <div className="flex gap-2 justify-center items-center">
                     <button
-                      className={`px-4 py-2 rounded transition-colors duration-300
-                hover:bg-blue-700 bg-white text-black font-semibold`}
+                      className={`px-4 py-2 rounded transition-colors duration-300 hover:bg-blue-700 bg-white text-black font-semibold`}
                       id="save"
                     >
                       Previous
                     </button>
                     <button
-                      className={`px-4
-                py-2
-                rounded
-                transition-colors
-                duration-300
-                hover:bg-blue-700 bg-sky-800`}
+                      className={`px-4 py-2 rounded transition-colors duration-300 hover:bg-blue-700 bg-sky-800`}
                       id="save"
+                      type="button"
+                      onClick={setanswer}
                     >
                       Save &amp; Next
                     </button>
@@ -271,46 +258,6 @@ const OnlineExam = () => {
             </div>
           </div>
         </div>
-        {/* <div className="h-fit py-4 bg-gray-200 flex items-center justify-evenly">
-          <button
-            className={`px-4 py-2 rounded transition-colors duration-300
-                hover:bg-blue-700 bg-white text-black font-semibold`}
-            id="save"
-          >
-            Previous
-          </button>
-          <button
-            className={`px-4 py-2 rounded transition-colors duration-300
-              hover:bg-blue-700 bg-gray-800 text-white font-semibold`}
-            id="review"
-          >
-            Mark for Review &amp; Next
-          </button>
-          <button
-            className={`px-4
-                py-2
-                rounded
-                transition-colors
-                duration-300
-                hover:bg-blue-700 bg-white font-semibold`}
-            id="save"
-            type="button"
-            onClick={setanswer}
-          >
-            Save &amp; Next
-          </button>
-          <button
-            className={`px-4
-              py-2
-              rounded
-              transition-colors
-              duration-300
-              hover:bg-blue-700   bg-green-500 font-semibold`}
-            id="submit"
-          >
-            Submit
-          </button>
-        </div> */}
       </section>
     </>
   );
