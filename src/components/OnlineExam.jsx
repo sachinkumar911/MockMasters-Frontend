@@ -11,6 +11,7 @@ const OnlineExam = () => {
   const [currentPanel, setcurrentPanel] = useState();
   const [currsubject, setcurrsubject] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
+  const [currquesindex, setcurrquesindex] = useState(0);
 
   const [Answers, setAnswer] = useState({});
 
@@ -50,7 +51,7 @@ const OnlineExam = () => {
           // console.log(response.data.data[0]);
         }
       } catch (error) {
-        console.error(error.response.data.message);
+        // console.error(error.response.data.message);
         if (sessionStorage.getItem("All-Set")) {
           setAllData(JSON.parse(sessionStorage.getItem("All-Set")));
           setcurrentPanel(
@@ -70,11 +71,13 @@ const OnlineExam = () => {
     setcurrentPanel(AllData?.questions[newValue].questionIds);
     setcurrsubject(newValue);
     setcurrentDisplay(AllData?.questions[newValue].questionIds[0]);
+    setcurrquesindex(0);
   };
 
   const changeDisplay = (key) => {
     // console.log(currentPanel[key]);
     setcurrentDisplay(currentPanel[key]);
+    setcurrquesindex(key);
   };
 
   const setanswer = () => {
@@ -94,6 +97,14 @@ const OnlineExam = () => {
       },
     });
     setSelectedOption(null);
+  };
+
+  const prevques = () => {
+    if (currquesindex > 0) {
+      let tmp = currquesindex;
+      setcurrentDisplay(currentPanel[tmp - 1]);
+      setcurrquesindex(currquesindex - 1);
+    }
   };
 
   return (
@@ -193,6 +204,7 @@ const OnlineExam = () => {
                     <button
                       className={`px-4 py-2 rounded transition-colors duration-300 hover:bg-blue-700 bg-white text-black font-semibold`}
                       id="save"
+                      onClick={prevques}
                     >
                       Previous
                     </button>
@@ -250,7 +262,9 @@ const OnlineExam = () => {
                   onClick={() => {
                     changeDisplay(key);
                   }}
-                  className="w-6 h-6 bg-gray-300 m-2 flex justify-center items-center rounded-sm"
+                  className={`w-6 h-6 bg-gray-300 m-2 flex justify-center items-center rounded-sm ${
+                    currquesindex === key ? "border-4 border-blue-500" : ""
+                  }`}
                 >
                   {key + 1}
                 </div>
