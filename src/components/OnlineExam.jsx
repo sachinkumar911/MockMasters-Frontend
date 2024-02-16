@@ -88,15 +88,22 @@ const OnlineExam = () => {
         break;
       }
     }
-    let x = Answers[AllData?.questions[currsubject].subjectname];
-    setAnswer({
-      ...Answers,
-      [AllData?.questions[currsubject].subjectname]: {
-        ...Answers[AllData?.questions[currsubject].subjectname],
-        [currentDisplay._id]: op,
-      },
-    });
+    if (op) {
+      let x = Answers[AllData?.questions[currsubject].subjectname];
+      setAnswer({
+        ...Answers,
+        [AllData?.questions[currsubject].subjectname]: {
+          ...Answers[AllData?.questions[currsubject].subjectname],
+          [currentDisplay._id]: op,
+        },
+      });
+    }
     setSelectedOption(null);
+    if (currquesindex < currentPanel.length - 1) {
+      let tmp = currquesindex;
+      setcurrentDisplay(currentPanel[tmp + 1]);
+      setcurrquesindex(currquesindex + 1);
+    }
   };
 
   const prevques = () => {
@@ -105,6 +112,16 @@ const OnlineExam = () => {
       setcurrentDisplay(currentPanel[tmp - 1]);
       setcurrquesindex(currquesindex - 1);
     }
+  };
+  const clearresponse = () => {
+    setSelectedOption(null);
+    setAnswer({
+      ...Answers,
+      [AllData?.questions[currsubject].subjectname]: {
+        ...Answers[AllData?.questions[currsubject].subjectname],
+        [currentDisplay._id]: undefined,
+      },
+    });
   };
 
   return (
@@ -195,6 +212,7 @@ const OnlineExam = () => {
                   <button
                     className={`px-4 py-2 rounded transition-colors duration-300 hover:bg-blue-700 bg-indigo-700`}
                     id="clear"
+                    onClick={clearresponse}
                   >
                     Clear Response
                   </button>
