@@ -203,7 +203,7 @@ const OnlineExam = () => {
           </div>
 
           <div className="h-full border-x border-y border-black bg-white w-[25vw]  hidden lg:flex  lg:flex-col ">
-            <div className=" flex  flex-wrap w-full justify-between items-center   my-2  px-5">
+            <div className="flex flex-wrap w-full justify-between items-center lg:gap-3   my-2  px-5">
               <div className=" flex  gap-2 py-2 text-sm  ">
                 <div className=" h-6 w-6 bg-green-400"></div>
                 Answered
