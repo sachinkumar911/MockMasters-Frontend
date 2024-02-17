@@ -12,6 +12,11 @@ const OnlineExam = () => {
   const [currsubject, setcurrsubject] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
   const [currquesindex, setcurrquesindex] = useState(0);
+  const [MarkReview, setMarkReview] = useState(
+    JSON.parse(localStorage.getItem("MarkforReviews"))
+      ? JSON.parse(localStorage.getItem("MarkforReviews"))
+      : {}
+  );
 
   const [Answers, setAnswer] = useState({});
 
@@ -122,6 +127,94 @@ const OnlineExam = () => {
         [currentDisplay._id]: undefined,
       },
     });
+    if (
+      JSON.parse(localStorage.getItem("MarkforReviews")) &&
+      JSON.parse(localStorage.getItem("MarkforReviews"))[
+        AllData?.questions[currsubject].subjectname
+      ]
+    ) {
+      let obj = JSON.parse(localStorage.getItem("MarkforReviews"));
+      let j = obj[AllData?.questions[currsubject].subjectname];
+      j[currentDisplay?._id] = undefined;
+      obj[AllData?.questions[currsubject].subjectname] = j;
+      localStorage.setItem("MarkforReviews", JSON.stringify(obj));
+      setMarkReview(obj);
+    }
+  };
+
+  const markforreview = () => {
+    if (
+      Answers[AllData?.questions[currsubject].subjectname] &&
+      Answers[AllData?.questions[currsubject].subjectname][currentDisplay?._id]
+    ) {
+      setAnswer({
+        ...Answers,
+        [AllData?.questions[currsubject].subjectname]: {
+          ...Answers[AllData?.questions[currsubject].subjectname],
+          [currentDisplay._id]: undefined,
+        },
+      });
+    }
+
+    if (!localStorage.getItem("MarkforReviews")) {
+      var op = "";
+      for (let i = 0; i < currentDisplay.options.length; i++) {
+        if (document.getElementById(`${currentDisplay?._id}_${i}`).checked) {
+          op = currentDisplay.options[i];
+          break;
+        }
+      }
+      let j = {};
+      j[currentDisplay?._id] = op;
+      let obj = {};
+      obj[AllData?.questions[currsubject].subjectname] = j;
+      localStorage.setItem("MarkforReviews", JSON.stringify(obj));
+      setMarkReview(obj);
+    } else if (
+      localStorage.getItem("MarkforReviews") &&
+      !JSON.parse(localStorage.getItem("MarkforReviews"))[
+        AllData?.questions[currsubject].subjectname
+      ]
+    ) {
+      var op = "";
+      for (let i = 0; i < currentDisplay.options.length; i++) {
+        if (document.getElementById(`${currentDisplay?._id}_${i}`).checked) {
+          op = currentDisplay.options[i];
+          break;
+        }
+      }
+      let j = {};
+      j[currentDisplay?._id] = op;
+      let obj = JSON.parse(localStorage.getItem("MarkforReviews"));
+      obj[AllData?.questions[currsubject].subjectname] = j;
+      localStorage.setItem("MarkforReviews", JSON.stringify(obj));
+      setMarkReview(obj);
+    } else if (
+      localStorage.getItem("MarkforReviews") &&
+      JSON.parse(localStorage.getItem("MarkforReviews"))[
+        AllData?.questions[currsubject].subjectname
+      ]
+    ) {
+      var op = "";
+      for (let i = 0; i < currentDisplay.options.length; i++) {
+        if (document.getElementById(`${currentDisplay?._id}_${i}`).checked) {
+          op = currentDisplay.options[i];
+          break;
+        }
+      }
+      let obj = JSON.parse(localStorage.getItem("MarkforReviews"));
+      let j = obj[AllData?.questions[currsubject].subjectname];
+      j[currentDisplay?._id] = op;
+      obj[AllData?.questions[currsubject].subjectname] = j;
+      localStorage.setItem("MarkforReviews", JSON.stringify(obj));
+      setMarkReview(obj);
+    }
+    setSelectedOption(null);
+    if (currquesindex < currentPanel.length - 1) {
+      let tmp = currquesindex;
+      setcurrentDisplay(currentPanel[tmp + 1]);
+      setcurrquesindex(currquesindex + 1);
+    }
   };
 
   return (
@@ -195,7 +288,14 @@ const OnlineExam = () => {
                     (Answers[AllData?.questions[currsubject]?.subjectname] &&
                       Answers[AllData?.questions[currsubject]?.subjectname][
                         currentDisplay?._id
-                      ] === `${item}`)
+                      ] === `${item}`) ||
+                    (localStorage.getItem("MarkforReviews") &&
+                      JSON.parse(localStorage.getItem("MarkforReviews"))[
+                        AllData?.questions[currsubject].subjectname
+                      ] &&
+                      JSON.parse(localStorage.getItem("MarkforReviews"))[
+                        AllData?.questions[currsubject].subjectname
+                      ][currentDisplay?._id] === item)
                   }
                   onChange={() =>
                     setSelectedOption(`${currentDisplay?._id}_${key}`)
@@ -204,14 +304,15 @@ const OnlineExam = () => {
                 <label htmlFor={`${currentDisplay?._id}_${key}`}>{item}</label>
               </div>
             ))}
-            <div className=" w-full   ">
+            <div className=" w-full">
               <div
-                className={`flex flex-col space-x-4 px-4 py-2 justify-between  `}
+                className={`flex flex-col space-x-4 px-4 py-2 justify-between`}
               >
                 <div className=" ms-2  flex bg-slate-50  py-3 px-2 justify-between">
                   <button
                     className={`px-4 py-2 rounded transition-colors duration-300 hover:bg-blue-700 bg-green-500`}
                     id="review"
+                    onClick={markforreview}
                   >
                     Mark for Review &amp; Next
                   </button>
@@ -242,12 +343,7 @@ const OnlineExam = () => {
                     </button>
                   </div>
                   <button
-                    className={`px-4
-              py-2
-              rounded
-              transition-colors
-              duration-300
-              hover:bg-blue-700 bg-cyan-400`}
+                    className={`px-4 py-2 rounded transition-colors duration-300 hover:bg-blue-700 bg-cyan-400`}
                     id="submit"
                   >
                     Submit
@@ -295,6 +391,16 @@ const OnlineExam = () => {
                       item._id
                     ]
                       ? "bg-green-500"
+                      : ""
+                  } ${
+                    MarkReview[AllData?.questions[currsubject]?.subjectname] &&
+                    (MarkReview[AllData?.questions[currsubject]?.subjectname][
+                      item?._id
+                    ] ||
+                      MarkReview[AllData?.questions[currsubject]?.subjectname][
+                        item?._id
+                      ] === "")
+                      ? "bg-pink-400"
                       : ""
                   }`}
                 >
