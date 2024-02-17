@@ -278,10 +278,18 @@ const OnlineExam = () => {
                 <div
                   key={key}
                   onClick={() => {
+                    console.log(item);
                     changeDisplay(key);
                   }}
                   className={`w-6 h-6 bg-gray-300 m-2 flex justify-center items-center rounded-sm ${
                     currquesindex === key ? "border-4 border-blue-500" : ""
+                  } ${
+                    Answers[AllData?.questions[currsubject]?.subjectname] &&
+                    Answers[AllData?.questions[currsubject]?.subjectname][
+                      item._id
+                    ]
+                      ? "bg-green-500"
+                      : ""
                   }`}
                 >
                   {key + 1}
