@@ -190,7 +190,13 @@ const OnlineExam = () => {
                   name={currentDisplay?._id}
                   id={`${currentDisplay?._id}_${key}`}
                   className=" h-6 w-6 bg-slate-200"
-                  checked={selectedOption === `${currentDisplay?._id}_${key}`}
+                  checked={
+                    selectedOption === `${currentDisplay?._id}_${key}` ||
+                    (Answers[AllData?.questions[currsubject]?.subjectname] &&
+                      Answers[AllData?.questions[currsubject]?.subjectname][
+                        currentDisplay?._id
+                      ] === `${item}`)
+                  }
                   onChange={() =>
                     setSelectedOption(`${currentDisplay?._id}_${key}`)
                   }
@@ -278,7 +284,7 @@ const OnlineExam = () => {
                 <div
                   key={key}
                   onClick={() => {
-                    console.log(item);
+                    // console.log(item);
                     changeDisplay(key);
                   }}
                   className={`w-6 h-6 bg-gray-300 m-2 flex justify-center items-center rounded-sm ${
