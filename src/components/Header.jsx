@@ -134,7 +134,7 @@ const Header = () => {
                       {islogin ? (
                         <div className="relative inline-block group">
                           <div className="flex font-semibold text-lg items-center gap-2">
-                            <h1>Hi, Vikash</h1>
+                            <h1>Hi, {userdetail.username}</h1>
                             <img
                               src={avatars[userdetail?.avatar - 1]}
                               alt="Avatar"
@@ -261,7 +261,7 @@ const Header = () => {
                   {islogin ? (
                     <div className="relative inline-block group">
                       <div className="flex font-semibold text-lg items-center gap-2">
-                        <h1>Hi, Vikash</h1>
+                        <h1>Hi, {userdetail.username}</h1>
                         <img
                           src={avatars[userdetail?.avatar - 1]}
                           alt="Avatar"
