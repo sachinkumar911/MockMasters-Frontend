@@ -8,15 +8,21 @@ import graphimg from "../assets/graoh.png";
 const Hero = () => {
   return (
     <>
-    {/* bg-gradient-to-r from-green-50 to-purple-200 */}
-      <section id="hero-section" className="h-[90vh] pt-[90px] bg-hero-bg relative">
-        <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 ">
-          <div className="mr-auto place-self-center lg:col-span-7">
+      {/* bg-gradient-to-r from-green-50 to-purple-200 */}
+      <section
+        id="hero-section"
+        className="h-[90vh] pt-[90px] bg-hero-bg relative"
+      >
+        <div className="grid max-w-screen-xl py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-8 lg:grid-cols-12">
+          <div className="mr-auto place-self-center lg:col-span-6">
             <h1 className=" mb-4 text-6xl font-semibold  tracking-normal leading-none md:text-5xl xl:text-6xl">
-            Master Your Exams
-            <br/>
-            with
-              <span className="text-blue-600 text-7xl font-bold"> MockMasters</span>
+              Master Your Exams
+              <br />
+              with
+              <span className="text-blue-600 text-7xl font-bold">
+                {" "}
+                MockMasters
+              </span>
             </h1>
             <p className="max-w-2xl mb-6 font-normal text-gray-700 lg:mb-14 md:text-lg lg:text-3xl ">
               Elevate Your Exam Performance!
@@ -42,15 +48,14 @@ const Hero = () => {
               </svg>
             </a>
           </div>
-       
-          <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
+
+          <div className="hidden lg:mt-0 lg:col-span-6 lg:flex">
             <img
               src={heroimage}
               alt="mockup"
               className="object-cover w-full h-full"
             />
           </div>
-      
         </div>
 
         <div className=" absolute left-[50%] bottom-[0%] translate-x-[-50%]  translate-y-[50%] w-[75%] px-4 py-10 sm:px-6 lg:px-8 lg:py-4 mx-auto  rounded-xl shadow-lg bg-white">
@@ -84,7 +89,7 @@ const Hero = () => {
             </div>
 
             <div className="items-center justify-center flex flex-col border-r">
-              <img  
+              <img
                 src={graphimg}
                 alt="Your Image Alt Text"
                 className="sm:w-16 sm:h-16 w-8 h-8 bg-center bg-no-repeat bg-cover"
@@ -97,7 +102,7 @@ const Hero = () => {
               </div>
             </div>
             <div className="items-center justify-center flex flex-col ">
-            <img
+              <img
                 src={rewardimg}
                 alt="Your Image Alt Text"
                 className="sm:w-16  sm:h-16 w-8 h-8 bg-center bg-no-repeat bg-cover"
