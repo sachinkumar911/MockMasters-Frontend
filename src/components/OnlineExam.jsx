@@ -102,6 +102,20 @@ const OnlineExam = () => {
           [currentDisplay._id]: op,
         },
       });
+
+      if (
+        JSON.parse(localStorage.getItem("MarkforReviews")) &&
+        JSON.parse(localStorage.getItem("MarkforReviews"))[
+          AllData?.questions[currsubject].subjectname
+        ]
+      ) {
+        let obj = JSON.parse(localStorage.getItem("MarkforReviews"));
+        let j = obj[AllData?.questions[currsubject].subjectname];
+        j[currentDisplay?._id] = undefined;
+        obj[AllData?.questions[currsubject].subjectname] = j;
+        localStorage.setItem("MarkforReviews", JSON.stringify(obj));
+        setMarkReview(obj);
+      }
     }
     setSelectedOption(null);
     if (currquesindex < currentPanel.length - 1) {
