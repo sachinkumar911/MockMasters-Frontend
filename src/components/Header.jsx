@@ -49,7 +49,16 @@ const Header = () => {
 
   return (
     <>
-      <Toaster position="bottom-left" reverseOrder={false} />
+      <Toaster
+        toastOptions={{
+          style: {
+            position: "relative",
+            top: "8.5vh",
+          },
+        }}
+        position="top-center"
+        reverseOrder={false}
+      />
       <header className="header top-0 left-0 w-full h-[10vh]">
         <nav className="  w-full z-20  border-b shadow-md border-gray-200">
           <div className="flex flex-row justify-around items-center flex-wrap p-3 w-full  ">
