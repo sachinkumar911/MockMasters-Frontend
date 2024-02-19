@@ -3,36 +3,36 @@ import React from "react";
 const TeamMember = () => {
   return (
     <>
-      <section class="flex items-center py-10 lg:py-24  ">
-        <div class="justify-center flex-1 px-4 py-6 mx-auto max-w-6xl lg:py-4 md:px-6">
-          <div class="mb-20 text-center">
+      <section className="flex items-center py-10 lg:py-24  ">
+        <div className="justify-center flex-1 px-4 py-6 mx-auto max-w-6xl lg:py-4 md:px-6">
+          <div className="mb-20 text-center">
             {/* <span
-                    class="block mb-4 text-xs font-semibold leading-4 tracking-widest text-center text-blue-500 uppercase dark:text-gray-400">
+                    className="block mb-4 text-xs font-semibold leading-4 tracking-widest text-center text-blue-500 uppercase dark:text-gray-400">
                     Team
                 </span> */}
-            <h1 class="text-3xl font-bold capitalize">Meet Our Team </h1>
+            <h1 className="text-3xl font-bold capitalize">Meet Our Team </h1>
           </div>
-          <div class="grid grid-cols-1 gap-4 lg:gap-8 sm:gap-4 sm:grid-cols-2 lg:grid-cols-2">
-            <div class="flex flex-col flex-wrap mb-0 overflow-hidden rounded lg:flex-row">
-              <div class="inline-block w-full mb-3 overflow-hidden text-xs text-white md:rounded-full h-96 sm:w-48 sm:h-48">
+          <div className="grid grid-cols-1 gap-4 lg:gap-8 sm:gap-4 sm:grid-cols-2 lg:grid-cols-2">
+            <div className="flex flex-col flex-wrap mb-0 overflow-hidden rounded lg:flex-row">
+              <div className="inline-block w-full mb-3 overflow-hidden text-xs text-white md:rounded-full h-96 sm:w-48 sm:h-48">
                 <img
-                  class="object-cover w-full h-full transition-all hover:scale-110"
+                  className="object-cover w-full h-full transition-all hover:scale-110"
                   src="https://avatars.githubusercontent.com/u/64706066?v=4"
                   alt="vinay kumar image"
                 />
               </div>
-              <div class="relative flex self-center flex-1 lg:ml-8 ">
+              <div className="relative flex self-center flex-1 lg:ml-8 ">
                 <div>
-                  <h2 class="mb-2 text-2xl font-bold">Vinay Kumar</h2>
-                  <p class="mb-4 text-sm font-medium text-blue-500">
+                  <h2 className="mb-2 text-2xl font-bold">Vinay Kumar</h2>
+                  <p className="mb-4 text-sm font-medium text-blue-500">
                     Full Stack Developer
                   </p>
-                  <p class="mb-6 text-sm text-gray-500">
+                  <p className="mb-6 text-sm text-gray-500">
                     Lorem ipsum dolor sit amet, consectetu incididunt ut dolore
                     magna aliqua. Ut enim ad minim veniam
                   </p>
-                  <div class="flex">
-                    <span class="inline-block mr-5 text-gray-700 hover:text-blue-500">
+                  <div className="flex">
+                    <span className="inline-block mr-5 text-gray-700 hover:text-blue-500">
                       <a
                         href="https://github.com/vkumar8192449"
                         target="_blank"
@@ -52,7 +52,7 @@ const TeamMember = () => {
                         </svg>
                       </a>
                     </span>
-                    <span class="inline-block mr-5 text-gray-700 hover:text-blue-500">
+                    <span className="inline-block mr-5 text-gray-700 hover:text-blue-500">
                       <a
                         href="https://www.linkedin.com/in/vk8192449/"
                         target="_blank"
@@ -72,26 +72,26 @@ const TeamMember = () => {
                 </div>
               </div>
             </div>
-            <div class="flex flex-col flex-wrap mb-0 overflow-hidden rounded lg:flex-row">
-              <div class="inline-block mb-3 overflow-hidden text-xs text-white bg-blue-500 md:rounded-full h-96 sm:w-48 sm:h-48">
+            <div className="flex flex-col flex-wrap mb-0 overflow-hidden rounded lg:flex-row">
+              <div className="inline-block mb-3 overflow-hidden text-xs text-white bg-blue-500 md:rounded-full h-96 sm:w-48 sm:h-48">
                 <img
-                  class="object-cover w-full h-full transition-all hover:scale-110"
+                  className="object-cover w-full h-full transition-all hover:scale-110"
                   src="https://avatars.githubusercontent.com/u/137149762?v=4"
                   alt="vikash burman image"
                 />
               </div>
-              <div class="relative flex self-center flex-1 lg:ml-8 ">
+              <div className="relative flex self-center flex-1 lg:ml-8 ">
                 <div>
-                  <h2 class="mb-2 text-2xl font-bold">Vikash Burman</h2>
-                  <p class="mb-4 text-sm font-medium text-blue-500">
+                  <h2 className="mb-2 text-2xl font-bold">Vikash Burman</h2>
+                  <p className="mb-4 text-sm font-medium text-blue-500">
                     Full Stack Developer
                   </p>
-                  <p class="mb-6 text-sm text-gray-500">
+                  <p className="mb-6 text-sm text-gray-500">
                     Lorem ipsum dolor sit amet, consectetu incididunt ut dolore
                     magna aliqua. Ut enim ad minim veniam
                   </p>
-                  <div class="flex">
-                    <span class="inline-block mr-5 text-gray-700 hover:text-blue-500">
+                  <div className="flex">
+                    <span className="inline-block mr-5 text-gray-700 hover:text-blue-500">
                       <a
                         href="https://github.com/VikashBurman"
                         target="_blank"
@@ -111,7 +111,7 @@ const TeamMember = () => {
                         </svg>
                       </a>
                     </span>
-                    <span class="inline-block mr-5 text-gray-700 hover:text-blue-500">
+                    <span className="inline-block mr-5 text-gray-700 hover:text-blue-500">
                       <a
                         href="https://www.linkedin.com/in/vikash-burman-33517824a/"
                         target="_blank"
@@ -131,26 +131,26 @@ const TeamMember = () => {
                 </div>
               </div>
             </div>
-            <div class="flex flex-col flex-wrap mb-0 overflow-hidden rounded lg:flex-row">
-              <div class="inline-block mb-3 overflow-hidden text-xs text-white bg-blue-500 md:rounded-full h-96 sm:w-48 sm:h-48">
+            <div className="flex flex-col flex-wrap mb-0 overflow-hidden rounded lg:flex-row">
+              <div className="inline-block mb-3 overflow-hidden text-xs text-white bg-blue-500 md:rounded-full h-96 sm:w-48 sm:h-48">
                 <img
-                  class="object-cover w-full h-full transition-all hover:scale-110"
+                  className="object-cover w-full h-full transition-all hover:scale-110"
                   src="https://avatars.githubusercontent.com/u/112263798?v=4"
                   alt="vishal kumar image"
                 />
               </div>
-              <div class="relative flex self-center flex-1 lg:ml-8 ">
+              <div className="relative flex self-center flex-1 lg:ml-8 ">
                 <div>
-                  <h2 class="mb-2 text-2xl font-bold">Vishal Kumar</h2>
-                  <p class="mb-4 text-sm font-medium text-blue-500">
+                  <h2 className="mb-2 text-2xl font-bold">Vishal Kumar</h2>
+                  <p className="mb-4 text-sm font-medium text-blue-500">
                     Full Stack Developer
                   </p>
-                  <p class="mb-6 text-sm text-gray-500">
+                  <p className="mb-6 text-sm text-gray-500">
                     Lorem ipsum dolor sit amet, consectetu incididunt ut dolore
                     magna aliqua. Ut enim ad minim veniam
                   </p>
-                  <div class="flex">
-                    <span class="inline-block mr-5 text-gray-700 hover:text-blue-500">
+                  <div className="flex">
+                    <span className="inline-block mr-5 text-gray-700 hover:text-blue-500">
                       <a
                         href="https://github.com/vishu567"
                         target="_blank"
@@ -170,7 +170,7 @@ const TeamMember = () => {
                         </svg>
                       </a>
                     </span>
-                    <span class="inline-block mr-5 text-gray-700 hover:text-blue-500">
+                    <span className="inline-block mr-5 text-gray-700 hover:text-blue-500">
                       <a
                         href="https://www.linkedin.com/in/vishal-563015231/"
                         target="_blank"
@@ -190,26 +190,26 @@ const TeamMember = () => {
                 </div>
               </div>
             </div>
-            <div class="flex flex-col flex-wrap mb-0 overflow-hidden rounded lg:flex-row">
-              <div class="inline-block mb-3 overflow-hidden text-xs text-white bg-blue-500 md:rounded-full h-96 sm:w-48 sm:h-48">
+            <div className="flex flex-col flex-wrap mb-0 overflow-hidden rounded lg:flex-row">
+              <div className="inline-block mb-3 overflow-hidden text-xs text-white bg-blue-500 md:rounded-full h-96 sm:w-48 sm:h-48">
                 <img
-                  class="object-cover w-full h-full transition-all hover:scale-110"
+                  className="object-cover w-full h-full transition-all hover:scale-110"
                   src="https://avatars.githubusercontent.com/u/115224664?v=4"
                   alt="sachin kumar image"
                 />
               </div>
-              <div class="relative flex self-center flex-1 lg:ml-8 ">
+              <div className="relative flex self-center flex-1 lg:ml-8 ">
                 <div>
-                  <h2 class="mb-2 text-2xl font-bold">Sachin Kumar</h2>
-                  <p class="mb-4 text-sm font-medium text-blue-500">
+                  <h2 className="mb-2 text-2xl font-bold">Sachin Kumar</h2>
+                  <p className="mb-4 text-sm font-medium text-blue-500">
                     Full Stack Developer
                   </p>
-                  <p class="mb-6 text-sm text-gray-500">
+                  <p className="mb-6 text-sm text-gray-500">
                     Lorem ipsum dolor sit amet, consectetu incididunt ut dolore
                     magna aliqua. Ut enim ad minim veniam
                   </p>
-                  <div class="flex">
-                    <span class="inline-block mr-5 text-gray-700 hover:text-blue-500">
+                  <div className="flex">
+                    <span className="inline-block mr-5 text-gray-700 hover:text-blue-500">
                       <a
                         href="https://github.com/sachinkumar911"
                         target="_blank"
@@ -229,7 +229,7 @@ const TeamMember = () => {
                         </svg>
                       </a>
                     </span>
-                    <span class="inline-block mr-5 text-gray-700 hover:text-blue-500">
+                    <span className="inline-block mr-5 text-gray-700 hover:text-blue-500">
                       <a
                         href="https://www.linkedin.com/in/sachin-kumar-7b6a121a6/"
                         target="_blank"

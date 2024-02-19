@@ -6,14 +6,14 @@ const Instructionfirst = () => {
   const [uservalue, setusername] = useState("Username");
   return (
     <>
-      <div class="flex flex-row ">
-        <div class="bg-gray-50 p-6 h-[90vh] rounded-md overflow-y-scroll w-3/4">
-          <u class="font-bold">
+      <div className="flex flex-row ">
+        <div className="bg-gray-50 p-6 h-[90vh] rounded-md overflow-y-scroll w-3/4">
+          <u className="font-bold">
             <b>General Instructions:</b>
           </u>
           <br />
           <br />
-          <ul class="list-disc ml-6">
+          <ul className="list-disc ml-6">
             <li>
               The clock will be set at the server. The countdown timer in the
               top right corner of the screen will display the remaining time
@@ -48,15 +48,15 @@ const Instructionfirst = () => {
             </li>
             <br />
           </ul>
-          <u class="font-bold">
+          <u className="font-bold">
             <b>Navigating to a Question :</b>
           </u>
           <br />
           <br />
-          <ul class="list-disc ml-6">
+          <ul className="list-disc ml-6">
             <li>
               To answer a question, do the following:
-              <ul class="list-disc ml-6">
+              <ul className="list-disc ml-6">
                 <li>
                   Click on the question number in the Question Palette to go to
                   that numbered question directly.
@@ -70,7 +70,7 @@ const Instructionfirst = () => {
                   the current question, mark it for review, and then go to the
                   next question.
                 </li>
-                <li class="text-red-600">
+                <li className="text-red-600">
                   Caution: Note that your answer for the current question will
                   not be saved if you navigate to another question directly by
                   clicking on its question number.
@@ -84,15 +84,15 @@ const Instructionfirst = () => {
             </li>
           </ul>
           <br />
-          <u class="font-bold">
+          <u className="font-bold">
             <b>Answering a Question :</b>
           </u>
           <br />
           <br />
-          <ul class="list-disc ml-6">
+          <ul className="list-disc ml-6">
             <li>
               Procedure for answering a multiple-choice type question:
-              <ul class="list-disc ml-6">
+              <ul className="list-disc ml-6">
                 <li>
                   To select your answer, click on the button of one of the
                   options.
@@ -114,7 +114,7 @@ const Instructionfirst = () => {
                   To mark the question for review, click on the{" "}
                   <b>Mark for Review &amp; Next</b> button.
                 </li>
-                <li class="text-red-600">
+                <li className="text-red-600">
                   If an answer is selected for a question that is 'Marked for
                   Review', that answer will be considered in the evaluation even
                   if it is not marked as 'Save &amp; Next', at the time of final
@@ -127,7 +127,7 @@ const Instructionfirst = () => {
               answered, first select that question for answering and then follow
               the procedure for answering that type of question.
             </li>
-            <li class="text-red-600">
+            <li className="text-red-600">
               Note that questions for which an option has been chosen and
               answers are saved or marked for review will be considered for
               evaluation.
@@ -138,24 +138,24 @@ const Instructionfirst = () => {
             </li>
           </ul>
         </div>
-        <div class="flex  flex-col w-1/4 justify-center items-center">
+        <div className="flex  flex-col w-1/4 justify-center items-center">
           <img
-            class="rounded-lg border-2 border-blue-300"
+            className="rounded-lg border-2 border-blue-300"
             src={pic}
             alt="avatar of the user"
           />
-          <p class="mt-2 text-center text-sm font-semibold">{uservalue}</p>
+          <p className="mt-2 text-center text-sm font-semibold">{uservalue}</p>
         </div>
       </div>
 
       <br />
       <br />
       <br />
-      <div class=" h-[10vh] bg-white fixed bottom-0 left-0  w-3/4 flex justify-end items-center border-blue-400 border-t-2 border-r-2">
+      <div className=" h-[10vh] bg-white fixed bottom-0 left-0  w-3/4 flex justify-end items-center border-blue-400 border-t-2 border-r-2">
         <Link to="/Instructionsecond">
           <button
             type="button"
-            class=" px-8  text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-700  font-medium rounded-lg text-sm  py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 "
+            className=" px-8  text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-700  font-medium rounded-lg text-sm  py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 "
           >
             Next
           </button>
