@@ -150,6 +150,7 @@ const OnlineExam = () => {
       setcurrquesindex(currquesindex - 1);
     }
   };
+
   const clearresponse = () => {
     setSelectedOption(null);
     setAnswer({
@@ -159,6 +160,19 @@ const OnlineExam = () => {
         [currentDisplay._id]: undefined,
       },
     });
+
+    //socket-sending data to DB
+    socket.emit("updateAnswer", {
+      startTest_id: `${sessionStorage.getItem("startTest_id")}`,
+      subject: AllData?.questions[currsubject].subjectname,
+      quesId: currentDisplay._id,
+      answer: "",
+    });
+
+    socket.off("updateReply").on("updateReply", (reply) => {
+      console.log(reply);
+    });
+
     if (
       JSON.parse(localStorage.getItem("MarkforReviews")) &&
       JSON.parse(localStorage.getItem("MarkforReviews"))[
@@ -185,6 +199,17 @@ const OnlineExam = () => {
           ...Answers[AllData?.questions[currsubject].subjectname],
           [currentDisplay._id]: undefined,
         },
+      });
+      //socket-sending data to DB
+      socket.emit("updateAnswer", {
+        startTest_id: `${sessionStorage.getItem("startTest_id")}`,
+        subject: AllData?.questions[currsubject].subjectname,
+        quesId: currentDisplay._id,
+        answer: "",
+      });
+
+      socket.off("updateReply").on("updateReply", (reply) => {
+        console.log(reply);
       });
     }
 
@@ -296,12 +321,24 @@ const OnlineExam = () => {
         <div className="flex h-[77vh] justify-center items-center mx-24">
           <div className=" h-full flex flex-col  lg:w-[75vw] w-full ">
             <div className=" h-fit flex justify-between items-center  border-b-2 border-slate-300 mb-1 ">
-              <h2 className="py-3 px-2 font-semibold">Question 8</h2>
+              <h2 className="py-3 px-2 font-semibold">
+                Question {currquesindex + 1}
+              </h2>
               <h2 className="py-3 px-2 font-semibold">
                 {" "}
                 Single correct option,
-                <span className="text-green-400 ">+12.0</span>{" "}
-                <span className="text-red-500 ">-3.0</span>
+                <span className="text-green-400 ">
+                  +
+                  {AllData?.questions[currsubject]?.posM
+                    ? (AllData?.questions[currsubject]?.posM).toFixed(1)
+                    : ""}
+                </span>{" "}
+                <span className="text-red-500 ">
+                  -
+                  {AllData?.questions[currsubject]?.negM
+                    ? (AllData?.questions[currsubject]?.negM).toFixed(1)
+                    : ""}
+                </span>
               </h2>
             </div>
 
