@@ -67,7 +67,6 @@ function App() {
             path="/"
             element={
               <>
-                <Toaster position="top-center" reverseOrder={false} />
                 <Header />
                 <Element name="hero">
                   <Hero />
