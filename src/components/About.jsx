@@ -8,10 +8,14 @@ const About = () => {
   return (
     <>
       <section id="about-section" className="mt-56 mb-40">
-      <h2 class="text-[22px] medium:text-[32px] leading-8 medium:leading-10 font-bold text-center regular:!text-left w-full regular:!w-auto font-inter text-gray-900 pb-0">Start Your Journey</h2>
-      <h6 class="text-base medium:text-lg leading-6 medium:leading-[26px] font-light text-gray-650 text-center regular:!text-left">Embark on a journey of self-discovery, refine your skills, and achieve success.</h6>
+        <h2 className="text-[22px] medium:text-[32px] leading-8 medium:leading-10 font-bold text-center regular:!text-left w-full regular:!w-auto font-inter text-gray-900 pb-0">
+          Start Your Journey
+        </h2>
+        <h6 className="text-base medium:text-lg leading-6 medium:leading-[26px] font-light text-gray-650 text-center regular:!text-left">
+          Embark on a journey of self-discovery, refine your skills, and achieve
+          success.
+        </h6>
         <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-       
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-6 lg:gap-12">
               <div className="space-y-6 lg:space-y-10">

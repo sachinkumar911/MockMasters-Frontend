@@ -4,6 +4,9 @@ import { useNavigate } from "react-router-dom";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
+import io from "socket.io-client";
+
+var socket = null;
 
 const OnlineExam = () => {
   const [AllData, setAllData] = useState();
@@ -69,6 +72,9 @@ const OnlineExam = () => {
           );
         }
       }
+      if (!socket) {
+        socket = io(import.meta.env.VITE_APP_ENDPOINT);
+      }
     })();
   }, []);
 
@@ -116,6 +122,18 @@ const OnlineExam = () => {
         localStorage.setItem("MarkforReviews", JSON.stringify(obj));
         setMarkReview(obj);
       }
+
+      //socket-sending data to DB
+      socket.emit("updateAnswer", {
+        startTest_id: `${sessionStorage.getItem("startTest_id")}`,
+        subject: AllData?.questions[currsubject].subjectname,
+        quesId: currentDisplay._id,
+        answer: op,
+      });
+
+      socket.off("updateReply").on("updateReply", (reply) => {
+        console.log(reply);
+      });
     }
     setSelectedOption(null);
     if (currquesindex < currentPanel.length - 1) {
