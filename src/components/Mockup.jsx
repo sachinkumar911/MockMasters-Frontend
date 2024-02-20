@@ -1,6 +1,9 @@
 import React from "react";
 import mocktestimg from "../assets/mockup1.png";
-import mobileimg from "../assets/mobileimg.jpg";
+// import mobileimg from "../assets/mobileimg.jpg";
+import mobile1 from "../assets/mobile1.jpg"
+import mobile2 from "../assets/mobile2.jpg"
+import mobile3 from "../assets/mobile3.jpg"
 const Mockup = () => {
   return (
     <>
@@ -55,7 +58,7 @@ const Mockup = () => {
               <div className="p-1.5 bg-gray-800 rounded-tl-2xl rounded-tr-2xl pb-0 ">
                 <img
                   className="max-w-full h-auto rounded-tl-2xl rounded-tr-2xl border-0"
-                  src={mobileimg}
+                  src={mobile1}
                   alt="Image Description"
                 />
               </div>
@@ -74,7 +77,7 @@ const Mockup = () => {
               <div className="p-1.5 bg-gray-800 rounded-tl-2xl rounded-tr-2xl pb-0 ">
                 <img
                   className="max-w-full h-auto rounded-tl-2xl rounded-tr-2xl border-0"
-                  src={mobileimg}
+                  src={mobile2}
                   alt="Image Description"
                 />
               </div>
@@ -93,7 +96,7 @@ const Mockup = () => {
               <div className="p-1.5 bg-gray-800 rounded-tl-2xl rounded-tr-2xl pb-0 ">
                 <img
                   className="max-w-full h-auto rounded-tl-2xl rounded-tr-2xl border-0"
-                  src={mobileimg}
+                  src={mobile3}
                   alt="Image Description"
                 />
               </div>

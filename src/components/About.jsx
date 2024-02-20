@@ -8,8 +8,8 @@ const About = () => {
   return (
     <>
       <section id="about-section" className="mt-56 mb-40">
-        <h2 className="text-[22px] medium:text-[32px] leading-8 medium:leading-10 font-bold text-center regular:!text-left w-full regular:!w-auto font-inter text-gray-900 pb-0">
-          Start Your Journey
+        <h2 className="text-2xl medium:text-[32px] leading-8 medium:leading-10 font-bold text-center  regular:!text-left w-full regular:!w-auto font-inter text-gray-900 pb-0">
+          START YOUR JOURNEY
         </h2>
         <h6 className="text-base medium:text-lg leading-6 medium:leading-[26px] font-light text-gray-650 text-center regular:!text-left">
           Embark on a journey of self-discovery, refine your skills, and achieve

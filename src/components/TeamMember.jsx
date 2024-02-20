@@ -10,7 +10,7 @@ const TeamMember = () => {
                     className="block mb-4 text-xs font-semibold leading-4 tracking-widest text-center text-blue-500 uppercase dark:text-gray-400">
                     Team
                 </span> */}
-            <h1 className="text-3xl font-bold capitalize">Meet Our Team </h1>
+            <h1 className="text-2xl font-bold capitalize">MEET OUR TEAM </h1>
           </div>
           <div className="grid grid-cols-1 gap-4 lg:gap-8 sm:gap-4 sm:grid-cols-2 lg:grid-cols-2">
             <div className="flex flex-col flex-wrap mb-0 overflow-hidden rounded lg:flex-row">
@@ -25,11 +25,10 @@ const TeamMember = () => {
                 <div>
                   <h2 className="mb-2 text-2xl font-bold">Vinay Kumar</h2>
                   <p className="mb-4 text-sm font-medium text-blue-500">
-                    Full Stack Developer
+                    FULL Stack Developer
                   </p>
                   <p className="mb-6 text-sm text-gray-500">
-                    Lorem ipsum dolor sit amet, consectetu incididunt ut dolore
-                    magna aliqua. Ut enim ad minim veniam
+                  "Code is the poetry of a machine, translating ideas into digital reality".
                   </p>
                   <div className="flex">
                     <span className="inline-block mr-5 text-gray-700 hover:text-blue-500">
@@ -84,11 +83,10 @@ const TeamMember = () => {
                 <div>
                   <h2 className="mb-2 text-2xl font-bold">Vikash Burman</h2>
                   <p className="mb-4 text-sm font-medium text-blue-500">
-                    Full Stack Developer
+                  MERN stack developer
                   </p>
                   <p className="mb-6 text-sm text-gray-500">
-                    Lorem ipsum dolor sit amet, consectetu incididunt ut dolore
-                    magna aliqua. Ut enim ad minim veniam
+                 "Every algorithm is a brushstroke, painting the canvas of digital innovation".
                   </p>
                   <div className="flex">
                     <span className="inline-block mr-5 text-gray-700 hover:text-blue-500">
@@ -143,11 +141,10 @@ const TeamMember = () => {
                 <div>
                   <h2 className="mb-2 text-2xl font-bold">Vishal Kumar</h2>
                   <p className="mb-4 text-sm font-medium text-blue-500">
-                    Full Stack Developer
+                  MERN stack developer
                   </p>
                   <p className="mb-6 text-sm text-gray-500">
-                    Lorem ipsum dolor sit amet, consectetu incididunt ut dolore
-                    magna aliqua. Ut enim ad minim veniam
+                  "In the language of programming, innovation speaks louder than code".
                   </p>
                   <div className="flex">
                     <span className="inline-block mr-5 text-gray-700 hover:text-blue-500">
@@ -202,11 +199,10 @@ const TeamMember = () => {
                 <div>
                   <h2 className="mb-2 text-2xl font-bold">Sachin Kumar</h2>
                   <p className="mb-4 text-sm font-medium text-blue-500">
-                    Full Stack Developer
+                  MERN stack developer
                   </p>
                   <p className="mb-6 text-sm text-gray-500">
-                    Lorem ipsum dolor sit amet, consectetu incididunt ut dolore
-                    magna aliqua. Ut enim ad minim veniam
+                  "Coding is the silent language that powers the dynamic symphony of the internet". 
                   </p>
                   <div className="flex">
                     <span className="inline-block mr-5 text-gray-700 hover:text-blue-500">

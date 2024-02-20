@@ -15,11 +15,11 @@ const Hero = () => {
       >
         <div className="grid max-w-screen-xl py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-8 lg:grid-cols-12">
           <div className="mr-auto place-self-center lg:col-span-6">
-            <h1 className=" mb-4 text-6xl font-semibold  tracking-normal leading-none md:text-5xl xl:text-6xl">
+            <h1 className=" mb-4 text-6xl font-semibold  tracking-normal leading-none md:text-5xl xl:text-7xl">
               Master Your Exams
               <br />
               with
-              <span className="text-blue-600 text-7xl font-bold">
+              <span className="text-blue-600 text-7xl font-semibold">
                 {" "}
                 MockMasters
               </span>
