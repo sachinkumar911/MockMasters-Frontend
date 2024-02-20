@@ -1,17 +1,24 @@
 import React, { useEffect, useState } from "react";
 import coinimage from "../assets/coin.png";
 import axios from "axios";
+import { UserContext } from "../context/UserContext.jsx";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 const TestSeries = () => {
+  const { userdetail } = useContext(UserContext);
+
   const [examsets, setexamsets] = useState();
   const Navigate = useNavigate();
 
   useEffect(() => {
     (async () => {
       try {
-        const response = await axios.get(
+        const response = await axios.post(
           "http://localhost:8000/api/v1/examset/show",
+          {
+            _id: userdetail._id,
+          },
           {
             headers: {
               "Content-Type": "application/json",
@@ -21,6 +28,7 @@ const TestSeries = () => {
         );
         // console.log(response?.data?.data);
         setexamsets(response?.data?.data);
+        // console.log(response?.data?.data);
       } catch (error) {
         console.error(error.response.data.message);
       }
@@ -29,8 +37,15 @@ const TestSeries = () => {
 
   const startTest = (item) => {
     // check wallet
+    item.isResume = false;
+    sessionStorage.setItem("Data", JSON.stringify(item));
+    Navigate("/test/marking-scheme");
+  };
+
+  const resumeTest = (item) => {
     // console.log(item);
     sessionStorage.setItem("Data", JSON.stringify(item));
+    sessionStorage.setItem("startTest_id", item.startTest_id);
     Navigate("/test/marking-scheme");
   };
 
@@ -77,14 +92,29 @@ const TestSeries = () => {
                 <p className="px-1">{item.examinfo?.duration} Minutes</p>
               </div>
               <div className="mx-6 mb-3 flex items-center justify-between">
-                <button
-                  onClick={() => startTest(item)}
-                  type="button"
-                  href="/"
-                  className="inline-block rounded text-white bg-blue-500 hover:bg-blue-600 px-4 pb-2 pt-2.5 text-sm font-medium leading-normal"
-                >
-                  Start Test
-                </button>
+                <div>
+                  <button
+                    onClick={() => startTest(item)}
+                    type="button"
+                    className="inline-block rounded text-white bg-blue-500 hover:bg-blue-600 border-blue-500 border-2 px-4 py-2 text-sm font-medium leading-normal"
+                  >
+                    {item.isResume ? "Start new test" : "Start Test"}
+                  </button>
+                  {item.isResume ? (
+                    <>
+                      {" "}
+                      <button
+                        onClick={() => resumeTest(item)}
+                        type="button"
+                        className="inline-block rounded text-blue-500 bg-white border-blue-500 border-2 hover:bg-blue-600 hover:text-white px-3 py-[0.4rem] ml-2 text-sm font-medium leading-normal"
+                      >
+                        Resume Test
+                      </button>
+                    </>
+                  ) : (
+                    ""
+                  )}
+                </div>
                 <div className="bg-green-300 w-max px-2  text-green-900 rounded-2xl text-xs font-semibold flex items-center h-min py-[5px]">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

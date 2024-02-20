@@ -26,35 +26,47 @@ const Pattern = () => {
   const finalStart = async () => {
     // Deduct Coins
     // console.log(Data);
-    try {
-      const response = await axios.post(
-        "http://localhost:8000/api/v1/test/start-test",
-        {
-          userId: userdetail?._id,
-          qpsetId: Data?._id,
-          timeleft: Data?.examinfo?.duration,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          withCredentials: true,
-        }
+    if (JSON.parse(sessionStorage.getItem("Data"))?.isResume) {
+      sessionStorage.setItem(
+        "startTest_id",
+        JSON.parse(sessionStorage.getItem("Data"))?.startTest_id
       );
-      successnotify(response.data.message);
+      sessionStorage.setItem("Question_id", Data?._id);
       sessionStorage.removeItem("Data");
-      sessionStorage.setItem("startTest_id", response.data.data);
-      sessionStorage.setItem("Question_id", Data._id);
       setTimeout(() => {
         Navigate("/test/ongoing");
       }, 1000);
-    } catch (error) {
-      console.error(error.response);
-      errornotify(error.response.data.message);
-      sessionStorage.removeItem("Data");
-      setTimeout(() => {
-        Navigate("/dashboard/test-series");
-      }, 1500);
+    } else {
+      try {
+        const response = await axios.post(
+          "http://localhost:8000/api/v1/test/start-test",
+          {
+            userId: userdetail?._id,
+            qpsetId: Data?._id,
+            timeleft: Data?.examinfo?.duration,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+            withCredentials: true,
+          }
+        );
+        successnotify(response.data.message);
+        sessionStorage.setItem("startTest_id", response.data.data);
+        sessionStorage.setItem("Question_id", Data._id);
+        sessionStorage.removeItem("Data");
+        setTimeout(() => {
+          Navigate("/test/ongoing");
+        }, 1000);
+      } catch (error) {
+        console.error(error.response);
+        errornotify(error.response.data.message);
+        sessionStorage.removeItem("Data");
+        setTimeout(() => {
+          Navigate("/dashboard/test-series");
+        }, 1500);
+      }
     }
   };
 
@@ -118,7 +130,9 @@ const Pattern = () => {
             className="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 "
             onClick={finalStart}
           >
-            Start test
+            {JSON.parse(sessionStorage.getItem("Data"))?.isResume
+              ? "Resume test"
+              : "Start test"}
           </button>
         </div>
       </div>
