@@ -16,7 +16,7 @@ const Pattern = () => {
     if (sessionStorage.getItem("Data")) {
       setData(JSON.parse(sessionStorage.getItem("Data")));
     } else {
-      Navigate("/");
+      Navigate("/dashboard/test-series");
     }
     //
   }, []);
