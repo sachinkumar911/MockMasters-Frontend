@@ -24,10 +24,12 @@ const OnlineExam = () => {
   const [Answers, setAnswer] = useState({});
 
   const Navigate = useNavigate();
+
   useEffect(() => {
     if (
-      !sessionStorage.getItem("Question_id") &&
-      !sessionStorage.getItem("All-Set")
+      (!sessionStorage.getItem("Question_id") &&
+        !sessionStorage.getItem("All-Set")) ||
+      !sessionStorage.getItem("startTest_id")
     ) {
       Navigate("/dashboard/test-series");
     }
@@ -46,7 +48,7 @@ const OnlineExam = () => {
           }
         );
         if (response.data.success) {
-          sessionStorage.removeItem("Question_id");
+          // sessionStorage.removeItem("Question_id");
           sessionStorage.setItem(
             "All-Set",
             JSON.stringify(response.data.data[0])
@@ -56,7 +58,24 @@ const OnlineExam = () => {
           setcurrentDisplay(
             response.data.data[0]?.questions[0]?.questionIds[0]
           );
-          // console.log(response.data.data[0]);
+
+          // Retrieving User Answers
+          const resp = await axios.post(
+            "http://localhost:8000/api/v1/test/retrieve-user-answers",
+            {
+              startTest_id: sessionStorage.getItem("startTest_id"),
+            },
+            {
+              headers: {
+                "Content-Type": "application/json",
+              },
+              withCredentials: true,
+            }
+          );
+
+          if (resp.data.success) {
+            setAnswer(resp.data.data);
+          }
         }
       } catch (error) {
         // console.error(error.response.data.message);
@@ -70,6 +89,26 @@ const OnlineExam = () => {
             JSON.parse(sessionStorage.getItem("All-Set"))?.questions[0]
               ?.questionIds[0]
           );
+
+          // Retrieving User Answers
+          const resp = await axios.post(
+            "http://localhost:8000/api/v1/test/retrieve-user-answers",
+            {
+              startTest_id: sessionStorage.getItem("startTest_id"),
+            },
+            {
+              headers: {
+                "Content-Type": "application/json",
+              },
+              withCredentials: true,
+            }
+          );
+
+          if (resp.data.success) {
+            setAnswer(resp.data.data);
+          }
+        } else {
+          Navigate("/dashboard/test-series");
         }
       }
       if (!socket) {
