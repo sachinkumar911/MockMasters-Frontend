@@ -222,7 +222,7 @@ const DashboardHeader = () => {
 
             <div className=" lg:flex flex-col justify-center items-center lg:flex-row text-lg lg:text-base lg:gap-4  hidden">
               {islogin ? (
-                <div className="lg:flex flex-col justify-center items-center lg:flex-row text-lg lg:text-base lg:gap-4">
+                <div className="lg:flex flex-col justify-center items-center lg:flex-row text-lg lg:text-base lg:gap-4 ">
                   {islogin ? (
                     <div className="relative inline-block group">
                       <div className="flex font-semibold text-lg items-center gap-2">
@@ -231,12 +231,12 @@ const DashboardHeader = () => {
                           src={avatars[userdetail.avatar - 1]}
                           alt="Avatar"
                           onClick={handleImageClick}
-                          className={`cursor-pointer  rounded-full shadow-lg  border-4 border-white transition-transform transform-gpu md:w-11 md:h-11 h-10 w-fit md:mr-2 
+                          className={`cursor-pointer  rounded-full shadow-lg  border-4 border-white transition-transform transform-gpu md:w-11 md:h-11 h-10 w-fit 
                           focus:outline-none`}
                         />
                       </div>
                       {isDropdownVisible && (
-                        <div className="absolute ml-0 mt-0 bg-white  rounded-xl shadow-lg z-10 w-[100%]">
+                        <div className="absolute  mt-1 right-0 bg-white py-1  rounded-xl shadow-lg z-10 w-fit px-2 ">
                           <button
                             type="button"
                             onClick={() =>
@@ -267,7 +267,7 @@ const DashboardHeader = () => {
                             onClick={() =>
                               setIsDropdownVisible(!isDropdownVisible)
                             }
-                            className=" flex items-center gap-3 font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
+                            className=" flex items-center gap-3 hover:rounded-lg font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
                           >
                             <svg
                               className="w-[27px] h-[27px] text-gray-800 "
@@ -292,7 +292,7 @@ const DashboardHeader = () => {
                             type="button"
                             // onClick={handleLogoutClick}
                             onClick={logoutuser}
-                            className="flex items-center gap-3 font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
+                            className="flex items-center gap-3 hover:rounded-lg font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
                           >
                             <svg
                               className="w-[27px] h-[27px] text-gray-800"
@@ -318,7 +318,7 @@ const DashboardHeader = () => {
                     <>
                       <button
                         type="button"
-                        className="lg:font-medium font-semibold bg-slate-200 px-4 py-2
+                        className="lg:font-medium font-semibold hover:rounded-lg bg-slate-200 px-4 py-2
                     hover:bg-opacity-50 rounded-lg text-base text-center shadow-md "
                       >
                         <NavLink to="/Login">Login</NavLink>

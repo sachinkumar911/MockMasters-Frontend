@@ -27,9 +27,9 @@ const DashBoard = () => {
       <section id="sidebar-section" className=" flex justify-center ">
         <aside
           id="default-sidebar"
-          className={`w-0 md:w-[25%] lg:w-[20%]  h-screen  transition-transform -translate-x-full md:translate-x-0 border-r-2 ${
+          className={`w-0 md:w-[25%] lg:w-[20%]  h-screen  transition-transform -translate-x-full md:translate-x-0  shadow-2xl ${
             side
-              ? " max-sm:absolute  top-[5.5rem] left-[-1rem]   duration-300 transition-transform translate-x-[10%] w-fit z-20 rounded-md shadow-2xl   "
+              ? " max-sm:absolute  top-[5.5rem] left-[-1rem]  duration-300 transition-transform translate-x-[10%] w-fit z-20 rounded-md    "
               : "  "
           }`}
           aria-label="Sidebar"
@@ -49,7 +49,7 @@ const DashBoard = () => {
                 <Link
                   to="/dashboard"
                   onClick={() => setside(!side)}
-                  className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100  group"
+                  className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-200  group"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -73,7 +73,7 @@ const DashBoard = () => {
                 <Link
                   to="/dashboard/test-series"
                   onClick={() => setside(!side)}
-                  className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100 group"
+                  className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-200 group"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -96,7 +96,7 @@ const DashBoard = () => {
                 <Link
                   to="/dashboard/progress-report"
                   onClick={() => setside(!side)}
-                  className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100 group"
+                  className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-200 group"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -122,7 +122,7 @@ const DashBoard = () => {
                 <Link
                   to="/dashboard/attempted-test"
                   onClick={() => setside(!side)}
-                  className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+                  className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-200  group"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -148,7 +148,7 @@ const DashBoard = () => {
                 <Link
                   to="/dashboard/change-password"
                   onClick={() => setside(!side)}
-                  className="flex items-center  p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
+                  className="flex items-center  p-2 text-gray-900 rounded-lg hover:bg-gray-200 group"
                 >
                   <div className="flex items-center w-6 h-6">
                     {" "}
@@ -174,7 +174,7 @@ const DashBoard = () => {
                 <Link
                   to="/dashboard/create-question"
                   onClick={() => setside(!side)}
-                  className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+                  className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-200  group"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -200,7 +200,7 @@ const DashBoard = () => {
                 <Link
                   to="/dashboard/create-test"
                   onClick={() => setside(!side)}
-                  className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+                  className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-200  group"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
