@@ -91,7 +91,7 @@ const TestSeries = () => {
                 <p className="px-1">{item.totalmarks} marks</p>
                 <p className="px-1 text-gray-400">|</p>
                 <p className="px-1">
-                  {humanizeDuration(item.examinfo?.duration + 4080000)}
+                  {humanizeDuration(item.examinfo?.duration)}
                 </p>
               </div>
               <div className="mx-6 mb-3 flex items-center justify-between">
