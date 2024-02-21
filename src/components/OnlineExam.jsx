@@ -5,7 +5,7 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import io from "socket.io-client";
-import humanizeDuration from "humanize-duration";
+import Countdown from "react-countdown";
 
 var socket = null;
 
@@ -21,10 +21,10 @@ const OnlineExam = () => {
       ? JSON.parse(localStorage.getItem("MarkforReviews"))
       : {}
   );
-
   const [Answers, setAnswer] = useState({});
-
   const Navigate = useNavigate();
+
+  const [TimeLeft, setTimeLeft] = useState(10000);
 
   useEffect(() => {
     if (
@@ -114,7 +114,13 @@ const OnlineExam = () => {
       }
       if (!socket) {
         socket = io(import.meta.env.VITE_APP_ENDPOINT);
+        if (sessionStorage.getItem("startTest_id")) {
+          socket.emit("sendID", sessionStorage.getItem("startTest_id"));
+        }
       }
+      socket.off("StartTimeLeft").on("StartTimeLeft", (TL) => {
+        setTimeLeft(Math.floor(TL / 1000) * 1000);
+      });
     })();
   }, []);
 
@@ -314,21 +320,21 @@ const OnlineExam = () => {
     }
   };
 
-  const shortEnglishHumanizer = humanizeDuration.humanizer({
-    language: "shortEn",
-    languages: {
-      shortEn: {
-        y: () => "y",
-        mo: () => "mo",
-        w: () => "w",
-        d: () => "d",
-        h: () => "h",
-        m: () => "m",
-        s: () => "s",
-        ms: () => "ms",
-      },
-    },
-  });
+  const Completionist = () => <span className="text-red-500">Times up!</span>;
+
+  const renderer = ({ hours, minutes, seconds, completed }) => {
+    if (completed) {
+      return <Completionist />;
+    } else {
+      return (
+        <span>
+          {hours < 10 ? `0${hours}` : hours}:
+          {minutes < 10 ? `0${minutes}` : minutes}:
+          {seconds < 10 ? `0${seconds}` : seconds}
+        </span>
+      );
+    }
+  };
 
   return (
     <>
@@ -370,9 +376,9 @@ const OnlineExam = () => {
           </Box>
 
           <div className="self-center md:text-xl font-semibold">
-            Time:{" "}
-            <span className=" self-center">
-              {shortEnglishHumanizer(720000 + 4080000)}
+            Time Left:
+            <span id="ExamTImer" className=" self-center px-2">
+              <Countdown date={Date.now() + TimeLeft} renderer={renderer} />
             </span>
           </div>
         </div>
