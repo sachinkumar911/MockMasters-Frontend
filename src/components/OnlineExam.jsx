@@ -5,6 +5,7 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import io from "socket.io-client";
+import humanizeDuration from "humanize-duration";
 
 var socket = null;
 
@@ -313,6 +314,22 @@ const OnlineExam = () => {
     }
   };
 
+  const shortEnglishHumanizer = humanizeDuration.humanizer({
+    language: "shortEn",
+    languages: {
+      shortEn: {
+        y: () => "y",
+        mo: () => "mo",
+        w: () => "w",
+        d: () => "d",
+        h: () => "h",
+        m: () => "m",
+        s: () => "s",
+        ms: () => "ms",
+      },
+    },
+  });
+
   return (
     <>
       <section>
@@ -353,7 +370,10 @@ const OnlineExam = () => {
           </Box>
 
           <div className="self-center md:text-xl font-semibold">
-            Time <span className=" self-center">00:00</span>
+            Time:{" "}
+            <span className=" self-center">
+              {shortEnglishHumanizer(720000 + 4080000)}
+            </span>
           </div>
         </div>
 
