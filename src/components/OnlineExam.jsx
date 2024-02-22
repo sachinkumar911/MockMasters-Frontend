@@ -114,7 +114,7 @@ const OnlineExam = () => {
       }
       if (!socket) {
         socket = io(import.meta.env.VITE_APP_ENDPOINT);
-        if (sessionStorage.getItem("startTest_id")) {
+        if (socket && sessionStorage.getItem("startTest_id")) {
           socket.emit("sendID", sessionStorage.getItem("startTest_id"));
         }
       }
@@ -129,6 +129,12 @@ const OnlineExam = () => {
     setcurrsubject(newValue);
     setcurrentDisplay(AllData?.questions[newValue].questionIds[0]);
     setcurrquesindex(0);
+
+    //socket-updating TimeLeft on DB
+    socket.emit("updateTimeLeft", sessionStorage.getItem("startTest_id"));
+    socket.off("updateTimeReply").on("updateTimeReply", (newTL) => {
+      setTimeLeft(newTL);
+    });
   };
 
   const changeDisplay = (key) => {
@@ -181,6 +187,7 @@ const OnlineExam = () => {
         console.log(reply);
       });
     }
+
     setSelectedOption(null);
     if (currquesindex < currentPanel.length - 1) {
       let tmp = currquesindex;
@@ -324,6 +331,8 @@ const OnlineExam = () => {
 
   const renderer = ({ hours, minutes, seconds, completed }) => {
     if (completed) {
+      // TestCompleted();
+
       return <Completionist />;
     } else {
       return (
