@@ -23,6 +23,8 @@ import Mockup from "./components/Mockup.jsx";
 import Temp3 from "./components/Pattern.jsx";
 import OnlineExam from "./components/OnlineExam.jsx";
 import Pattern from "./components/Pattern.jsx";
+import FinalSubmit from "./components/FinalSubmit.jsx";
+import ProgressReport from "./components/ProgressReport.jsx";
 
 function App() {
   const [userdetail, setuserdetail] = useState();
@@ -95,6 +97,8 @@ function App() {
           <Route path="/dashboard/*" element={<AuthDashboard />} />
           <Route path="/Forgotpassword" element={<AuthForgetPass />} />
           <Route path="/verifyotp" element={<AuthForgetVerifyOTP />} />
+          <Route path="/finalsubmit" element={<FinalSubmit />} />
+          <Route path="/progressreport" element={<ProgressReport />} />
           <Route path="/test/marking-scheme" element={<Pattern />} />
           <Route path="/test/ongoing" element={<OnlineExam />} />
         </Routes>
