@@ -37,6 +37,7 @@ const Pattern = () => {
         Navigate("/test/ongoing");
       }, 1000);
     } else {
+      localStorage.removeItem("MarkforReviews");
       try {
         const response = await axios.post(
           "http://localhost:8000/api/v1/test/start-test",
