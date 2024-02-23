@@ -11,6 +11,8 @@ import { UserContext } from "../context/UserContext.jsx";
 import { useContext } from "react";
 import CreateQuestion from "./CreateQuestion";
 import SamplePaper from "./SamplePaper.jsx";
+import ProgressReport from "./ProgressReport.jsx";
+import ReferEarn from "./ReferEarn.jsx";
 
 const DashBoard = () => {
   const { userdetail } = useContext(UserContext);
@@ -146,6 +148,32 @@ const DashBoard = () => {
               </li>
               <li>
                 <Link
+                  to="/dashboard/referearn"
+                  onClick={() => setside(!side)}
+                  className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-200  group"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-6 h-6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M21 11.25v8.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 1 0 9.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1 1 14.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"
+                    />
+                  </svg>
+
+                  <span className="flex-1 whitespace-nowrap ms-3">
+                    Refer & Earn
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link
                   to="/dashboard/change-password"
                   onClick={() => setside(!side)}
                   className="flex items-center  p-2 text-gray-900 rounded-lg hover:bg-gray-200 group"
@@ -258,6 +286,8 @@ const DashBoard = () => {
             <Route path="/change-password" element={<ChangePassword />} />
             <Route path="/create-question" element={<CreateQuestion />} />
             <Route path="/create-test" element={<SamplePaper />} />
+            <Route path="/progressreport" element={<ProgressReport />} />
+            <Route path="/referearn" element={<ReferEarn/>} />
           </Routes>
         </section>
       </section>

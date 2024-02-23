@@ -98,7 +98,6 @@ function App() {
           <Route path="/Forgotpassword" element={<AuthForgetPass />} />
           <Route path="/verifyotp" element={<AuthForgetVerifyOTP />} />
           <Route path="/test/finalresult" element={<FinalSubmit />} />
-          <Route path="/progressreport" element={<ProgressReport />} />
           <Route path="/test/marking-scheme" element={<Pattern />} />
           <Route path="/test/ongoing" element={<OnlineExam />} />
         </Routes>
