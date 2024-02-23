@@ -8,6 +8,7 @@ import io from "socket.io-client";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import Countdown from "react-countdown";
 
 var socket = null;
 //Modal Style
@@ -41,10 +42,10 @@ const OnlineExam = () => {
       ? JSON.parse(localStorage.getItem("MarkforReviews"))
       : {}
   );
-
   const [Answers, setAnswer] = useState({});
-
   const Navigate = useNavigate();
+
+  const [TimeLeft, setTimeLeft] = useState(10000);
 
   useEffect(() => {
     if (
@@ -134,7 +135,13 @@ const OnlineExam = () => {
       }
       if (!socket) {
         socket = io(import.meta.env.VITE_APP_ENDPOINT);
+        if (socket && sessionStorage.getItem("startTest_id")) {
+          socket.emit("sendID", sessionStorage.getItem("startTest_id"));
+        }
       }
+      socket.off("StartTimeLeft").on("StartTimeLeft", (TL) => {
+        setTimeLeft(Math.floor(TL / 1000) * 1000);
+      });
     })();
   }, []);
 
@@ -143,6 +150,12 @@ const OnlineExam = () => {
     setcurrsubject(newValue);
     setcurrentDisplay(AllData?.questions[newValue].questionIds[0]);
     setcurrquesindex(0);
+
+    //socket-updating TimeLeft on DB
+    socket.emit("updateTimeLeft", sessionStorage.getItem("startTest_id"));
+    socket.off("updateTimeReply").on("updateTimeReply", (newTL) => {
+      setTimeLeft(newTL);
+    });
   };
 
   const changeDisplay = (key) => {
@@ -195,6 +208,7 @@ const OnlineExam = () => {
         console.log(reply);
       });
     }
+
     setSelectedOption(null);
     if (currquesindex < currentPanel.length - 1) {
       let tmp = currquesindex;
@@ -334,6 +348,24 @@ const OnlineExam = () => {
     }
   };
 
+  const Completionist = () => <span className="text-red-500">Times up!</span>;
+
+  const renderer = ({ hours, minutes, seconds, completed }) => {
+    if (completed) {
+      // TestCompleted();
+
+      return <Completionist />;
+    } else {
+      return (
+        <span>
+          {hours < 10 ? `0${hours}` : hours}:
+          {minutes < 10 ? `0${minutes}` : minutes}:
+          {seconds < 10 ? `0${seconds}` : seconds}
+        </span>
+      );
+    }
+  };
+
   return (
     <>
       <section>
@@ -374,7 +406,10 @@ const OnlineExam = () => {
           </Box>
 
           <div className="self-center md:text-xl font-semibold">
-            Time <span className=" self-center">00:00</span>
+            Time Left:
+            <span id="ExamTImer" className=" self-center px-2">
+              <Countdown date={Date.now() + TimeLeft} renderer={renderer} />
+            </span>
           </div>
         </div>
 

@@ -4,6 +4,7 @@ import axios from "axios";
 import { UserContext } from "../context/UserContext.jsx";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import humanizeDuration from "humanize-duration";
 
 const TestSeries = () => {
   const { userdetail } = useContext(UserContext);
@@ -87,9 +88,11 @@ const TestSeries = () => {
               <div className="p-5 flex  md:text-lg text-xs">
                 <p className="px-1">{item.noofquestions} Questions</p>
                 <p className="px-1 text-gray-400">|</p>
-                <p className="px-1">{item.totalmarks} Marks</p>
+                <p className="px-1">{item.totalmarks} marks</p>
                 <p className="px-1 text-gray-400">|</p>
-                <p className="px-1">{item.examinfo?.duration} Minutes</p>
+                <p className="px-1">
+                  {humanizeDuration(item.examinfo?.duration)}
+                </p>
               </div>
               <div className="mx-6 mb-3 flex items-center justify-between">
                 <div>
