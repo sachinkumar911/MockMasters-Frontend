@@ -94,7 +94,7 @@ const DashBoard = () => {
               </li>
               <li>
                 <Link
-                  to="/dashboard/progress-report"
+                  to="/dashboard/progressreport"
                   onClick={() => setside(!side)}
                   className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-200 group"
                 >

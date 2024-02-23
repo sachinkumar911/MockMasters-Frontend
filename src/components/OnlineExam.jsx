@@ -1,14 +1,35 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import io from "socket.io-client";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
 
 var socket = null;
+//Modal Style
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  // padding: "20px",
+  // border: "1px solid #ccc",
+  // borderRadius: "8px",
+  // boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+};
 
 const OnlineExam = () => {
+  //Modal State
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   const [AllData, setAllData] = useState();
   const [currentDisplay, setcurrentDisplay] = useState();
   const [currentPanel, setcurrentPanel] = useState();
@@ -418,14 +439,14 @@ const OnlineExam = () => {
               >
                 <div className=" ms-2  flex bg-slate-50  py-3 px-2 justify-between">
                   <button
-                    className={`px-4 py-2 rounded transition-colors duration-300 hover:bg-blue-700 bg-green-500`}
+                    className={`px-4 py-2 rounded transition-colors duration-300 hover:text-white bg-green-500`}
                     id="review"
                     onClick={markforreview}
                   >
                     Mark for Review &amp; Next
                   </button>
                   <button
-                    className={`px-4 py-2 rounded transition-colors duration-300 hover:bg-blue-700 bg-indigo-700`}
+                    className={`px-4 py-2 rounded transition-colors duration-300 hover:text-white bg-indigo-700`}
                     id="clear"
                     onClick={clearresponse}
                   >
@@ -435,14 +456,14 @@ const OnlineExam = () => {
                 <div className="flex justify-between items-center mt-4 bg-slate-50 py-3 px-2 ">
                   <div className="flex gap-2 justify-center items-center">
                     <button
-                      className={`px-4 py-2 rounded transition-colors duration-300 hover:bg-blue-700 bg-white text-black font-semibold`}
+                      className={`px-4 py-2 rounded transition-colors duration-300 hover:text-white bg-white text-black font-semibold`}
                       id="save"
                       onClick={prevques}
                     >
                       Previous
                     </button>
                     <button
-                      className={`px-4 py-2 rounded transition-colors duration-300 hover:bg-blue-700 bg-sky-800`}
+                      className={`px-4 py-2 rounded transition-colors duration-300 hover:text-white bg-sky-800`}
                       id="save"
                       type="button"
                       onClick={setanswer}
@@ -451,11 +472,117 @@ const OnlineExam = () => {
                     </button>
                   </div>
                   <button
-                    className={`px-4 py-2 rounded transition-colors duration-300 hover:bg-blue-700 bg-cyan-400`}
+                    className={`px-4 py-2 rounded transition-colors duration-300 hover:text-white bg-cyan-400`}
                     id="submit"
+                    onClick={handleOpen}
                   >
                     Submit
                   </button>
+                  <Modal
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                  >
+                    <Box sx={style}>
+                      <div class="modal-content ">
+                        <div class=" flex flex-col items-center justify-center bg-blue-500 text-white py-4 px-4 ">
+                          <div class="mo-header-logo text-center px-5 pb-3">
+                            {/* <img src="https://www.mockers.in/frontend/img/mockers-while-logo.svg" alt=""/>  */}
+                            <div class="h5  mtsmh">
+                              Are you sure want to submit test
+                            </div>
+                            <p class="mb-0  mtsmsh">
+                              After submitting test, you won’t be able to
+                              re-attempt
+                            </p>
+                          </div>
+                          <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                          ></button>
+                        </div>
+                        <div class="modal-body py-5 px-12">
+                          <ul class="list-group space-y-2">
+                            <li class="flex ">
+                              <img
+                                src="https://www.mockers.in/frontend/img/red-alarm.svg"
+                                alt=""
+                                class="me-2"
+                              />{" "}
+                              Time Left:
+                              <span class="ms-auto list-span timeLeftSpanId">
+                                169:12 MIN
+                              </span>
+                            </li>
+                            <li class="flex ">
+                              <img
+                                src="https://www.mockers.in/frontend/img/checked.svg"
+                                alt=""
+                                class="me-2"
+                              />{" "}
+                              Attempted:
+                              <span
+                                class="ms-auto list-span"
+                                id="totalAttemptedQuestionCountId"
+                              >
+                                0
+                              </span>
+                            </li>
+                            <li class="flex ">
+                              <img
+                                src="https://www.mockers.in/frontend/img/unattempt.svg"
+                                alt=""
+                                class="me-2"
+                              />{" "}
+                              Unattempt:
+                              <span
+                                class="ms-auto list-span"
+                                id="totalUnAttemptedQuestionCountId"
+                              >
+                                75
+                              </span>
+                            </li>
+                            <li class="flex ">
+                              <img
+                                src="https://www.mockers.in/frontend/img/marked.svg"
+                                alt=""
+                                class="me-2"
+                              />{" "}
+                              Marked for Review:
+                              <span
+                                class="ms-auto list-span"
+                                id="totalReviewQuestionCountId"
+                              >
+                                0
+                              </span>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="flex justify-center items-center space-x-4 p-2">
+                          <button
+                            type="button"
+                            class="bg-gray-300 py-2 px-8 text-center text-sm rounded-sm font-medium "
+                            data-bs-dismiss="modal"
+                            onClick={handleClose}
+                          >
+                            Cancel
+                          </button>
+                          <Link to="/finalsubmit">
+                          <button
+                            type="button"
+                            class="bg-blue-600 py-2 px-8 text-center text-white text-sm rounded-sm font-medium"
+                            id="submitToServerBtn"
+                          >
+                            Submit
+                          </button>
+                          </Link>
+                        </div>
+                      </div>
+                    </Box>
+                  </Modal>
                 </div>
               </div>
             </div>
