@@ -11,6 +11,7 @@ import Modal from "@mui/material/Modal";
 import Countdown from "react-countdown";
 
 var socket = null;
+
 //Modal Style
 const style = {
   position: "absolute",
@@ -26,10 +27,49 @@ const style = {
 };
 
 const OnlineExam = () => {
+  const [attemptCount, setattemptCount] = useState(0);
+  const [markedCount, setmarkedCount] = useState(0);
+
   //Modal State
   const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+
+    //socket-updating TimeLeft on DB
+    socket.emit("updateTimeLeft", sessionStorage.getItem("startTest_id"));
+    socket.off("updateTimeReply").on("updateTimeReply", (newTL) => {
+      setTimeLeft(newTL);
+    });
+    let c = 0;
+    for (const key in Answers) {
+      for (let k in Answers[key]) {
+        if (Answers[key][k] !== undefined && Answers[key][k] !== "") {
+          c++;
+        }
+      }
+    }
+    setattemptCount(c);
+
+    let m = 0;
+    for (const key in MarkReview) {
+      for (let k in MarkReview[key]) {
+        if (MarkReview[key][k] !== undefined) {
+          m++;
+        }
+      }
+    }
+    setmarkedCount(m);
+  };
+  const handleClose = () => {
+    setOpen(false);
+
+    //socket-updating TimeLeft on DB
+    socket.emit("updateTimeLeft", sessionStorage.getItem("startTest_id"));
+    socket.off("updateTimeReply").on("updateTimeReply", (newTL) => {
+      setTimeLeft(newTL);
+    });
+  };
 
   const [AllData, setAllData] = useState();
   const [currentDisplay, setcurrentDisplay] = useState();
@@ -48,6 +88,8 @@ const OnlineExam = () => {
   const [TimeLeft, setTimeLeft] = useState(10000);
 
   useEffect(() => {
+    sessionStorage.removeItem("ExamResult");
+
     if (
       (!sessionStorage.getItem("Question_id") &&
         !sessionStorage.getItem("All-Set")) ||
@@ -348,6 +390,10 @@ const OnlineExam = () => {
     }
   };
 
+  const TestCompleted = () => {
+    console.log("Finished/...");
+  };
+
   const Completionist = () => <span className="text-red-500">Times up!</span>;
 
   const renderer = ({ hours, minutes, seconds, completed }) => {
@@ -363,6 +409,35 @@ const OnlineExam = () => {
           {seconds < 10 ? `0${seconds}` : seconds}
         </span>
       );
+    }
+  };
+
+  const sendFinalResponse = async () => {
+    socket.disconnect();
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/api/v1/evaluate-exam",
+        { startTest_id: sessionStorage.getItem("startTest_id") },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+      sessionStorage.setItem(
+        "ExamResult",
+        JSON.stringify(response?.data?.data)
+      );
+      sessionStorage.removeItem("Question_id");
+      sessionStorage.removeItem("All-Set");
+      localStorage.removeItem("MarkforReviews");
+      sessionStorage.removeItem("startTest_id");
+      if (sessionStorage.getItem("ExamResult")) {
+        Navigate("/test/finalresult");
+      }
+    } catch (error) {
+      console.error(error.response.data.message);
     }
   };
 
@@ -511,7 +586,7 @@ const OnlineExam = () => {
                     id="submit"
                     onClick={handleOpen}
                   >
-                    Submit
+                    Final Submit
                   </button>
                   <Modal
                     open={open}
@@ -520,100 +595,96 @@ const OnlineExam = () => {
                     aria-describedby="modal-modal-description"
                   >
                     <Box sx={style}>
-                      <div class="modal-content ">
-                        <div class=" flex flex-col items-center justify-center bg-blue-500 text-white py-4 px-4 ">
-                          <div class="mo-header-logo text-center px-5 pb-3">
+                      <div className="modal-content ">
+                        <div className=" flex flex-col items-center justify-center bg-blue-500 text-white py-4 px-4 ">
+                          <div className="mo-header-logo text-center px-5 pb-3">
                             {/* <img src="https://www.mockers.in/frontend/img/mockers-while-logo.svg" alt=""/>  */}
-                            <div class="h5  mtsmh">
+                            <div className="h5  mtsmh">
                               Are you sure want to submit test
                             </div>
-                            <p class="mb-0  mtsmsh">
+                            <p className="mb-0  mtsmsh">
                               After submitting test, you won’t be able to
                               re-attempt
                             </p>
                           </div>
-                          <button
-                            type="button"
-                            class="btn-close"
-                            data-bs-dismiss="modal"
-                            aria-label="Close"
-                          ></button>
                         </div>
-                        <div class="modal-body py-5 px-12">
-                          <ul class="list-group space-y-2">
-                            <li class="flex ">
+                        <div className="modal-body py-5 px-12">
+                          <ul className="list-group space-y-2">
+                            <li className="flex ">
                               <img
                                 src="https://www.mockers.in/frontend/img/red-alarm.svg"
                                 alt=""
-                                class="me-2"
+                                className="me-2"
                               />{" "}
                               Time Left:
-                              <span class="ms-auto list-span timeLeftSpanId">
-                                169:12 MIN
+                              <span className="ms-auto list-span timeLeftSpanId">
+                                <Countdown
+                                  date={Date.now() + TimeLeft}
+                                  renderer={renderer}
+                                />
                               </span>
                             </li>
-                            <li class="flex ">
+                            <li className="flex ">
                               <img
                                 src="https://www.mockers.in/frontend/img/checked.svg"
                                 alt=""
-                                class="me-2"
+                                className="me-2"
                               />{" "}
                               Attempted:
                               <span
-                                class="ms-auto list-span"
+                                className="ms-auto list-span"
                                 id="totalAttemptedQuestionCountId"
                               >
-                                0
+                                {attemptCount}
                               </span>
                             </li>
-                            <li class="flex ">
+                            <li className="flex ">
                               <img
                                 src="https://www.mockers.in/frontend/img/unattempt.svg"
                                 alt=""
-                                class="me-2"
+                                className="me-2"
                               />{" "}
                               Unattempt:
                               <span
-                                class="ms-auto list-span"
+                                className="ms-auto list-span"
                                 id="totalUnAttemptedQuestionCountId"
                               >
-                                75
+                                {AllData?.noofquestions - attemptCount}
                               </span>
                             </li>
-                            <li class="flex ">
+                            <li className="flex ">
                               <img
                                 src="https://www.mockers.in/frontend/img/marked.svg"
                                 alt=""
-                                class="me-2"
+                                className="me-2"
                               />{" "}
                               Marked for Review:
                               <span
-                                class="ms-auto list-span"
+                                className="ms-auto list-span"
                                 id="totalReviewQuestionCountId"
                               >
-                                0
+                                {markedCount}
                               </span>
                             </li>
                           </ul>
                         </div>
-                        <div class="flex justify-center items-center space-x-4 p-2">
+                        <div className="flex justify-center items-center space-x-4 p-2">
                           <button
                             type="button"
-                            class="bg-gray-300 py-2 px-8 text-center text-sm rounded-sm font-medium "
+                            className="bg-gray-300 py-2 px-8 text-center text-sm rounded-sm font-medium "
                             data-bs-dismiss="modal"
                             onClick={handleClose}
                           >
                             Cancel
                           </button>
-                          <Link to="/finalsubmit">
                           <button
                             type="button"
-                            class="bg-blue-600 py-2 px-8 text-center text-white text-sm rounded-sm font-medium"
+                            className="bg-blue-600 py-2 px-8 text-center text-white text-sm rounded-sm font-medium"
                             id="submitToServerBtn"
+                            onClick={sendFinalResponse}
                           >
                             Submit
                           </button>
-                          </Link>
                         </div>
                       </div>
                     </Box>

@@ -97,7 +97,7 @@ function App() {
           <Route path="/dashboard/*" element={<AuthDashboard />} />
           <Route path="/Forgotpassword" element={<AuthForgetPass />} />
           <Route path="/verifyotp" element={<AuthForgetVerifyOTP />} />
-          <Route path="/finalsubmit" element={<FinalSubmit />} />
+          <Route path="/test/finalresult" element={<FinalSubmit />} />
           <Route path="/progressreport" element={<ProgressReport />} />
           <Route path="/test/marking-scheme" element={<Pattern />} />
           <Route path="/test/ongoing" element={<OnlineExam />} />
