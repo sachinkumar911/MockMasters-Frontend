@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import io from "socket.io-client";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import Countdown from "react-countdown";
 
@@ -20,27 +18,25 @@ const style = {
   transform: "translate(-50%, -50%)",
   width: 400,
   bgcolor: "background.paper",
-  // padding: "20px",
-  // border: "1px solid #ccc",
-  // borderRadius: "8px",
-  // boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
 };
 
 const OnlineExam = () => {
   const [attemptCount, setattemptCount] = useState(0);
   const [markedCount, setmarkedCount] = useState(0);
+  const [TestExpiry, setTestExpiry] = useState(0);
 
   //Modal State
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
+    setTimeLeft(TestExpiry - Date.now());
     setOpen(true);
 
     //socket-updating TimeLeft on DB
-    socket.emit("updateTimeLeft", sessionStorage.getItem("startTest_id"));
-    socket.off("updateTimeReply").on("updateTimeReply", (newTL) => {
-      setTimeLeft(newTL);
-    });
+    // socket.emit("updateTimeLeft", sessionStorage.getItem("startTest_id"));
+    // socket.off("updateTimeReply").on("updateTimeReply", (newTL) => {
+    //   setTimeLeft(newTL);
+    // });
     let c = 0;
     for (const key in Answers) {
       for (let k in Answers[key]) {
@@ -62,13 +58,14 @@ const OnlineExam = () => {
     setmarkedCount(m);
   };
   const handleClose = () => {
+    setTimeLeft(TestExpiry - Date.now());
     setOpen(false);
 
     //socket-updating TimeLeft on DB
-    socket.emit("updateTimeLeft", sessionStorage.getItem("startTest_id"));
-    socket.off("updateTimeReply").on("updateTimeReply", (newTL) => {
-      setTimeLeft(newTL);
-    });
+    // socket.emit("updateTimeLeft", sessionStorage.getItem("startTest_id"));
+    // socket.off("updateTimeReply").on("updateTimeReply", (newTL) => {
+    //   setTimeLeft(newTL);
+    // });
   };
 
   const [AllData, setAllData] = useState();
@@ -182,9 +179,20 @@ const OnlineExam = () => {
         }
       }
       socket.off("StartTimeLeft").on("StartTimeLeft", (TL) => {
-        setTimeLeft(Math.floor(TL / 1000) * 1000);
+        setTimeLeft(Math.floor(TL.TimeLeft / 1000) * 1000);
+        setTestExpiry(TL.ExpireTime);
       });
     })();
+
+    return () => {
+      if (location.pathname === "/test/ongoing") {
+        console.log(location.pathname);
+      } else {
+        socket.disconnect();
+        window.location.reload();
+        console.log("Go back");
+      }
+    };
   }, []);
 
   const changesubjectpanel = (event, newValue) => {
@@ -196,7 +204,8 @@ const OnlineExam = () => {
     //socket-updating TimeLeft on DB
     socket.emit("updateTimeLeft", sessionStorage.getItem("startTest_id"));
     socket.off("updateTimeReply").on("updateTimeReply", (newTL) => {
-      setTimeLeft(newTL);
+      setTimeLeft(newTL.TT);
+      setTestExpiry(newTL.exp);
     });
   };
 
@@ -204,9 +213,12 @@ const OnlineExam = () => {
     // console.log(currentPanel[key]);
     setcurrentDisplay(currentPanel[key]);
     setcurrquesindex(key);
+
+    setTimeLeft(TestExpiry - Date.now());
   };
 
   const setanswer = () => {
+    setTimeLeft(TestExpiry - Date.now());
     var op;
     for (let i = 0; i < currentDisplay.options.length; i++) {
       if (document.getElementById(`${currentDisplay?._id}_${i}`).checked) {
@@ -260,6 +272,7 @@ const OnlineExam = () => {
   };
 
   const prevques = () => {
+    setTimeLeft(TestExpiry - Date.now());
     if (currquesindex > 0) {
       let tmp = currquesindex;
       setcurrentDisplay(currentPanel[tmp - 1]);
@@ -268,6 +281,7 @@ const OnlineExam = () => {
   };
 
   const clearresponse = () => {
+    setTimeLeft(TestExpiry - Date.now());
     setSelectedOption(null);
     setAnswer({
       ...Answers,
@@ -305,6 +319,7 @@ const OnlineExam = () => {
   };
 
   const markforreview = () => {
+    setTimeLeft(TestExpiry - Date.now());
     if (
       Answers[AllData?.questions[currsubject].subjectname] &&
       Answers[AllData?.questions[currsubject].subjectname][currentDisplay?._id]
@@ -536,9 +551,10 @@ const OnlineExam = () => {
                         AllData?.questions[currsubject].subjectname
                       ][currentDisplay?._id] === item)
                   }
-                  onChange={() =>
-                    setSelectedOption(`${currentDisplay?._id}_${key}`)
-                  }
+                  onChange={() => {
+                    setSelectedOption(`${currentDisplay?._id}_${key}`);
+                    setTimeLeft(TestExpiry - Date.now());
+                  }}
                 />
                 <label htmlFor={`${currentDisplay?._id}_${key}`}>{item}</label>
               </div>
