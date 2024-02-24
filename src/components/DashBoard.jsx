@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import TestSeries from "./TestSeries";
 import TestResult from "./TestResult";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import coin from "../assets/coin.png";
 import Profile from "./Profile";
 import ChangePassword from "./ChangePassword";
@@ -49,7 +49,7 @@ const DashBoard = () => {
               </li>
               <li>
                 <Link
-                  to="/dashboard"
+                  to="/Dashboard/profile"
                   onClick={() => setside(!side)}
                   className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-200  group"
                 >
@@ -73,7 +73,7 @@ const DashBoard = () => {
               </li>
               <li>
                 <Link
-                  to="/dashboard/test-series"
+                  to="/Dashboard/test-series"
                   onClick={() => setside(!side)}
                   className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-200 group"
                 >
@@ -96,7 +96,7 @@ const DashBoard = () => {
               </li>
               <li>
                 <Link
-                  to="/dashboard/progressreport"
+                  to="/Dashboard/progressreport"
                   onClick={() => setside(!side)}
                   className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-200 group"
                 >
@@ -122,7 +122,7 @@ const DashBoard = () => {
               </li>
               <li>
                 <Link
-                  to="/dashboard/attempted-test"
+                  to="/Dashboard/attempted-test"
                   onClick={() => setside(!side)}
                   className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-200  group"
                 >
@@ -148,7 +148,7 @@ const DashBoard = () => {
               </li>
               <li>
                 <Link
-                  to="/dashboard/referearn"
+                  to="/Dashboard/refer&earn"
                   onClick={() => setside(!side)}
                   className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-200  group"
                 >
@@ -174,7 +174,7 @@ const DashBoard = () => {
               </li>
               <li>
                 <Link
-                  to="/dashboard/change-password"
+                  to="/Dashboard/change-password"
                   onClick={() => setside(!side)}
                   className="flex items-center  p-2 text-gray-900 rounded-lg hover:bg-gray-200 group"
                 >
@@ -200,7 +200,7 @@ const DashBoard = () => {
               </li>
               <li>
                 <Link
-                  to="/dashboard/create-question"
+                  to="/Dashboard/create-question"
                   onClick={() => setside(!side)}
                   className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-200  group"
                 >
@@ -226,7 +226,7 @@ const DashBoard = () => {
               </li>
               <li>
                 <Link
-                  to="/dashboard/create-test"
+                  to="/Dashboard/create-test"
                   onClick={() => setside(!side)}
                   className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-200  group"
                 >
@@ -280,14 +280,15 @@ const DashBoard = () => {
 
         <section id="" className=" w-full">
           <Routes>
-            <Route path="/" element={<Profile />} />
+            <Route path="/" element={<Navigate to="test-series" />} />
+            <Route path="/profile" element={<Profile />} />
             <Route path="/test-series" element={<TestSeries />} />
             <Route path="/attempted-test" element={<TestResult />} />
             <Route path="/change-password" element={<ChangePassword />} />
             <Route path="/create-question" element={<CreateQuestion />} />
             <Route path="/create-test" element={<SamplePaper />} />
             <Route path="/progressreport" element={<ProgressReport />} />
-            <Route path="/referearn" element={<ReferEarn />} />
+            <Route path="/refer&earn" element={<ReferEarn />} />
           </Routes>
         </section>
       </section>

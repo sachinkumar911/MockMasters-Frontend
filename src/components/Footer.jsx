@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-scroll";
 
 const Footer = () => {
   return (
@@ -15,24 +16,40 @@ const Footer = () => {
           </a>
           <ul className="flex flex-wrap items-center text-sm text-gray-500 sm:mb-0">
             <li>
-              <a href="/" className="hover:underline me-4 md:me-6">
+              <Link
+                to="about"
+                smooth={"easeOutQuint"}
+                className="hover:underline me-4 md:me-6"
+              >
                 About
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/" className="hover:underline me-4 md:me-6">
+              <a
+                href="/"
+                smooth={"easeOutQuint"}
+                className="hover:underline me-4 md:me-6"
+              >
                 Privacy Policy
               </a>
             </li>
             <li>
-              <a href="/" className="hover:underline me-4 md:me-6">
+              <a
+                href="/"
+                smooth={"easeOutQuint"}
+                className="hover:underline me-4 md:me-6"
+              >
                 Licensing
               </a>
             </li>
             <li>
-              <a href="/" className="hover:underline">
+              <Link
+                to="contact"
+                smooth={"easeOutQuint"}
+                className="hover:underline"
+              >
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
