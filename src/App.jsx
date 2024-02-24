@@ -15,16 +15,14 @@ import Contact from "./components/Contact.jsx";
 import TeamMember from "./components/TeamMember.jsx";
 import { verifyAccessToken } from "./services/verifyAccessToken.js";
 import { dailyEliteCoin } from "./services/dailyEliteCoin.js";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import coinspin from "./assets/coin-flip-1.gif";
 import About from "./components/About.jsx";
 import Hero from "./components/Hero.jsx";
 import Mockup from "./components/Mockup.jsx";
-import Temp3 from "./components/Pattern.jsx";
 import OnlineExam from "./components/OnlineExam.jsx";
 import Pattern from "./components/Pattern.jsx";
 import FinalSubmit from "./components/FinalSubmit.jsx";
-import ProgressReport from "./components/ProgressReport.jsx";
 
 function App() {
   const [userdetail, setuserdetail] = useState();

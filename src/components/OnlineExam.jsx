@@ -8,6 +8,13 @@ import io from "socket.io-client";
 import Modal from "@mui/material/Modal";
 import Countdown from "react-countdown";
 import LoadingSpinner from "./LoadingSpinner";
+import { UserContext } from "../context/UserContext.jsx";
+import { useContext } from "react";
+import avatar1 from "../assets/avatar1.png";
+import avatar2 from "../assets/avatar2.png";
+import avatar3 from "../assets/avatar3.png";
+import avatar4 from "../assets/avatar4.png";
+import avatar5 from "../assets/avatar5.png";
 
 var socket = null;
 
@@ -22,6 +29,9 @@ const style = {
 };
 
 const OnlineExam = () => {
+  let avatars = [avatar1, avatar2, avatar3, avatar4, avatar5];
+  const { userdetail } = useContext(UserContext);
+
   const [attemptCount, setattemptCount] = useState(0);
   const [markedCount, setmarkedCount] = useState(0);
   const [TestExpiry, setTestExpiry] = useState(0);
@@ -468,15 +478,20 @@ const OnlineExam = () => {
   return (
     <>
       <section>
-        <div className=" h-fit flex justify-between items-center mx-[6rem] ">
-          <div className="self-center md:text-2xl  font-semibold">
+        <div className=" h-fit flex justify-between items-center mx-[6rem]">
+          <div className="self-center md:text-2xl select-none  font-semibold w-[4rem]">
             MockMasters.
           </div>
-          <div className=" py-4 flex items-center justify-center md:text-xl font-semibold">
+          <div className="py-4 flex items-center justify-center select-none md:text-xl font-semibold">
             {AllData?.qpname}
           </div>
-          <div className=" py-[0.5px] pr-1 rounded-full self-center text-xl font-semibold h-8  w-8 bg-slate-300 px-3">
-            S
+          <div className="select-none">
+            <img
+              src={avatars[userdetail?.avatar - 1]}
+              alt="Avatar"
+              className={`cursor-pointer  rounded-full shadow-lg  border-4 border-white transition-transform transform-gpu md:w-11 md:h-11 h-10 w-fit 
+                          focus:outline-none`}
+            />
           </div>
         </div>
 

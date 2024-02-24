@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { UserContext } from "../context/UserContext.jsx";
 import { useContext } from "react";
 import avatar1 from "../assets/avatar1.png";
@@ -47,6 +47,22 @@ const Header = () => {
     }
   };
 
+  const dropdownRef = useRef(null);
+
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setIsDropdownVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      window.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isDropdownVisible]);
+
   return (
     <>
       <Toaster
@@ -61,17 +77,14 @@ const Header = () => {
       />
       <header className="header top-0 left-0 w-full h-[10vh]">
         <nav className="  w-full z-20  border-b shadow-md border-gray-200">
-          <div className="flex flex-row justify-around items-center flex-wrap p-3 w-full  ">
-            <NavLink to="/" className="flex items-center ">
+          <div className="flex flex-row justify-around items-center flex-wrap p-3 w-full">
+            <NavLink to="/" className="flex items-center">
               <span className="self-center md:text-2xl  font-semibold">
                 MockMasters.
               </span>
             </NavLink>
 
-            <div
-              className="flex items-center justify-center lg:mr-16 lg:pr-10  "
-              id=""
-            >
+            <div className="flex items-center justify-center">
               <input
                 type="checkbox"
                 name="hamburger"
@@ -95,7 +108,7 @@ const Header = () => {
               <div
                 className={`peer-checked:translate-x-0 fixed inset-0 w-full translate-x-[-100%] shadow-xl transition duration-300 lg:border-r-0 lg:w-auto lg:static lg:shadow-none lg:translate-x-0 min-[0px]:bg-white lg:bg-transparent  lg:flex  lg:pt-0 pt-20 lg:z-0 z-10 `}
               >
-                <ul className=" text-gray-700 space-y-16 flex flex-col justify-between items-center lg:flex-row  lg:space-y-0 lg:flex lg:space-x-16  ">
+                <ul className=" text-gray-700 space-y-16 flex flex-col justify-between items-center lg:flex-row  lg:space-y-0 lg:flex lg:space-x-16">
                   <li className="">
                     <Link
                       to="/"
@@ -141,7 +154,10 @@ const Header = () => {
                   {islogin ? (
                     <div className="lg:flex flex-col justify-center items-center lg:flex-row text-lg lg:text-base lg:gap-4">
                       {islogin ? (
-                        <div className="relative inline-block group">
+                        <div
+                          className="relative inline-block group"
+                          ref={dropdownRef}
+                        >
                           <div className="flex font-semibold text-lg items-center gap-2">
                             <h1>Hi, {userdetail.username}</h1>
                             <img
@@ -154,50 +170,52 @@ const Header = () => {
                           </div>
                           {isDropdownVisible && (
                             <div className="absolute   mt-1  bg-white  rounded-xl shadow-lg z-10 w-[100%]">
-                              <button
-                                type="button"
-                                className=" flex items-center gap-3 font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
-                              >
-                                <svg
-                                  className="w-[27px] h-[27px] text-gray-800 dark:text-white"
-                                  aria-hidden="true"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  fill="none"
-                                  viewBox="0 0 24 24"
+                              <NavLink to="/Dashboard/profile">
+                                <button
+                                  type="button"
+                                  className=" flex items-center gap-3 font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
                                 >
-                                  <path
-                                    stroke="currentColor"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="1.1"
-                                    d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a9 9 0 0 0 5-1.5 4 4 0 0 0-4-3.5h-2a4 4 0 0 0-4 3.5 9 9 0 0 0 5 1.5Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-                                  />
-                                </svg>
-
-                                <NavLink to="/Dashboard">My Profile</NavLink>
-                              </button>
-                              <button
-                                type="button"
-                                className=" flex items-center gap-3 font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
-                              >
-                                <svg
-                                  className="w-[27px] h-[27px] text-gray-800 dark:text-white"
-                                  aria-hidden="true"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  fill="none"
-                                  viewBox="0 0 24 24"
+                                  <svg
+                                    className="w-[27px] h-[27px] text-gray-800 dark:text-white"
+                                    aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      stroke="currentColor"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      strokeWidth="1.1"
+                                      d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a9 9 0 0 0 5-1.5 4 4 0 0 0-4-3.5h-2a4 4 0 0 0-4 3.5 9 9 0 0 0 5 1.5Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                                    />
+                                  </svg>
+                                  My Profile
+                                </button>
+                              </NavLink>
+                              <NavLink to="/Dashboard/test-series">
+                                <button
+                                  type="button"
+                                  className=" flex items-center gap-3 font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
                                 >
-                                  <path
-                                    stroke="currentColor"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="1.1"
-                                    d="M9.1 4H5c-.5 0-.9.4-.9.9V9c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9V5c0-.5-.4-.9-.9-.9Zm10 0H15c-.5 0-.9.4-.9.9V9c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9V5c0-.5-.4-.9-.9-.9Zm-10 10H5c-.5 0-.9.4-.9.9V19c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9v-4c0-.5-.4-.9-.9-.9Zm10 0H15c-.5 0-.9.4-.9.9V19c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9v-4c0-.5-.4-.9-.9-.9Z"
-                                  />
-                                </svg>
-
-                                <NavLink to="/Dashboard">Dashboard</NavLink>
-                              </button>
+                                  <svg
+                                    className="w-[27px] h-[27px] text-gray-800 dark:text-white"
+                                    aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      stroke="currentColor"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      strokeWidth="1.1"
+                                      d="M9.1 4H5c-.5 0-.9.4-.9.9V9c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9V5c0-.5-.4-.9-.9-.9Zm10 0H15c-.5 0-.9.4-.9.9V9c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9V5c0-.5-.4-.9-.9-.9Zm-10 10H5c-.5 0-.9.4-.9.9V19c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9v-4c0-.5-.4-.9-.9-.9Zm10 0H15c-.5 0-.9.4-.9.9V19c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9v-4c0-.5-.4-.9-.9-.9Z"
+                                    />
+                                  </svg>
+                                  Dashboard
+                                </button>
+                              </NavLink>
 
                               <button
                                 onClick={logoutuser}
@@ -226,38 +244,46 @@ const Header = () => {
                         </div>
                       ) : (
                         <>
-                          <button
-                            type="button"
-                            className="lg:font-medium font-semibold  px-4 py-2
+                          <NavLink to="/Login">
+                            <button
+                              type="button"
+                              className="lg:font-medium font-semibold  px-4 py-2
                     hover:bg-opacity-50 rounded-lg text-base text-center border border-gray-400 hover:shadow-md "
-                          >
-                            <NavLink to="/Login">Login</NavLink>
-                          </button>
-                          <button
-                            type="button"
-                            className="text-white bg-gray-800 hover:bg-opacity-90 md:font-medium rounded-lg md:text-base px-3 py-2 text-center  "
-                          >
-                            <NavLink to="/Signup">Sign up</NavLink>
-                          </button>
+                            >
+                              Login
+                            </button>
+                          </NavLink>
+                          <NavLink to="/Signup">
+                            <button
+                              type="button"
+                              className="text-white bg-gray-800 hover:bg-opacity-90 md:font-medium rounded-lg md:text-base px-3 py-2 text-center  "
+                            >
+                              Sign up
+                            </button>
+                          </NavLink>
                         </>
                       )}
                     </div>
                   ) : (
                     <>
-                      <button
-                        type="button"
-                        className="lg:font-medium font-semibold  px-4 py-2
+                      <NavLink to="/Login">
+                        <button
+                          type="button"
+                          className="lg:font-medium font-semibold  px-4 py-2
                     hover:bg-opacity-50 rounded-lg text-base text-center border border-gray-400 hover:shadow-md "
-                      >
-                        <NavLink to="/Login">Login</NavLink>
-                      </button>
+                        >
+                          Login
+                        </button>
+                      </NavLink>
                       {/* <p className="hidden lg:block   ">|</p> */}
-                      <button
-                        type="button"
-                        className="text-white bg-gray-800 hover:bg-opacity-90 md:font-medium rounded-lg md:text-base px-3 py-2 text-center  "
-                      >
-                        <NavLink to="/Signup">Sign up</NavLink>
-                      </button>
+                      <NavLink to="/Signup">
+                        <button
+                          type="button"
+                          className="text-white bg-gray-800 hover:bg-opacity-90 md:font-medium rounded-lg md:text-base px-3 py-2 text-center  "
+                        >
+                          Sign up
+                        </button>
+                      </NavLink>
                     </>
                   )}
                 </div>
@@ -268,8 +294,11 @@ const Header = () => {
               {islogin ? (
                 <div className="lg:flex flex-col justify-center items-center lg:flex-row text-lg lg:text-base lg:gap-4">
                   {islogin ? (
-                    <div className="relative inline-block group">
-                      <div className="flex font-semibold text-lg items-center gap-2">
+                    <div
+                      className="relative inline-block group"
+                      ref={dropdownRef}
+                    >
+                      <div className="flex font-semibold text-lg items-center">
                         <h1>Hi, {userdetail.username}</h1>
                         <img
                           src={avatars[userdetail?.avatar - 1]}
@@ -286,7 +315,7 @@ const Header = () => {
                             className=" flex items-center hover:rounded-lg font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
                           >
                             <NavLink
-                              to="/Dashboard"
+                              to="/Dashboard/profile"
                               className="flex items-center gap-3"
                             >
                               <svg
@@ -312,7 +341,7 @@ const Header = () => {
                             className=" flex items-center hover:rounded-lg font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
                           >
                             <NavLink
-                              to="/Dashboard"
+                              to="/Dashboard/test-series"
                               className="flex items-center gap-3"
                             >
                               <svg

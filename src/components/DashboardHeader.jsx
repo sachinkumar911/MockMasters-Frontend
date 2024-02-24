@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { UserContext } from "../context/UserContext.jsx";
 import { useContext } from "react";
 import avatar1 from "../assets/avatar1.png";
@@ -53,6 +53,22 @@ const DashboardHeader = () => {
     }
   };
 
+  const dropdownRef = useRef(null);
+
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setIsDropdownVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      window.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isDropdownVisible]);
+
   return (
     <>
       <header className="header top-0 left-0 w-full">
@@ -95,7 +111,10 @@ const DashboardHeader = () => {
                   {islogin ? (
                     <div className="lg:flex flex-col justify-around items-center lg:flex-row text-lg lg:text-base lg:gap-4">
                       {islogin ? (
-                        <div className="relative inline-block group">
+                        <div
+                          className="relative inline-block group"
+                          ref={dropdownRef}
+                        >
                           <div className="flex flex-col justify-center items-center gap-5">
                             <div className="flex font-semibold text-lg items-center gap-2">
                               <h1>Hi, {userdetail.username}</h1>
@@ -128,7 +147,9 @@ const DashboardHeader = () => {
                                 />
                               </svg>
 
-                              <NavLink to="/Dashboard">My Profile</NavLink>
+                              <NavLink to="/Dashboard/profile">
+                                My Profile
+                              </NavLink>
                             </button>
 
                             <button
@@ -152,7 +173,9 @@ const DashboardHeader = () => {
                                 />
                               </svg>
 
-                              <NavLink to="/Dashboard">Dashboard</NavLink>
+                              <NavLink to="/Dashboard/test-series">
+                                Dashboard
+                              </NavLink>
                             </button>
 
                             <button
@@ -224,7 +247,10 @@ const DashboardHeader = () => {
               {islogin ? (
                 <div className="lg:flex flex-col justify-center items-center lg:flex-row text-lg lg:text-base lg:gap-4 ">
                   {islogin ? (
-                    <div className="relative inline-block group">
+                    <div
+                      className="relative inline-block group"
+                      ref={dropdownRef}
+                    >
                       <div className="flex font-semibold text-lg items-center gap-2">
                         <h1>Hi, {userdetail.username}</h1>
                         <img
@@ -260,7 +286,9 @@ const DashboardHeader = () => {
                               />
                             </svg>
 
-                            <NavLink to="/Dashboard">My Profile</NavLink>
+                            <NavLink to="/Dashboard/profile">
+                              My Profile
+                            </NavLink>
                           </button>
                           <button
                             type="button"
@@ -285,7 +313,9 @@ const DashboardHeader = () => {
                               />
                             </svg>
 
-                            <NavLink to="/Dashboard">Dashboard</NavLink>
+                            <NavLink to="/Dashboard/test-series">
+                              Dashboard
+                            </NavLink>
                           </button>
 
                           <button
