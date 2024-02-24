@@ -32,7 +32,7 @@ const FinalSubmit = () => {
         setLoading(false);
         setData(response?.data?.data);
       } catch (error) {
-        console.error(error.response.data.message);
+        console.error(error.response?.data?.message);
       }
     })();
 
