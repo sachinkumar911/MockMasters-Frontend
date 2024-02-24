@@ -25,38 +25,45 @@ const ReferEarn = () => {
           </div>
         </div>
         <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-center ">
             <div class="group flex flex-col h-full bg-white border border-gray-200 shadow-sm rounded-xl">
-              <div class="h-52 flex flex-col  justify-center items-center bg-slate-600 rounded-t-xl">
+              <div class="h-52 flex  justify-center items-center bg-slate-600 rounded-t-xl">
                 <img src={coinimg} className="w-16 h-16" />
-                <p className="text-2xl text-yellow-400 font-bold">+1</p>
+                <p className="text-2xl text-yellow-400 font-semibold">+1</p>
               </div>
+              
               <div class="p-4 md:p-6">
                 <span class="block mb-1 text-xs font-semibold uppercase text-center">
-                  Completed a daily check-in mission
+                Daily check-ins unlock a world of rewards  1 coin daily!
                 </span>
-                {/* <h3 class="text-xl font-semibold text-gray-800 ">Atlassian</h3> */}
               </div>
             </div>
-            <div class="group flex flex-col h-full bg-white border border-gray-200 shadow-sm rounded-xl">
-              <div class="h-52 flex flex-col  justify-center items-center bg-slate-600 rounded-t-xl">
+            <div class="group flex flex-col h-full  bg-white border border-gray-200 shadow-sm rounded-xl">
+              <div class="h-52 flex   justify-center items-center bg-slate-600 rounded-t-xl">
                 <img src={coinimg} className="w-16 h-16" />
-                <p className="text-2xl text-yellow-400 font-bold">+50</p>
+                <p className="text-2xl text-yellow-400 font-semibold">+50</p>
+                
               </div>
               <div class="p-4 md:p-6">
                 <span class="block mb-1 text-xs font-semibold uppercase text-center">
-                  Invite your friends to join MockMasters
+                  Invite your friends to join MockMasters  using your referral code
                 </span>
               </div>
-              <div class="mt-auto flex border-t border-gray-200 divide-x divide-gray-200 ">
-                <a
-                  class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-es-xl bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
-                  href="#"
-                >
-                  View sample
-                </a>
-                
-                
+              <div class="mt-auto flex border-t  border-gray-200 divide-x divide-gray-200 ">
+                <div class="flex items-center  py-2 w-full ">
+                  <input
+                    class="appearance-none text-center bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                    type="text"
+                    placeholder="FGHJKHG"
+                    aria-label="Full name"
+                  />
+                  <a
+                    href="#_"
+                    class="px-5 py-2.5 text-white font-medium  bg-slate-500 hover:bg-slate-700 hover:text-white rounded-lg text-sm"
+                  >
+                    Copy
+                  </a>
+                </div>
               </div>
             </div>
           </div>
