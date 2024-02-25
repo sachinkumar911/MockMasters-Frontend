@@ -36,6 +36,24 @@ const OnlineExam = () => {
   const [markedCount, setmarkedCount] = useState(0);
   const [TestExpiry, setTestExpiry] = useState(0);
 
+  //Fullscreen
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  //FULL_SCREEN
+  const enterFullscreen = () => {
+    const element = document.documentElement;
+    if (element.requestFullscreen) {
+      element.requestFullscreen();
+    } else if (element.mozRequestFullScreen) {
+      element.mozRequestFullScreen();
+    } else if (element.webkitRequestFullscreen) {
+      element.webkitRequestFullscreen();
+    } else if (element.msRequestFullscreen) {
+      element.msRequestFullscreen();
+    }
+    setIsFullscreen(true);
+  };
+
   //Modal State
   const [open, setOpen] = React.useState(false);
 
@@ -105,6 +123,13 @@ const OnlineExam = () => {
     ) {
       Navigate("/dashboard/test-series");
     }
+
+    // Add event listener for fullscreen change
+    document.addEventListener("fullscreenchange", handleFullscreenChange);
+    document.addEventListener("webkitfullscreenchange", handleFullscreenChange);
+    document.addEventListener("mozfullscreenchange", handleFullscreenChange);
+    document.addEventListener("MSFullscreenChange", handleFullscreenChange);
+
     (async () => {
       try {
         const response = await axios.post(
@@ -197,6 +222,20 @@ const OnlineExam = () => {
     })();
 
     return () => {
+      document.removeEventListener("fullscreenchange", handleFullscreenChange);
+      document.removeEventListener(
+        "webkitfullscreenchange",
+        handleFullscreenChange
+      );
+      document.removeEventListener(
+        "mozfullscreenchange",
+        handleFullscreenChange
+      );
+      document.removeEventListener(
+        "MSFullscreenChange",
+        handleFullscreenChange
+      );
+
       if (
         location.pathname === "/test/ongoing" ||
         location.pathname === "/test/ongoing/"
@@ -475,11 +514,28 @@ const OnlineExam = () => {
     }
   };
 
+  const handleFullscreenChange = () => {
+    if (
+      document.fullscreenElement ||
+      document.webkitFullscreenElement ||
+      document.mozFullScreenElement ||
+      document.msFullscreenElement
+    ) {
+      console.log("Entered fullscreen mode");
+    } else {
+      setIsFullscreen(false);
+      console.log("Exited fullscreen mode");
+    }
+  };
+
   return (
     <>
       <section>
         <div className=" h-fit flex justify-between items-center mx-[6rem]">
-          <div className="self-center md:text-2xl select-none  font-semibold w-[4rem]">
+          <div
+            onClick={enterFullscreen}
+            className="self-center md:text-2xl select-none  font-semibold w-[4rem]"
+          >
             MockMasters.
           </div>
           <div className="py-4 flex items-center justify-center select-none md:text-xl font-semibold">
@@ -498,7 +554,22 @@ const OnlineExam = () => {
         {loading ? (
           <LoadingSpinner />
         ) : (
-          <>
+          <div className="relative">
+            <div
+              className={`absolute top-0 left-0 backdrop-blur w-full h-full z-10 ${
+                isFullscreen ? "hidden" : ""
+              } flex justify-center items-center`}
+            >
+              <button
+                className={`px-4 py-2 rounded transition-colors duration-300 text-white bg-cyan-500 hover:bg-cyan-600 font-bold`}
+                onClick={() => {
+                  enterFullscreen();
+                  setIsFullscreen(!isFullscreen);
+                }}
+              >
+                GO BACK TO TEST
+              </button>
+            </div>
             <div className="max-h-[8vh] bg-gray-200 flex justify-between items-center px-24">
               <Box
                 className="lg:w-fit"
@@ -635,8 +706,6 @@ const OnlineExam = () => {
                         </button>
                       </div>
                     </div>
-
-                    
                   </div>
                 </div>
               </div>
@@ -702,118 +771,118 @@ const OnlineExam = () => {
                   </div>
                 </div>
                 <div className="flex justify-end py-3 px-2 ">
-                      <button
-                        className={`px-4 py-2 rounded transition-colors duration-300 text-white bg-[#08bd80] `}
-                        id="submit"
-                        onClick={handleOpen}
-                      >
-                        Final Submit
-                      </button>
-                      <Modal
-                        open={open}
-                        onClose={handleClose}
-                        aria-labelledby="modal-modal-title"
-                        aria-describedby="modal-modal-description"
-                      >
-                        <Box sx={style}>
-                          <div className="modal-content ">
-                            <div className=" flex flex-col items-center justify-center bg-blue-500 text-white py-4 px-4 ">
-                              <div className="mo-header-logo text-center px-5 pb-3">
-                                {/* <img src="https://www.mockers.in/frontend/img/mockers-while-logo.svg" alt=""/>  */}
-                                <div className="h5  mtsmh">
-                                  Are you sure want to submit test
-                                </div>
-                                <p className="mb-0  mtsmsh">
-                                  After submitting test, you won’t be able to
-                                  re-attempt
-                                </p>
-                              </div>
+                  <button
+                    className={`px-4 py-2 rounded transition-colors duration-300 text-white bg-[#08bd80] `}
+                    id="submit"
+                    onClick={handleOpen}
+                  >
+                    Final Submit
+                  </button>
+                  <Modal
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                  >
+                    <Box sx={style}>
+                      <div className="modal-content ">
+                        <div className=" flex flex-col items-center justify-center bg-blue-500 text-white py-4 px-4 ">
+                          <div className="mo-header-logo text-center px-5 pb-3">
+                            {/* <img src="https://www.mockers.in/frontend/img/mockers-while-logo.svg" alt=""/>  */}
+                            <div className="h5  mtsmh">
+                              Are you sure want to submit test
                             </div>
-                            <div className="modal-body py-5 px-12">
-                              <ul className="list-group space-y-2">
-                                <li className="flex ">
-                                  <img
-                                    src="https://www.mockers.in/frontend/img/red-alarm.svg"
-                                    alt=""
-                                    className="me-2"
-                                  />{" "}
-                                  Time Left:
-                                  <span className="ms-auto list-span timeLeftSpanId">
-                                    <Countdown
-                                      date={Date.now() + TimeLeft}
-                                      renderer={renderer}
-                                    />
-                                  </span>
-                                </li>
-                                <li className="flex ">
-                                  <img
-                                    src="https://www.mockers.in/frontend/img/checked.svg"
-                                    alt=""
-                                    className="me-2"
-                                  />{" "}
-                                  Attempted:
-                                  <span
-                                    className="ms-auto list-span"
-                                    id="totalAttemptedQuestionCountId"
-                                  >
-                                    {attemptCount}
-                                  </span>
-                                </li>
-                                <li className="flex ">
-                                  <img
-                                    src="https://www.mockers.in/frontend/img/unattempt.svg"
-                                    alt=""
-                                    className="me-2"
-                                  />{" "}
-                                  Unattempt:
-                                  <span
-                                    className="ms-auto list-span"
-                                    id="totalUnAttemptedQuestionCountId"
-                                  >
-                                    {AllData?.noofquestions - attemptCount}
-                                  </span>
-                                </li>
-                                <li className="flex ">
-                                  <img
-                                    src="https://www.mockers.in/frontend/img/marked.svg"
-                                    alt=""
-                                    className="me-2"
-                                  />{" "}
-                                  Marked for Review:
-                                  <span
-                                    className="ms-auto list-span"
-                                    id="totalReviewQuestionCountId"
-                                  >
-                                    {markedCount}
-                                  </span>
-                                </li>
-                              </ul>
-                            </div>
-                            <div className="flex justify-center items-center space-x-4 p-2">
-                              <button
-                                type="button"
-                                className="bg-gray-300 py-2 px-8 text-center text-sm rounded-sm font-medium "
-                                data-bs-dismiss="modal"
-                                onClick={handleClose}
-                              >
-                                Cancel
-                              </button>
-                              <button
-                                type="button"
-                                className="bg-blue-600 py-2 px-8 text-center text-white text-sm rounded-sm font-medium"
-                                id="submitToServerBtn"
-                                onClick={sendFinalResponse}
-                              >
-                                Submit
-                              </button>
-                            </div>
+                            <p className="mb-0  mtsmsh">
+                              After submitting test, you won’t be able to
+                              re-attempt
+                            </p>
                           </div>
-                        </Box>
-                      </Modal>
-                    </div>
+                        </div>
+                        <div className="modal-body py-5 px-12">
+                          <ul className="list-group space-y-2">
+                            <li className="flex ">
+                              <img
+                                src="https://www.mockers.in/frontend/img/red-alarm.svg"
+                                alt=""
+                                className="me-2"
+                              />{" "}
+                              Time Left:
+                              <span className="ms-auto list-span timeLeftSpanId">
+                                <Countdown
+                                  date={Date.now() + TimeLeft}
+                                  renderer={renderer}
+                                />
+                              </span>
+                            </li>
+                            <li className="flex ">
+                              <img
+                                src="https://www.mockers.in/frontend/img/checked.svg"
+                                alt=""
+                                className="me-2"
+                              />{" "}
+                              Attempted:
+                              <span
+                                className="ms-auto list-span"
+                                id="totalAttemptedQuestionCountId"
+                              >
+                                {attemptCount}
+                              </span>
+                            </li>
+                            <li className="flex ">
+                              <img
+                                src="https://www.mockers.in/frontend/img/unattempt.svg"
+                                alt=""
+                                className="me-2"
+                              />{" "}
+                              Unattempt:
+                              <span
+                                className="ms-auto list-span"
+                                id="totalUnAttemptedQuestionCountId"
+                              >
+                                {AllData?.noofquestions - attemptCount}
+                              </span>
+                            </li>
+                            <li className="flex ">
+                              <img
+                                src="https://www.mockers.in/frontend/img/marked.svg"
+                                alt=""
+                                className="me-2"
+                              />{" "}
+                              Marked for Review:
+                              <span
+                                className="ms-auto list-span"
+                                id="totalReviewQuestionCountId"
+                              >
+                                {markedCount}
+                              </span>
+                            </li>
+                          </ul>
+                        </div>
+                        <div className="flex justify-center items-center space-x-4 p-2">
+                          <button
+                            type="button"
+                            className="bg-gray-300 py-2 px-8 text-center text-sm rounded-sm font-medium "
+                            data-bs-dismiss="modal"
+                            onClick={handleClose}
+                          >
+                            Cancel
+                          </button>
+                          <button
+                            type="button"
+                            className="bg-blue-600 py-2 px-8 text-center text-white text-sm rounded-sm font-medium"
+                            id="submitToServerBtn"
+                            onClick={sendFinalResponse}
+                          >
+                            Submit
+                          </button>
+                        </div>
+                      </div>
+                    </Box>
+                  </Modal>
+                </div>
               </div>
             </div>
-          </>
+          </div>
         )}
       </section>
     </>
