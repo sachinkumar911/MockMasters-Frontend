@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import TestSeries from "./TestSeries";
 import TestResult from "./TestResult";
 import { Route, Routes, Navigate } from "react-router-dom";
-import coin from "../assets/coin.png";
+import coin from "../assets/coin.webp";
 import Profile from "./Profile";
 import ChangePassword from "./ChangePassword";
 import { UserContext } from "../context/UserContext.jsx";

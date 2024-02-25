@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import coinimg from "../assets/coin.png";
-import rankimg from "../assets/group.png";
-import clockimg from "../assets/clock.png";
-import percentimg from "../assets/percent.png";
+import coinimg from "../assets/coin.webp";
+import rankimg from "../assets/group.webp";
+import clockimg from "../assets/clock.webp";
+import percentimg from "../assets/percent.webp";
 import humanizeDuration from "humanize-duration";
 import LoadingSpinner from "./LoadingSpinner";
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import coinimage from "../assets/coin.png";
+import coinimage from "../assets/coin.webp";
 import axios from "axios";
 import { UserContext } from "../context/UserContext.jsx";
 import { useContext } from "react";

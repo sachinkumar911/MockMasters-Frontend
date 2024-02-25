@@ -6,11 +6,12 @@ const TeamMember = () => {
       <section className="flex items-center py-10 lg:py-24  ">
         <div className="justify-center flex-1 px-4 py-6 mx-auto max-w-6xl lg:py-4 md:px-6">
           <div className="mb-20 text-center">
-            {/* <span
-                    className="block mb-4 text-xs font-semibold leading-4 tracking-widest text-center text-blue-500 uppercase dark:text-gray-400">
-                    Team
-                </span> */}
-            <h1 className="text-2xl font-bold capitalize">MEET OUR TEAM </h1>
+          <h2 className="text-2xl medium:text-[32px] leading-8 medium:leading-10 font-bold text-center  regular:!text-left w-full regular:!w-auto font-inter text-gray-900 pb-0">
+        MEET OUR TEAM
+        </h2>
+        <h6 className="text-base medium:text-lg leading-6 medium:leading-[26px] font-light text-gray-650 text-center regular:!text-left">
+        MockMaster Team: Harmonizing Expertise for Your Exam Success Journey and Beyond!
+        </h6>
           </div>
           <div className="grid grid-cols-1 gap-4 lg:gap-8 sm:gap-4 sm:grid-cols-2 lg:grid-cols-2">
             <div className="flex flex-col flex-wrap mb-0 overflow-hidden rounded lg:flex-row">
@@ -24,7 +25,7 @@ const TeamMember = () => {
               <div className="relative flex self-center flex-1 lg:ml-8 ">
                 <div>
                   <h2 className="mb-2 text-2xl font-bold">Vinay Kumar</h2>
-                  <p className="mb-4 text-sm font-medium text-blue-500">
+                  <p className="mb-4 text-sm font-medium text-blue-400">
                     FULL Stack Developer
                   </p>
                   <p className="mb-6 text-sm text-gray-500">
@@ -82,8 +83,8 @@ const TeamMember = () => {
               <div className="relative flex self-center flex-1 lg:ml-8 ">
                 <div>
                   <h2 className="mb-2 text-2xl font-bold">Vikash Burman</h2>
-                  <p className="mb-4 text-sm font-medium text-blue-500">
-                  MERN stack developer
+                  <p className="mb-4 text-sm font-medium text-blue-400">
+                  MERN Stack Developer
                   </p>
                   <p className="mb-6 text-sm text-gray-500">
                  "Every algorithm is a brushstroke, painting the canvas of digital innovation".
@@ -141,13 +142,13 @@ const TeamMember = () => {
                 <div>
                   <h2 className="mb-2 text-2xl font-bold">Vishal Kumar</h2>
                   <p className="mb-4 text-sm font-medium text-blue-500">
-                  MERN stack developer
+                  MERN Stack Developer
                   </p>
                   <p className="mb-6 text-sm text-gray-500">
                   "In the language of programming, innovation speaks louder than code".
                   </p>
                   <div className="flex">
-                    <span className="inline-block mr-5 text-gray-700 hover:text-blue-500">
+                    <span className="inline-block mr-5 text-gray-700 hover:text-blue-400">
                       <a
                         href="https://github.com/vishu567"
                         target="_blank"
@@ -198,8 +199,8 @@ const TeamMember = () => {
               <div className="relative flex self-center flex-1 lg:ml-8 ">
                 <div>
                   <h2 className="mb-2 text-2xl font-bold">Sachin Kumar</h2>
-                  <p className="mb-4 text-sm font-medium text-blue-500">
-                  MERN stack developer
+                  <p className="mb-4 text-sm font-medium text-blue-400">
+                  MERN Stack Developer
                   </p>
                   <p className="mb-6 text-sm text-gray-500">
                   "Coding is the silent language that powers the dynamic symphony of the internet". 

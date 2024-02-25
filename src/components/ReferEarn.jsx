@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../assets/referlogo.webp";
-import coinimg from "../assets/coin.png";
+import coinimg from "../assets/coin.webp";
 const ReferEarn = () => {
   return (
     <>
