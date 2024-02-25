@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+
 import React from "react";
 import taketestimg from "../assets/taketest.png";
 import analyzeimg from "../assets/analyzetest.png";
@@ -19,9 +19,9 @@ const About = () => {
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-6 lg:gap-12">
               <div className="space-y-6 lg:space-y-10">
-                <div className="shadow-medium rounded-lg p-[14px] m-2 font-nunitoSans px-8 large:!px-7 !py-8 large:!py-7 flex flex-col items-start w-full regular:!w-[360px] large:!w-full xlarge:!w-96 gap-y-4 group  !text-center regular:!text-left  shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] hover:bg-[#F0F8FB]">
+                <div className="shadow-medium cursor-pointer rounded-lg p-[14px] m-2 font-nunitoSans px-8 large:!px-7 !py-8 large:!py-7 flex flex-col items-start w-full regular:!w-[360px] large:!w-full xlarge:!w-96 gap-y-4 group  !text-center regular:!text-left  shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] hover:bg-[#F0F8FB]">
                   <div className="w-full">
-                    <img src={taketestimg} alt="" className="mx-auto" />
+                    <img src={taketestimg} alt="taketestimage" className="mx-auto" />
                   </div>
                   <h3 className="text-gray-900 text-lg medium:text-xl leading-[26px] medium:leading-[30px] font-interSans font-bold text-center regular:!text-left w-full ">
                     Take a Test
@@ -31,9 +31,9 @@ const About = () => {
                     dedication to your goals.
                   </p>
                 </div>
-                <div className="shadow-medium rounded-lg p-[14px] m-2 font-nunitoSans px-8 large:!px-7 !py-8 large:!py-7 flex flex-col items-start w-full regular:!w-[360px] large:!w-full xlarge:!w-96 gap-y-4 group  !text-center regular:!text-left  large:bg-white shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] hover:bg-[#FFF2F8]">
+                <div className="shadow-medium cursor-pointer rounded-lg p-[14px] m-2 font-nunitoSans px-8 large:!px-7 !py-8 large:!py-7 flex flex-col items-start w-full regular:!w-[360px] large:!w-full xlarge:!w-96 gap-y-4 group  !text-center regular:!text-left  large:bg-white shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] hover:bg-[#FFF2F8]">
                   <div className="w-full">
-                    <img src={analyzeimg} alt="" className="mx-auto" />
+                    <img src={analyzeimg} alt="analyzetestiamge" className="mx-auto" />
                   </div>
                   <h3 className="text-gray-900 text-lg medium:text-xl leading-[26px] medium:leading-[30px] font-interSans font-bold text-center regular:!text-left w-full ">
                     Analyze Your Test
@@ -47,9 +47,9 @@ const About = () => {
               </div>
 
               <div className="space-y-6 lg:space-y-10 ">
-                <div className="shadow-medium rounded-lg p-[14px] m-2 font-nunitoSans px-8 large:!px-7 !py-8 large:!py-7 flex flex-col items-start w-full regular:!w-[360px] large:!w-full xlarge:!w-96 gap-y-4 group  !text-center regular:!text-left  large:bg-white shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px]  hover:bg-[#F6FAFF]">
+                <div className="shadow-medium cursor-pointer rounded-lg p-[14px] m-2 font-nunitoSans px-8 large:!px-7 !py-8 large:!py-7 flex flex-col items-start w-full regular:!w-[360px] large:!w-full xlarge:!w-96 gap-y-4 group  !text-center regular:!text-left  large:bg-white shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px]  hover:bg-[#F6FAFF]">
                   <div className="w-full">
-                    <img src={refineimg} alt="" className="mx-auto" />
+                    <img src={refineimg} alt="refineimage" className="mx-auto" />
                   </div>
                   <h3 className="text-gray-900 text-lg medium:text-xl leading-[26px] medium:leading-[30px] font-interSans font-bold text-center regular:!text-left w-full ">
                     Refine Your Approach
@@ -59,9 +59,9 @@ const About = () => {
                     from dissecting your test.
                   </p>
                 </div>
-                <div className="shadow-medium rounded-lg p-[14px] m-2 font-nunitoSans px-8 large:!px-7 !py-8 large:!py-7 flex flex-col items-start w-full regular:!w-[360px] large:!w-full xlarge:!w-96 gap-y-4 group  !text-center regular:!text-left  large:bg-white shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] hover:bg-[#FDF5FF] ">
+                <div className="shadow-medium cursor-pointer rounded-lg p-[14px] m-2 font-nunitoSans px-8 large:!px-7 !py-8 large:!py-7 flex flex-col items-start w-full regular:!w-[360px] large:!w-full xlarge:!w-96 gap-y-4 group  !text-center regular:!text-left  large:bg-white shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] hover:bg-[#FDF5FF] ">
                   <div className="w-full">
-                    <img src={successimg} alt="" className="mx-auto" />
+                    <img src={successimg} alt="successimage" className="mx-auto" />
                   </div>
                   <h3 className="text-gray-900 text-lg medium:text-xl leading-[26px] medium:leading-[30px] font-interSans font-bold text-center regular:!text-left w-full ">
                     Get Success

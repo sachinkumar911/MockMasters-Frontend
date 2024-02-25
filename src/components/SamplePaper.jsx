@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
-import coin from "../assets/coin.png";
+import coin from "../assets/coin.webp";
 //MUI
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
