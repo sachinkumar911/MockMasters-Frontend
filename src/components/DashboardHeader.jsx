@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useRef } from "react";
 import { UserContext } from "../context/UserContext.jsx";
@@ -13,7 +14,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 //MUI
 
-const DashboardHeader = ({handleside ,side}) => {
+const DashboardHeader = ({ handleside, side }) => {
   const { islogin, userdetail } = useContext(UserContext);
   let avatars = [avatar1, avatar2, avatar3, avatar4, avatar5];
   const closeNavbar = () => {
@@ -69,14 +70,12 @@ const DashboardHeader = ({handleside ,side}) => {
     };
   }, [isDropdownVisible]);
 
-  
-
   return (
     <>
-      <header className="header top-0 left-0 w-full">
-        <nav className="w-full z-20  border-b shadow-md border-gray-200">
-          <div className="flex flex-row justify-between lg:px-10 items-center flex-wrap p-3 w-full  ">
-            <div className=" flex  justify-between items-center gap-2">
+      <header className="header top-0 left-0 w-full ">
+        <nav className="w-full z-20  border-b shadow-md border-gray-200 ">
+          <div className="flex flex-row justify-between lg:px-10 items-center flex-wrap p-3  w-full  ">
+            <div className=" flex  justify-between items-center gap-6">
               <div
                 className="flex items-center justify-center lg:hidden h-8  w-8"
                 id=""
@@ -91,7 +90,9 @@ const DashboardHeader = ({handleside ,side}) => {
                 />
                 <label
                   htmlFor="hamburger"
-                  className={`${side &&"peer-checked:hamburger " }block relative z-20 p-3 cursor-pointer lg:hidden`}
+                  className={`${
+                    side && "peer-checked:hamburger "
+                  }block relative z-20 p-3 cursor-pointer lg:hidden`}
                 >
                   <div
                     aria-hidden="true"

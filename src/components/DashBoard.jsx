@@ -25,17 +25,17 @@ const DashBoard = ({ side, handleside }) => {
   }, [userdetail]);
   return (
     <>
-      <section id="sidebar-section" className=" flex justify-center ">
+      <section id="sidebar-section" className=" flex justify-center relative">
         <aside
           id="default-sidebar"
-          className={` lg:w-[20%]   h-screen  transition-transform -translate-x-full lg:translate-x-0  shadow-2xl lg:flex  w-0  ${
+          className={`  min-[1024px]:w-[262px] transition-transform -translate-x-full  lg:translate-x-0  shadow-2xl lg:flex  w-0  ${
             side
-              ? "max-lg:absolute  top-[4.5rem] left-[-1rem]  duration-300 transition-transform translate-x-[8%] md:translate-x-3  w-[53%] z-20 rounded-md    md:w-[30%] "
-              : "  "
+              ? "max-lg:absolute   left-[0rem] top-0 bottom-0  duration-300 transition-transform translate-x-[0]   w-[40%] z-20 rounded-md min-[320px]:w-[222px]   sm:w-[222px] "
+              : " "
           }`}
           aria-label="Sidebar"
         >
-          <div className=" w-full  h-full px-0 overflow-y-auto bg-gray-50">
+          <div className=" w-full h-full  px-0 overflow-y-auto bg-gray-50">
             <ul className="space-y-4 font-medium ">
               <li>
                 <a
