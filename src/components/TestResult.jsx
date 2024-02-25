@@ -38,7 +38,7 @@ const TestResult = ({ side }) => {
       <section id="test-result" className={`py-18  ${side ? " lg:blur-none blur-sm" : " "}`}>
         <div className="container mx-auto p-8 flex flex-col justify-center items-center">
           <h2 className="text-3xl font-semibold mb-8">Test Results</h2>
-          <table className="w-[66%] bg-white border border-gray-300 shadow-md">
+          <table className="w-[75%] bg-white border border-gray-300 shadow-md">
             <thead>
               <tr className="bg-gray-50 border">
                 <th className="py-2 px-4 border-r border-gray-300">Sr. No.</th>
