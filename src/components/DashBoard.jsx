@@ -50,7 +50,8 @@ const DashBoard = ({ side, handleside }) => {
                 <Link
                   to="/Dashboard/profile"
                   onClick={handleside}
-                  className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-200  group"
+                  className={`flex items-center ${(location.pathname === "/Dashboard/profile" ||
+        location.pathname === "/Dashboard/profile/")?"bg-gray-300":""}  p-2 text-gray-900 rounded-lg hover:bg-gray-200  group`}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -67,14 +68,15 @@ const DashBoard = ({ side, handleside }) => {
                     />
                   </svg>
 
-                  <span className="ms-3">My Profile</span>
+                  <span className="ms-3" >My Profile</span>
                 </Link>
               </li>
               <li>
                 <Link
                   to="/Dashboard/test-series"
                   onClick={handleside}
-                  className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-200 group"
+                  className={`flex items-center ${(location.pathname === "/Dashboard/test-series/" ||
+        location.pathname === "/Dashboard/test-series")?"bg-gray-300":""}  p-2 text-gray-900 rounded-lg hover:bg-gray-200  group`}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -97,7 +99,8 @@ const DashBoard = ({ side, handleside }) => {
                 <Link
                   to="/Dashboard/progressreport"
                   onClick={handleside}
-                  className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-200 group"
+                  className={`flex items-center ${(location.pathname === "/Dashboard/progressreport/" ||
+        location.pathname === "/Dashboard/progressreport")?"bg-gray-300":""}  p-2 text-gray-900 rounded-lg hover:bg-gray-200  group`}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -123,7 +126,8 @@ const DashBoard = ({ side, handleside }) => {
                 <Link
                   to="/Dashboard/attempted-test"
                   onClick={handleside}
-                  className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-200  group"
+                  className={`flex items-center ${(location.pathname === "/Dashboard/attempted-test/" ||
+        location.pathname === "/Dashboard/attempted-test")?"bg-gray-300":""}  p-2 text-gray-900 rounded-lg hover:bg-gray-200  group`}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -149,7 +153,8 @@ const DashBoard = ({ side, handleside }) => {
                 <Link
                   to="/Dashboard/refer&earn"
                   onClick={handleside}
-                  className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-200  group"
+                  className={`flex items-center ${(location.pathname === "/Dashboard/refer&earn/" ||
+        location.pathname === "/Dashboard/refer&earn")?"bg-gray-300":""}  p-2 text-gray-900 rounded-lg hover:bg-gray-200  group`}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -175,7 +180,8 @@ const DashBoard = ({ side, handleside }) => {
                 <Link
                   to="/Dashboard/change-password"
                   onClick={handleside}
-                  className="flex items-center  p-2 text-gray-900 rounded-lg hover:bg-gray-200 group"
+                  className={`flex items-center ${(location.pathname === "/Dashboard/change-password/" ||
+        location.pathname === "/Dashboard/change-password")?"bg-gray-300":""}  p-2 text-gray-900 rounded-lg hover:bg-gray-200  group`}
                 >
                   <div className="flex items-center w-6 h-6">
                     {" "}
@@ -201,7 +207,8 @@ const DashBoard = ({ side, handleside }) => {
                 <Link
                   to="/Dashboard/create-question"
                   onClick={handleside}
-                  className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-200  group"
+                  className={`flex items-center ${(location.pathname === "/Dashboard/create-question/" ||
+        location.pathname === "/Dashboard/create-question")?"bg-gray-300":""}  p-2 text-gray-900 rounded-lg hover:bg-gray-200  group`}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -227,7 +234,8 @@ const DashBoard = ({ side, handleside }) => {
                 <Link
                   to="/Dashboard/create-test"
                   onClick={handleside}
-                  className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-200  group"
+                  className={`flex items-center ${(location.pathname === "/Dashboard/create-test/" ||
+        location.pathname === "/Dashboard/create-test")?"bg-gray-300":""}  p-2 text-gray-900 rounded-lg hover:bg-gray-200  group`}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
