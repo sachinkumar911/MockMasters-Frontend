@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { UserContext } from "../context/UserContext.jsx";
 import { useContext } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
@@ -28,14 +28,18 @@ const AuthDashboard = (props) => {
       }
     })();
   }, []);
+  const [side, setside] = useState(false);
+
+  const handleside = () => {
+    setside(!side);
+  };
 
   return (
     <>
       {islogin ? (
         <>
-        
-          <DashboardHeader/>
-          <DashBoard />
+          <DashboardHeader side={side} handleside={handleside} />
+          <DashBoard side={side} handleside={handleside} />
           <Footer />
         </>
       ) : (

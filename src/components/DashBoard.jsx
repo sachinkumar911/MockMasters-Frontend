@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -14,12 +15,10 @@ import SamplePaper from "./SamplePaper.jsx";
 import ProgressReport from "./ProgressReport.jsx";
 import ReferEarn from "./ReferEarn.jsx";
 
-const DashBoard = () => {
+const DashBoard = ({ side, handleside }) => {
   const { userdetail } = useContext(UserContext);
   const [cc, setcc] = useState(0);
-  const [side, setside] = useState(false);
-
-  const handleside = () => {};
+  // const [side, setside] = useState(true);
 
   useEffect(() => {
     setcc(userdetail.elitecoin);
@@ -29,14 +28,14 @@ const DashBoard = () => {
       <section id="sidebar-section" className=" flex justify-center ">
         <aside
           id="default-sidebar"
-          className={`w-0 md:w-[25%] lg:w-[20%]  h-screen  transition-transform -translate-x-full md:translate-x-0  shadow-2xl ${
+          className={` lg:w-[20%]   h-screen  transition-transform -translate-x-full lg:translate-x-0  shadow-2xl lg:flex  w-0  ${
             side
-              ? " max-sm:absolute  top-[5.5rem] left-[-1rem]  duration-300 transition-transform translate-x-[10%] w-fit z-20 rounded-md    "
+              ? "max-lg:absolute  top-[4.5rem] left-[-1rem]  duration-300 transition-transform translate-x-[8%] md:translate-x-3  w-[53%] z-20 rounded-md    md:w-[30%] "
               : "  "
           }`}
           aria-label="Sidebar"
         >
-          <div className="  h-full md:px-3 md:py-4 px-0 overflow-y-auto bg-gray-50">
+          <div className=" w-full  h-full px-0 overflow-y-auto bg-gray-50">
             <ul className="space-y-4 font-medium ">
               <li>
                 <a
@@ -50,7 +49,7 @@ const DashBoard = () => {
               <li>
                 <Link
                   to="/Dashboard/profile"
-                  onClick={() => setside(!side)}
+                  onClick={handleside}
                   className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-200  group"
                 >
                   <svg
@@ -74,7 +73,7 @@ const DashBoard = () => {
               <li>
                 <Link
                   to="/Dashboard/test-series"
-                  onClick={() => setside(!side)}
+                  onClick={handleside}
                   className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-200 group"
                 >
                   <svg
@@ -97,7 +96,7 @@ const DashBoard = () => {
               <li>
                 <Link
                   to="/Dashboard/progressreport"
-                  onClick={() => setside(!side)}
+                  onClick={handleside}
                   className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-200 group"
                 >
                   <svg
@@ -123,7 +122,7 @@ const DashBoard = () => {
               <li>
                 <Link
                   to="/Dashboard/attempted-test"
-                  onClick={() => setside(!side)}
+                  onClick={handleside}
                   className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-200  group"
                 >
                   <svg
@@ -149,7 +148,7 @@ const DashBoard = () => {
               <li>
                 <Link
                   to="/Dashboard/refer&earn"
-                  onClick={() => setside(!side)}
+                  onClick={handleside}
                   className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-200  group"
                 >
                   <svg
@@ -175,7 +174,7 @@ const DashBoard = () => {
               <li>
                 <Link
                   to="/Dashboard/change-password"
-                  onClick={() => setside(!side)}
+                  onClick={handleside}
                   className="flex items-center  p-2 text-gray-900 rounded-lg hover:bg-gray-200 group"
                 >
                   <div className="flex items-center w-6 h-6">
@@ -201,7 +200,7 @@ const DashBoard = () => {
               <li>
                 <Link
                   to="/Dashboard/create-question"
-                  onClick={() => setside(!side)}
+                  onClick={handleside}
                   className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-200  group"
                 >
                   <svg
@@ -227,7 +226,7 @@ const DashBoard = () => {
               <li>
                 <Link
                   to="/Dashboard/create-test"
-                  onClick={() => setside(!side)}
+                  onClick={handleside}
                   className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-200  group"
                 >
                   <svg
@@ -253,30 +252,6 @@ const DashBoard = () => {
             </ul>
           </div>
         </aside>
-        <div className=" absolute  top-5  left-0  md:hidden  ">
-          <button
-            type="button"
-            onClick={() => setside(!side)}
-            className="text-white bg-blue-300 h-10 fixed hover:bg-blue-800 focus:ring-4  focus:outline-none font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center me-2 transition-transform translate-x-[-25px] hover:translate-x-1 duration-300"
-          >
-            <svg
-              className="w-5 h-5"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 14 10"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M1 5h12m0 0L9 1m4 4L9 9"
-              />
-            </svg>
-            <span className="sr-only">Icon description</span>
-          </button>
-        </div>
 
         <section id="" className=" w-full">
           <Routes>
