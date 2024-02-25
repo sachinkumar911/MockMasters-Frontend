@@ -83,7 +83,7 @@ const Profile = ({ side }) => {
       <section
         id="profile-section"
         className={`min-h-screen flex items-center justify-center  ${
-          side ? "blur-sm" : " "
+          side ? "lg:blur-none blur-sm" : " "
         }`}
       >
         <div className="container w-fit lg:w-[75%] mx-auto lg:mx-14">
