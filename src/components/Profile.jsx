@@ -82,11 +82,11 @@ const Profile = ({ side }) => {
       <Toaster position="bottom-left" reverseOrder={false} />
       <section
         id="profile-section"
-        className={`min-h-screen flex items-center justify-center  ${
+        className={`min-h-screen flex items-center justify-center  py-5 ${
           side ? "lg:blur-none blur-sm" : " "
         }`}
       >
-        <div className="container w-fit lg:w-[75%] mx-auto lg:mx-14">
+        <div className="container w-ull lg:w-[75%] md:w-[85%]  mx-auto lg:mx-14">
           <div className="bg-white rounded shadow-lg p-4 px-4 md:p-8 flex flex-col lg:flex-row w-full">
             <div className="lg:w-1/3 text-gray-900">
               <p className="text-3xl font-semibold text-center">
