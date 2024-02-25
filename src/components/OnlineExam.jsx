@@ -530,7 +530,7 @@ const OnlineExam = () => {
                 </span>
               </div>
             </div>
-            <div className="flex h-[77vh] justify-center items-center mx-24">
+            <div className="flex h-[80vh] justify-center items-center mx-24">
               <div className=" h-full flex flex-col  lg:w-[75vw] w-full ">
                 <div className=" h-fit flex justify-between items-center  border-b-2 border-slate-300 mb-1 ">
                   <h2 className="py-3 px-2 font-semibold">
@@ -539,7 +539,7 @@ const OnlineExam = () => {
                   <h2 className="py-3 px-2 font-semibold">
                     {" "}
                     Single correct option,
-                    <span className="text-green-400 ">
+                    <span className="text-[#08bd80] ">
                       +
                       {AllData?.questions[currsubject]?.posM
                         ? (AllData?.questions[currsubject]?.posM).toFixed(1)
@@ -554,16 +554,19 @@ const OnlineExam = () => {
                   </h2>
                 </div>
 
-                <div className="px-2 lg:text-lg h-[60%]  ">
+                <div className="px-2 lg:text-lg h-[60%] font-normal ">
                   {currentDisplay?.txtquestion}
                 </div>
                 {currentDisplay?.options?.map((item, key) => (
-                  <div key={key} className="px-2 lg:text-lg">
+                  <div
+                    key={key}
+                    className="px-2 lg:text-lg  flex items-center p-1.5 gap-2 "
+                  >
                     <input
                       type="radio"
                       name={currentDisplay?._id}
                       id={`${currentDisplay?._id}_${key}`}
-                      className=" h-6 w-6 bg-slate-200"
+                      className=" h-6 w-6 bg-slate-200 cursor-pointer"
                       checked={
                         selectedOption === `${currentDisplay?._id}_${key}` ||
                         (Answers[
@@ -585,7 +588,10 @@ const OnlineExam = () => {
                         setTimeLeft(TestExpiry - Date.now());
                       }}
                     />
-                    <label htmlFor={`${currentDisplay?._id}_${key}`}>
+                    <label
+                      className="cursor-pointer" //option label
+                      htmlFor={`${currentDisplay?._id}_${key}`}
+                    >
                       {item}
                     </label>
                   </div>
@@ -594,33 +600,33 @@ const OnlineExam = () => {
                   <div
                     className={`flex flex-col space-x-4 px-4 py-2 justify-between`}
                   >
-                    <div className=" ms-2  flex bg-slate-50  py-3 px-2 justify-between">
-                      <button
-                        className={`px-4 py-2 rounded transition-colors duration-300 hover:text-white bg-green-500`}
-                        id="review"
-                        onClick={markforreview}
-                      >
-                        Mark for Review &amp; Next
-                      </button>
-                      <button
-                        className={`px-4 py-2 rounded transition-colors duration-300 hover:text-white bg-indigo-700`}
-                        id="clear"
-                        onClick={clearresponse}
-                      >
-                        Clear Response
-                      </button>
-                    </div>
-                    <div className="flex justify-between items-center mt-4 bg-slate-50 py-3 px-2 ">
+                    <div className=" ms-2  flex justify-between   py-3 px-2 gap-2 ">
+                      <div className="flex gap-2">
+                        <button
+                          className={`px-4 py-2 rounded transition-colors duration-300 text-white bg-cyan-500 hover:bg-cyan-600 `}
+                          id="review"
+                          onClick={markforreview}
+                        >
+                          Mark for Review &amp; Next
+                        </button>
+                        <button
+                          className={`px-4 py-2 rounded transition-colors duration-300 text-white bg-cyan-500 hover:bg-cyan-600`}
+                          id="clear"
+                          onClick={clearresponse}
+                        >
+                          Clear Response
+                        </button>
+                      </div>
                       <div className="flex gap-2 justify-center items-center">
                         <button
-                          className={`px-4 py-2 rounded transition-colors duration-300 hover:text-white bg-white text-black font-semibold`}
+                          className={`px-4 py-2 rounded transition-colors duration-300 bg-white text-gray-600 font-semibold border hover:text-gray-900 border-gray-500`}
                           id="save"
                           onClick={prevques}
                         >
                           Previous
                         </button>
                         <button
-                          className={`px-4 py-2 rounded transition-colors duration-300 hover:text-white bg-sky-800`}
+                          className={`px-4 py-2 rounded transition-colors duration-300 text-white bg-blue-500 hover:bg-blue-600`}
                           id="save"
                           type="button"
                           onClick={setanswer}
@@ -628,8 +634,76 @@ const OnlineExam = () => {
                           Save &amp; Next
                         </button>
                       </div>
+                    </div>
+
+                    
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col ">
+                <div className="h-[68vh] border-x border-y border-black bg-white w-[25vw]  hidden lg:flex  lg:flex-col ">
+                  <div className="flex flex-wrap w-full justify-between items-center lg:gap-3  my-2  px-5">
+                    <div className=" flex  gap-2 py-2 text-sm  ">
+                      <div className=" h-6 w-6 bg-green-500"></div>
+                      Answered
+                    </div>
+
+                    <div className=" flex  gap-2 py-2 text-sm  pr-4 ">
+                      <div className=" h-6 w-6 bg-red-500  "></div>
+                      Not Answered
+                    </div>
+
+                    <div className=" flex  gap-2 py-2 text-sm  ">
+                      <div className=" h-6 w-6 bg-gray-400"></div>
+                      Not Visited
+                    </div>
+                    <div className=" flex  gap-2 py-2 text-sm ">
+                      <div className=" h-6 w-6 bg-violet-500"></div>
+                      Marked for Review
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap">
+                    {currentPanel?.map((item, key) => (
+                      <div
+                        key={key}
+                        onClick={() => {
+                          // console.log(item);
+                          changeDisplay(key);
+                        }}
+                        className={`w-8 h-8 bg-gray-300 m-2 flex justify-center items-center rounded-sm ${
+                          currquesindex === key ? "border border-black" : ""
+                        } ${
+                          Answers[
+                            AllData?.questions[currsubject]?.subjectname
+                          ] &&
+                          Answers[AllData?.questions[currsubject]?.subjectname][
+                            item._id
+                          ]
+                            ? "bg-green-500 text-white"
+                            : ""
+                        } ${
+                          MarkReview[
+                            AllData?.questions[currsubject]?.subjectname
+                          ] &&
+                          (MarkReview[
+                            AllData?.questions[currsubject]?.subjectname
+                          ][item?._id] ||
+                            MarkReview[
+                              AllData?.questions[currsubject]?.subjectname
+                            ][item?._id] === "")
+                            ? "bg-violet-500 text-white"
+                            : ""
+                        }`}
+                      >
+                        {key + 1}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="flex justify-end py-3 px-2 ">
                       <button
-                        className={`px-4 py-2 rounded transition-colors duration-300 hover:text-white bg-cyan-400`}
+                        className={`px-4 py-2 rounded transition-colors duration-300 text-white bg-[#08bd80] `}
                         id="submit"
                         onClick={handleOpen}
                       >
@@ -737,67 +811,6 @@ const OnlineExam = () => {
                         </Box>
                       </Modal>
                     </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="h-full border-x border-y border-black bg-white w-[25vw]  hidden lg:flex  lg:flex-col ">
-                <div className="flex flex-wrap w-full justify-between items-center lg:gap-3   my-2  px-5">
-                  <div className=" flex  gap-2 py-2 text-sm  ">
-                    <div className=" h-6 w-6 bg-green-400"></div>
-                    Answered
-                  </div>
-
-                  <div className=" flex  gap-2 py-2 text-sm  pr-4 ">
-                    <div className=" h-6 w-6 bg-orange-400  "></div>
-                    Not Answered
-                  </div>
-
-                  <div className=" flex  gap-2 py-2 text-sm  ">
-                    <div className=" h-6 w-6 bg-gray-300"></div>
-                    Not visited
-                  </div>
-                  <div className=" flex  gap-2 py-2 text-sm ">
-                    <div className=" h-6 w-6 bg-pink-500"></div>
-                    Mark for reviwed
-                  </div>
-                </div>
-
-                <div className="flex flex-wrap">
-                  {currentPanel?.map((item, key) => (
-                    <div
-                      key={key}
-                      onClick={() => {
-                        // console.log(item);
-                        changeDisplay(key);
-                      }}
-                      className={`w-6 h-6 bg-gray-300 m-2 flex justify-center items-center rounded-sm ${
-                        currquesindex === key ? "border-4 border-blue-500" : ""
-                      } ${
-                        Answers[AllData?.questions[currsubject]?.subjectname] &&
-                        Answers[AllData?.questions[currsubject]?.subjectname][
-                          item._id
-                        ]
-                          ? "bg-green-500"
-                          : ""
-                      } ${
-                        MarkReview[
-                          AllData?.questions[currsubject]?.subjectname
-                        ] &&
-                        (MarkReview[
-                          AllData?.questions[currsubject]?.subjectname
-                        ][item?._id] ||
-                          MarkReview[
-                            AllData?.questions[currsubject]?.subjectname
-                          ][item?._id] === "")
-                          ? "bg-pink-400"
-                          : ""
-                      }`}
-                    >
-                      {key + 1}
-                    </div>
-                  ))}
-                </div>
               </div>
             </div>
           </>
