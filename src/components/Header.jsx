@@ -173,7 +173,7 @@ const Header = () => {
                               <NavLink to="/Dashboard/profile">
                                 <button
                                   type="button"
-                                  className=" flex items-center gap-3 font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
+                                  className=" flexitems-center gap-3 font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
                                 >
                                   <svg
                                     className="w-[27px] h-[27px] text-gray-800 dark:text-white"
@@ -304,18 +304,20 @@ const Header = () => {
                           src={avatars[userdetail?.avatar - 1]}
                           alt="Avatar"
                           onClick={handleImageClick}
-                          className={`cursor-pointer   rounded-full shadow-lg  border-4 border-white transition-transform transform-gpu md:w-11 md:h-11 h-10 w-fit 
+                          className={`cursor-pointer  rounded-full shadow-lg  border-4 border-white transition-transform transform-gpu md:w-11 md:h-11 h-10 w-fit 
                           focus:outline-none`}
                         />
                       </div>
                       {isDropdownVisible && (
                         <div className="absolute mt-1 right-0 px-2 py-1 bg-white  rounded-xl shadow-lg z-10 w-fit">
+                        <NavLink 
+                         to="/Dashboard/profile">
                           <button
                             type="button"
                             className=" flex items-center hover:rounded-lg font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
                           >
-                            <NavLink
-                              to="/Dashboard/profile"
+                            <div
+                             
                               className="flex items-center gap-3"
                             >
                               <svg
@@ -334,14 +336,17 @@ const Header = () => {
                                 />
                               </svg>
                               My Profile
-                            </NavLink>
+                            </div>
                           </button>
+                          </NavLink>
+                          <NavLink
+                          to="/Dashboard/test-series">
                           <button
                             type="button"
                             className=" flex items-center hover:rounded-lg font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
                           >
-                            <NavLink
-                              to="/Dashboard/test-series"
+                            <div
+                              
                               className="flex items-center gap-3"
                             >
                               <svg
@@ -360,8 +365,9 @@ const Header = () => {
                                 />
                               </svg>
                               Dashboard
-                            </NavLink>
+                            </div>
                           </button>
+                          </NavLink>
 
                           <button
                             onClick={logoutuser}

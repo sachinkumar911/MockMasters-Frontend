@@ -134,12 +134,13 @@ const DashboardHeader = ({ handleside, side }) => {
                       </div>
                       {isDropdownVisible && (
                         <div className="absolute  mt-1 right-0 bg-white py-1  rounded-xl shadow-lg z-10 w-fit px-2 ">
+                            <NavLink to="/Dashboard/profile">
                           <button
                             type="button"
                             onClick={() =>
                               setIsDropdownVisible(!isDropdownVisible)
                             }
-                            className=" flex items-center gap-3 font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
+                            className=" flex items-center gap-3  font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
                           >
                             <svg
                               className="w-[27px] h-[27px] text-gray-800"
@@ -157,10 +158,10 @@ const DashboardHeader = ({ handleside, side }) => {
                               />
                             </svg>
 
-                            <NavLink to="/Dashboard/profile">
                               My Profile
-                            </NavLink>
                           </button>
+                            </NavLink>
+                            <NavLink to="/Dashboard/test-series">
                           <button
                             type="button"
                             onClick={() =>
@@ -184,10 +185,9 @@ const DashboardHeader = ({ handleside, side }) => {
                               />
                             </svg>
 
-                            <NavLink to="/Dashboard/test-series">
                               Dashboard
-                            </NavLink>
                           </button>
+                            </NavLink>
 
                           <button
                             type="button"
