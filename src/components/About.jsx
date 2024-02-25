@@ -7,7 +7,7 @@ import refineimg from "../assets/refineapproach.png";
 const About = () => {
   return (
     <>
-      <section id="about-section" className="mt-56 mb-40">
+      <section id="about-section" className="mt-56 mb-20">
         <h2 className="text-2xl medium:text-[32px] leading-8 medium:leading-10 font-bold text-center  regular:!text-left w-full regular:!w-auto font-inter text-gray-900 pb-0">
           START YOUR JOURNEY
         </h2>
@@ -43,9 +43,10 @@ const About = () => {
                     the gained insights.
                   </p>
                 </div>
+
               </div>
 
-              <div className="space-y-6 lg:space-y-10">
+              <div className="space-y-6 lg:space-y-10 ">
                 <div className="shadow-medium rounded-lg p-[14px] m-2 font-nunitoSans px-8 large:!px-7 !py-8 large:!py-7 flex flex-col items-start w-full regular:!w-[360px] large:!w-full xlarge:!w-96 gap-y-4 group  !text-center regular:!text-left  large:bg-white shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px]  hover:bg-[#F6FAFF]">
                   <div className="w-full">
                     <img src={refineimg} alt="" className="mx-auto" />

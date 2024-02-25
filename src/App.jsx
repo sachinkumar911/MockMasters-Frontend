@@ -23,6 +23,7 @@ import Mockup from "./components/Mockup.jsx";
 import OnlineExam from "./components/OnlineExam.jsx";
 import Pattern from "./components/Pattern.jsx";
 import FinalSubmit from "./components/FinalSubmit.jsx";
+// import Faq from "./components/Faq.jsx";
 
 function App() {
   const [userdetail, setuserdetail] = useState();
@@ -82,6 +83,10 @@ function App() {
                 <Element name="team">
                   <TeamMember />{" "}
                 </Element>
+                {/* <Element name="faq">
+                  <Faq/>
+                </Element> */}
+
                 <Element name="contact">
                   <Contact />
                 </Element>
