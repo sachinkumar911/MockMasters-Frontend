@@ -54,14 +54,14 @@ const TestSeries = ({ side }) => {
     <>
       <section
         id="test-section"
-        className={`mt-10  ${side ? " lg:blur-none blur-sm" : " "}`}
+        className={`my-10  ${side ? " lg:blur-none blur-sm" : " "}`}
       >
         <div className="flex flex-col  justify-center items-center space-y-6">
           {examsets?.map((item, key) => (
             <div
               key={key}
               id={item.qpname}
-              className=" rounded-lg relative overflow-hidden bg-white shadow-md  lg:w-[75%] md:w-[70%] w-[100%]"
+              className=" rounded-lg relative overflow-hidden bg-white shadow-md  lg:w-[60%] md:w-[70%] w-[100%] "
             >
               <div className="absolute right-0 top-0 h-16 w-16">
                 <div
