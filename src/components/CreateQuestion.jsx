@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 
-const CreateQuestion = () => {
+const CreateQuestion = ({side}) => {
   const [selectedTopics, setselectedTopics] = useState([]);
   const [choices, setchoices] = useState(Array(2).fill(""));
   const [correct, setcorrect] = useState(-1);
@@ -108,7 +108,7 @@ const CreateQuestion = () => {
       <Toaster position="bottom-left" reverseOrder={false} />
       <section
         id="create-question"
-        className="min-h-screen flex items-center justify-center"
+        className={`min-h-screen flex items-center justify-center ${side ? "lg:blur-none blur-sm" : " "}`}
       >
         <div className="container w-full md:w-[70%]  lg:w-[60%] mx-auto">
           <div className="bg-white rounded shadow-lg p-4 px-4 md:p-8 flex flex-col  w-full">

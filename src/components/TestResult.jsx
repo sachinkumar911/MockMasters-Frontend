@@ -4,7 +4,7 @@ import { useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const TestResult = () => {
+const TestResult = ({ side }) => {
   const { userdetail } = useContext(UserContext);
   const [Data, setData] = useState();
   const Navigate = useNavigate();
@@ -35,7 +35,7 @@ const TestResult = () => {
   };
   return (
     <>
-      <section id="test-result" className="py-18">
+      <section id="test-result" className={`py-18  ${side ? "blur-sm" : " "}`}>
         <div className="container mx-auto p-8 flex flex-col justify-center items-center">
           <h2 className="text-3xl font-semibold mb-8">Test Results</h2>
           <table className="w-[66%] bg-white border border-gray-300 shadow-md">

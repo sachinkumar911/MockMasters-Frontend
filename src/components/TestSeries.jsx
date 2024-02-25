@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import humanizeDuration from "humanize-duration";
 
-const TestSeries = () => {
+const TestSeries = ({ side }) => {
   const { userdetail } = useContext(UserContext);
 
   const [examsets, setexamsets] = useState();
@@ -52,7 +52,7 @@ const TestSeries = () => {
 
   return (
     <>
-      <section id="test-section" className="mt-10">
+      <section id="test-section" className={`mt-10  ${side ? "blur-sm" : " "}`}>
         <div className="flex flex-col  justify-center items-center space-y-6">
           {examsets?.map((item, key) => (
             <div
