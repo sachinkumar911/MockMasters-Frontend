@@ -256,14 +256,14 @@ const DashBoard = ({ side, handleside }) => {
         <section id="" className=" w-full">
           <Routes>
             <Route path="/" element={<Navigate to="test-series" />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/test-series" element={<TestSeries />} />
-            <Route path="/attempted-test" element={<TestResult />} />
-            <Route path="/change-password" element={<ChangePassword />} />
-            <Route path="/create-question" element={<CreateQuestion />} />
-            <Route path="/create-test" element={<SamplePaper />} />
-            <Route path="/progressreport" element={<ProgressReport />} />
-            <Route path="/refer&earn" element={<ReferEarn />} />
+            <Route path="/profile" element={<Profile side={side} />} />
+            <Route path="/test-series" element={<TestSeries side={side} />} />
+            <Route path="/attempted-test" element={<TestResult side={side} />} />
+            <Route path="/change-password" element={<ChangePassword side={side} />} />
+            <Route path="/create-question" element={<CreateQuestion side={side} />} />
+            <Route path="/create-test" element={<SamplePaper side={side} />} />
+            <Route path="/progressreport" element={<ProgressReport side={side} />} />
+            <Route path="/refer&earn" element={<ReferEarn side={side} />} />
           </Routes>
         </section>
       </section>
