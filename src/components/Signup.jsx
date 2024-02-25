@@ -10,7 +10,7 @@ import toast, { Toaster } from "react-hot-toast";
 import validator from "validator";
 import { useNavigate } from "react-router-dom";
 
-const Signup = () => {
+const Signup = () => {3
   const toastId = React.useRef(null);
   const sendingnotify = (msg) => (toastId.current = toast.loading(msg));
   const dismiss = () => toast.dismiss(toastId.current);

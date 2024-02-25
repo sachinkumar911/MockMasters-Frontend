@@ -52,7 +52,8 @@ const Mockup = () => {
                     </span>
 
                     <span className="text-sm sm:text-base text-gray-500">
-                      <span className="font-bold">Streamlined Test </span>Designing
+                      <span className="font-bold">Streamlined Test </span>
+                      Designing
                     </span>
                   </li>
 
@@ -106,42 +107,8 @@ const Mockup = () => {
             </div>
           </div>
         </div>
-      <div className="flex flex-col justify-center items-center">
-        <div className="bg-orange-100 pt-[64px] pr-[146px]  pl-[146px] rounded-xl rela">
-          <div className="flex flex-col justify-center items-center mb-8">
-            <h2 className="text-2xl font-bold text-gray-800 uppercase">
-              Ace Your Tests
-            </h2>
-            <p className=" text-gray-800">
-              Boost your success with our free mock tests.
-            </p>
-          </div>
-          <figure className="relative z-[1] max-w-full w-[60rem] h-auto rounded-b-lg">
-            <div className="relative flex items-center max-w-[60rem] bg-gray-800 rounded-t-lg py-2 px-24 ">
-              <div className="flex space-x-1 absolute top-2/4 start-4 -translate-y-1">
-                <span className="w-2 h-2 bg-gray-600 rounded-full "></span>
-                <span className="w-2 h-2 bg-gray-600 rounded-full "></span>
-                <span className="w-2 h-2 bg-gray-600 rounded-full"></span>
-              </div>
-              <div className="flex justify-center items-center w-full h-full bg-gray-700 text-[.25rem] text-gray-400 rounded-sm sm:text-[.5rem] ">
-                MockMaster
-              </div>
-            </div>
-
-            <div className="bg-gray-800 rounded-b-lg">
-              <img
-                className="max-w-full h-auto"
-                src={mocktestimg}
-                alt="laptopimage"
-              />
-            </div>
-          </figure>
-        </div>
-
-        {/* //mobile images */}
-
-        <div className="flex justify-between gap-7">
-          <div className="bg-blue-100 pt-16 pr-11 pl-11 mt-12 rounded-xl h-min">
+        <div className="flex flex-col justify-center items-center">
+          <div className="bg-orange-100 pt-[64px] pr-[146px]  pl-[146px] rounded-xl rela">
             <div className="flex flex-col justify-center items-center mb-8">
               <h2 className="text-2xl font-bold text-gray-800 uppercase">
                 Ace Your Tests
@@ -150,56 +117,90 @@ const Mockup = () => {
                 Boost your success with our free mock tests.
               </p>
             </div>
-            <figure className="mx-auto max-w-full w-60 h-auto">
-              <div className="p-1.5 bg-gray-800 rounded-tl-2xl rounded-tr-2xl pb-0 ">
+            <figure className="relative z-[1] max-w-full w-[60rem] h-auto rounded-b-lg">
+              <div className="relative flex items-center max-w-[60rem] bg-gray-800 rounded-t-lg py-2 px-24 ">
+                <div className="flex space-x-1 absolute top-2/4 start-4 -translate-y-1">
+                  <span className="w-2 h-2 bg-gray-600 rounded-full "></span>
+                  <span className="w-2 h-2 bg-gray-600 rounded-full "></span>
+                  <span className="w-2 h-2 bg-gray-600 rounded-full"></span>
+                </div>
+                <div className="flex justify-center items-center w-full h-full bg-gray-700 text-[.25rem] text-gray-400 rounded-sm sm:text-[.5rem] ">
+                  MockMaster
+                </div>
+              </div>
+
+              <div className="bg-gray-800 rounded-b-lg">
                 <img
-                  className="max-w-full h-auto rounded-tl-2xl rounded-tr-2xl border-0"
-                  src={mobile1}
-                  alt="mobile1image"
+                  className="max-w-full h-auto"
+                  src={mocktestimg}
+                  alt="laptopimage"
                 />
               </div>
             </figure>
           </div>
-          <div className="bg-green-100 pt-16 pr-11 pl-11 mt-12 rounded-xl h-min">
-            <div className="flex flex-col justify-center items-center mb-8">
-              <h2 className="text-2xl font-bold text-gray-800 uppercase">
-                Ace Your Tests
-              </h2>
-              <p className=" text-gray-800">
-                Boost your success with our free mock tests.
-              </p>
+
+          {/* //mobile images */}
+
+          <div className="flex justify-between gap-7">
+            <div className="bg-blue-100 pt-16 pr-11 pl-11 mt-12 rounded-xl h-min">
+              <div className="flex flex-col justify-center items-center mb-8">
+                <h2 className="text-2xl font-bold text-gray-800 uppercase">
+                  Ace Your Tests
+                </h2>
+                <p className=" text-gray-800">
+                  Boost your success with our free mock tests.
+                </p>
+              </div>
+              <figure className="mx-auto max-w-full w-60 h-auto">
+                <div className="p-1.5 bg-gray-800 rounded-tl-2xl rounded-tr-2xl pb-0 ">
+                  <img
+                    className="max-w-full h-auto rounded-tl-2xl rounded-tr-2xl border-0"
+                    src={mobile1}
+                    alt="mobile1image"
+                  />
+                </div>
+              </figure>
             </div>
-            <figure className="mx-auto max-w-full w-60 h-auto">
-              <div className="p-1.5 bg-gray-800 rounded-tl-2xl rounded-tr-2xl pb-0 ">
-                <img
-                  className="max-w-full h-auto rounded-tl-2xl rounded-tr-2xl border-0"
-                  src={mobile2}
-                  alt="mobile1image"
-                />
+            <div className="bg-green-100 pt-16 pr-11 pl-11 mt-12 rounded-xl h-min">
+              <div className="flex flex-col justify-center items-center mb-8">
+                <h2 className="text-2xl font-bold text-gray-800 uppercase">
+                  Ace Your Tests
+                </h2>
+                <p className=" text-gray-800">
+                  Boost your success with our free mock tests.
+                </p>
               </div>
-            </figure>
-          </div>
-          
-          <div className="bg-pink-100 pt-16 pr-11 pl-11 mt-12 rounded-xl h-min ">
-            <div className="flex flex-col justify-center items-center mb-8">
-              <h2 className="text-2xl font-bold text-gray-800 uppercase">
-                Ace Your Tests
-              </h2>
-              <p className=" text-gray-800">
-                Boost your success with our free mock tests.
-              </p>
+              <figure className="mx-auto max-w-full w-60 h-auto">
+                <div className="p-1.5 bg-gray-800 rounded-tl-2xl rounded-tr-2xl pb-0 ">
+                  <img
+                    className="max-w-full h-auto rounded-tl-2xl rounded-tr-2xl border-0"
+                    src={mobile2}
+                    alt="mobile1image"
+                  />
+                </div>
+              </figure>
             </div>
-            <figure className="mx-auto max-w-full w-60 h-auto">
-              <div className="p-1.5 bg-gray-800 rounded-tl-2xl rounded-tr-2xl pb-0 ">
-                <img
-                  className="max-w-full h-auto rounded-tl-2xl rounded-tr-2xl border-0"
-                  src={mobile3}
-                  alt="mobile3image"
-                />
+
+            <div className="bg-pink-100 pt-16 pr-11 pl-11 mt-12 rounded-xl h-min ">
+              <div className="flex flex-col justify-center items-center mb-8">
+                <h2 className="text-2xl font-bold text-gray-800 uppercase">
+                  Ace Your Tests
+                </h2>
+                <p className=" text-gray-800">
+                  Boost your success with our free mock tests.
+                </p>
               </div>
-            </figure>
+              <figure className="mx-auto max-w-full w-60 h-auto">
+                <div className="p-1.5 bg-gray-800 rounded-tl-2xl rounded-tr-2xl pb-0 ">
+                  <img
+                    className="max-w-full h-auto rounded-tl-2xl rounded-tr-2xl border-0"
+                    src={mobile3}
+                    alt="mobile3image"
+                  />
+                </div>
+              </figure>
+            </div>
           </div>
-        </div>
         </div>
       </section>
     </>
