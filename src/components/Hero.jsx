@@ -47,6 +47,7 @@ const Hero = () => {
                   <div className="relative z-10 inline-block pt-11 lg:pt-0">
                     <img
                       src={heroimage}
+                      // src="https://pwskills.com/images/homePage/hero-bg.png"
                       alt="heroimage"
                       className="max-w-full  lg:ml-auto"
                     />
