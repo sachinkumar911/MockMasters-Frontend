@@ -304,7 +304,7 @@ const Header = () => {
                           src={avatars[userdetail?.avatar - 1]}
                           alt="Avatar"
                           onClick={handleImageClick}
-                          className={`cursor-pointer  rounded-full shadow-lg  border-4 border-white transition-transform transform-gpu md:w-11 md:h-11 h-10 w-fit 
+                          className={`cursor-pointer   rounded-full shadow-lg  border-4 border-white transition-transform transform-gpu md:w-11 md:h-11 h-10 w-fit 
                           focus:outline-none`}
                         />
                       </div>

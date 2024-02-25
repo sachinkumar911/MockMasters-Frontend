@@ -4,57 +4,56 @@ import mockimage from "../assets/mock.png";
 import rewardimg from "../assets/reward.png";
 import usersimg from "../assets/usersimage.png";
 import graphimg from "../assets/graoh.png";
+import heroimg1 from "../assets/heroimage1.jpg";
+import heroimg2 from "../assets/heroimage2.jpg";
+import heroimg3 from "../assets/heroimage3.jpg";
 
 const Hero = () => {
   return (
     <>
-      {/* bg-gradient-to-r from-green-50 to-purple-200 */}
       <section
         id="hero-section"
-        className="h-[90vh] pt-[90px] bg-hero-bg relative"
+        className="h-[90vh] pt-[90px] bg-hero-bg relative -z-10"
       >
-        <div className="grid max-w-screen-xl py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-8 lg:grid-cols-12">
-          <div className="mr-auto place-self-center lg:col-span-6">
-            <h1 className=" mb-4 text-6xl font-semibold  tracking-normal leading-none md:text-5xl xl:text-7xl">
-              Master Your Exams
-              <br />
-              with
-              <span className="text-blue-600 text-7xl font-semibold">
-                {" "}
-                MockMasters
-              </span>
-            </h1>
-            <p className="max-w-2xl mb-6 font-normal text-gray-700 lg:mb-14 md:text-lg lg:text-3xl ">
-              Elevate Your Exam Performance!
-            </p>
-            <a
-              href="#about-section"
-              className="inline-flex items-center justify-center px-5 py-3 text-white bg-blue-600 text-base font-medium text-center  border border-gray-300 rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-gray-100 "
-            >
-              Get Started
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="m8.25 4.5 7.5 7.5-7.5 7.5"
-                />
-              </svg>
-            </a>
-          </div>
 
-          <div className="hidden lg:mt-0 lg:col-span-6 lg:flex">
-            <img
-              src={heroimage}
-              alt="mockup"
-              className="object-cover w-full h-full"
-            />
+        <div class="relative max-w-screen-xl mx-auto ">
+          <div class="container mx-auto">
+            <div class="flex flex-wrap ">
+              <div class="w-full px-4 lg:w-5/12 mt-10">
+                <div class="hero-content">
+                  <h1 class="mb-3 text-4xl font-bold leading-tight text-dark sm:text-[42px] lg:text-[40px] xl:text-[52px] ">
+                    Elevate Your Success with
+                    <span className="text-blue-600 ml-3 font-semibold text-7xl">MockMasters</span>
+                  </h1>
+                  <p class="mb-8 max-w-[480px] text-xl font-light text-gray-700">
+                    Welcome to MockMaster, your gateway to empowered learning
+                    through comprehensive mock tests.
+                  </p>
+                  <ul class="flex flex-wrap items-center">
+                    <li>
+                      <a
+                        href="javascript:void(0)"
+                        class="inline-flex cursor-pointer items-center text-white justify-center px-6 py-3 text-base font-medium text-center rounded-md bg-gray-700 hover:bg-gray-800 lg:px-9"
+                      >
+                        Get Started
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="hidden px-4 lg:block lg:w-1/12"></div>
+              <div class="w-full px-4 lg:w-6/12">
+                <div class="lg:ml-auto lg:text-right">
+                  <div class="relative z-10 inline-block pt-11 lg:pt-0">
+                    <img
+                      src={heroimage}
+                      alt="hero"
+                      class="max-w-full  lg:ml-auto"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
