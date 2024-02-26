@@ -57,11 +57,10 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className=" absolute left-[50%] bottom-[0%] translate-x-[-50%]  translate-y-[50%] w-[75%] px-4 py-10  lg:px-8 lg:py-4 mx-auto  rounded-xl shadow-lg bg-white">
+        <div className=" absolute left-[50%] bottom-[0%] translate-x-[-50%]  translate-y-[50%] md:w-[75%] w-full  px-4 py-10  lg:px-8 lg:py-4 mx-auto  rounded-xl shadow-lg bg-white">
           <div className="text-center mb-5"></div>
 
           <div className=" grid gap-6 grid-cols-2 sm:gap-12 lg:grid-cols-4 lg:gap-8 ">
-
             <div className="items-center justify-center flex flex-col  border-r">
               <img
                 src={mockimage}
@@ -117,7 +116,6 @@ const Hero = () => {
                 Earn Reward with Coins
               </div>
             </div>
-
           </div>
         </div>
       </section>
