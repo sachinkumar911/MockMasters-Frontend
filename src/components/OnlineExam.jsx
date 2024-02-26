@@ -785,7 +785,7 @@ const OnlineExam = () => {
                     aria-describedby="modal-modal-description"
                   >
                     <Box sx={style}>
-                      <div className="modal-content ">
+                      <div className="modal-content">
                         <div className=" flex flex-col items-center justify-center bg-blue-500 text-white py-4 px-4 ">
                           <div className="mo-header-logo text-center px-5 pb-2">
                             {/* <img src="https://www.mockers.in/frontend/img/mockers-while-logo.svg" alt=""/>  */}
