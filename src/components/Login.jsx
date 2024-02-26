@@ -115,8 +115,8 @@ const Login = () => {
                 className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg block w-full p-2.5"
               ></input>
             </div>
-            <div className="flex items-center justify-between">
-              <div className="flex items-start">
+            <div className="flex items-center justify-end">
+              {/* <div className="flex items-start">
                 <div className="flex items-center h-5">
                   <input
                     id="remember"
@@ -131,7 +131,7 @@ const Login = () => {
                     Remember me
                   </label>
                 </div>
-              </div>
+              </div> */}
               <Link
                 to="/Forgotpassword"
                 className="text-sm font-medium text-gray-600 hover:underline hover:text-gray-700"
@@ -142,7 +142,7 @@ const Login = () => {
             <button
               type="button"
               onClick={tryLogin}
-              className="w-full bg-gray-800 hover:bg-opacity-90 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center "
+              className="w-full bg-gray-700 hover:bg-gray-800 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center "
             >
               Sign in
             </button>
@@ -150,7 +150,7 @@ const Login = () => {
               Don't have Account Yet?
               <Link
                 to="/Signup"
-                className="font-medium text-gray-600 hover:underline"
+                className="ml-1 font-medium text-gray-600 hover:underline"
               >
                 Sign up
               </Link>

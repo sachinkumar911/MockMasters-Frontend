@@ -10,18 +10,19 @@ import toast, { Toaster } from "react-hot-toast";
 import validator from "validator";
 import { useNavigate } from "react-router-dom";
 
-const Signup = () => {3
+const Signup = () => {
+  3;
   const toastId = React.useRef(null);
   const sendingnotify = (msg) => (toastId.current = toast.loading(msg));
   const dismiss = () => toast.dismiss(toastId.current);
-  
+
   const errornotify = (msg) => toast.error(msg);
   const successnotify = (msg) => toast.success(msg);
 
   const Navigate = useNavigate();
 
   const [validusername, setvalidusername] = useState("");
-  
+
   const checkUsername = async () => {
     try {
       const response = await axios.post(
@@ -38,12 +39,11 @@ const Signup = () => {3
       if (response.data.message === "valid username") {
         setvalidusername("username available");
       }
-    } catch (error) 
-    {
+    } catch (error) {
       setvalidusername(error.response.data.message);
     }
   };
-  
+
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -52,7 +52,7 @@ const Signup = () => {3
     category: "Open",
     avatar: 1,
   });
-  
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -63,7 +63,7 @@ const Signup = () => {3
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!validator.isEmail(formData.email)) {
       errornotify("Invalid Email");
       return;
@@ -105,11 +105,11 @@ const Signup = () => {3
   return (
     <>
       <Toaster position="bottom-left" reverseOrder={false} />
-      <section className="bg-gray-50 flex flex-col items-center justify-center h-screen">
-        <div className="p-6 space-y-4 bg-white  shadow-md">
+      <section className="bg-gray-50 flex flex-col items-center justify-center m-4">
+        <div className="p-6  bg-white  shadow-md">
           <div className="flex flex-col justify-center items-center">
             <div>
-              <h2 className="text-xl font-bold leading-tight tracking-tight text-gray-900 mb-4">
+              <h2 className="text-xl font-bold leading-tight tracking-tight text-gray-900 mb-3">
                 Choose your Avatar
               </h2>
             </div>
@@ -179,7 +179,7 @@ const Signup = () => {3
           <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900">
             Create your Account
           </h1>
-          <form className="space-y-4" action="#" onSubmit={handleSubmit}>
+          <form className="space-y-2" action="#" onSubmit={handleSubmit}>
             <div className="flex my-4">
               <div className="flex flex-col mr-4">
                 <label
@@ -299,10 +299,25 @@ const Signup = () => {3
               </select>
               {/* ["OBC-NCL", "ST", "OBC-NCL (PwD)", "Gen-EWS", "Open", "Open (PwD)", "SC", "SC (PwD)", "Gen-EWS (PwD)"] */}
             </div>
+            <div class="mb-5">
+              <label
+                for="email"
+                class="block mb-2 text-sm font-medium text-gray-900"
+              >
+                Referral Code if Any
+              </label>
+              <input
+                type="email"
+                id="email"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  block w-full p-2.5 "
+                placeholder="ABYEIUP"
+                required
+              />
+            </div>
 
             <button
               type="submit"
-              className="w-full  text-white bg-gray-800 hover:bg-opacity-90 font-medium rounded-lg text-sm px-5 py-2.5 text-center disabled:opacity-25"
+              className="w-full  text-white bg-gray-700 hover:bg-gray-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center disabled:opacity-25"
               disabled={validusername !== "username available"}
             >
               Create Account
@@ -311,7 +326,7 @@ const Signup = () => {3
               Already have an account?
               <Link
                 to="/login"
-                className="font-medium text-gray-600 hover:underline"
+                className="ml-1 font-medium text-gray-600 hover:underline"
               >
                 Login here
               </Link>

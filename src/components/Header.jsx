@@ -173,10 +173,13 @@ const Header = () => {
                               <NavLink to="/Dashboard/profile">
                                 <button
                                   type="button"
-                                  className=" flexitems-center gap-3 font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
+                                  className="  flex items-center gap-3 font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
+                                  onClick={()=>{
+                                    console.log("asdfg");
+                                  }}
                                 >
                                   <svg
-                                    className="w-[27px] h-[27px] text-gray-800 dark:text-white"
+                                    className="w-[27px] h-[27px] text-gray-800 "
                                     aria-hidden="true"
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"
@@ -199,7 +202,7 @@ const Header = () => {
                                   className=" flex items-center gap-3 font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
                                 >
                                   <svg
-                                    className="w-[27px] h-[27px] text-gray-800 dark:text-white"
+                                    className="w-[27px] h-[27px] text-gray-800 "
                                     aria-hidden="true"
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"
@@ -247,7 +250,7 @@ const Header = () => {
                           <NavLink to="/Login">
                             <button
                               type="button"
-                              className="lg:font-medium font-semibold  px-4 py-2
+                              className="lg:font-medium font-semibold px-5 py-2
                     hover:bg-opacity-50 rounded-lg text-base text-center border border-gray-400 hover:shadow-md "
                             >
                               Login
@@ -256,7 +259,7 @@ const Header = () => {
                           <NavLink to="/Signup">
                             <button
                               type="button"
-                              className="text-white bg-gray-800 hover:bg-opacity-90 md:font-medium rounded-lg md:text-base px-3 py-2 text-center  "
+                              className="text-white bg-gray-800 hover:bg-opacity-90 md:font-medium rounded-lg md:text-base px-5 py-2 text-center  "
                             >
                               Sign up
                             </button>
@@ -269,7 +272,7 @@ const Header = () => {
                       <NavLink to="/Login">
                         <button
                           type="button"
-                          className="lg:font-medium font-semibold  px-4 py-2
+                          className="lg:font-medium font-semibold  px-5 py-2
                     hover:bg-opacity-50 rounded-lg text-base text-center border border-gray-400 hover:shadow-md "
                         >
                           Login
@@ -279,7 +282,7 @@ const Header = () => {
                       <NavLink to="/Signup">
                         <button
                           type="button"
-                          className="text-white bg-gray-800 hover:bg-opacity-90 md:font-medium rounded-lg md:text-base px-3 py-2 text-center  "
+                          className="text-white bg-gray-800 hover:bg-opacity-90 md:font-medium rounded-lg md:text-base px-5 py-2 text-center  "
                         >
                           Sign up
                         </button>
@@ -398,14 +401,14 @@ const Header = () => {
                     <>
                       <button
                         type="button"
-                        className="lg:font-medium font-semibold  px-4 py-2
+                        className="lg:font-medium font-semibold  px-5 py-2
                     hover:bg-opacity-50 rounded-lg text-base text-center border border-gray-400 hover:shadow-md "
                       >
                         <NavLink to="/Login">Login</NavLink>
                       </button>
                       <button
                         type="button"
-                        className="text-white bg-gray-800 hover:bg-opacity-90 md:font-medium rounded-lg md:text-base px-3 py-2 text-center  "
+                        className="text-white bg-gray-800 hover:bg-opacity-90 md:font-medium rounded-lg md:text-base px-5 py-2 text-center  "
                       >
                         <NavLink to="/Signup">Sign up</NavLink>
                       </button>
@@ -416,7 +419,7 @@ const Header = () => {
                 <>
                   <button
                     type="button"
-                    className="lg:font-medium font-semibold  px-4 py-2
+                    className="lg:font-medium font-semibold  px-5 py-2
                     hover:bg-opacity-50 rounded-lg text-base text-center border border-gray-400 hover:shadow-md "
                   >
                     <NavLink to="/Login">Login</NavLink>
@@ -424,7 +427,7 @@ const Header = () => {
                   {/* <p className="hidden lg:block   ">|</p> */}
                   <button
                     type="button"
-                    className="text-white bg-gray-800 hover:bg-opacity-90 md:font-medium rounded-lg md:text-base px-3 py-2 text-center  "
+                    className="text-white bg-gray-800 hover:bg-opacity-90 md:font-medium rounded-lg md:text-base px-5 py-2 text-center  "
                   >
                     <NavLink to="/Signup">Sign up</NavLink>
                   </button>
