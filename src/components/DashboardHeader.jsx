@@ -140,7 +140,7 @@ const DashboardHeader = ({ handleside, side }) => {
                             onClick={() =>
                               setIsDropdownVisible(!isDropdownVisible)
                             }
-                            className=" flex items-center gap-3  font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
+                            className=" flex items-center gap-3 hover:rounded-lg font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
                           >
                             <svg
                               className="w-[27px] h-[27px] text-gray-800"
