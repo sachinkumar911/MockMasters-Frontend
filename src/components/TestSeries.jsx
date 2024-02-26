@@ -5,8 +5,25 @@ import { UserContext } from "../context/UserContext.jsx";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import humanizeDuration from "humanize-duration";
+import coinimg from "../assets/extracoins.webp";
+import CssBaseline from "@mui/material/CssBaseline";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
+
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  bgcolor: "background.paper",
+};
 
 const TestSeries = ({ side }) => {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   const { userdetail } = useContext(UserContext);
 
   const [examsets, setexamsets] = useState();
@@ -106,6 +123,14 @@ const TestSeries = ({ side }) => {
                   >
                     {item.isResume ? "Start new test" : "Start Test"}
                   </button>
+                  <button
+                    onClick={handleOpen}
+                    type="button"
+                    className="ml-2 inline-block rounded text-white bg-blue-500 hover:bg-blue-600 border-blue-500 border-2 px-4 py-2 text-sm font-medium leading-normal"
+                  >
+                    Test
+                  </button>
+
                   {item.isResume ? (
                     <>
                       {" "}
@@ -144,6 +169,49 @@ const TestSeries = ({ side }) => {
             </div>
           ))}
         </div>
+        <Modal
+          style={{ backdropFilter: "blur(4px)" }}
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box className="bg-gray-100">
+            <div class=""></div>
+            <div class="fixed top-0 left-0 flex items-center justify-center w-full h-full min-h-screen ">
+              <div class="w-full max-w-[400px]  bg-slate-50 py-5 px-5 text-center md:py-[10px] md:px-[12px]  rounded-md">
+                <div className="h-52 flex  justify-center items-center flex-col bg-slate-600 rounded-lg">
+                  <img src={coinimg} className="w-12 h-12" />
+                  <p className="text-xl text-yellow-400 font-semibold uppercase  ">
+                  Insufficient Elitecoins!! 
+                  </p>
+                  <p className="text-slate-300 uppercase">Unable to start...</p>
+                </div>
+                <span class="mx-auto mb-6 inline-block h-1 w-[90px] rounded bg-primary"></span>
+                <p class="mb-10 text-base leading-relaxed text-gray-500 ">
+                  "Initiate the test seamlessly by ensuring a sufficient elite
+                  coin balance. Earn coins effortlessly to unlock the test !"
+                </p>
+                <div class="flex flex-wrap">
+                  <div class="w-1/2 px-3">
+                    <button
+                      onClick={handleClose}
+                      class="block w-full p-2 text-base font-normal text-center  border text-gray-500 bg-gray-100  hover:bg-gray-200 hover:text-gray-600 rounded-md "
+                    >
+                      Go Back
+                    </button>
+                  </div>
+                  <div class="w-1/2 px-3">
+                    <button class=" flex justify-center gap-2 w-full p-2 text-base font-medium text-center transition border  hover:bg-slate-700 text-white bg-slate-600 rounded-md ">
+                      Earn
+                      <img src={coinimg} className="w-6 h-6" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Box>
+        </Modal>
       </section>
     </>
   );
