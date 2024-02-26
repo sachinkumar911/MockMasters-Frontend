@@ -1,4 +1,3 @@
-import React from "react";
 import heroimage from "../assets/Desktopimage.svg";
 import mockimage from "../assets/mock.webp";
 import rewardimg from "../assets/reward.webp";
@@ -19,9 +18,9 @@ const Hero = () => {
             <div className="flex flex-wrap ">
               <div className="w-full px-4 lg:w-5/12 mt-10">
                 <div className="hero-content">
-                  <h1 className="mb-3 text-4xl font-bold leading-tight text-dark sm:text-[42px] lg:text-[40px] xl:text-[52px] ">
+                  <h1 className="mb-3 text-2xl lg:text-4xl font-bold leading-tight text-dark  lg:text-[40px] xl:text-[52px] ">
                     Elevate Your Success with
-                    <span className="text-blue-600 ml-3 font-semibold text-7xl">
+                    <span className="text-blue-600 ml-3 font-semibold lg:text-7xl text-4xl ">
                       MockMasters
                     </span>
                   </h1>
@@ -41,15 +40,15 @@ const Hero = () => {
                   </ul>
                 </div>
               </div>
-              <div className="hidden px-4 lg:block lg:w-1/12"></div>
-              <div className="w-full px-4 lg:w-6/12">
+              {/* <div className="hidden px-4 lg:block lg:w-1/12"></div> */}
+              <div className="w-full px-4 lg:w-6/12 max-lg:hidden">
                 <div className="lg:ml-auto lg:text-right">
                   <div className="relative z-10 inline-block pt-11 lg:pt-0">
                     <img
                       src={heroimage}
                       // src="https://pwskills.com/images/homePage/hero-bg.png"
                       alt="heroimage"
-                      className="max-w-full  lg:ml-auto"
+                      className="max-w-full  lg:ml-14"
                     />
                   </div>
                 </div>
@@ -58,9 +57,11 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className=" absolute left-[50%] bottom-[0%] translate-x-[-50%]  translate-y-[50%] w-[75%] px-4 py-10 sm:px-6 lg:px-8 lg:py-4 mx-auto  rounded-xl shadow-lg bg-white">
+        <div className=" absolute left-[50%] bottom-[0%] translate-x-[-50%]  translate-y-[50%] w-[75%] px-4 py-10  lg:px-8 lg:py-4 mx-auto  rounded-xl shadow-lg bg-white">
           <div className="text-center mb-5"></div>
+
           <div className=" grid gap-6 grid-cols-2 sm:gap-12 lg:grid-cols-4 lg:gap-8 ">
+
             <div className="items-center justify-center flex flex-col  border-r">
               <img
                 src={mockimage}
@@ -74,6 +75,7 @@ const Hero = () => {
                 Unlimited Mock Tests
               </div>
             </div>
+
             <div className="items-center justify-center flex flex-col border-r">
               <img
                 src={usersimg}
@@ -101,6 +103,7 @@ const Hero = () => {
                 Strategic Performance Analysis
               </div>
             </div>
+
             <div className="items-center justify-center flex flex-col ">
               <img
                 src={rewardimg}
@@ -114,6 +117,7 @@ const Hero = () => {
                 Earn Reward with Coins
               </div>
             </div>
+
           </div>
         </div>
       </section>
