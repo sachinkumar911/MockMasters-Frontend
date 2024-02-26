@@ -1,4 +1,3 @@
-import React from "react";
 import taketestimg from "../assets/taketest.png";
 import analyzeimg from "../assets/analyzetest.png";
 import successimg from "../assets/getsuccess.png";
@@ -13,12 +12,12 @@ const About = () => {
         <h2 className="text-2xl md:text-[32px] leading-8 md:leading-10 font-bold text-center  w-full  text-gray-900 pb-0">
           START YOUR JOURNEY
         </h2>
-        <h6 className="text-base md:text-lg leading-6 md:leading-[26px] font-light text-gray-650 text-center py-6 ">
+        <h6 className="text-base md:text-lg leading-6 md:leading-[26px] font-light text-gray-650 text-center  ">
           Embark on a journey of self-discovery, refine your skills, and achieve
           success.
         </h6>
 
-        <div className="flex justify-center items-center  mt-6 py-4 md:px-10 px-5 lg:w-[80%]">
+        <div className="flex justify-center items-center  mt-6 py-4 md:px-10 px-5 lg:w-[65%]">
           <div className="flex flex-col justify-center items-center  gap-8">
             <div className="w-full flex justify-center items-center max-sm:flex-col gap-8 flex-row">
               <div className="  rounded-lg   font-nunitoSans px-8  py-8 flex flex-col justify-center gap-3  items-center w-full   text-center  shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] hover:bg-[#F0F8FB]">

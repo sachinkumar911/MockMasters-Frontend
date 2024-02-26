@@ -11,9 +11,13 @@ const Mockup = () => {
         id="mockup-section"
         className=" flex flex-col items-center justify-center    mb-18 "
       >
-        <div className="flex justify-around max-md:flex-col items-center md:px-10 md:gap-4 mb-14  ">
-          <div className="flex justify-center items-center">
-            <img className="rounded-xl" src={sideimg} alt="leftsideimage" />
+        <div className="flex justify-around max-md:flex-col items-center md:px-10 md:gap-4 mb-14  mt-5 ">
+          <div className="flex justify-center items-center ">
+            <img
+              className="rounded-xl max-md:w-[80%]"
+              src={sideimg}
+              alt="leftsideimage"
+            />
           </div>
 
           <div className="space-y-6 flex flex-col max-md:w-[80%] max-md:mt-6  md:w-[50%]">
@@ -103,7 +107,7 @@ const Mockup = () => {
           </div>
         </div>
 
-        <div className="md:flex hidden flex-col justify-center items-center w-fit ">
+        <div className="md:flex hidden flex-col justify-center items-center w-fit mt-5 ">
           <div className="bg-orange-100 flex flex-col justify-center items-center rounded-xl w-full gap-4  ">
             <div className="flex flex-col justify-center items-center  pt-3">
               <h2 className="text-2xl font-bold text-gray-800 uppercase">
@@ -138,7 +142,7 @@ const Mockup = () => {
 
           {/* //mobile images */}
 
-          <div className="flex justify-between gap-4 mx-4 ">
+          <div className="flex justify-between gap-4 mx-4 mt-5 ">
             <div className="bg-blue-100 pt-8 px-10 mt-12 rounded-xl h-min">
               <div className="flex flex-col justify-center items-center mb-8">
                 <h2 className="lg:text-2xl font-bold text-gray-800 uppercase">
