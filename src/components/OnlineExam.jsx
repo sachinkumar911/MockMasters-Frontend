@@ -787,15 +787,12 @@ const OnlineExam = () => {
                     <Box sx={style}>
                       <div className="modal-content ">
                         <div className=" flex flex-col items-center justify-center bg-blue-500 text-white py-4 px-4 ">
-                          <div className="mo-header-logo text-center px-5 pb-3">
+                          <div className="mo-header-logo text-center px-5 pb-2">
                             {/* <img src="https://www.mockers.in/frontend/img/mockers-while-logo.svg" alt=""/>  */}
-                            <div className="h5  mtsmh">
-                              Are you sure want to submit test
+                            <div className="h5  mtsmh uppercase">
+                            "Are you sure you want to submit the test ?"
                             </div>
-                            <p className="mb-0  mtsmsh">
-                              After submitting test, you won’t be able to
-                              re-attempt
-                            </p>
+                            
                           </div>
                         </div>
                         <div className="modal-body py-5 px-12">

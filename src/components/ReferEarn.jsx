@@ -1,11 +1,16 @@
 /* eslint-disable react/prop-types */
 import logo from "../assets/referlogo.webp";
 import coinimg from "../assets/coin.webp";
-const ReferEarn = ({side}) => {
+const ReferEarn = ({ side }) => {
   return (
     <>
-      <section id="refer-earn" className={`${side ? "lg:blur-none blur-sm" : " "}`}>
-        <div className={`container mx-auto p-8 bg-gradient-to-br from-gray-900 via-gray-700 to-gray-800  `}>
+      <section
+        id="refer-earn"
+        className={`${side ? "lg:blur-none blur-sm" : " "}`}
+      >
+        <div
+          className={`container mx-auto p-8 bg-gradient-to-br from-gray-900 via-gray-700 to-gray-800  `}
+        >
           <div className="flex items-center justify-center mb-6">
             <span className="inline-block">
               <img className="h-16  w-auto" alt="Store" src={logo} />
@@ -36,6 +41,9 @@ const ReferEarn = ({side}) => {
                 <span className="block mb-1 text-xs font-semibold uppercase text-center">
                   Daily check-ins unlock a world of rewards 1 coin daily!
                 </span>
+                {/* <span className="block mb-1 text-xs font-bold uppercase text-center">
+                Our daily check-ins not only help you stay on track but also open the door to a myriad of exciting rewards. 
+                </span> */}
               </div>
             </div>
             <div className="group flex flex-col h-full  bg-white border border-gray-200 shadow-sm rounded-xl">

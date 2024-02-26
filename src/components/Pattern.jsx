@@ -121,14 +121,28 @@ const Pattern = () => {
           <Link to="/dashboard/test-series">
             <button
               type="button"
-              className="text-green-700 hover:text-white border border-green-700 hover:bg-green-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+              className="flex bg-blue-50 hover:bg-blue-100 hover:text-blue-600 text-blue-500 font-medium rounded-lg text-base px-4 py-2.5 text-center me-2 mb-2"
             >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 19.5 8.25 12l7.5-7.5"
+                />
+              </svg>
               Back
             </button>
           </Link>
           <button
             type="button"
-            className="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 "
+            className="text-white flex bg-[#08bd81fa] hover:bg-[#08bd81ee] border font-medium rounded-lg text-base  text-sm px-4 py-2.5 text-center me-2 mb-2 "
             onClick={finalStart}
           >
             {JSON.parse(sessionStorage.getItem("Data"))?.isResume
