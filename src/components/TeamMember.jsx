@@ -6,16 +6,17 @@ const TeamMember = () => {
       <section className="flex items-center py-10 lg:py-24  ">
         <div className="justify-center flex-1 px-4 py-6 mx-auto max-w-6xl lg:py-4 md:px-6">
           <div className="mb-20 text-center">
-          <h2 className="text-2xl medium:text-[32px] leading-8 medium:leading-10 font-bold text-center  regular:!text-left w-full regular:!w-auto font-inter text-gray-900 pb-0">
-        MEET OUR TEAM
-        </h2>
-        <h6 className="text-base medium:text-lg leading-6 medium:leading-[26px] font-light text-gray-650 text-center regular:!text-left">
-        MockMaster Team: Harmonizing Expertise for Your Exam Success Journey and Beyond!
-        </h6>
+            <h2 className="text-2xl medium:text-[32px] leading-8 medium:leading-10 font-bold text-center  regular:!text-left w-full regular:!w-auto font-inter text-gray-900 pb-0">
+              MEET OUR TEAM
+            </h2>
+            <h6 className="text-base medium:text-lg leading-6 medium:leading-[26px] font-light text-gray-650 text-center regular:!text-left">
+              MockMaster Team: Harmonizing Expertise for Your Exam Success
+              Journey and Beyond!
+            </h6>
           </div>
           <div className="grid grid-cols-1 gap-4 lg:gap-8 sm:gap-4 sm:grid-cols-2 lg:grid-cols-2">
-            <div className="flex flex-col flex-wrap mb-0 overflow-hidden rounded lg:flex-row">
-              <div className="inline-block w-full mb-3 overflow-hidden text-xs text-white md:rounded-full h-96 sm:w-48 sm:h-48">
+            <div className="flex flex-col justify-center items-center flex-wrap mb-0 overflow-hidden rounded lg:flex-row">
+              <div className="inline-block  mb-3 overflow-hidden text-xs text-white rounded-full lg:h-60 lg:w-60 w-40  ">
                 <img
                   className="object-cover w-full h-full transition-all hover:scale-110"
                   src="https://avatars.githubusercontent.com/u/64706066?v=4"
@@ -23,13 +24,14 @@ const TeamMember = () => {
                 />
               </div>
               <div className="relative flex self-center flex-1 lg:ml-8 ">
-                <div>
+                <div className="flex flex-col justify-center items-center lg:items-start">
                   <h2 className="mb-2 text-2xl font-bold">Vinay Kumar</h2>
                   <p className="mb-4 text-sm font-medium text-blue-400">
                     FULL Stack Developer
                   </p>
-                  <p className="mb-6 text-sm text-gray-500">
-                  "Code is the poetry of a machine, translating ideas into digital reality".
+                  <p className="mb-6 text-sm text-gray-500 lg:text-start text-center">
+                    "Code is the poetry of a machine, translating ideas into
+                    digital reality".
                   </p>
                   <div className="flex">
                     <span className="inline-block mr-5 text-gray-700 hover:text-blue-500">
@@ -37,6 +39,7 @@ const TeamMember = () => {
                         href="https://github.com/vkumar8192449"
                         target="_blank"
                         className="text-gray-900 hover:text-gray-900 "
+                        rel="noreferrer"
                       >
                         <svg
                           className="w-6 h-6"
@@ -57,6 +60,7 @@ const TeamMember = () => {
                         href="https://www.linkedin.com/in/vk8192449/"
                         target="_blank"
                         className="text-gray-900 hover:text-gray-900 "
+                        rel="noreferrer"
                       >
                         <svg
                           className="w-5 h-5 mt-0.5"
@@ -72,22 +76,24 @@ const TeamMember = () => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col flex-wrap mb-0 overflow-hidden rounded lg:flex-row">
-              <div className="inline-block mb-3 overflow-hidden text-xs text-white bg-blue-500 md:rounded-full h-96 sm:w-48 sm:h-48">
+
+            <div className="flex flex-col justify-center items-center flex-wrap mb-0 overflow-hidden rounded lg:flex-row">
+              <div className="inline-block mb-3 overflow-hidden text-xs text-white bg-blue-500 rounded-full  lg:h-60 lg:w-60  w-40">
                 <img
                   className="object-cover w-full h-full transition-all hover:scale-110"
                   src="https://avatars.githubusercontent.com/u/137149762?v=4"
                   alt="vikash burman image"
                 />
               </div>
-              <div className="relative flex self-center flex-1 lg:ml-8 ">
-                <div>
+              <div className="relative flex self-center flex-1 lg:ml-8 w-fit ">
+                <div className="flex flex-col items-center lg:items-start w-fit">
                   <h2 className="mb-2 text-2xl font-bold">Vikash Burman</h2>
                   <p className="mb-4 text-sm font-medium text-blue-400">
-                  MERN Stack Developer
+                    MERN Stack Developer
                   </p>
-                  <p className="mb-6 text-sm text-gray-500">
-                 "Every algorithm is a brushstroke, painting the canvas of digital innovation".
+                  <p className="mb-6 text-sm text-gray-500 lg:text-start text-center">
+                    "Every algorithm is a brushstroke, painting the canvas of
+                    digital innovation".
                   </p>
                   <div className="flex">
                     <span className="inline-block mr-5 text-gray-700 hover:text-blue-500">
@@ -95,6 +101,7 @@ const TeamMember = () => {
                         href="https://github.com/VikashBurman"
                         target="_blank"
                         className="text-gray-900 hover:text-gray-900"
+                        rel="noreferrer"
                       >
                         <svg
                           className="w-6 h-6"
@@ -115,6 +122,7 @@ const TeamMember = () => {
                         href="https://www.linkedin.com/in/vikash-burman-33517824a/"
                         target="_blank"
                         className="text-gray-900 hover:text-gray-900 "
+                        rel="noreferrer"
                       >
                         <svg
                           className="w-5 h-5 mt-0.5"
@@ -130,8 +138,9 @@ const TeamMember = () => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col flex-wrap mb-0 overflow-hidden rounded lg:flex-row">
-              <div className="inline-block mb-3 overflow-hidden text-xs text-white bg-blue-500 md:rounded-full h-96 sm:w-48 sm:h-48">
+
+            <div className="flex flex-col justify-center items-center flex-wrap mb-0 overflow-hidden rounded lg:flex-row">
+              <div className="inline-block mb-3 overflow-hidden text-xs text-white bg-blue-500 rounded-full lg:h-60 lg:w-60  w-40">
                 <img
                   className="object-cover w-full h-full transition-all hover:scale-110"
                   src="https://avatars.githubusercontent.com/u/112263798?v=4"
@@ -139,13 +148,14 @@ const TeamMember = () => {
                 />
               </div>
               <div className="relative flex self-center flex-1 lg:ml-8 ">
-                <div>
+                <div className="flex flex-col justify-center items-center lg:items-start">
                   <h2 className="mb-2 text-2xl font-bold">Vishal Kumar</h2>
                   <p className="mb-4 text-sm font-medium text-blue-500">
-                  MERN Stack Developer
+                    MERN Stack Developer
                   </p>
-                  <p className="mb-6 text-sm text-gray-500">
-                  "In the language of programming, innovation speaks louder than code".
+                  <p className="mb-6 text-sm text-gray-500 lg:text-start text-center">
+                    "In the language of programming, innovation speaks louder
+                    than code".
                   </p>
                   <div className="flex">
                     <span className="inline-block mr-5 text-gray-700 hover:text-blue-400">
@@ -153,6 +163,7 @@ const TeamMember = () => {
                         href="https://github.com/vishu567"
                         target="_blank"
                         className="text-gray-900 hover:text-gray-900"
+                        rel="noreferrer"
                       >
                         <svg
                           className="w-6 h-6"
@@ -173,6 +184,7 @@ const TeamMember = () => {
                         href="https://www.linkedin.com/in/vishal-563015231/"
                         target="_blank"
                         className="text-gray-900 hover:text-gray-900 "
+                        rel="noreferrer"
                       >
                         <svg
                           className="w-5 h-5 mt-0.5"
@@ -188,8 +200,8 @@ const TeamMember = () => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col flex-wrap mb-0 overflow-hidden rounded lg:flex-row">
-              <div className="inline-block mb-3 overflow-hidden text-xs text-white bg-blue-500 md:rounded-full h-96 sm:w-48 sm:h-48">
+            <div className="flex flex-col justify-center items-center flex-wrap mb-0 overflow-hidden rounded lg:flex-row">
+              <div className="inline-block mb-3 overflow-hidden text-xs text-white bg-blue-500 rounded-full lg:h-60 lg:w-60  w-40 ">
                 <img
                   className="object-cover w-full h-full transition-all hover:scale-110"
                   src="https://avatars.githubusercontent.com/u/115224664?v=4"
@@ -197,13 +209,14 @@ const TeamMember = () => {
                 />
               </div>
               <div className="relative flex self-center flex-1 lg:ml-8 ">
-                <div>
+                <div className="flex flex-col justify-center items-center lg:items-start">
                   <h2 className="mb-2 text-2xl font-bold">Sachin Kumar</h2>
                   <p className="mb-4 text-sm font-medium text-blue-400">
-                  MERN Stack Developer
+                    MERN Stack Developer
                   </p>
-                  <p className="mb-6 text-sm text-gray-500">
-                  "Coding is the silent language that powers the dynamic symphony of the internet". 
+                  <p className="mb-6 text-sm text-gray-500 lg:text-start text-center">
+                    "Coding is the silent language that powers the dynamic
+                    symphony of the internet".
                   </p>
                   <div className="flex">
                     <span className="inline-block mr-5 text-gray-700 hover:text-blue-500">
@@ -211,6 +224,7 @@ const TeamMember = () => {
                         href="https://github.com/sachinkumar911"
                         target="_blank"
                         className="text-gray-900 hover:text-gray-900"
+                        rel="noreferrer"
                       >
                         <svg
                           className="w-6 h-6"
@@ -231,6 +245,7 @@ const TeamMember = () => {
                         href="https://www.linkedin.com/in/sachin-kumar-7b6a121a6/"
                         target="_blank"
                         className="text-gray-900 hover:text-gray-900 "
+                        rel="noreferrer"
                       >
                         <svg
                           className="w-5 h-5 mt-0.5"
