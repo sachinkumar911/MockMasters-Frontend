@@ -459,15 +459,11 @@ const OnlineExam = () => {
     }
   };
 
-  const TestCompleted = () => {
-    console.log("Finished/...");
-  };
-
   const Completionist = () => <span className="text-red-500">Times up!</span>;
 
   const renderer = ({ hours, minutes, seconds, completed }) => {
     if (completed) {
-      // TestCompleted();
+      // sendFinalResponse();
 
       return <Completionist />;
     } else {
@@ -521,8 +517,10 @@ const OnlineExam = () => {
       document.mozFullScreenElement ||
       document.msFullscreenElement
     ) {
+      // setTimeLeft(TestExpiry - Date.now());
       console.log("Entered fullscreen mode");
     } else {
+      // setTimeLeft(TestExpiry - Date.now());
       setIsFullscreen(false);
       console.log("Exited fullscreen mode");
     }
