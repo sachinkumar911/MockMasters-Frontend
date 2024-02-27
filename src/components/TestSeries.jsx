@@ -80,19 +80,19 @@ const TestSeries = () => {
   return (
     <>
       <section id="test-section" className={`my-10 z-0`}>
-        <div className="flex flex-col  justify-center items-center space-y-6">
+        <div className="flex flex-col  justify-center items-center space-y-6 ">
           {examsets?.map((item, key) => (
             <div
               key={key}
               id={item.qpname}
-              className=" rounded-lg relative overflow-hidden bg-white shadow-md  lg:w-[60%] md:w-[70%] w-[100%] "
+              className=" rounded-lg relative overflow-hidden bg-white border-t shadow-md  lg:w-[600px] md:w-[70%] w-[90%] "
             >
               <div className="absolute right-0 top-0 h-16 w-16">
                 <div
                   className={
                     item.paperprice === 0
-                      ? "absolute transform rotate-45 bg-yellow-400 text-center text-white font-semibold py-1 right-[-35px] top-[32px] w-[170px]"
-                      : "absolute transform flex items-center gap-1 justify-center rotate-45 bg-gray-600 text-center text-white font-semibold py-1 right-[-35px] top-[32px] w-[170px]"
+                      ? "absolute transform rotate-45 bg-yellow-400 text-center max-sm:text-[13px] text-white font-semibold py-1 max-sm:py-0 right-[-35px] max-sm:right-[-55px]  top-[32px] w-[170px]"
+                      : "absolute transform flex items-center gap-1 justify-center rotate-45 max-sm:text-[13px] bg-gray-600 text-center text-white font-semibold py-1 max-sm:py-0 max-sm:right-[-55px]  right-[-35px] top-[32px] w-[170px]"
                   }
                 >
                   {item.paperprice === 0 ? (
@@ -109,10 +109,10 @@ const TestSeries = () => {
                   )}
                 </div>
               </div>
-              <h5 className=" border-neutral-100 px-6 py-3 md:text-xl text-sm font-medium leading-tight">
+              <h5 className=" border-neutral-100 px-6 pt-2 md:text-xl text-sm font-medium leading-tight">
                 {item.qpname}
               </h5>
-              <div className="p-5 flex  md:text-lg text-xs">
+              <div className="p-5 max-sm:p-3  flex  md:text-lg text-xs">
                 <p className="px-1">{item.noofquestions} Questions</p>
                 <p className="px-1 text-gray-400">|</p>
                 <p className="px-1">{item.totalmarks} marks</p>
@@ -121,12 +121,12 @@ const TestSeries = () => {
                   {humanizeDuration(item.examinfo?.duration)}
                 </p>
               </div>
-              <div className="mx-6 mb-3 flex items-center justify-between">
+              <div className="mx-6 mb-3 flex items-center justify-between max-sm:flex-col max-sm:items-center   gap-2">
                 <div>
                   <button
                     onClick={() => startTest(item)}
                     type="button"
-                    className="inline-block rounded text-white bg-blue-500 hover:bg-blue-600 border-blue-500 border-2 px-4 py-2 text-sm font-medium leading-normal"
+                    className="inline-block rounded text-white bg-blue-500 hover:bg-blue-600 border-blue-500  border-2 px-4 py-2 text-sm max-sm:text-[10px] max-sm:p-1 leading-normal"
                   >
                     {item.isResume ? "Start new test" : "Start Test"}
                   </button>
@@ -136,7 +136,7 @@ const TestSeries = () => {
                       <button
                         onClick={() => checkCoins(item, 50)}
                         type="button"
-                        className="inline-block rounded text-blue-500 bg-white border-blue-500 border-2 hover:bg-blue-600 hover:text-white px-3 py-[0.4rem] ml-2 text-sm font-medium leading-normal"
+                        className="inline-block rounded text-blue-500 bg-white border-blue-500 border-2 hover:bg-blue-600 max-sm:text-[10px] max-sm:p-1 hover:text-white px-3 py-[0.4rem] ml-2 text-sm font-medium leading-normal"
                       >
                         Resume Test
                       </button>
@@ -145,14 +145,14 @@ const TestSeries = () => {
                     ""
                   )}
                 </div>
-                <div className="bg-green-300 w-max px-2  text-green-900 rounded-2xl text-xs font-semibold flex items-center h-min py-[5px]">
+                <div className="bg-green-300 max-sm:text-[10px] max-sm:py-0.5 max-sm:px-1.5  w-max px-2  text-green-900 rounded-2xl text-xs font-semibold flex items-center h-min py-[5px]">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
                     strokeWidth="1.5"
                     stroke="currentColor"
-                    className="w-5 h-5 mr-1"
+                    className="w-5 h-5 mr-1 max-sm:w-4 max-sm:h-4"
                   >
                     <path
                       strokeLinecap="round"
