@@ -32,7 +32,7 @@ const Hero = () => {
                     <li>
                       <Link
                         to="/about"
-                        className="z-40 inline-flex cursor-pointer items-center text-white justify-center px-6 py-3 text-base font-medium text-center rounded-md bg-gray-700 hover:bg-gray-800 lg:px-9"
+                        className=" inline-flex  hover:cursor-pointer items-center text-white justify-center px-6 py-3 text-base font-medium text-center rounded-md bg-gray-700 hover:bg-gray-800 lg:px-9"
                       >
                         Get Started
                       </Link>

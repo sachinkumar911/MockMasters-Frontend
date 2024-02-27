@@ -9,7 +9,7 @@ const About = () => {
         id="about-section"
         className="mt-56 mb-20 flex flex-col justify-center items-center"
       >
-        <h2 className="text-2xl md:text-[32px] leading-8 md:leading-10 font-bold text-center  w-full  text-gray-900 pb-0">
+        <h2 className="text-2xl md:text-[24px] leading-8 md:leading-10 font-bold text-center  w-full  text-gray-900 pb-0">
           START YOUR JOURNEY
         </h2>
         <h6 className="text-base md:text-lg leading-6 md:leading-[26px] font-light text-gray-650 text-center  ">
@@ -31,7 +31,7 @@ const About = () => {
                 <h3 className="text-gray-900 text-lg md:text-xl leading-[26px] md:leading-[30px] font-interSans font-bold text-center  w-full ">
                   Take a Test
                 </h3>
-                <p className="text-base text-wrap md:text-lg leading-6 md:leading-[26px] font-light text-gray-650">
+                <p className="text-sm text-wrap md:text-base leading-6 md:leading-[26px] font-light text-gray-600">
                   Consistently take our test to evaluate your commitment and
                   dedication to your goals.
                 </p>
@@ -48,7 +48,7 @@ const About = () => {
                 <h3 className="text-gray-900 text-lg md:text-xl leading-[26px] md:leading-[30px] font-interSans font-bold text-center  w-full ">
                   Analyze Your Test
                 </h3>
-                <p className="text-base text-wrap md:text-lg leading-6 md:leading-[26px] font-light text-gray-650">
+                <p className="text-sm text-wrap md:text-base leading-6 md:leading-[26px] font-light text-gray-600">
                   Analyze your test, then optimize your study approach with the
                   gained insights.
                 </p>
@@ -63,7 +63,7 @@ const About = () => {
                 <h3 className="text-gray-900 text-lg medium:text-xl leading-[26px] medium:leading-[30px] font-interSans font-bold text-center  w-full ">
                   Refine Your Approach
                 </h3>
-                <p className="text-base text-wrap md:text-lg leading-6 md:leading-[26px] text-center font-light text-gray-650">
+                <p className="text-sm text-wrap md:text-base leading-6 md:leading-[26px] font-light text-gray-600">
                   Refine your study methods by harnessing the insights gained
                   from dissecting your test.
                 </p>
@@ -79,7 +79,7 @@ const About = () => {
                 <h3 className="text-gray-900 text-lg md:text-xl leading-[26px] md:leading-[30px] font-interSans font-bold text-center  w-full ">
                   Get Success
                 </h3>
-                <p className="text-base text-wrap md:text-lg leading-6 md:leading-[26px] text-center font-light text-gray-650">
+                <p className="text-sm text-wrap md:text-base leading-6 md:leading-[26px] font-light text-gray-600">
                   Repeated practice and skill refinement cultivate positive
                   habits, enhancing proficiency over time.
                 </p>
