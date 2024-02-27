@@ -133,61 +133,61 @@ const DashboardHeader = ({ handleside, side }) => {
                         />
                       </div>
                       {isDropdownVisible && (
-                        <div className="absolute  mt-1 right-0 bg-white py-1  rounded-xl shadow-lg z-10 w-fit px-2 ">
-                            <NavLink to="/Dashboard/profile">
-                          <button
-                            type="button"
-                            onClick={() =>
-                              setIsDropdownVisible(!isDropdownVisible)
-                            }
-                            className=" flex items-center gap-3 hover:rounded-lg font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
-                          >
-                            <svg
-                              className="w-[27px] h-[27px] text-gray-800"
-                              aria-hidden="true"
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="#0000"
-                              viewBox="0 0 24 24"
+                        <div className="absolute  mt-1 right-0 bg-white py-1  rounded-xl shadow-lg z-20 w-fit px-2 ">
+                          <NavLink to="/Dashboard/profile">
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setIsDropdownVisible(!isDropdownVisible);
+                                handleside();
+                              }}
+                              className=" flex items-center gap-3 hover:rounded-lg font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
                             >
-                              <path
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="1.1"
-                                d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a9 9 0 0 0 5-1.5 4 4 0 0 0-4-3.5h-2a4 4 0 0 0-4 3.5 9 9 0 0 0 5 1.5Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-                              />
-                            </svg>
-
+                              <svg
+                                className="w-[27px] h-[27px] text-gray-800"
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="#0000"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke="currentColor"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="1.1"
+                                  d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a9 9 0 0 0 5-1.5 4 4 0 0 0-4-3.5h-2a4 4 0 0 0-4 3.5 9 9 0 0 0 5 1.5Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                                />
+                              </svg>
                               My Profile
-                          </button>
-                            </NavLink>
-                            <NavLink to="/Dashboard/test-series">
-                          <button
-                            type="button"
-                            onClick={() =>
-                              setIsDropdownVisible(!isDropdownVisible)
-                            }
-                            className=" flex items-center gap-3 hover:rounded-lg font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
-                          >
-                            <svg
-                              className="w-[27px] h-[27px] text-gray-800 "
-                              aria-hidden="true"
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="#0000"
-                              viewBox="0 0 24 24"
+                            </button>
+                          </NavLink>
+                          <NavLink to="/Dashboard/test-series">
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setIsDropdownVisible(!isDropdownVisible);
+                                handleside();
+                              }}
+                              className=" flex items-center gap-3 hover:rounded-lg font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
                             >
-                              <path
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="1.1"
-                                d="M9.1 4H5c-.5 0-.9.4-.9.9V9c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9V5c0-.5-.4-.9-.9-.9Zm10 0H15c-.5 0-.9.4-.9.9V9c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9V5c0-.5-.4-.9-.9-.9Zm-10 10H5c-.5 0-.9.4-.9.9V19c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9v-4c0-.5-.4-.9-.9-.9Zm10 0H15c-.5 0-.9.4-.9.9V19c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9v-4c0-.5-.4-.9-.9-.9Z"
-                              />
-                            </svg>
-
+                              <svg
+                                className="w-[27px] h-[27px] text-gray-800 "
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="#0000"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke="currentColor"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="1.1"
+                                  d="M9.1 4H5c-.5 0-.9.4-.9.9V9c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9V5c0-.5-.4-.9-.9-.9Zm10 0H15c-.5 0-.9.4-.9.9V9c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9V5c0-.5-.4-.9-.9-.9Zm-10 10H5c-.5 0-.9.4-.9.9V19c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9v-4c0-.5-.4-.9-.9-.9Zm10 0H15c-.5 0-.9.4-.9.9V19c0 .5.4.9.9.9h4c.5 0 .9-.4.9-.9v-4c0-.5-.4-.9-.9-.9Z"
+                                />
+                              </svg>
                               Dashboard
-                          </button>
-                            </NavLink>
+                            </button>
+                          </NavLink>
 
                           <button
                             type="button"

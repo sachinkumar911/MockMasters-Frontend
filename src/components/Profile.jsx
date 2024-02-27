@@ -10,7 +10,7 @@ import toast, { Toaster } from "react-hot-toast";
 import validator from "validator";
 import axios from "axios";
 
-const Profile = ({ side }) => {
+const Profile = () => {
   const { userdetail } = useContext(UserContext);
 
   const toastId = React.useRef(null);
@@ -82,9 +82,7 @@ const Profile = ({ side }) => {
       <Toaster position="bottom-left" reverseOrder={false} />
       <section
         id="profile-section"
-        className={`min-h-screen flex items-center justify-center  py-5 ${
-          side ? "lg:blur-none blur-sm" : " "
-        }`}
+        className={`min-h-screen flex items-center justify-center  py-5`}
       >
         <div className="container w-ull lg:w-[75%] md:w-[85%]  mx-auto lg:mx-14">
           <div className="bg-white rounded shadow-lg border-t p-4 px-4 md:p-8 flex flex-col lg:flex-row w-full">
