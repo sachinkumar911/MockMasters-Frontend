@@ -5,6 +5,7 @@ import { UserContext } from "../context/UserContext.jsx";
 import { useContext } from "react";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
+import { dailyEliteCoin } from "../services/dailyEliteCoin.js";
 
 const Pattern = () => {
   const errornotify = (msg) => toast.error(msg);
@@ -33,9 +34,10 @@ const Pattern = () => {
       );
       sessionStorage.setItem("Question_id", Data?._id);
       sessionStorage.removeItem("Data");
-      setTimeout(() => {
+      const resp = await dailyEliteCoin(-50);
+      if (resp) {
         Navigate("/test/ongoing");
-      }, 1000);
+      }
     } else {
       localStorage.removeItem("MarkforReviews");
       try {
@@ -56,10 +58,13 @@ const Pattern = () => {
         successnotify(response.data.message);
         sessionStorage.setItem("startTest_id", response.data.data);
         sessionStorage.setItem("Question_id", Data._id);
+        const amount = Data?.paperprice;
+        console.log(amount);
         sessionStorage.removeItem("Data");
-        setTimeout(() => {
+        const resp = await dailyEliteCoin(amount * -1);
+        if (resp) {
           Navigate("/test/ongoing");
-        }, 1000);
+        }
       } catch (error) {
         console.error(error.response);
         errornotify(error.response.data.message);
