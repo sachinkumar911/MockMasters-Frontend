@@ -70,8 +70,8 @@ const Login = () => {
   return (
     <>
       <Toaster position="bottom-left" reverseOrder={false} />
-      <section className="bg-gray-50 h-screen flex flex-col justify-center items-center">
-        <div className="p-6 space-y-4 bg-white w-fit lg:w-[28%] h-fit shadow-md ">
+      <section className="bg-gray-100 flex justify-center min-h-[90vh] items-center">
+        <div className="p-6 max-sm:px-3 space-y-4 bg-white rounded-sm  min-w-[30%] max-sm:w-[94%] max-lg:w-[50%] max-xl:w-[40%]  shadow-md ">
           <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900">
             Sign in to your Account
           </h1>
@@ -116,22 +116,7 @@ const Login = () => {
               ></input>
             </div>
             <div className="flex items-center justify-end">
-              {/* <div className="flex items-start">
-                <div className="flex items-center h-5">
-                  <input
-                    id="remember"
-                    aria-describedby="remember"
-                    type="checkbox"
-                    className="w-4 h-4 border border-gray-300 rounded bg-gray-50"
-                    required=""
-                  ></input>
-                </div>
-                <div className="ml-3 text-sm">
-                  <label htmlFor="remember" className="text-gray-500">
-                    Remember me
-                  </label>
-                </div>
-              </div> */}
+              
               <Link
                 to="/Forgotpassword"
                 className="text-sm font-medium text-gray-600 hover:underline hover:text-gray-700"
