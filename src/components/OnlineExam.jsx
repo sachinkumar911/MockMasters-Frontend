@@ -790,9 +790,8 @@ const OnlineExam = () => {
                           <div className="mo-header-logo text-center px-5 pb-2">
                             {/* <img src="https://www.mockers.in/frontend/img/mockers-while-logo.svg" alt=""/>  */}
                             <div className="h5  mtsmh uppercase">
-                            "Are you sure you want to submit the test ?"
+                              "Are you sure you want to submit the test ?"
                             </div>
-                            
                           </div>
                         </div>
                         <div className="modal-body py-5 px-12">
