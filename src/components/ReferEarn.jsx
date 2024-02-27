@@ -32,7 +32,7 @@ const ReferEarn = ({ side }) => {
         <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-center ">
             <div className="group flex flex-col h-full bg-white border border-gray-200 shadow-sm rounded-xl">
-              <div className="h-52 flex  justify-center items-center bg-slate-600 rounded-t-xl">
+              <div className="h-48 flex  justify-center items-center bg-gradient-to-br from-slate-800 via-slate-600 to-slate-700  rounded-t-xl">
                 <img src={coinimg} className="w-16 h-16" />
                 <p className="text-2xl text-yellow-400 font-semibold">+1</p>
               </div>
@@ -47,7 +47,7 @@ const ReferEarn = ({ side }) => {
               </div>
             </div>
             <div className="group flex flex-col h-full  bg-white border border-gray-200 shadow-sm rounded-xl">
-              <div className="h-52 flex   justify-center items-center bg-slate-600 rounded-t-xl">
+              <div className="h-48 flex   justify-center items-center bg-gradient-to-br from-slate-800 via-slate-600 to-slate-700  rounded-t-xl">
                 <img src={coinimg} className="w-16 h-16" />
                 <p className="text-2xl text-yellow-400 font-semibold">+50</p>
               </div>
@@ -67,7 +67,7 @@ const ReferEarn = ({ side }) => {
                   />
                   <a
                     href="#_"
-                    className="px-5 py-2.5 text-white font-medium  bg-slate-500 hover:bg-slate-700 hover:text-white rounded-lg text-sm"
+                    className="px-5 py-2.5 text-white font-medium  bg-slate-600 hover:bg-slate-700 hover:text-white rounded-lg text-sm"
                   >
                     Copy
                   </a>

@@ -87,7 +87,7 @@ const Profile = ({ side }) => {
         }`}
       >
         <div className="container w-ull lg:w-[75%] md:w-[85%]  mx-auto lg:mx-14">
-          <div className="bg-white rounded shadow-lg p-4 px-4 md:p-8 flex flex-col lg:flex-row w-full">
+          <div className="bg-white rounded shadow-lg border-t p-4 px-4 md:p-8 flex flex-col lg:flex-row w-full">
             <div className="lg:w-1/3 text-gray-900">
               <p className="text-3xl font-semibold text-center">
                 Personal Details

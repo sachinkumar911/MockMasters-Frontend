@@ -5,8 +5,8 @@ const TeamMember = () => {
     <>
       <section className="flex items-center py-10 lg:py-24  mt-5 ">
         <div className="justify-center flex-1 px-4 py-6 mx-auto max-w-6xl lg:py-4 md:px-6">
-          <div className="mb-20 text-center">
-            <h2 className="text-2xl medium:text-[32px] leading-8 medium:leading-10 font-bold text-center  regular:!text-left w-full regular:!w-auto font-inter text-gray-900 pb-0">
+          <div className="mb-12 text-center">
+            <h2 className="text-2xl medium:text-[32px] leading-8 medium:leading-10 font-bold text-center  text-gray-900 pb-0">
               MEET OUR TEAM
             </h2>
             <h6 className="text-base medium:text-lg leading-6 medium:leading-[26px] font-light text-gray-650 text-center regular:!text-left">
