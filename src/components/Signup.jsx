@@ -105,15 +105,15 @@ const Signup = () => {
   return (
     <>
       <Toaster position="bottom-left" reverseOrder={false} />
-      <section className="bg-gray-50 flex flex-col items-center justify-center m-4">
-        <div className="p-6  bg-white  shadow-md  ">
+      <section className="bg-gray-100 flex flex-col items-center justify-center min-h-[90vh]  py-4">
+        <div className="p-6 max-sm:p-3  bg-white  shadow-md max-sm:w-[95%] ">
           <div className="flex flex-col justify-center items-center">
 
               <h2 className="text-xl font-bold  tracking-tight text-gray-900 mb-3">
                 Choose your Avatar
               </h2>
 
-            <div className=" flex py-2">
+            <div className=" flex py-2 flex-wrap justify-center">
               <img
                 src={avatar1}
                 alt="Avatar 1"
@@ -180,8 +180,8 @@ const Signup = () => {
             Create your Account
           </h1>
           <form className="space-y-2" action="#" onSubmit={handleSubmit}>
-          <div id='form-div' className="space-y-2 ">
-            <div className="flex  justify-between space-x-4">
+          <div id='form-div' className="space-y-2 max-sm:space-y-4 ">
+            <div className="flex  justify-between max-sm:space-x-0 space-x-4 max-sm:flex-col max-sm:space-y-2  ">
               <div className="flex flex-col">
                 <label
                   htmlFor="username"
@@ -237,7 +237,7 @@ const Signup = () => {
               </div>
             </div>
 
-            <div className="flex justify-between space-x-4">
+            <div className="flex  justify-between  max-sm:flex-col ">
               <div className="flex flex-col ">
                 <label
                   htmlFor="password"
