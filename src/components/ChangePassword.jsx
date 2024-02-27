@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 
-const ChangePassword = ({ side }) => {
+const ChangePassword = () => {
   const toastId = React.useRef(null);
   const errornotify = (msg) => toast.error(msg);
   const sendingnotify = (msg) => (toastId.current = toast.loading(msg));
@@ -60,7 +60,7 @@ const ChangePassword = ({ side }) => {
   return (
     <>
       <Toaster position="bottom-left" reverseOrder={false} />
-      <section className={`pt-[90px]  ${side ? "lg:blur-none blur-sm" : " "}`}>
+      <section className={`pt-[90px] `}>
         <div className="flex flex-col items-center mt-5 px-6 py-8 mx-auto md:h-screen lg:py-0">
           <div className="w-full p-6 bg-white rounded-lg shadow-lg md:mt-0 sm:max-w-md  sm:p-8">
             <div className="flex flex-col items-center justify-center text-center space-y-2">

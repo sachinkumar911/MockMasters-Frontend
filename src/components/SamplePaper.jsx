@@ -61,7 +61,7 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 
 //MUI
 
-const SamplePaper = ({side}) => {
+const SamplePaper = () => {
   const toastId = React.useRef(null);
   const sendingnotify = (msg) => (toastId.current = toast.loading(msg));
   const dismiss = () => toast.dismiss(toastId.current);
@@ -206,7 +206,10 @@ const SamplePaper = ({side}) => {
   return (
     <>
       <Toaster position="bottom-left" reverseOrder={false} />
-      <section id="sample-paper" className={` flex items-center justify-center ${side ? "lg:blur-none blur-sm" : " "}`}>
+      <section
+        id="sample-paper"
+        className={` flex items-center justify-center`}
+      >
         <div className="container w-full py-4 lg:w-[60%] md:w-[75%] mx-auto">
           <div className="bg-white rounded shadow-lg p-4 px-4 md:p-8 flex flex-col">
             <p className="text-2xl font-semibold mb-5">Create Exam Paper</p>
