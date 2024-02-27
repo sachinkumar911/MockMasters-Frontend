@@ -6,6 +6,7 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import humanizeDuration from "humanize-duration";
 import coinimg from "../assets/extracoins.webp";
+import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { Link } from "react-router-dom";
