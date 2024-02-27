@@ -8,7 +8,7 @@ import avatar3 from "../assets/avatar3.webp";
 import avatar4 from "../assets/avatar4.webp";
 import avatar5 from "../assets/avatar5.webp";
 import { Link } from "react-scroll";
-import { NavLink } from "react-router-dom";
+import { NavLink, Navigate } from "react-router-dom";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -176,9 +176,7 @@ const Header = () => {
                                 <button
                                   type="button"
                                   className="  flex items-center gap-3 font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
-                                  onClick={() => {
-                                    console.log("asdfg");
-                                  }}
+                                  onClick={() =>{console.log("abdf")}}
                                 >
                                   <svg
                                     className="w-[27px] h-[27px] text-gray-800 "

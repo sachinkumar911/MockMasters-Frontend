@@ -46,7 +46,6 @@ const Hero = () => {
                   <div className="relative z-10 inline-block pt-11 lg:pt-0">
                     <img
                       src={heroimage}
-                      // src="https://pwskills.com/images/homePage/hero-bg.png"
                       alt="heroimage"
                       className="max-w-full  lg:ml-14"
                     />
@@ -57,25 +56,25 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className=" absolute left-[50%] bottom-[0%] translate-x-[-50%]  translate-y-[50%] md:w-[75%] w-full  px-4 py-10  lg:px-8 lg:py-4 mx-auto  rounded-xl shadow-lg bg-white">
-          <div className="text-center mb-5"></div>
+        <div className=" absolute left-[50%] bottom-[0%] translate-x-[-50%]   translate-y-[50%] md:w-[75%] w-[95%]  px-4 py-8  lg:px-8 lg:py-4    rounded-xl shadow-lg bg-white">
+          {/* <div className="text-center mb-5"></div> */}
 
-          <div className=" grid gap-6 grid-cols-2 sm:gap-12 lg:grid-cols-4 lg:gap-8 ">
-            <div className="items-center justify-center flex flex-col  border-r">
+          <div className=" grid gap-6 grid-cols-2 sm:gap-12 lg:grid-cols-4 lg:gap-8 mx-auto  ">
+            <div className="flex flex-col items-center justify-center    border-r">
               <img
                 src={mockimage}
                 alt="mocktestimage"
                 className="sm:w-16 sm:h-16 w-8 h-8 bg-center bg-no-repeat bg-cover"
               />
-              <h4 className="text-sm md:text-xl font-bold text-[#1B2124] mt-2">
+              <h4 className="text-sm text-center md:text-xl font-bold text-[#1B2124] mt-2">
                 Mock Tests
               </h4>
-              <div className="md:text-base text-xs font-normal text-[#1B2124]">
+              <div className="md:text-base text-xs font-normal text-center text-[#1B2124]">
                 Unlimited Mock Tests
               </div>
             </div>
 
-            <div className="items-center justify-center flex flex-col border-r">
+            <div className="items-center justify-center flex flex-col lg:border-r">
               <img
                 src={usersimg}
                 alt="usersimage"
@@ -84,7 +83,7 @@ const Hero = () => {
               <h4 className="text-sm md:text-xl font-bold text-[#1B2124] mt-2">
                 1000+
               </h4>
-              <div className="md:text-base text-xs font-normal text-[#1B2124]">
+              <div className="md:text-base text-center text-xs font-normal text-[#1B2124]">
                 Active Users Community
               </div>
             </div>
@@ -98,7 +97,7 @@ const Hero = () => {
               <h4 className="text-sm md:text-xl font-bold text-[#1B2124] mt-2">
                 Analytics
               </h4>
-              <div className="md:text-base text-xs font-normal text-[#1B2124]">
+              <div className="md:text-base text-center text-xs font-normal text-[#1B2124]">
                 Strategic Performance Analysis
               </div>
             </div>
@@ -112,7 +111,7 @@ const Hero = () => {
               <h4 className="text-sm md:text-xl font-bold text-[#1B2124] mt-2">
                 Coins
               </h4>
-              <div className="md:text-base text-xs font-normal text-[#1B2124]">
+              <div className="md:text-base text-center text-xs font-normal text-[#1B2124]">
                 Earn Reward with Coins
               </div>
             </div>
