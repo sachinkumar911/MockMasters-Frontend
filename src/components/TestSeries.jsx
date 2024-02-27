@@ -138,7 +138,7 @@ const TestSeries = () => {
                         type="button"
                         className="flex rounded text-blue-500 bg-white border-blue-500 border-2 hover:bg-blue-600 max-sm:text-[10px] max-sm:p-1 hover:text-white px-3 py-[0.4rem] ml-2 text-sm font-medium leading-normal items-center"
                       >
-                      Resume Test 50
+                        Resume Test 50
                         <img src={coinimage} className="w-5" alt="coins" />
                       </button>
                     </>

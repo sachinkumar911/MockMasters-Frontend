@@ -80,6 +80,7 @@ const EmailVerify = () => {
           confirmpassword: sessionStorage.getItem("confirmpassword"),
           category: sessionStorage.getItem("category"),
           avatar: sessionStorage.getItem("avatar"),
+          refferalcode: sessionStorage.getItem("refferalcode"),
         },
         {
           headers: {
