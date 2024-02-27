@@ -11,7 +11,7 @@ const Hero = () => {
       <section
         id="hero-section"
         
-        className="h-[90vh] pt-[90px] relative -z-10"
+        className="h-[90vh] pt-[90px] relative z-10"
       >
         <div className="relative max-w-screen-xl mx-auto">
           <div className="container mx-auto">
