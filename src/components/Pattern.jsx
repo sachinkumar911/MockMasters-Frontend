@@ -142,7 +142,7 @@ const Pattern = () => {
           </Link>
           <button
             type="button"
-            className="text-white flex bg-[#08bd81fa] hover:bg-[#08bd81ee] border font-medium rounded-lg text-base  text-sm px-4 py-2.5 text-center me-2 mb-2 "
+            className="text-white flex bg-cyan-500 border font-medium rounded-lg   text-sm px-4 py-2.5 text-center me-2 mb-2 "
             onClick={finalStart}
           >
             {JSON.parse(sessionStorage.getItem("Data"))?.isResume

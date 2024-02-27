@@ -40,7 +40,7 @@ const DashBoard = ({ side, handleside }) => {
               <li>
                 <a
                   href="#"
-                  className="flex text-white items-center p-4 bg-blue-400 rounded-lg hover:bg-gray-400  group bg-gradient-to-tr from-gray-300 via-gray-800 to-gray-900"
+                  className="flex text-white items-center p-4 bg-blue-400 rounded-lg hover:bg-gray-400  group bg-gradient-to-br from-slate-900 via-slate-600 to-slate-800"
                 >
                   <img src={coin} alt="" className=" h-6" />
                   <span className="ms-3">{cc} Elite Coins</span>
