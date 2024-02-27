@@ -1,13 +1,10 @@
 /* eslint-disable react/prop-types */
 import logo from "../assets/referlogo.webp";
 import coinimg from "../assets/coin.webp";
-const ReferEarn = ({ side }) => {
+const ReferEarn = () => {
   return (
     <>
-      <section
-        id="refer-earn"
-        className={`${side ? "lg:blur-none blur-sm" : " "}`}
-      >
+      <section id="refer-earn">
         <div
           className={`container mx-auto p-8 bg-gradient-to-br from-gray-900 via-gray-700 to-gray-800  `}
         >

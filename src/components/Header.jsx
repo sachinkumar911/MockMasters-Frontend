@@ -85,7 +85,7 @@ const Header = () => {
               </span>
             </NavLink>
 
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center z-30">
               <input
                 type="checkbox"
                 name="hamburger"
@@ -171,12 +171,11 @@ const Header = () => {
                             />
                           </div>
                           {isDropdownVisible && (
-                            <div className="absolute   mt-1  bg-white  rounded-xl shadow-lg z-10 w-[100%]">
+                            <div className="absolute   mt-1  bg-white  rounded-xl shadow-lg  z-50 w-[100%]">
                               <NavLink to="/Dashboard/profile">
                                 <button
                                   type="button"
                                   className="  flex items-center gap-3 font-medium px-2 py-2 text-[15px] text-gray-900 hover:bg-gray-100 w-full text-left"
-                                  onClick={() =>{console.log("abdf")}}
                                 >
                                   <svg
                                     className="w-[27px] h-[27px] text-gray-800 "
@@ -312,7 +311,7 @@ const Header = () => {
                         />
                       </div>
                       {isDropdownVisible && (
-                        <div className="absolute mt-1 right-0 px-2 py-1 bg-white  rounded-xl shadow-lg z-10 w-fit">
+                        <div className="absolute mt-1 right-0 px-2 py-1 bg-white  rounded-xl shadow-lg z-20 w-fit">
                           <NavLink to="/Dashboard/profile">
                             <button
                               type="button"

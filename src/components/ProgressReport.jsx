@@ -1,9 +1,9 @@
 import React from "react";
 
-const ProgressReport = ({side}) => {
+const ProgressReport = () => {
   return (
     <>
-      <h1 className={`flex justify-center items-center h-[90vh] text-3xl ${side ? "lg:blur-none blur-sm" : " "}`}>
+      <h1 className={`flex justify-center items-center h-[90vh] text-3xl`}>
         Feature Coming Really Soon...
       </h1>
     </>
