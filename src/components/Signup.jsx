@@ -106,13 +106,13 @@ const Signup = () => {
     <>
       <Toaster position="bottom-left" reverseOrder={false} />
       <section className="bg-gray-50 flex flex-col items-center justify-center m-4">
-        <div className="p-6  bg-white  shadow-md">
+        <div className="p-6  bg-white  shadow-md  ">
           <div className="flex flex-col justify-center items-center">
-            <div>
-              <h2 className="text-xl font-bold leading-tight tracking-tight text-gray-900 mb-3">
+
+              <h2 className="text-xl font-bold  tracking-tight text-gray-900 mb-3">
                 Choose your Avatar
               </h2>
-            </div>
+
             <div className=" flex py-2">
               <img
                 src={avatar1}
@@ -176,15 +176,16 @@ const Signup = () => {
               />
             </div>
           </div>
-          <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900">
+          <h1 className="text-xl font-bold mb-2 leading-tight tracking-tight text-gray-900">
             Create your Account
           </h1>
           <form className="space-y-2" action="#" onSubmit={handleSubmit}>
-            <div className="flex my-4">
-              <div className="flex flex-col mr-4">
+          <div id='form-div' className="space-y-2 ">
+            <div className="flex  justify-between space-x-4">
+              <div className="flex flex-col">
                 <label
                   htmlFor="username"
-                  className="block mb-2 text-sm font-medium text-gray-900"
+                  className="block mb-1 text-sm font-medium text-gray-900"
                 >
                   Create Username
                 </label>
@@ -219,7 +220,7 @@ const Signup = () => {
               <div className="flex flex-col">
                 <label
                   htmlFor="email"
-                  className="block mb-2 text-sm font-medium text-gray-900"
+                  className="block mb-1 text-sm font-medium text-gray-900"
                 >
                   Enter Email
                 </label>
@@ -236,11 +237,11 @@ const Signup = () => {
               </div>
             </div>
 
-            <div className="flex">
-              <div className="flex flex-col mr-4">
+            <div className="flex justify-between space-x-4">
+              <div className="flex flex-col ">
                 <label
                   htmlFor="password"
-                  className="block mb-2 text-sm font-medium text-gray-900"
+                  className="block mb-1 text-sm font-medium text-gray-900"
                 >
                   Password
                 </label>
@@ -257,7 +258,7 @@ const Signup = () => {
               <div className="flex flex-col">
                 <label
                   htmlFor="password"
-                  className="block mb-2 text-sm font-medium text-gray-900"
+                  className="block mb-1 text-sm font-medium text-gray-900"
                 >
                   Confirm Password
                 </label>
@@ -272,10 +273,10 @@ const Signup = () => {
                 ></input>
               </div>
             </div>
-            <div>
+            <div className="flex flex-col ">
               <label
                 htmlFor="category"
-                className="block mb-2 text-sm font-medium text-gray-900"
+                className="block mb-1 text-sm font-medium text-gray-900"
               >
                 Select Category
               </label>
@@ -299,10 +300,10 @@ const Signup = () => {
               </select>
               {/* ["OBC-NCL", "ST", "OBC-NCL (PwD)", "Gen-EWS", "Open", "Open (PwD)", "SC", "SC (PwD)", "Gen-EWS (PwD)"] */}
             </div>
-            <div class="mb-5">
+            <div class="flex flex-col">
               <label
                 for="email"
-                class="block mb-2 text-sm font-medium text-gray-900"
+                class="block mb-1 text-sm font-medium text-gray-900"
               >
                 Referral Code if Any
               </label>
@@ -331,6 +332,7 @@ const Signup = () => {
                 Login here
               </Link>
             </p>
+            </div>
           </form>
         </div>
       </section>
