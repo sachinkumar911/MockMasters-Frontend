@@ -85,7 +85,7 @@ const TestSeries = () => {
             <div
               key={key}
               id={item.qpname}
-              className=" rounded-lg relative overflow-hidden bg-white border-t shadow-md  lg:w-[600px] md:w-[70%] w-[90%] "
+              className=" rounded-lg relative overflow-hidden bg-white border-t shadow-md  lg:w-[600px] md:w-[75%] w-[90%] "
             >
               <div className="absolute right-0 top-0 h-16 w-16">
                 <div
@@ -121,7 +121,7 @@ const TestSeries = () => {
                   {humanizeDuration(item.examinfo?.duration)}
                 </p>
               </div>
-              <div className="mx-6 mb-3 flex items-center justify-between max-sm:flex-col max-sm:items-center   gap-2">
+              <div className="mx-6 mb-3  flex items-center justify-between max-sm:flex-col max-sm:items-center   gap-2">
                 <div className="flex">
                   <button
                     onClick={() => startTest(item)}
@@ -136,9 +136,9 @@ const TestSeries = () => {
                       <button
                         onClick={() => checkCoins(item, 50)}
                         type="button"
-                        className="flex rounded text-blue-500 bg-white border-blue-500 border-2 hover:bg-blue-600 max-sm:text-[10px] max-sm:p-1 hover:text-white px-3 py-[0.4rem] ml-2 text-sm font-medium leading-normal"
+                        className="flex rounded text-blue-500 bg-white border-blue-500 border-2 hover:bg-blue-600 max-sm:text-[10px] max-sm:p-1 hover:text-white px-3 py-[0.4rem] ml-2 text-sm font-medium leading-normal items-center"
                       >
-                        Resume Test 50
+                      Resume Test 50
                         <img src={coinimage} className="w-5" alt="coins" />
                       </button>
                     </>
