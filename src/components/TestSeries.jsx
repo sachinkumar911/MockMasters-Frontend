@@ -122,7 +122,7 @@ const TestSeries = () => {
                 </p>
               </div>
               <div className="mx-6 mb-3 flex items-center justify-between max-sm:flex-col max-sm:items-center   gap-2">
-                <div>
+                <div className="flex">
                   <button
                     onClick={() => startTest(item)}
                     type="button"
@@ -136,9 +136,10 @@ const TestSeries = () => {
                       <button
                         onClick={() => checkCoins(item, 50)}
                         type="button"
-                        className="inline-block rounded text-blue-500 bg-white border-blue-500 border-2 hover:bg-blue-600 max-sm:text-[10px] max-sm:p-1 hover:text-white px-3 py-[0.4rem] ml-2 text-sm font-medium leading-normal"
+                        className="flex rounded text-blue-500 bg-white border-blue-500 border-2 hover:bg-blue-600 max-sm:text-[10px] max-sm:p-1 hover:text-white px-3 py-[0.4rem] ml-2 text-sm font-medium leading-normal"
                       >
-                        Resume Test
+                        Resume Test 50
+                        <img src={coinimage} className="w-5" alt="coins" />
                       </button>
                     </>
                   ) : (
