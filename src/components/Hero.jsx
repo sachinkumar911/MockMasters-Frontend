@@ -1,4 +1,4 @@
-import heroimage from "../assets/Desktopimage.svg";
+import heroimage from "../assets/Desktopimage.webp";
 import mockimage from "../assets/mock.webp";
 import rewardimg from "../assets/reward.webp";
 import usersimg from "../assets/usersimage.webp";
