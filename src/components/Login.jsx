@@ -70,7 +70,7 @@ const Login = () => {
   return (
     <>
       <Toaster position="bottom-left" reverseOrder={false} />
-      <section className="bg-gray-500 flex justify-center min-h-[90vh] items-center">
+      <section className="bg-gray-100 flex justify-center min-h-[90vh] items-center">
         <div className="p-6 max-sm:px-3 space-y-4 bg-white rounded-sm  min-w-[30%] max-sm:w-[94%] max-lg:w-[50%] max-xl:w-[40%]  shadow-md ">
           <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900">
             Sign in to your Account
