@@ -1,4 +1,4 @@
-import mocktestimg from "../assets/mockup1.png";
+import mocktestimg from "../assets/Mockup1.png";
 import mobile1 from "../assets/mobile1.jpg";
 import mobile2 from "../assets/mobile2.jpg";
 import mobile3 from "../assets/mobile3.jpg";
