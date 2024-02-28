@@ -6,8 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MockMasters</title>
   </head>
-  <body>
+  <body oncontextmenu="return false">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
+  <script>
+    document.onkeydown = (e) => {
+      if (e.key == "F12") {
+        e.preventDefault();
+        console.log(e.key);
+      }
+      if (e.ctrlKey && e.shiftKey && (e.key == "I" || e.key == "i")) {
+        e.preventDefault();
+        console.log(e.key);
+      }
+      if (e.ctrlKey && e.shiftKey && (e.key == "C" || e.key == "c")) {
+        e.preventDefault();
+        console.log(e.key);
+      }
+      if (e.ctrlKey && e.shiftKey && (e.key == "J" || e.key == "j")) {
+        e.preventDefault();
+        console.log(e.key);
+      }
+      if (e.ctrlKey && (e.key == "u" || e.key == "U")) {
+        e.preventDefault();
+        console.log(e.key);
+      }
+    };
+
+    document.addEventListener("contextmenu", function (e) {
+      e.preventDefault();
+    });
+  </script>
 </html>
