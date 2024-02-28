@@ -36,7 +36,7 @@ const DashboardHeader = ({ handleside, side }) => {
   const logoutuser = async () => {
     try {
       const response = await axios.get(
-        `${import.meta.env.BACKEND_URL}/api/v1/users/logout`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/api/v1/users/logout`,
         {
           headers: {
             "Content-Type": "application/json",

@@ -55,7 +55,7 @@ const Profile = () => {
     sendingnotify("Updating user profile...");
     try {
       const response = await axios.post(
-        `${import.meta.env.BACKEND_URL}/api/v1/users/updateprofile`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/api/v1/users/updateprofile`,
         formData,
         {
           headers: {

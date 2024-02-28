@@ -13,7 +13,7 @@ const TestResult = () => {
     (async () => {
       try {
         const response = await axios.post(
-          `${import.meta.env.BACKEND_URL}/api/v1/attempted-exams`,
+          `${import.meta.env.VITE_APP_BACKEND_URL}/api/v1/attempted-exams`,
           { user_id: userdetail?._id },
           {
             headers: {

@@ -3,7 +3,7 @@ import axios from "axios";
 const tryRefreshingToken = async () => {
     try {
         const response = await axios.get(
-            `${import.meta.env.BACKEND_URL}/api/v1/users/refresh-token`,
+            `${import.meta.env.VITE_APP_BACKEND_URL}/api/v1/users/refresh-token`,
             {
                 headers: {
                     "Content-Type": "application/json",

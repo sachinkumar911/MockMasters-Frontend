@@ -44,7 +44,7 @@ const Login = () => {
     sendingnotify("Verifying...");
     try {
       const response = await axios.post(
-        `${import.meta.env.BACKEND_URL}/api/v1/users/login`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/api/v1/users/login`,
         formData,
         {
           headers: {

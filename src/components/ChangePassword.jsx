@@ -33,7 +33,7 @@ const ChangePassword = () => {
     sendingnotify("Verifying...");
     try {
       const response = await axios.post(
-        `${import.meta.env.BACKEND_URL}/api/v1/users/change-password`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/api/v1/users/change-password`,
         {
           currentpassword,
           newpassword,

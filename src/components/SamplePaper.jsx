@@ -87,7 +87,7 @@ const SamplePaper = () => {
     setValue(newValue);
     try {
       const response = await axios.post(
-        `${import.meta.env.BACKEND_URL}/api/v1/examinfo/get-exam`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/api/v1/examinfo/get-exam`,
         { examtype: ExamTypeArray[newValue] },
         {
           headers: {
@@ -119,7 +119,7 @@ const SamplePaper = () => {
       try {
         const response = await axios.post(
           `${
-            import.meta.env.BACKEND_URL
+            import.meta.env.VITE_APP_BACKEND_URL
           }/api/v1/questions/get-all-questions-subject`,
           { subject: subname },
           {
@@ -181,7 +181,7 @@ const SamplePaper = () => {
     sendingnotify("Creaing new ExamSet...");
     try {
       const response = await axios.post(
-        `${import.meta.env.BACKEND_URL}/api/v1/examset/create`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/api/v1/examset/create`,
         {
           questions: SelectedQuestions,
           price,

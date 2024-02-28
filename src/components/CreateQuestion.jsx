@@ -35,7 +35,7 @@ const CreateQuestion = () => {
     setquestion({ ...question, subject: e.target.value });
     try {
       const response = await axios.post(
-        `${import.meta.env.BACKEND_URL}/api/v1/subject/get-all-topics`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/api/v1/subject/get-all-topics`,
         {
           subjectname: e.target.value,
         },
@@ -76,7 +76,9 @@ const CreateQuestion = () => {
     sendingnotify("sending...");
     try {
       const response = await axios.post(
-        `${import.meta.env.BACKEND_URL}/api/v1/questions/create-question`,
+        `${
+          import.meta.env.VITE_APP_BACKEND_URL
+        }/api/v1/questions/create-question`,
         {
           subjectname: question.subject,
           topics: selectedTopics,

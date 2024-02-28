@@ -32,7 +32,7 @@ const TestSeries = () => {
     (async () => {
       try {
         const response = await axios.post(
-          `${import.meta.env.BACKEND_URL}/api/v1/examset/show`,
+          `${import.meta.env.VITE_APP_BACKEND_URL}/api/v1/examset/show`,
           {
             _id: userdetail._id,
           },

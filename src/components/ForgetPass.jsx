@@ -26,7 +26,7 @@ const ForgetPass = () => {
     sendingnotify("Sending OTP...");
     try {
       const response = await axios.post(
-        `${import.meta.env.BACKEND_URL}/api/v1/users/forget-password`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/api/v1/users/forget-password`,
         {
           email: mail,
         },
