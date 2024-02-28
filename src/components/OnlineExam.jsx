@@ -133,7 +133,7 @@ const OnlineExam = () => {
     (async () => {
       try {
         const response = await axios.post(
-          "http://localhost:8000/api/v1/examset/get-all-questions",
+          `${import.meta.env.BACKEND_URL}/api/v1/examset/get-all-questions`,
           {
             Q_id: sessionStorage.getItem("Question_id"),
           },
@@ -158,7 +158,7 @@ const OnlineExam = () => {
 
           // Retrieving User Answers
           const resp = await axios.post(
-            "http://localhost:8000/api/v1/test/retrieve-user-answers",
+            `${import.meta.env.BACKEND_URL}/api/v1/test/retrieve-user-answers`,
             {
               startTest_id: sessionStorage.getItem("startTest_id"),
             },
@@ -189,7 +189,7 @@ const OnlineExam = () => {
 
           // Retrieving User Answers
           const resp = await axios.post(
-            "http://localhost:8000/api/v1/test/retrieve-user-answers",
+            `${import.meta.env.BACKEND_URL}/api/v1/test/retrieve-user-answers`,
             {
               startTest_id: sessionStorage.getItem("startTest_id"),
             },
@@ -493,7 +493,7 @@ const OnlineExam = () => {
     await socket.disconnect();
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/v1/evaluate-exam",
+        `${import.meta.env.BACKEND_URL}/api/v1/evaluate-exam`,
         { startTest_id: sessionStorage.getItem("startTest_id") },
         {
           headers: {

@@ -3,7 +3,7 @@ import axios from "axios";
 const dailyEliteCoin = async (amount) => {
     try {
         const response = await axios.post(
-            "http://localhost:8000/api/v1/wallet/update-coins",
+            `${import.meta.env.BACKEND_URL}/api/v1/wallet/update-coins`,
             {
                 amount
             },

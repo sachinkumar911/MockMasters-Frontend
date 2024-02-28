@@ -13,7 +13,7 @@ const TestResult = () => {
     (async () => {
       try {
         const response = await axios.post(
-          "http://localhost:8000/api/v1/attempted-exams",
+          `${import.meta.env.BACKEND_URL}/api/v1/attempted-exams`,
           { user_id: userdetail?._id },
           {
             headers: {
@@ -41,7 +41,9 @@ const TestResult = () => {
           <table className="w-full bg-white border-2   border-gray-300 shadow-md">
             <thead>
               <tr className="bg-gray-50 border">
-                <th className="py-2 px-4 border-r border-gray-300 max-md:hidden">Sr. No.</th>
+                <th className="py-2 px-4 border-r border-gray-300 max-md:hidden">
+                  Sr. No.
+                </th>
                 <th className="py-2 px-4 border-r border-gray-300">
                   Test Name
                 </th>

@@ -26,7 +26,7 @@ const Signup = () => {
   const checkUsername = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/v1/users/checkusername",
+        `${import.meta.env.BACKEND_URL}/api/v1/users/checkusername`,
         { username: formData.username },
         {
           headers: {
@@ -76,7 +76,7 @@ const Signup = () => {
     sendingnotify("Registering user...");
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/v1/users/register",
+        `${import.meta.env.BACKEND_URL}/api/v1/users/register`,
         formData,
         {
           headers: {

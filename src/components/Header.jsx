@@ -34,7 +34,7 @@ const Header = () => {
   const logoutuser = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8000/api/v1/users/logout",
+        `${import.meta.env.BACKEND_URL}/api/v1/users/logout`,
         {
           headers: {
             "Content-Type": "application/json",

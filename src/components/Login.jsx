@@ -44,7 +44,7 @@ const Login = () => {
     sendingnotify("Verifying...");
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/v1/users/login",
+        `${import.meta.env.BACKEND_URL}/api/v1/users/login`,
         formData,
         {
           headers: {
@@ -116,7 +116,6 @@ const Login = () => {
               ></input>
             </div>
             <div className="flex items-center justify-end">
-              
               <Link
                 to="/Forgotpassword"
                 className="text-sm font-medium text-gray-600 hover:underline hover:text-gray-700"
