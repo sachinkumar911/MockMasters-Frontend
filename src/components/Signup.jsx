@@ -301,10 +301,10 @@ const Signup = () => {
                 </select>
                 {/* ["OBC-NCL", "ST", "OBC-NCL (PwD)", "Gen-EWS", "Open", "Open (PwD)", "SC", "SC (PwD)", "Gen-EWS (PwD)"] */}
               </div>
-              <div class="flex flex-col">
+              <div className="flex flex-col">
                 <label
                   for="email"
-                  class="block mb-1 text-sm font-medium text-gray-900"
+                  className="block mb-1 text-sm font-medium text-gray-900"
                 >
                   Referral Code if Any
                 </label>
@@ -312,7 +312,7 @@ const Signup = () => {
                   name="refferalcode"
                   type="text"
                   id="rffr"
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  block w-full p-2.5 "
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  block w-full p-2.5 "
                   placeholder="ABYEIUP"
                   value={formData.refferalcode.toUpperCase()}
                   onChange={handleInputChange}
