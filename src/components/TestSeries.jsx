@@ -170,39 +170,38 @@ const TestSeries = () => {
           ))}
         </div>
         <Modal
-          style={{ backdropFilter: "blur(4px)" }}
+          style={{ backdropFilter: "blur(1px)" }}
           open={open}
           onClose={handleClose}
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
-          <Box className="bg-gray-100">
-            <div className=""></div>
-            <div className="fixed top-0 left-0 flex items-center justify-center w-full h-full min-h-screen ">
-              <div className="w-full max-w-[400px]  bg-slate-50 py-5 px-5 text-center md:py-[10px] md:px-[12px]  rounded-md">
-                <div className="h-52 flex  justify-center items-center flex-col bg-slate-600 rounded-lg">
+          <Box className="">
+            <div className="fixed top-0 left-0 flex items-center justify-center w-full h-full min-h-screen">
+              <div className="w-full max-w-[360px]  bg-slate-50  rounded-sm text-center  ">
+                <div className="h-44 flex  justify-center  items-center flex-col bg-gradient-to-br from-slate-800 via-slate-600 to-slate-700 ">
                   <img src={coinimg} className="w-12 h-12" />
                   <p className="text-xl text-yellow-400 font-semibold uppercase  ">
                     Insufficient Elitecoins !!
                   </p>
                 </div>
-                <span className="mx-auto mb-6 inline-block h-1 w-[90px] rounded bg-primary"></span>
-                <p className="mb-10 text-base leading-relaxed text-gray-500 ">
-                  "Initiate the test seamlessly by ensuring a sufficient elite
-                  coin balance. Earn coins effortlessly to unlock the test !"
+                <div className="p-5">
+                <p className=" text-base leading-relaxed text-gray-500 ">
+                 "Start the test smoothly with enough elite coins . Easily earn coins to unlock the test !"
                 </p>
-                <div className="flex flex-wrap">
+                </div>
+                <div className="flex flex-wrap py-4   ">
                   <div className="w-1/2 px-3">
                     <button
                       onClick={handleClose}
-                      className="block w-full p-2 text-base font-normal text-center  border text-gray-500 bg-gray-100  hover:bg-gray-200 hover:text-gray-600 rounded-md "
+                      className="block w-full px-1 py-2 text-base font-normal text-center  border text-gray-500 bg-gray-100  hover:bg-gray-200  rounded-md "
                     >
                       Go Back
                     </button>
                   </div>
                   <div className="w-1/2 px-3">
                     <Link to="/Dashboard/refer&earn">
-                      <button className=" flex justify-center gap-2 w-full p-2 text-base font-medium text-center transition border  hover:bg-slate-700 text-white bg-slate-600 rounded-md ">
+                      <button className=" flex justify-center gap-2 w-full px-1 py-2 text-base font-medium text-center transition border  hover:bg-slate-700 text-white bg-gradient-to-br from-slate-800 via-slate-600 to-slate-700 rounded-md ">
                         Earn
                         <img src={coinimg} className="w-6 h-6" />
                       </button>
