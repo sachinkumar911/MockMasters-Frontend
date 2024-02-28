@@ -1,3 +1,4 @@
+/* eslint-disable no-unsafe-optional-chaining */
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -560,10 +561,11 @@ const OnlineExam = () => {
   return (
     <>
       <section>
-        <div className=" h-fit flex justify-between items-center mx-[6rem]">
+        {/* header */}
+        <div className=" h-fit flex justify-between items-center md:mx-[6rem] mx-1">
           <div
             onClick={enterFullscreen}
-            className="self-center md:text-2xl select-none  font-semibold w-[4rem]"
+            className="text-center md:text-2xl select-none  font-semibold w-[4rem]"
           >
             MockMasters.
           </div>
@@ -583,7 +585,8 @@ const OnlineExam = () => {
         {loading ? (
           <LoadingSpinner />
         ) : (
-          <div className="relative">
+          <div className="relative flex flex-col ">
+            {/* fullscreen mod and */}
             <div
               className={`absolute top-0 left-0 backdrop-blur w-full h-full z-10 ${
                 isFullscreen ? "hidden" : ""
@@ -599,9 +602,12 @@ const OnlineExam = () => {
                 GO BACK TO TEST
               </button>
             </div>
-            <div className="max-h-[8vh] bg-gray-200 flex justify-between items-center px-24">
+
+            {/* subject section */}
+
+            <div className="max-h-[8vh] bg-gray-200 flex justify-between items-center max-2xl:px-24  max-xl:px-[80px]  max-md:px-1 ">
               <Box
-                className="lg:w-fit"
+                className="max-xl:w-[78%] max-lg:w-[63%] max-sm:w-[50%] "
                 sx={{
                   bgcolor: "#fafafa",
                 }}
@@ -623,22 +629,29 @@ const OnlineExam = () => {
                 </Tabs>
               </Box>
 
-              <div className="self-center md:text-xl font-semibold">
+              <div className="self-center md:text-xl text-sm font-semibold">
                 Time Left:
                 <span id="ExamTImer" className=" self-center px-2">
                   <Countdown date={Date.now() + TimeLeft} renderer={renderer} />
                 </span>
               </div>
             </div>
-            <div className="flex h-[80vh] justify-center items-center mx-24">
-              <div className=" h-full flex flex-col  lg:w-[75vw] w-full ">
-                <div className=" h-fit flex justify-between items-center  border-b-2 border-slate-300 mb-1 ">
-                  <h2 className="py-3 px-2 font-semibold">
+            {/* question and side showbar */}
+
+            <div className="flex h-[88vh] justify-center items-center lg:mx-24 md:mx-14 mx-1 my-0">
+              {/* question section and option */}
+              <div className=" h-full flex flex-col lg:w-[75vw] w-full ">
+                {/* question no and positve negative marking section */}
+                <div className="  flex justify-between items-center  border-b-2 border-slate-300 mb-1 ">
+                  <h2 className="py-3 text-center px-2 font-semibold">
                     Question {currquesindex + 1}
                   </h2>
-                  <h2 className="py-3 px-2 font-semibold">
+                  <h2 className="py-3 text-center text-wrap px-2 font-semibold">
                     {" "}
-                    Single correct option,
+                    <span className=" max-sm:hidden">
+                      {" "}
+                      Single correct option,
+                    </span>
                     <span className="text-[#08bd80] ">
                       +
                       {AllData?.questions[currsubject]?.posM
@@ -653,111 +666,75 @@ const OnlineExam = () => {
                     </span>
                   </h2>
                 </div>
-
-                <div className="px-2 lg:text-lg h-[60%] font-normal ">
+                {/* question  area */}
+                <div className="px-2 text-lg text-wrap h-fit  font-normal ">
                   {currentDisplay?.txtquestion}
                 </div>
-                {currentDisplay?.options?.map((item, key) => (
-                  <div
-                    key={key}
-                    className="px-2 lg:text-lg  flex items-center p-1.5 gap-2 "
-                  >
-                    <input
-                      type="radio"
-                      name={currentDisplay?._id}
-                      id={`${currentDisplay?._id}_${key}`}
-                      className=" h-6 w-6 bg-slate-200 cursor-pointer"
-                      checked={
-                        selectedOption === `${currentDisplay?._id}_${key}` ||
-                        (Answers[
-                          AllData?.questions[currsubject]?.subjectname
-                        ] &&
-                          Answers[AllData?.questions[currsubject]?.subjectname][
-                            currentDisplay?._id
-                          ] === `${item}`) ||
-                        (localStorage.getItem("MarkforReviews") &&
-                          JSON.parse(localStorage.getItem("MarkforReviews"))[
-                            AllData?.questions[currsubject].subjectname
-                          ] &&
-                          JSON.parse(localStorage.getItem("MarkforReviews"))[
-                            AllData?.questions[currsubject].subjectname
-                          ][currentDisplay?._id] === item)
-                      }
-                      onChange={() => {
-                        setSelectedOption(`${currentDisplay?._id}_${key}`);
-                        setTimeLeft(TestExpiry - Date.now());
-                      }}
-                    />
-                    <label
-                      className="cursor-pointer" //option label
-                      htmlFor={`${currentDisplay?._id}_${key}`}
+                {/* option area */}
+
+                <div className="flex- flex-col justify-center items-center my-auto">
+                  {currentDisplay?.options?.map((item, key) => (
+                    <div
+                      key={key}
+                      className="px-2 text-lg  flex items-center p-1.5 gap-2   "
                     >
-                      {item}
-                    </label>
-                  </div>
-                ))}
-                <div className=" w-full">
-                  <div
-                    className={`flex flex-col space-x-4 px-4 py-2 justify-between`}
-                  >
-                    <div className=" ms-2  flex justify-between   py-3 px-2 gap-2 ">
-                      <div className="flex gap-2">
-                        <button
-                          className={`px-4 py-2 rounded transition-colors duration-300 text-white bg-cyan-500 hover:bg-cyan-600 `}
-                          id="review"
-                          onClick={markforreview}
-                        >
-                          Mark for Review &amp; Next
-                        </button>
-                        <button
-                          className={`px-4 py-2 rounded transition-colors duration-300 text-white bg-cyan-500 hover:bg-cyan-600`}
-                          id="clear"
-                          onClick={clearresponse}
-                        >
-                          Clear Response
-                        </button>
-                      </div>
-                      <div className="flex gap-2 justify-center items-center">
-                        <button
-                          className={`px-4 py-2 rounded transition-colors duration-300 bg-white text-gray-600 font-semibold border hover:text-gray-900 border-gray-500`}
-                          id="save"
-                          onClick={prevques}
-                        >
-                          Previous
-                        </button>
-                        <button
-                          className={`px-4 py-2 rounded transition-colors duration-300 text-white bg-blue-500 hover:bg-blue-600`}
-                          id="save"
-                          type="button"
-                          onClick={setanswer}
-                        >
-                          Save &amp; Next
-                        </button>
-                      </div>
+                      <input
+                        type="radio"
+                        name={currentDisplay?._id}
+                        id={`${currentDisplay?._id}_${key}`}
+                        className=" h-6 w-6"
+                        checked={
+                          selectedOption === `${currentDisplay?._id}_${key}` ||
+                          (Answers[
+                            AllData?.questions[currsubject]?.subjectname
+                          ] &&
+                            Answers[
+                              AllData?.questions[currsubject]?.subjectname
+                            ][currentDisplay?._id] === `${item}`) ||
+                          (localStorage.getItem("MarkforReviews") &&
+                            JSON.parse(localStorage.getItem("MarkforReviews"))[
+                              AllData?.questions[currsubject].subjectname
+                            ] &&
+                            JSON.parse(localStorage.getItem("MarkforReviews"))[
+                              AllData?.questions[currsubject].subjectname
+                            ][currentDisplay?._id] === item)
+                        }
+                        onChange={() => {
+                          setSelectedOption(`${currentDisplay?._id}_${key}`);
+                          setTimeLeft(TestExpiry - Date.now());
+                        }}
+                      />
+
+                      <label
+                        className="cursor-pointer" //option label
+                        htmlFor={`${currentDisplay?._id}_${key}`}
+                      >
+                        {item}
+                      </label>
                     </div>
-                  </div>
+                  ))}
                 </div>
               </div>
-              <div className="flex flex-col ">
-                <div className="h-[68vh] border-x border-y border-black bg-white w-[25vw]  hidden lg:flex  lg:flex-col ">
+              {/* side show bar */}
+              <div className="flex flex-col h-[100%] justify-start   ">
+                <div className="h-[70vh] border-x border-y border-black bg-white max-2xl:w-[25vw] max-xl:w-[27vw]  hidden lg:flex  lg:flex-col ">
                   <div className="flex flex-wrap w-full justify-between items-center lg:gap-3  my-2  px-5">
                     <div className=" flex  gap-2 py-2 text-sm  ">
-                      <div className=" h-6 w-6 bg-green-500"></div>
+                      <div className=" h-5 w-5 bg-green-500"></div>
                       Answered
                     </div>
-
-                    <div className=" flex  gap-2 py-2 text-sm  pr-4 ">
-                      <div className=" h-6 w-6 bg-red-500  "></div>
-                      Not Answered
+                    <div className=" flex  gap-2 py-2 text-sm ">
+                      <div className=" h-5 w-5 bg-violet-500"></div>
+                      Marked for Review
                     </div>
 
                     <div className=" flex  gap-2 py-2 text-sm  ">
-                      <div className=" h-6 w-6 bg-gray-400"></div>
+                      <div className=" h-5 w-5 bg-gray-400"></div>
                       Not Visited
                     </div>
-                    <div className=" flex  gap-2 py-2 text-sm ">
-                      <div className=" h-6 w-6 bg-violet-500"></div>
-                      Marked for Review
+                    <div className=" flex  gap-2 py-2 text-sm  pr-4 mr-3 ">
+                      <div className=" h-5 w-5 bg-red-500  "></div>
+                      Not Answered
                     </div>
                   </div>
 
@@ -799,9 +776,52 @@ const OnlineExam = () => {
                     ))}
                   </div>
                 </div>
-                <div className="flex justify-end py-3 px-2 ">
+              </div>
+            </div>
+            {/* button area */}
+            <div className=" w-full lg:px-20 md:px-4 px-0 absolute bottom-0 -left-2 bg-white ">
+              <div
+                className={`flex flex-col space-x-4 px-4 py-2 justify-between`}
+              >
+                <div className="   flex justify-between   py-3 px-2 gap-2  ml-4 ">
+                  <div className="flex gap-2">
+                    <button
+                      className={`px-4 py-2 max-sm:text-[10px] max-sm:px-2 max-sm:py-0   rounded transition-colors duration-300 text-white bg-cyan-500 hover:bg-cyan-600`}
+                      id="clear"
+                      onClick={clearresponse}
+                    >
+                      Clear Response
+                    </button>
+                  </div>
+                  <div className="flex gap-2 justify-center items-center ">
+                    <button
+                      className={`px-4 py-2  max-sm:text-[10px] max-sm:px-2 rounded transition-colors duration-300 bg-white text-gray-600 font-semibold border hover:text-gray-900 border-gray-500`}
+                      id="save"
+                      onClick={prevques}
+                    >
+                      Previous
+                    </button>
+                    <button
+                      className={`px-4 py-2  max-sm:text-[10px] max-sm:px-2 rounded transition-colors duration-300 text-white bg-blue-500 hover:bg-blue-600`}
+                      id="save"
+                      type="button"
+                      onClick={setanswer}
+                    >
+                      Save &amp; Next
+                    </button>
+                  </div>
+                </div>
+                <div className="flex justify-between items-center gap-4 py-3  ">
                   <button
-                    className={`px-4 py-2 rounded transition-colors duration-300 text-white bg-[#08bd80] `}
+                    className={`px-4 py-2 max-sm:text-[10px] max-sm:px-2  rounded transition-colors duration-300 text-white bg-cyan-500 hover:bg-cyan-600 `}
+                    id="review"
+                    onClick={markforreview}
+                  >
+                    Mark for Review &amp; Next
+                  </button>
+
+                  <button
+                    className={`px-4 py-2  max-sm:text-[10px] max-sm:px-2 rounded transition-colors duration-300 text-white bg-[#08bd80] `}
                     id="submit"
                     onClick={handleOpen}
                   >
@@ -813,11 +833,10 @@ const OnlineExam = () => {
                     aria-labelledby="modal-modal-title"
                     aria-describedby="modal-modal-description"
                   >
-                    <Box sx={style}>
-                      <div className="modal-content">
+                    <Box sx={style} className="">
+                      <div className="modal-content max-sm:mx-3">
                         <div className=" flex flex-col items-center justify-center bg-blue-500 text-white py-4 px-4 ">
                           <div className="mo-header-logo text-center px-5 pb-2">
-                            {/* <img src="https://www.mockers.in/frontend/img/mockers-while-logo.svg" alt=""/>  */}
                             <div className="h5  mtsmh uppercase">
                               "Are you sure you want to submit the test ?"
                             </div>
