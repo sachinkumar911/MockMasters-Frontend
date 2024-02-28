@@ -40,7 +40,7 @@ const EmailVerify = () => {
       sendingnotify("Verifying account...");
       try {
         const response = await axios.post(
-          `${import.meta.env.BACKEND_URL}/api/v1/users/verifyotp`,
+          `${import.meta.env.VITE_APP_BACKEND_URL}/api/v1/users/verifyotp`,
           { token: enteredOtp, reason: "verify" },
           {
             headers: {
@@ -72,7 +72,7 @@ const EmailVerify = () => {
     setOtp(Array(6).fill(""));
     try {
       const response = await axios.post(
-        `${import.meta.env.BACKEND_URL}/api/v1/users/register`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/api/v1/users/register`,
         {
           username: sessionStorage.getItem("username"),
           email: sessionStorage.getItem("email"),

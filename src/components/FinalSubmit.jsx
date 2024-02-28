@@ -20,7 +20,7 @@ const FinalSubmit = () => {
     (async () => {
       try {
         const response = await axios.post(
-          `${import.meta.env.BACKEND_URL}/api/v1/evaluated-exam`,
+          `${import.meta.env.VITE_APP_BACKEND_URL}/api/v1/evaluated-exam`,
           { ExamResult: JSON.parse(sessionStorage.getItem("ExamResult")) },
           {
             headers: {
