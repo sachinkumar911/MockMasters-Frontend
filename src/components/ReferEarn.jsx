@@ -2,7 +2,7 @@ import React from "react";
 import { UserContext } from "../context/UserContext.jsx";
 import { useContext } from "react";
 /* eslint-disable react/prop-types */
-import logo from "../assets/referlogo.webp";
+import logo from "../assets/Referlogo.webp";
 import coinimg from "../assets/coin.webp";
 const ReferEarn = () => {
   const { userdetail } = useContext(UserContext);
