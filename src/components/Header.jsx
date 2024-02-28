@@ -390,38 +390,46 @@ const Header = () => {
                     </div>
                   ) : (
                     <>
+                    <NavLink to="/Login">
                       <button
                         type="button"
                         className="lg:font-medium font-semibold  px-5 py-2
                     hover:bg-opacity-50 rounded-lg text-base text-center border border-gray-400 hover:shadow-md "
                       >
-                        <NavLink to="/Login">Login</NavLink>
+                      Login
                       </button>
+                      </NavLink>
+                      <NavLink to="/Signup">
                       <button
                         type="button"
                         className="text-white bg-gray-800 hover:bg-opacity-90 md:font-medium rounded-lg md:text-base px-5 py-2 text-center  "
                       >
-                        <NavLink to="/Signup">Sign up</NavLink>
+                        Sign up
                       </button>
+                      </NavLink>
                     </>
                   )}
                 </div>
               ) : (
                 <>
+                <NavLink to="/Login">
                   <button
                     type="button"
                     className="lg:font-medium font-semibold  px-5 py-2
                     hover:bg-opacity-50 rounded-lg text-base text-center border border-gray-400 hover:shadow-md "
                   >
-                    <NavLink to="/Login">Login</NavLink>
+                  Login
                   </button>
+                  </NavLink>
                   {/* <p className="hidden lg:block   ">|</p> */}
+                  <NavLink to="/Signup">
                   <button
                     type="button"
                     className="text-white bg-gray-800 hover:bg-opacity-90 md:font-medium rounded-lg md:text-base px-5 py-2 text-center  "
                   >
-                    <NavLink to="/Signup">Sign up</NavLink>
+                    Sign up
                   </button>
+                  </NavLink>
                 </>
               )}
             </div>
