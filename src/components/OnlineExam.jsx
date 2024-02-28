@@ -605,7 +605,7 @@ const OnlineExam = () => {
 
             {/* subject section */}
 
-            <div className="max-h-[8vh] bg-gray-200 flex justify-between items-center max-2xl:px-24  max-xl:px-[80px]  max-md:px-1 ">
+            <div className="max-h-[8vh] bg-gray-200 flex justify-between items-center max-2xl:px-24  max-xl:px-[80px]  max-md:px-1 lg:px-24 ">
               <Box
                 className="max-xl:w-[78%] max-lg:w-[63%] max-sm:w-[50%] "
                 sx={{
@@ -717,7 +717,7 @@ const OnlineExam = () => {
               </div>
               {/* side show bar */}
               <div className="flex flex-col h-[100%] justify-start   ">
-                <div className="h-[70vh] border-x border-y border-black bg-white max-2xl:w-[25vw] max-xl:w-[27vw]  hidden lg:flex  lg:flex-col ">
+                <div className="h-[70vh] border-x border-y border-black bg-white lg:w-[23vw]   hidden lg:flex  lg:flex-col ">
                   <div className="flex flex-wrap w-full justify-between items-center lg:gap-3  my-2  px-5">
                     <div className=" flex  gap-2 py-2 text-sm  ">
                       <div className=" h-5 w-5 bg-green-500"></div>
