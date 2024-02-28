@@ -517,10 +517,26 @@ const OnlineExam = () => {
       document.mozFullScreenElement ||
       document.msFullscreenElement
     ) {
-      // setTimeLeft(TestExpiry - Date.now());
+      //socket-updating TimeLeft on DB
+      if (socket) {
+        socket.emit("updateTimeLeft", sessionStorage.getItem("startTest_id"));
+        socket.off("updateTimeReply").on("updateTimeReply", (newTL) => {
+          setTimeLeft(newTL.TT);
+          setTestExpiry(newTL.exp);
+        });
+      }
+
       console.log("Entered fullscreen mode");
     } else {
-      // setTimeLeft(TestExpiry - Date.now());
+      //socket-updating TimeLeft on DB
+      if (socket) {
+        socket.emit("updateTimeLeft", sessionStorage.getItem("startTest_id"));
+        socket.off("updateTimeReply").on("updateTimeReply", (newTL) => {
+          setTimeLeft(newTL.TT);
+          setTestExpiry(newTL.exp);
+        });
+      }
+
       setIsFullscreen(false);
       console.log("Exited fullscreen mode");
     }
