@@ -605,7 +605,7 @@ const OnlineExam = () => {
 
             {/* subject section */}
 
-            <div className="max-h-[8vh] bg-gray-200 flex justify-between items-center max-2xl:px-24  max-xl:px-[80px]  max-md:px-1 ">
+            <div className="max-h-[8vh] bg-gray-200 flex justify-between items-center max-2xl:px-24  max-xl:px-[80px]  max-md:px-1 lg:px-24 ">
               <Box
                 className="max-xl:w-[78%] max-lg:w-[63%] max-sm:w-[50%] "
                 sx={{
@@ -717,7 +717,7 @@ const OnlineExam = () => {
               </div>
               {/* side show bar */}
               <div className="flex flex-col h-[100%] justify-start   ">
-                <div className="h-[70vh] border-x border-y border-black bg-white max-2xl:w-[25vw] max-xl:w-[27vw]  hidden lg:flex  lg:flex-col ">
+                <div className="h-[70vh] border-x border-y border-black bg-white lg:w-[23vw]   hidden lg:flex  lg:flex-col ">
                   <div className="flex flex-wrap w-full justify-between items-center lg:gap-3  my-2  px-5">
                     <div className=" flex  gap-2 py-2 text-sm  ">
                       <div className=" h-5 w-5 bg-green-500"></div>
@@ -784,16 +784,7 @@ const OnlineExam = () => {
                 className={`flex flex-col space-x-4 px-4 py-2 justify-between`}
               >
                 <div className="   flex justify-between   py-3 px-2 gap-2  ml-4 ">
-                  <div className="flex gap-2">
-                    <button
-                      className={`px-4 py-2 max-sm:text-[10px] max-sm:px-2 max-sm:py-0   rounded transition-colors duration-300 text-white bg-cyan-500 hover:bg-cyan-600`}
-                      id="clear"
-                      onClick={clearresponse}
-                    >
-                      Clear Response
-                    </button>
-                  </div>
-                  <div className="flex gap-2 justify-center items-center ">
+                <div className="flex gap-2 justify-center items-center ">
                     <button
                       className={`px-4 py-2  max-sm:text-[10px] max-sm:px-2 rounded transition-colors duration-300 bg-white text-gray-600 font-semibold border hover:text-gray-900 border-gray-500`}
                       id="save"
@@ -810,6 +801,16 @@ const OnlineExam = () => {
                       Save &amp; Next
                     </button>
                   </div>
+                  <div className="flex gap-2">
+                    <button
+                      className={`px-4 py-2 max-sm:text-[10px] max-sm:px-2 max-sm:py-0   rounded transition-colors duration-300 text-white bg-cyan-500 hover:bg-cyan-600`}
+                      id="clear"
+                      onClick={clearresponse}
+                    >
+                      Clear Response
+                    </button>
+                  </div>
+                 
                 </div>
                 <div className="flex justify-between items-center gap-4 py-3  ">
                   <button

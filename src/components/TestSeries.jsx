@@ -178,8 +178,8 @@ const TestSeries = () => {
         >
           <Box className="">
             <div className="fixed top-0 left-0 flex items-center justify-center w-full h-full min-h-screen">
-              <div className="w-full max-w-[360px]  bg-slate-50  rounded-sm text-center  ">
-                <div className="h-44 flex  justify-center  items-center flex-col bg-gradient-to-br from-slate-800 via-slate-600 to-slate-700 ">
+              <div className="w-full max-w-[360px] max-sm:max-w-[300px]  bg-slate-50  rounded-sm text-center  ">
+                <div className="h-44 max-sm:h-40 flex  justify-center  items-center flex-col bg-gradient-to-br from-slate-800 via-slate-600 to-slate-700 ">
                   <img src={coinimg} className="w-12 h-12" />
                   <p className="text-xl text-yellow-400 font-semibold uppercase  ">
                     Insufficient Elitecoins !!
