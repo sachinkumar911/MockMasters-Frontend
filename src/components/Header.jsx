@@ -19,9 +19,13 @@ const Header = () => {
     document.getElementById("hamburger").checked = false;
   };
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  const [isDropdownVisible2, setIsDropdownVisible2] = useState(false);
 
   const handleImageClick = () => {
     setIsDropdownVisible(!isDropdownVisible);
+  };
+  const handleImageClick2 = () => {
+    setIsDropdownVisible2(!isDropdownVisible2);
   };
 
   const errornotify = (msg) => toast.error(msg);
@@ -49,10 +53,14 @@ const Header = () => {
   };
 
   const dropdownRef = useRef(null);
+  const dropdownRef2 = useRef(null);
 
   const handleClickOutside = (event) => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
       setIsDropdownVisible(false);
+    }
+    if (dropdownRef2.current && !dropdownRef2.current.contains(event.target)) {
+      setIsDropdownVisible2(false);
     }
   };
 
@@ -62,7 +70,7 @@ const Header = () => {
     return () => {
       window.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [isDropdownVisible]);
+  }, [isDropdownVisible, isDropdownVisible2]);
 
   return (
     <>
@@ -158,19 +166,19 @@ const Header = () => {
                       {islogin ? (
                         <div
                           className="relative inline-block group"
-                          ref={dropdownRef}
+                          ref={dropdownRef2}
                         >
                           <div className="flex font-semibold text-lg items-center gap-2">
                             <h1>Hi, {userdetail.username}</h1>
                             <img
                               src={avatars[userdetail?.avatar - 1]}
                               alt="Avatar"
-                              onClick={handleImageClick}
+                              onClick={handleImageClick2}
                               className={`cursor-pointer  rounded-full shadow-lg  border-4 border-white transition-transform transform-gpu md:w-11 md:h-11 h-10 w-fit md:mr-2 
                           focus:outline-none`}
                             />
                           </div>
-                          {isDropdownVisible && (
+                          {isDropdownVisible2 && (
                             <div className="absolute   mt-1  bg-white  rounded-xl shadow-lg  z-50 w-[100%]">
                               <NavLink to="/Dashboard/profile">
                                 <button
@@ -390,45 +398,45 @@ const Header = () => {
                     </div>
                   ) : (
                     <>
-                    <NavLink to="/Login">
-                      <button
-                        type="button"
-                        className="lg:font-medium font-semibold  px-5 py-2
+                      <NavLink to="/Login">
+                        <button
+                          type="button"
+                          className="lg:font-medium font-semibold  px-5 py-2
                     hover:bg-opacity-50 rounded-lg text-base text-center border border-gray-400 hover:shadow-md "
-                      >
-                      Login
-                      </button>
+                        >
+                          Login
+                        </button>
                       </NavLink>
                       <NavLink to="/Signup">
-                      <button
-                        type="button"
-                        className="text-white bg-gray-800 hover:bg-opacity-90 md:font-medium rounded-lg md:text-base px-5 py-2 text-center  "
-                      >
-                        Sign up
-                      </button>
+                        <button
+                          type="button"
+                          className="text-white bg-gray-800 hover:bg-opacity-90 md:font-medium rounded-lg md:text-base px-5 py-2 text-center  "
+                        >
+                          Sign up
+                        </button>
                       </NavLink>
                     </>
                   )}
                 </div>
               ) : (
                 <>
-                <NavLink to="/Login">
-                  <button
-                    type="button"
-                    className="lg:font-medium font-semibold  px-5 py-2
+                  <NavLink to="/Login">
+                    <button
+                      type="button"
+                      className="lg:font-medium font-semibold  px-5 py-2
                     hover:bg-opacity-50 rounded-lg text-base text-center border border-gray-400 hover:shadow-md "
-                  >
-                  Login
-                  </button>
+                    >
+                      Login
+                    </button>
                   </NavLink>
                   {/* <p className="hidden lg:block   ">|</p> */}
                   <NavLink to="/Signup">
-                  <button
-                    type="button"
-                    className="text-white bg-gray-800 hover:bg-opacity-90 md:font-medium rounded-lg md:text-base px-5 py-2 text-center  "
-                  >
-                    Sign up
-                  </button>
+                    <button
+                      type="button"
+                      className="text-white bg-gray-800 hover:bg-opacity-90 md:font-medium rounded-lg md:text-base px-5 py-2 text-center  "
+                    >
+                      Sign up
+                    </button>
                   </NavLink>
                 </>
               )}
