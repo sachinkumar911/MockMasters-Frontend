@@ -53,8 +53,8 @@ const ForgetPass = () => {
   return (
     <>
       <Toaster position="bottom-left" reverseOrder={false} />
-      <section className="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen">
-        <div className="w-[28%] p-6 bg-white rounded-lg shadow-md h-[45%]">
+      <section className="flex flex-col items-center justify-center  mx-auto h-screen">
+        <div className=" bg-white p-9  max-sm:p-4 shadow-xl border-t mx-auto w-full sm:max-w-[410px]  max-sm:w-[300px]">
           <div className="flex flex-col items-center justify-center text-center space-y-2">
             <div className="font-semibold text-2xl">
               <p>Forgot Password</p>
