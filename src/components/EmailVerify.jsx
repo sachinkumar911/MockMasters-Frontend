@@ -107,11 +107,11 @@ const EmailVerify = () => {
   return (
     <>
       <Toaster position="bottom-left" reverseOrder={false} />
-      <div className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gray-50 py-12">
-        <div className="relative bg-white px-6 pt-10 pb-9 shadow-xl mx-auto w-full max-w-md rounded-2xl ">
-          <div className="mx-auto flex w-full max-w-md flex-col space-y-16">
+      <div className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gray-100 py-12">
+        <div className="relative bg-white p-9  max-sm:p-4 shadow-xl border-t mx-auto w-full sm:max-w-[410px]  max-sm:w-[300px]  ">
+          <div className="mx-auto flex w-full max-w-md flex-col space-y-16 max-sm:space-y-10">
             <div className="flex flex-col items-center justify-center text-center space-y-2">
-              <div className="font-semibold text-3xl">
+              <div className="font-semibold text-3xl max-sm:text-2xl">
                 <p>Email Verification</p>
               </div>
               <div className="flex flex-row text-sm font-medium text-gray-400">
@@ -120,9 +120,9 @@ const EmailVerify = () => {
             </div>
             <div>
               <form onSubmit={handleOtpSubmit}>
-                <div className="flex flex-col space-y-8">
+                <div className="flex flex-col space-y-5 max-sm:space-y-2">
                   <div className="flex flex-row items-center justify-between mx-auto w-auto">
-                    <div className="w-auto h-16 mx-2 flex">
+                    <div className="w-auto h-16  flex">
                       {otp.map((digit, index) => (
                         <input
                           key={index}
@@ -133,15 +133,15 @@ const EmailVerify = () => {
                           }
                           maxLength="1"
                           ref={inputRefs[index]}
-                          className="w-12 h-12 m-1 border border-gray-300 text-center text-xl rounded-md focus:outline-none focus:border-blue-500"
+                          className="w-12 h-12 max-sm:w-9 max-sm:h-9 m-1 border border-gray-300 text-center text-xl rounded-md focus:outline-none focus:border-blue-500"
                         />
                       ))}
                     </div>
                   </div>
-                  {error && <p className="text-red-500 mt-2">{error}</p>}
-                  <div className="flex flex-col space-y-5">
+                  {error && <p className="text-red-500 mt-1 ">{error}</p>}
+                  <div className="flex flex-col space-y-5 max-sm:space-y-3">
                     <div>
-                      <button className="flex flex-row items-center justify-center text-center w-full border rounded-xl outline-none py-5 bg-gray-800 hover:bg-opacity-90 border-none text-white text-sm shadow-sm">
+                      <button className="flex flex-row items-center justify-center text-center w-full border rounded-xl outline-none py-4 bg-gray-700 hover:bg-gray-800  border-none text-white text-sm shadow-sm">
                         Verify Account
                       </button>
                     </div>
