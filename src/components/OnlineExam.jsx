@@ -463,7 +463,16 @@ const OnlineExam = () => {
 
   const renderer = ({ hours, minutes, seconds, completed }) => {
     if (completed) {
-      // sendFinalResponse();
+      if (socket) {
+        socket.emit("updateTimeLeft", sessionStorage.getItem("startTest_id"));
+        socket.off("updateTimeReply").on("updateTimeReply", (newTL) => {
+          setTimeLeft(newTL.TT);
+          setTestExpiry(newTL.exp);
+        });
+      }
+      if (TestExpiry - Date.now() <= 0) {
+        sendFinalResponse();
+      }
 
       return <Completionist />;
     } else {
