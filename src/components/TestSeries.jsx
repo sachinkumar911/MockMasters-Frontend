@@ -32,7 +32,7 @@ const TestSeries = () => {
     (async () => {
       try {
         const response = await axios.post(
-          "http://localhost:8000/api/v1/examset/show",
+          `${import.meta.env.BACKEND_URL}/api/v1/examset/show`,
           {
             _id: userdetail._id,
           },
@@ -186,9 +186,10 @@ const TestSeries = () => {
                   </p>
                 </div>
                 <div className="p-5">
-                <p className=" text-base leading-relaxed text-gray-500 ">
-                 "Start the test smoothly with enough elite coins . Easily earn coins to unlock the test !"
-                </p>
+                  <p className=" text-base leading-relaxed text-gray-500 ">
+                    "Start the test smoothly with enough elite coins . Easily
+                    earn coins to unlock the test !"
+                  </p>
                 </div>
                 <div className="flex flex-wrap py-4   ">
                   <div className="w-1/2 px-3">

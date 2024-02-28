@@ -4,7 +4,7 @@ import { tryRefreshingToken } from "./tryRefreshingToken";
 const verifyAccessToken = async () => {
     try {
         const response = await axios.get(
-            "http://localhost:8000/api/v1/users/current-user",
+            `${import.meta.env.BACKEND_URL}/api/v1/users/current-user`,
             {
                 headers: {
                     "Content-Type": "application/json",

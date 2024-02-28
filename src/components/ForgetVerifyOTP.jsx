@@ -40,7 +40,7 @@ const ForgetVerifyOTP = () => {
       sendingnotify("Verifying OTP...");
       try {
         const response = await axios.post(
-          "http://localhost:8000/api/v1/users/verifyotp",
+          `${import.meta.env.BACKEND_URL}/api/v1/users/verifyotp`,
           { token: enteredOtp, reason: "forget" },
           {
             headers: {
@@ -72,7 +72,7 @@ const ForgetVerifyOTP = () => {
     setOtp(Array(6).fill(""));
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/v1/users/forget-password",
+        `${import.meta.env.BACKEND_URL}/api/v1/users/forget-password`,
         {
           email: sessionStorage.getItem("email"),
         },

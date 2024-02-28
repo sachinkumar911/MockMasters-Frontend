@@ -1,6 +1,5 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
-import "./App.css";
 import { UserContext } from "./context/UserContext.jsx";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
