@@ -1,3 +1,7 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-redeclare */
 /* eslint-disable no-unsafe-optional-chaining */
 import React, { useEffect, useState } from "react";
 import axios from "axios";
@@ -630,7 +634,7 @@ const OnlineExam = () => {
               </Box>
 
               <div className="self-center md:text-xl text-sm font-semibold">
-                Time Left:
+                Time :
                 <span id="ExamTImer" className=" self-center px-2">
                   <Countdown date={Date.now() + TimeLeft} renderer={renderer} />
                 </span>
@@ -783,147 +787,147 @@ const OnlineExam = () => {
               <div
                 className={`flex flex-col space-x-4 px-4 py-2 justify-between`}
               >
-                <div className="   flex justify-between   py-3 px-2 gap-2  ml-4 ">
-                <div className="flex gap-2 justify-center items-center ">
-                    <button
-                      className={`px-4 py-2  max-sm:text-[10px] max-sm:px-2 rounded transition-colors duration-300 bg-white text-gray-600 font-semibold border hover:text-gray-900 border-gray-500`}
-                      id="save"
-                      onClick={prevques}
-                    >
-                      Previous
-                    </button>
-                    <button
-                      className={`px-4 py-2  max-sm:text-[10px] max-sm:px-2 rounded transition-colors duration-300 text-white bg-blue-500 hover:bg-blue-600`}
-                      id="save"
-                      type="button"
-                      onClick={setanswer}
-                    >
-                      Save &amp; Next
-                    </button>
+                <div className="   flex justify-between max-md:flex-col items-center   py-3 px-2 gap-2 border-t   ">
+                  <div className="flex justify-between items-center w-[74%] max-md:w-full max-lg:w-[85%]  ">
+                    <div className="flex gap-2 justify-center items-center max-md:flex-col ">
+                      <button
+                        className={`px-4 py-2  max-sm:text-[10px]  max-xl:text-[14px] max-md:px-7  transition-colors duration-300 bg-white text-gray-600 font-semibold border hover:text-gray-900 border-gray-500`}
+                        id="save"
+                        onClick={prevques}
+                      >
+                        Previous
+                      </button>
+                      <button
+                        className={`px-4 py-2 max-sm:text-[10px]  max-xl:text-[14px] max-md:px-5  transition-colors duration-300 text-white bg-blue-500 hover:bg-blue-600`}
+                        id="save"
+                        type="button"
+                        onClick={setanswer}
+                      >
+                        Save &amp; Next
+                      </button>
+                    </div>
+                    <div className="flex gap-2 max-md:flex-col">
+                      <button
+                        className={`px-4 py-2  max-sm:text-[10px] max-xl:text-[14px] max-sm:px-2 max-sm:py-2    transition-colors duration-300 text-white bg-cyan-500 hover:bg-cyan-600`}
+                        id="clear"
+                        onClick={clearresponse}
+                      >
+                        Clear Response
+                      </button>
+                      <button
+                        className={`px-4 py-2  max-sm:text-[10px] max-xl:text-[14px] max-sm:px-2  transition-colors duration-300 text-white bg-cyan-500 hover:bg-cyan-600 `}
+                        id="review"
+                        onClick={markforreview}
+                      >
+                        Mark for Review &amp; Next
+                      </button>
+                    </div>
                   </div>
-                  <div className="flex gap-2">
+                  <div className="flex justify-center  items-center gap-4 py-3 max-md:w-full  ">
                     <button
-                      className={`px-4 py-2 max-sm:text-[10px] max-sm:px-2 max-sm:py-0   rounded transition-colors duration-300 text-white bg-cyan-500 hover:bg-cyan-600`}
-                      id="clear"
-                      onClick={clearresponse}
+                      className={`px-4 py-2 max-md:w-full  max-sm:text-[10px] max-sm:px-2  transition-colors duration-300 text-white bg-[#08bd80] `}
+                      id="submit"
+                      onClick={handleOpen}
                     >
-                      Clear Response
+                      Submit
                     </button>
-                  </div>
-                 
-                </div>
-                <div className="flex justify-between items-center gap-4 py-3  ">
-                  <button
-                    className={`px-4 py-2 max-sm:text-[10px] max-sm:px-2  rounded transition-colors duration-300 text-white bg-cyan-500 hover:bg-cyan-600 `}
-                    id="review"
-                    onClick={markforreview}
-                  >
-                    Mark for Review &amp; Next
-                  </button>
-
-                  <button
-                    className={`px-4 py-2  max-sm:text-[10px] max-sm:px-2 rounded transition-colors duration-300 text-white bg-[#08bd80] `}
-                    id="submit"
-                    onClick={handleOpen}
-                  >
-                    Final Submit
-                  </button>
-                  <Modal
-                    open={open}
-                    onClose={handleClose}
-                    aria-labelledby="modal-modal-title"
-                    aria-describedby="modal-modal-description"
-                  >
-                    <Box sx={style} className="">
-                      <div className="modal-content max-sm:mx-3">
-                        <div className=" flex flex-col items-center justify-center bg-blue-500 text-white py-4 px-4 ">
-                          <div className="mo-header-logo text-center px-5 pb-2">
-                            <div className="h5  mtsmh uppercase">
-                              "Are you sure you want to submit the test ?"
+                    <Modal
+                      open={open}
+                      onClose={handleClose}
+                      aria-labelledby="modal-modal-title"
+                      aria-describedby="modal-modal-description"
+                    >
+                      <Box sx={style} className="">
+                        <div className="modal-content max-sm:mx-3">
+                          <div className=" flex flex-col items-center justify-center bg-blue-500 text-white py-4 px-4 ">
+                            <div className="mo-header-logo text-center px-5 pb-2">
+                              <div className="h5  mtsmh uppercase">
+                                "Are you sure you want to submit the test ?"
+                              </div>
                             </div>
                           </div>
+                          <div className="modal-body py-5 px-12">
+                            <ul className="list-group space-y-2">
+                              <li className="flex ">
+                                <img
+                                  src="https://www.mockers.in/frontend/img/red-alarm.svg"
+                                  alt=""
+                                  className="me-2"
+                                />{" "}
+                                Time Left:
+                                <span className="ms-auto list-span timeLeftSpanId">
+                                  <Countdown
+                                    date={Date.now() + TimeLeft}
+                                    renderer={renderer}
+                                  />
+                                </span>
+                              </li>
+                              <li className="flex ">
+                                <img
+                                  src="https://www.mockers.in/frontend/img/checked.svg"
+                                  alt=""
+                                  className="me-2"
+                                />{" "}
+                                Attempted:
+                                <span
+                                  className="ms-auto list-span"
+                                  id="totalAttemptedQuestionCountId"
+                                >
+                                  {attemptCount}
+                                </span>
+                              </li>
+                              <li className="flex ">
+                                <img
+                                  src="https://www.mockers.in/frontend/img/unattempt.svg"
+                                  alt=""
+                                  className="me-2"
+                                />{" "}
+                                Unattempt:
+                                <span
+                                  className="ms-auto list-span"
+                                  id="totalUnAttemptedQuestionCountId"
+                                >
+                                  {AllData?.noofquestions - attemptCount}
+                                </span>
+                              </li>
+                              <li className="flex ">
+                                <img
+                                  src="https://www.mockers.in/frontend/img/marked.svg"
+                                  alt=""
+                                  className="me-2"
+                                />{" "}
+                                Marked for Review:
+                                <span
+                                  className="ms-auto list-span"
+                                  id="totalReviewQuestionCountId"
+                                >
+                                  {markedCount}
+                                </span>
+                              </li>
+                            </ul>
+                          </div>
+                          <div className="flex justify-center items-center space-x-4 p-2">
+                            <button
+                              type="button"
+                              className="bg-gray-300 py-2 px-8 text-center text-sm rounded-sm font-medium "
+                              data-bs-dismiss="modal"
+                              onClick={handleClose}
+                            >
+                              Cancel
+                            </button>
+                            <button
+                              type="button"
+                              className="bg-blue-600 py-2 px-8 text-center text-white text-sm rounded-sm font-medium"
+                              id="submitToServerBtn"
+                              onClick={sendFinalResponse}
+                            >
+                              Submit
+                            </button>
+                          </div>
                         </div>
-                        <div className="modal-body py-5 px-12">
-                          <ul className="list-group space-y-2">
-                            <li className="flex ">
-                              <img
-                                src="https://www.mockers.in/frontend/img/red-alarm.svg"
-                                alt=""
-                                className="me-2"
-                              />{" "}
-                              Time Left:
-                              <span className="ms-auto list-span timeLeftSpanId">
-                                <Countdown
-                                  date={Date.now() + TimeLeft}
-                                  renderer={renderer}
-                                />
-                              </span>
-                            </li>
-                            <li className="flex ">
-                              <img
-                                src="https://www.mockers.in/frontend/img/checked.svg"
-                                alt=""
-                                className="me-2"
-                              />{" "}
-                              Attempted:
-                              <span
-                                className="ms-auto list-span"
-                                id="totalAttemptedQuestionCountId"
-                              >
-                                {attemptCount}
-                              </span>
-                            </li>
-                            <li className="flex ">
-                              <img
-                                src="https://www.mockers.in/frontend/img/unattempt.svg"
-                                alt=""
-                                className="me-2"
-                              />{" "}
-                              Unattempt:
-                              <span
-                                className="ms-auto list-span"
-                                id="totalUnAttemptedQuestionCountId"
-                              >
-                                {AllData?.noofquestions - attemptCount}
-                              </span>
-                            </li>
-                            <li className="flex ">
-                              <img
-                                src="https://www.mockers.in/frontend/img/marked.svg"
-                                alt=""
-                                className="me-2"
-                              />{" "}
-                              Marked for Review:
-                              <span
-                                className="ms-auto list-span"
-                                id="totalReviewQuestionCountId"
-                              >
-                                {markedCount}
-                              </span>
-                            </li>
-                          </ul>
-                        </div>
-                        <div className="flex justify-center items-center space-x-4 p-2">
-                          <button
-                            type="button"
-                            className="bg-gray-300 py-2 px-8 text-center text-sm rounded-sm font-medium "
-                            data-bs-dismiss="modal"
-                            onClick={handleClose}
-                          >
-                            Cancel
-                          </button>
-                          <button
-                            type="button"
-                            className="bg-blue-600 py-2 px-8 text-center text-white text-sm rounded-sm font-medium"
-                            id="submitToServerBtn"
-                            onClick={sendFinalResponse}
-                          >
-                            Submit
-                          </button>
-                        </div>
-                      </div>
-                    </Box>
-                  </Modal>
+                      </Box>
+                    </Modal>
+                  </div>
                 </div>
               </div>
             </div>

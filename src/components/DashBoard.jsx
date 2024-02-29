@@ -301,7 +301,7 @@ const DashBoard = ({ side, handleside }) => {
           </div>
         </aside>
 
-        <section id="" className=" w-full">
+        <section id="" className=" w-full h-screen overflow-y-scroll">
           <Routes>
             <Route path="/" element={<Navigate to="test-series" />} />
             <Route path="/profile" element={<Profile />} />
