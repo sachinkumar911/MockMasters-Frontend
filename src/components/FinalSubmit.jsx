@@ -100,77 +100,80 @@ const FinalSubmit = () => {
             <h3 className="text-4xl font-semibold mt-16 mb-10 text-center tracking-tighter">
               Overall Performance Summary
             </h3>
-            <div className="flex flex-col items-center ">
-              <table className="border-collapse border w-3/5">
-                <tbody>
-                  <tr className="bg-gray-200">
-                    <td className="p-2 py-4 border">
-                      {" "}
-                      <p className="font-bold text-center"> Subject </p>{" "}
-                    </td>
-                    <td className="p-2 border">
-                      {" "}
-                      <p className="font-bold text-center">
+            <div id="table-div" className="">
+              <div className="flex flex-col items-center overflow-x-auto">
+                <table className="border-collapse border w-1/2 shadow-md">
+                  <tbody>
+                    <tr className="bg-gray-200">
+                      <td className="p-2 py-2 border">
                         {" "}
-                        Attempted Question
-                      </p>{" "}
-                    </td>
-                    <td className="p-2 border">
-                      {" "}
-                      <p className="font-bold text-center">
+                        <p className="font-bold text-center"> Subject </p>{" "}
+                      </td>
+                      <td className="p-2 border">
                         {" "}
-                        Correctly Answered
-                      </p>{" "}
-                    </td>
-                    <td className="p-2 border">
-                      {" "}
-                      <p className="font-bold text-center">
+                        <p className="font-bold text-center">
+                          {" "}
+                          Attempted Question
+                        </p>{" "}
+                      </td>
+                      <td className="p-2 border">
                         {" "}
-                        Wrong Answered
-                      </p>{" "}
-                    </td>
-                    <td className="p-2 border">
-                      {" "}
-                      <p className="font-bold text-center">
+                        <p className="font-bold text-center">
+                          {" "}
+                          Correctly Answered
+                        </p>{" "}
+                      </td>
+                      <td className="p-2 border">
                         {" "}
-                        Marks Obtained{" "}
-                      </p>{" "}
-                    </td>
-                  </tr>
-                  {typeof data?.attempted === "object" &&
-                    Object.entries(data?.attempted).map(([key, value]) => (
-                      <tr key={key}>
-                        <td className="p-2 border">
-                          <p className="text-center">{key}</p>
-                        </td>
-                        <td className="p-2 border text-center">
-                          {data.attempted[key].correct +
-                            data.attempted[key].wrong}
-                        </td>
-                        <td className="p-2 border text-center">
-                          {data.attempted[key].correct}
-                        </td>
-                        <td className="p-2 border text-center">
-                          {data.attempted[key].wrong}
-                        </td>
-                        <td className="p-2 border text-center">
-                          {data.attempted[key].obtained}
-                        </td>
-                      </tr>
-                    ))}
-                  <tr className="bg-gray-200">
-                    <td className="p-2 border text-center font-bold">TOTAL</td>
-                    <td className="p-2 border "></td>
-                    <td className="p-2 border"></td>
-                    <td className="p-2 border"></td>
-                    <td className="p-2 border text-center  font-semibold">
-                      {data.finalMarks}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-
-              <div className="mx-auto w-[55rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-8 border shadow-md mt-10 mb-10">
+                        <p className="font-bold text-center">
+                          {" "}
+                          Wrong Answered
+                        </p>{" "}
+                      </td>
+                      <td className="p-2 border">
+                        {" "}
+                        <p className="font-bold text-center">
+                          {" "}
+                          Marks Obtained{" "}
+                        </p>{" "}
+                      </td>
+                    </tr>
+                    {typeof data?.attempted === "object" &&
+                      Object.entries(data?.attempted).map(([key, value]) => (
+                        <tr key={key}>
+                          <td className="p-2 border">
+                            <p className="text-center">{key}</p>
+                          </td>
+                          <td className="p-2 border text-center">
+                            {data.attempted[key].correct +
+                              data.attempted[key].wrong}
+                          </td>
+                          <td className="p-2 border text-center">
+                            {data.attempted[key].correct}
+                          </td>
+                          <td className="p-2 border text-center">
+                            {data.attempted[key].wrong}
+                          </td>
+                          <td className="p-2 border text-center">
+                            {data.attempted[key].obtained}
+                          </td>
+                        </tr>
+                      ))}
+                    <tr className="bg-gray-200">
+                      <td className="p-2 border text-center font-bold">
+                        TOTAL
+                      </td>
+                      <td className="p-2 border "></td>
+                      <td className="p-2 border"></td>
+                      <td className="p-2 border"></td>
+                      <td className="p-2 border text-center  font-semibold">
+                        {data.finalMarks}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div className="mx-auto w-2/4 px-4 py-10 sm:px-6 lg:px-8 lg:py-8 border shadow-md mt-10 mb-10">
                 <div className="grid gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-2 ">
                   <div className="flex rounded-xl border shadow-sm bg-[#F8FAFB] ">
                     <div className="  w-full flex justify-between p-4 md:p-5">

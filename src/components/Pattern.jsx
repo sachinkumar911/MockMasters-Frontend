@@ -82,8 +82,8 @@ const Pattern = () => {
       <h3 className="text-xl font-bold mt-20 mb-10 text-center">
         {Data?.qpname} ( Subject-wise distribution of Marks )
       </h3>
-      <div className="flex flex-col items-center ">
-        <table className="border-collapse border w-3/5">
+      <div className="flex flex-col items-center overflow-x-auto">
+        <table className="border-collapse border w-1/2 text-center ">
           <tbody>
             <tr className="bg-gray-200">
               <td className="p-2 py-4 border">
@@ -122,7 +122,7 @@ const Pattern = () => {
             ))}
           </tbody>
         </table>
-        <div className="flex  justify-end w-3/5 pt-4">
+        <div className="flex  justify-end w-1/2 pt-4 ">
           <Link to="/dashboard/test-series">
             <button
               type="button"
