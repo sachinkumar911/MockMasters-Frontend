@@ -29,7 +29,6 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 400,
   bgcolor: "background.paper",
 };
 
@@ -724,22 +723,22 @@ const OnlineExam = () => {
                 <div className="h-[70vh] border-x border-y border-black bg-white lg:w-[23vw]   hidden lg:flex  lg:flex-col ">
                   <div className="flex flex-wrap w-full justify-between items-center lg:gap-3  my-2  px-5">
                     <div className=" flex  gap-2 py-2 text-sm  ">
-                      <div className=" h-5 w-5 bg-green-500"></div>
+                      <div className=" h-6 w-6 bg-green-500"></div>
                       Answered
                     </div>
                     <div className=" flex  gap-2 py-2 text-sm ">
-                      <div className=" h-5 w-5 bg-violet-500"></div>
+                      <div className="  h-6 w-6 bg-violet-500"></div>
                       Marked for Review
                     </div>
 
                     <div className=" flex  gap-2 py-2 text-sm  ">
-                      <div className=" h-5 w-5 bg-gray-400"></div>
+                      <div className="  h-6 w-6 bg-gray-300"></div>
                       Not Visited
                     </div>
-                    <div className=" flex  gap-2 py-2 text-sm  pr-4 mr-3 ">
+                    {/* <div className=" flex  gap-2 py-2 text-sm  pr-4 mr-3 ">
                       <div className=" h-5 w-5 bg-red-500  "></div>
                       Not Answered
-                    </div>
+                    </div> */}
                   </div>
 
                   <div className="flex flex-wrap">
@@ -837,8 +836,8 @@ const OnlineExam = () => {
                       aria-labelledby="modal-modal-title"
                       aria-describedby="modal-modal-description"
                     >
-                      <Box sx={style} className="">
-                        <div className="modal-content max-sm:mx-3">
+                      <Box sx={style} className="md:w-[400px] w-[300px]">
+                        <div className="modal-content ">
                           <div className=" flex flex-col items-center justify-center bg-blue-500 text-white py-4 px-4 ">
                             <div className="mo-header-logo text-center px-5 pb-2">
                               <div className="h5  mtsmh uppercase">
@@ -846,7 +845,7 @@ const OnlineExam = () => {
                               </div>
                             </div>
                           </div>
-                          <div className="modal-body py-5 px-12">
+                          <div className="modal-body py-5 px-12 max-sm:px-8">
                             <ul className="list-group space-y-2">
                               <li className="flex ">
                                 <img

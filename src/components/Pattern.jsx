@@ -79,14 +79,17 @@ const Pattern = () => {
   return (
     <>
       <Toaster position="bottom-left" reverseOrder={false} />
+      <section id="pattern-section" className="flex flex-col items-center h-screen">
       <h3 className="text-xl font-bold mt-20 mb-10 text-center">
         {Data?.qpname} ( Subject-wise distribution of Marks )
       </h3>
-      <div className="flex flex-col items-center overflow-x-auto">
-        <table className="border-collapse border w-1/2 text-center ">
+
+      <div className="flex flex-col items-center  justify-center  w-full max-sm:overflow-x-scroll overflow-y-hidden ">
+      <div className=" max-w-5xl mx-auto px-4">
+        <table className="block border-collapse border text-center table-auto ">
           <tbody>
             <tr className="bg-gray-200">
-              <td className="p-2 py-4 border">
+              <td className="p-2  border">
                 {" "}
                 <p className="font-bold"> Subject </p>{" "}
               </td>
@@ -122,11 +125,12 @@ const Pattern = () => {
             ))}
           </tbody>
         </table>
-        <div className="flex  justify-end w-1/2 pt-4 ">
+      
+        <div className="flex pt-4 gap-2 justify-end max-sm:justify-center ">
           <Link to="/dashboard/test-series">
             <button
               type="button"
-              className="flex bg-blue-50 hover:bg-blue-100 hover:text-blue-600 text-blue-500 font-medium rounded-lg text-base px-4 py-2.5 text-center me-2 mb-2"
+              className="flex bg-blue-50 hover:bg-blue-100 hover:text-blue-600 text-blue-500 font-medium rounded-lg text-base px-4 py-2.5 text-center  mb-2"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -147,7 +151,7 @@ const Pattern = () => {
           </Link>
           <button
             type="button"
-            className="text-white flex bg-cyan-500 border font-medium rounded-lg   text-sm px-4 py-2.5 text-center me-2 mb-2 "
+            className="text-white flex bg-cyan-500 border font-medium rounded-lg   text-sm px-4 py-2.5 text-center  mb-2 "
             onClick={finalStart}
           >
             {JSON.parse(sessionStorage.getItem("Data"))?.isResume
@@ -155,7 +159,9 @@ const Pattern = () => {
               : "Start test"}
           </button>
         </div>
+        </div>
       </div>
+      </section>
     </>
   );
 };
