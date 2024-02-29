@@ -1,10 +1,11 @@
-# MockMasters
+<img align="centre" alt="Coding" src = "https://github.com/vishu567/MockMaster_Backend_code/blob/main/screenshots/poster1.PNG">
+
+
 ## Purpose of the Project:
-MockMasters is a mock website designed to help students prepare for the NIMCET (NIT MCA Common Entrance Test) exam. It provides a platform for practicing exam-like questions, assessing one's strengths and weaknesses, and improving overall performance.
+At MockMasters, our mission is to be the ultimate guide for students preparing for exams, with a primary focus on the NIMCET exam. It provides a platform for practicing exam-like questions, assessing one's strengths and weaknesses, and improving overall performance.
 ## Features of the Project:
 - `User Registration and Profiles`: Users can create accounts to access the platform and track their progress.
 - `Exam Library`: A wide range of mock exams covering various subjects and levels.
-- `Customizable Exams`: Users can customize their mock exams based on specific topics, difficulty levels, or time limits.
 - `Performance Analytics`: Detailed performance analysis highlighting strengths and weaknesses in different subject areas.
 - `Interactive Interface`: User-friendly interface with responsive features.
 - `Mobile Compatibility`: Compatibility with mobile devices for studying on the go.
