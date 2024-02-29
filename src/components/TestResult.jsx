@@ -35,10 +35,12 @@ const TestResult = () => {
   };
   return (
     <>
-      <section id="test-result" className={`py-18`}>
-        <div className="container mx-auto p-8 flex flex-col justify-center items-center">
+      <section id="test-result" className={`py-4`}>
+        <div className="container mx-auto   flex flex-col justify-center w-full items-center">
+          <div className="mx-auto px-4 flex flex-col justify-center items-center md:w-[80%]">
           <h2 className="text-3xl font-semibold mb-8">Test Results</h2>
-          <table className="w-full bg-white border-2   border-gray-300 shadow-md">
+
+          <table className="w-full bg-white border    shadow-md">
             <thead>
               <tr className="bg-gray-50 border">
                 <th className="py-2 px-4 border-r border-gray-300 max-md:hidden">
@@ -83,6 +85,7 @@ const TestResult = () => {
               ))}
             </tbody>
           </table>
+          </div>
         </div>
       </section>
     </>

@@ -343,21 +343,16 @@ const SamplePaper = () => {
                 onClose={handleClose}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
-                style={{ backdropFilter: "blur(4px)" }}
+                style={{ backdropFilter: "blur(2px)" }}
               >
-                <Box className="w-[500px] bg-gray-100 p-6 rounded-md shadow-lg absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                  <Typography
-                    id="modal-modal-title"
-                    variant="h6"
-                    component="h2"
-                    className="text-2xl font-semibold mb-4"
-                  >
-                    {displayQues?.txtquestion}
-                  </Typography>
-                  {displayQues?.options?.map((item, key) => (
-                    <Typography key={key} className="mb-2 text-lg">
+                <Box className=" max-sm:w-[90%] max-h-[30rem] overflow-y-scroll bg-gray-100 p-2  shadow-lg absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                  <div id="modal-modal-title" className="text-[12px] md:text-[14px] lg:text-sm">
+                    <p className="font-bold text-sm lg:text-xl md:text-[17px] "> Question:</p>{displayQues?.txtquestion}
+                  </div>
+                  <p className="font-bold text-sm lg:text-xl md:text-[17px]"> option:</p>{displayQues?.options?.map((item, key) => (
+                    <div key={key} className="text-[12px] md:text-[15px] lg:text-sm ">
                       {key + 1}) {item}
-                    </Typography>
+                    </div>
                   ))}
                 </Box>
               </Modal>
