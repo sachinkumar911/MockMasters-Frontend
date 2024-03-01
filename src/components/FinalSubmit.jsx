@@ -67,7 +67,7 @@ const FinalSubmit = () => {
         <LoadingSpinner />
       ) : (
         <>
-          <section id="final submit" className=" overflow-x-scroll">
+          <section id="final submit" className=" overflow-x-scroll md:overflow-x-hidden">
             {/* go to dashboard button */}
             <header className="z-50 flex w-full flex-wrap text-sm md:flex-nowrap md:justify-start">
               <nav className="relative mx-2 mt-6 w-full max-w-[85rem] rounded-[36px]   bg-white px-4 py-3 md:flex md:items-center md:justify-between md:px-6 md:py-0 lg:px-8 xl:mx-auto">
@@ -178,17 +178,17 @@ const FinalSubmit = () => {
                 </table>
               </div>
               <div className="mx-auto px-4 py-10 sm:px-6 lg:px-8 lg:py-8 border shadow-md mt-10 mb-10">
-                <div className="grid gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-2 ">
+                <div className="grid gap-4 sm:grid-cols-2 sm:gap-3 lg:grid-cols-2 ">
                   <div className="flex rounded-xl border shadow-sm bg-[#F8FAFB] ">
                     <div className="  w-full flex justify-between p-4 md:p-5">
                       <div className="flex items-center gap-x-2 ">
-                        <img src={clockimg} className="w-11 h-11" />
-                        <p className="text-sm uppercase tracking-wide text-gray-800">
+                        <img src={clockimg} className="w-8 h-8" />
+                        <p className="text-xs uppercase tracking-wide text-gray-800">
                           Total Time Taken
                         </p>
                       </div>
                       <div className="mt-1 flex items-center gap-x-2 ">
-                        <h3 className="text-xl font-medium text-gray-800 sm:text-2xl ">
+                        <h3 className=" font-medium text-gray-800 text-lg ">
                           {shortEnglishHumanizer(
                             Math.floor(data.timeTaken / 1000) * 1000
                           )}
@@ -199,13 +199,13 @@ const FinalSubmit = () => {
                   <div className="flex rounded-xl border shadow-sm bg-[#F8FAFB] ">
                     <div className="  w-full flex justify-between p-4 md:p-5">
                       <div className="flex items-center gap-x-2 ">
-                        <img src={coinimg} className="w-11 h-11" />
-                        <p className="text-sm uppercase tracking-wide text-gray-800">
+                        <img src={coinimg} className="w-8 h-8" />
+                        <p className="text-xs uppercase tracking-wide text-gray-800">
                           Total Coins Earned
                         </p>
                       </div>
                       <div className="mt-1 flex items-center gap-x-2 ">
-                        <h3 className="text-xl font-medium text-gray-800 sm:text-2xl ">
+                        <h3 className="text-lg font-medium text-gray-800  ">
                           {data.reward}
                         </h3>
                       </div>
@@ -214,13 +214,13 @@ const FinalSubmit = () => {
                   <div className="flex rounded-xl border shadow-sm bg-[#F8FAFB] ">
                     <div className="  w-full flex  justify-between p-4 md:p-5">
                       <div className="flex  items-center gap-x-2 ">
-                        <img src={percentimg} className="w-11 h-11" />
-                        <p className="text-sm uppercase tracking-wide text-gray-800">
+                        <img src={percentimg} className="w-8 h-8" />
+                        <p className="text-xs uppercase tracking-wide text-gray-800">
                           Percentile
                         </p>
                       </div>
                       <div className="mt-1 flex items-center gap-x-2 ">
-                        <h3 className="text-xl font-medium text-gray-800 sm:text-2xl ">
+                        <h3 className="text-lg font-medium text-gray-800 ">
                           {((data.finalMarks * 100) / data.totalmarks).toFixed(
                             1
                           )}
@@ -232,13 +232,13 @@ const FinalSubmit = () => {
                   <div className="flex rounded-xl border shadow-sm bg-[#F8FAFB] ">
                     <div className="  w-full flex justify-between p-4 md:p-5">
                       <div className="flex items-center gap-x-2 ">
-                        <img src={rankimg} className="w-11 h-11" />
-                        <p className="text-sm uppercase tracking-wide text-gray-800">
+                        <img src={rankimg} className="w-8 h-8" />
+                        <p className="text-xs uppercase tracking-wide text-gray-800">
                           Rank
                         </p>
                       </div>
                       <div className="mt-1 flex items-center gap-x-2 ">
-                        <h3 className="text-xl font-medium text-gray-800 sm:text-2xl ">
+                        <h3 className="text-lg font-medium text-gray-800  ">
                           --
                         </h3>
                       </div>
