@@ -14,6 +14,9 @@ const ForgetPass = () => {
   const Navigate = useNavigate();
 
   const [mail, setmail] = useState("");
+
+  const [forgetbtn, setforgetbtn] = useState(false);
+
   const sendOtpforPassword = async () => {
     if (mail === "") {
       errornotify("Enter email");
@@ -23,6 +26,7 @@ const ForgetPass = () => {
       errornotify("Invalid email");
       return;
     }
+    setforgetbtn(true);
     sendingnotify("Sending OTP...");
     try {
       const response = await axios.post(
@@ -45,6 +49,7 @@ const ForgetPass = () => {
       }, 1000);
     } catch (error) {
       dismiss();
+      setforgetbtn(false);
       errornotify(error.response.data.message);
       console.error(error.response.data.message);
     }
@@ -86,6 +91,7 @@ const ForgetPass = () => {
             </div>
 
             <button
+              disabled={forgetbtn}
               onClick={sendOtpforPassword}
               type="button"
               className="w-full text-white bg-gray-800 hover:bg-opacity-90 font-medium rounded-lg text-sm px-5 py-2.5 text-center"

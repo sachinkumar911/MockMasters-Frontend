@@ -32,8 +32,11 @@ const ForgetVerifyOTP = () => {
     setError("");
   };
 
+  const [verifybtn, setverifybtn] = useState(false);
+
   const handleOtpSubmit = async (e) => {
     e.preventDefault();
+    setverifybtn(true);
     const enteredOtp = otp.join("");
 
     if (/^[0-9a-zA-Z]{6}$/.test(enteredOtp)) {
@@ -57,17 +60,20 @@ const ForgetVerifyOTP = () => {
         }, 2000);
       } catch (error) {
         dismiss();
+        setverifybtn(false);
         errornotify(error.response.data.message);
         console.error(error.response.data.message);
         setOtp(Array(6).fill(""));
       }
     } else {
+      setverifybtn(false);
       setError("Please enter a valid OTP");
     }
   };
 
   const resendOTP = async (e) => {
     e.preventDefault();
+    setverifybtn(true);
     sendingnotify("Sending OTP again...");
     setOtp(Array(6).fill(""));
     try {
@@ -84,9 +90,11 @@ const ForgetVerifyOTP = () => {
         }
       );
       dismiss();
+      setverifybtn(false);
       successnotify(response.data.message);
     } catch (error) {
       dismiss();
+      setverifybtn(false);
       errornotify(error.response.data.message);
       console.error(error.response.data.message);
     }
@@ -135,13 +143,17 @@ const ForgetVerifyOTP = () => {
                   {error && <p className="text-red-500 mt-2">{error}</p>}
                   <div className="flex flex-col space-y-5">
                     <div>
-                      <button className="flex flex-row items-center justify-center text-center w-full border rounded-xl outline-none py-5 bg-gray-800 hover:bg-opacity-90 border-none text-white text-sm shadow-sm">
+                      <button
+                        disabled={verifybtn}
+                        className="flex flex-row items-center justify-center text-center w-full border rounded-xl outline-none py-5 bg-gray-800 hover:bg-opacity-90 border-none text-white text-sm shadow-sm"
+                      >
                         Verify OTP
                       </button>
                     </div>
                     <div className="flex flex-row items-center justify-center text-center text-sm font-medium space-x-1 text-gray-500">
                       <p>Didn't recieve code?</p>{" "}
                       <button
+                        disabled={verifybtn}
                         onClick={resendOTP}
                         className="flex flex-row items-center text-gray-600 hover:underline"
                       >
