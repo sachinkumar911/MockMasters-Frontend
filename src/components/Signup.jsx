@@ -62,15 +62,20 @@ const Signup = () => {
     // }
   };
 
+  const [registerbtn, setregisterbtn] = useState(false);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setregisterbtn(true);
 
     if (!validator.isEmail(formData.email)) {
       errornotify("Invalid Email");
+      setregisterbtn(false);
       return;
     }
     if (formData.password !== formData.confirmpassword) {
       errornotify("Passwords don't match");
+      setregisterbtn(false);
       return;
     }
     sendingnotify("Registering user...");
@@ -99,6 +104,7 @@ const Signup = () => {
       }, 1000);
     } catch (error) {
       dismiss();
+      setregisterbtn(false);
       errornotify(error.response.data.message);
       console.error(error.response.data.message);
     }
@@ -303,7 +309,7 @@ const Signup = () => {
               </div>
               <div className="flex flex-col">
                 <label
-                  for="email"
+                  htmlFor="email"
                   className="block mb-1 text-sm font-medium text-gray-900"
                 >
                   Referral Code if Any
@@ -322,7 +328,7 @@ const Signup = () => {
               <button
                 type="submit"
                 className="w-full  text-white bg-gray-700 hover:bg-gray-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center disabled:opacity-25"
-                disabled={validusername !== "username available"}
+                disabled={validusername !== "username available" || registerbtn}
               >
                 Create Account
               </button>
