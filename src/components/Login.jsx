@@ -22,9 +22,13 @@ const Login = () => {
   const [username, setusername] = useState("");
   const [password, setpassword] = useState("");
 
+  const [loginbtn, setloginbtn] = useState(false);
+
   const tryLogin = async () => {
+    setloginbtn(true);
     if (username === "" || password === "") {
       errornotify("All fields are required");
+      setloginbtn(false);
       return;
     }
     let formData;
@@ -56,12 +60,12 @@ const Login = () => {
       dismiss();
       successnotify(response.data.message);
       setuserdetail(response.data.data.user);
-      setislogin(true);
       setTimeout(() => {
-        Navigate("/");
-      }, 1000);
+        setislogin(true);
+      }, 2000);
     } catch (error) {
       dismiss();
+      setloginbtn(false);
       errornotify(error.response.data.message);
       console.error(error.response.data.message);
     }
@@ -126,7 +130,8 @@ const Login = () => {
             <button
               type="button"
               onClick={tryLogin}
-              className="w-full bg-gray-700 hover:bg-gray-800 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center "
+              className={`w-full bg-gray-700 hover:bg-gray-800 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center`}
+              disabled={loginbtn}
             >
               Sign in
             </button>
