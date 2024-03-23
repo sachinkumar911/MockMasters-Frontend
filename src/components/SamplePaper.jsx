@@ -72,7 +72,14 @@ const SamplePaper = () => {
 
   //MUI
   const [value, setValue] = useState(0);
-  const ExamTypeArray = ["NIMCET", "TACTM", "JEE"];
+  const ExamTypeArray = [
+    "NIMCET",
+    "TACTM",
+    "DBMS",
+    "Operating System",
+    "Computer Networks",
+    "Oops",
+  ];
   const [displayQues, setDisplayQues] = useState();
   //MUI for Backgorund
   const [open, setOpen] = React.useState(false);
@@ -231,7 +238,10 @@ const SamplePaper = () => {
                 >
                   <Tab label="NIMCET" />
                   <Tab label="TACTM" />
-                  <Tab label="JEE" />
+                  <Tab label="DBMS" />
+                  <Tab label="Operating System" />
+                  <Tab label="Computer Networks" />
+                  <Tab label="Oops" />
                 </Tabs>
               </Box>
             </div>
@@ -346,11 +356,25 @@ const SamplePaper = () => {
                 style={{ backdropFilter: "blur(2px)" }}
               >
                 <Box className=" max-sm:w-[90%] max-h-[30rem] overflow-y-scroll bg-gray-100 p-2  shadow-lg absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                  <div id="modal-modal-title" className="text-[12px] md:text-[14px] lg:text-sm">
-                    <p className="font-bold text-sm lg:text-xl md:text-[17px] "> Question:</p>{displayQues?.txtquestion}
+                  <div
+                    id="modal-modal-title"
+                    className="text-[12px] md:text-[14px] lg:text-sm"
+                  >
+                    <p className="font-bold text-sm lg:text-xl md:text-[17px] ">
+                      {" "}
+                      Question:
+                    </p>
+                    {displayQues?.txtquestion}
                   </div>
-                  <p className="font-bold text-sm lg:text-xl md:text-[17px]"> option:</p>{displayQues?.options?.map((item, key) => (
-                    <div key={key} className="text-[12px] md:text-[15px] lg:text-sm ">
+                  <p className="font-bold text-sm lg:text-xl md:text-[17px]">
+                    {" "}
+                    option:
+                  </p>
+                  {displayQues?.options?.map((item, key) => (
+                    <div
+                      key={key}
+                      className="text-[12px] md:text-[15px] lg:text-sm "
+                    >
                       {key + 1}) {item}
                     </div>
                   ))}
