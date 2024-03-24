@@ -87,7 +87,7 @@ const CreateQuestion = () => {
           options: choices,
           correctanswer: choices[correct],
           complexity: question.complexity,
-          explanation: "",
+          explanation: question.explanation,
         },
         {
           headers: {
@@ -206,7 +206,7 @@ const CreateQuestion = () => {
               >
                 <button
                   type="button"
-                  className={`px-4 py-2 text-sm font-medium text-gray-900 border-gray-200 rounded-s-lg hover:bg-green-600 hover:text-gray-100 ${
+                  className={`px-4 py-2 text-sm font-medium text-gray-900 border-gray-200 rounded-s-lg ${
                     question["complexity"] === 1
                       ? "bg-green-600 text-gray-100"
                       : "text-gray-900 bg-white border"
@@ -219,7 +219,7 @@ const CreateQuestion = () => {
                 </button>
                 <button
                   type="button"
-                  className={`px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 hover:bg-yellow-500 hover:text-gray-100 ${
+                  className={`px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 ${
                     question["complexity"] === 2
                       ? "bg-yellow-500 text-gray-100"
                       : "text-gray-900 bg-white border"
@@ -232,7 +232,7 @@ const CreateQuestion = () => {
                 </button>
                 <button
                   type="button"
-                  className={`px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-e-lg hover:bg-red-600  hover:text-gray-100 ${
+                  className={`px-4 py-2 text-sm font-medium text-gray-900  border-gray-200 rounded-e-lg ${
                     question["complexity"] === 3
                       ? "bg-red-600 text-gray-100"
                       : "text-gray-900 bg-white border"
@@ -331,6 +331,20 @@ const CreateQuestion = () => {
                 </svg>
                 Add Choice
               </span>
+            </div>
+            <div className="flex flex-col mt-4 ml-3">
+              <label htmlFor="expmsg" className="text-sm">
+                Explanation
+              </label>
+              <textarea
+                id="expmsg"
+                rows="4"
+                value={question.explanation}
+                className="block p-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                onChange={(e) => {
+                  setquestion({ ...question, explanation: e.target.value });
+                }}
+              ></textarea>
             </div>
             <button
               type="button"
