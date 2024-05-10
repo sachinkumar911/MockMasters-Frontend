@@ -161,6 +161,7 @@ const OnlineExam = () => {
           setcurrentDisplay(
             response.data.data[0]?.questions[0]?.questionIds[0]
           );
+          // console.log(response.data.data[0]);
 
           // Retrieving User Answers
           const resp = await axios.post(
@@ -274,7 +275,7 @@ const OnlineExam = () => {
   };
 
   const changeDisplay = (key) => {
-    // console.log(currentPanel[key]);
+    // console.log(currentDisplay?.txtquestion);
     setcurrentDisplay(currentPanel[key]);
     setcurrquesindex(key);
 
@@ -670,9 +671,9 @@ const OnlineExam = () => {
                   </h2>
                 </div>
                 {/* question  area */}
-                <div className="px-2 text-lg text-wrap h-fit  font-normal ">
+                <pre className="px-2 text-lg text-wrap h-fit  font-normal ">
                   {currentDisplay?.txtquestion}
-                </div>
+                </pre>
                 {/* option area */}
 
                 <div className="flex- flex-col justify-center items-center my-auto">
