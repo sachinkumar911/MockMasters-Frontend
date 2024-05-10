@@ -142,6 +142,7 @@ const CreateQuestion = () => {
                 <option value="Operating System">Operating System</option>
                 <option value="Computer Networks">Computer Networks</option>
                 <option value="Oops">Oops</option>
+                <option value="Testing">Testing</option>
               </select>
             </div>
             {/*  */}
