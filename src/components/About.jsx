@@ -1,7 +1,7 @@
-import taketestimg from "../assets/taketest.png";
-import analyzeimg from "../assets/analyzetest.png";
-import successimg from "../assets/getsuccess.png";
-import refineimg from "../assets/refineapproach.png";
+import taketestimg from "../assets/taketest.webp";
+import analyzeimg from "../assets/analyzetest.webp";
+import successimg from "../assets/getsuccess.webp";
+import refineimg from "../assets/refineapproach.webp";
 const About = () => {
   return (
     <>
