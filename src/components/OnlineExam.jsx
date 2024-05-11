@@ -671,52 +671,61 @@ const OnlineExam = () => {
                   </h2>
                 </div>
                 {/* question  area */}
-                <pre className="px-2 text-lg text-wrap h-fit  font-normal ">
-                  {currentDisplay?.txtquestion}
-                </pre>
-                {/* option area */}
+                <div className=" overflow-scroll pb-[100px] flex flex-col justify-between h-full">
+                  <pre className="px-2 text-lg text-wrap h-fit  font-normal">
+                    {currentDisplay?.txtquestion ? (
+                      currentDisplay?.txtquestion
+                    ) : (
+                      <img src={currentDisplay?.imgquestion} />
+                    )}
+                  </pre>
+                  {/* option area */}
 
-                <div className="flex- flex-col justify-center items-center my-auto">
-                  {currentDisplay?.options?.map((item, key) => (
-                    <div
-                      key={key}
-                      className="px-2 text-lg  flex items-center p-1.5 gap-2   "
-                    >
-                      <input
-                        type="radio"
-                        name={currentDisplay?._id}
-                        id={`${currentDisplay?._id}_${key}`}
-                        className=" h-6 w-6"
-                        checked={
-                          selectedOption === `${currentDisplay?._id}_${key}` ||
-                          (Answers[
-                            AllData?.questions[currsubject]?.subjectname
-                          ] &&
-                            Answers[
-                              AllData?.questions[currsubject]?.subjectname
-                            ][currentDisplay?._id] === `${item}`) ||
-                          (localStorage.getItem("MarkforReviews") &&
-                            JSON.parse(localStorage.getItem("MarkforReviews"))[
-                              AllData?.questions[currsubject].subjectname
-                            ] &&
-                            JSON.parse(localStorage.getItem("MarkforReviews"))[
-                              AllData?.questions[currsubject].subjectname
-                            ][currentDisplay?._id] === item)
-                        }
-                        onChange={() => {
-                          setSelectedOption(`${currentDisplay?._id}_${key}`);
-                          setTimeLeft(TestExpiry - Date.now());
-                        }}
-                      />
-
-                      <label
-                        className="cursor-pointer" //option label
-                        htmlFor={`${currentDisplay?._id}_${key}`}
+                  <div className="flex- flex-col justify-center items-center">
+                    {currentDisplay?.options?.map((item, key) => (
+                      <div
+                        key={key}
+                        className="px-2 text-lg  flex items-center p-1.5 gap-2   "
                       >
-                        {item}
-                      </label>
-                    </div>
-                  ))}
+                        <input
+                          type="radio"
+                          name={currentDisplay?._id}
+                          id={`${currentDisplay?._id}_${key}`}
+                          className=" h-6 w-6"
+                          checked={
+                            selectedOption ===
+                              `${currentDisplay?._id}_${key}` ||
+                            (Answers[
+                              AllData?.questions[currsubject]?.subjectname
+                            ] &&
+                              Answers[
+                                AllData?.questions[currsubject]?.subjectname
+                              ][currentDisplay?._id] === `${item}`) ||
+                            (localStorage.getItem("MarkforReviews") &&
+                              JSON.parse(
+                                localStorage.getItem("MarkforReviews")
+                              )[AllData?.questions[currsubject].subjectname] &&
+                              JSON.parse(
+                                localStorage.getItem("MarkforReviews")
+                              )[AllData?.questions[currsubject].subjectname][
+                                currentDisplay?._id
+                              ] === item)
+                          }
+                          onChange={() => {
+                            setSelectedOption(`${currentDisplay?._id}_${key}`);
+                            setTimeLeft(TestExpiry - Date.now());
+                          }}
+                        />
+
+                        <label
+                          className="cursor-pointer" //option label
+                          htmlFor={`${currentDisplay?._id}_${key}`}
+                        >
+                          {item}
+                        </label>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
               {/* side show bar */}
