@@ -79,88 +79,91 @@ const Pattern = () => {
   return (
     <>
       <Toaster position="bottom-left" reverseOrder={false} />
-      <section id="pattern-section" className="flex flex-col items-center h-screen">
-      <h3 className="text-xl font-bold mt-20 mb-10 text-center">
-        {Data?.qpname} ( Subject-wise distribution of Marks )
-      </h3>
+      <section
+        id="pattern-section"
+        className="flex flex-col items-center h-screen"
+      >
+        <h3 className="text-xl font-bold mt-20 mb-10 text-center">
+          {Data?.qpname} ( Subject-wise distribution of Marks )
+        </h3>
 
-      <div className="flex flex-col items-center  justify-center  w-full max-sm:overflow-x-scroll overflow-y-hidden ">
-      <div className=" max-w-5xl mx-auto px-4">
-        <table className="block border-collapse border text-center table-auto ">
-          <tbody>
-            <tr className="bg-gray-200">
-              <td className="p-2  border">
-                {" "}
-                <p className="font-bold"> Subject </p>{" "}
-              </td>
-              <td className="p-2 border">
-                {" "}
-                <p className="font-bold"> No. of Questions </p>{" "}
-              </td>
-              <td className="p-2 border">
-                {" "}
-                <p className="font-bold"> Marks Awarded </p>{" "}
-              </td>
-              <td className="p-2 border">
-                {" "}
-                <p className="font-bold"> Negative Marking </p>{" "}
-              </td>
-              <td className="p-2 border">
-                {" "}
-                <p className="font-bold"> Marks </p>{" "}
-              </td>
-            </tr>
-            {Data?.examinfo?.markingschema?.map((item, key) => (
-              <tr key={key}>
-                <td className="p-2 border">
-                  <p>{item.subname}</p>
-                </td>
-                <td className="p-2 border">{item.noofquestions}</td>
-                <td className="p-2 border">{item.posmarks}</td>
-                <td className="p-2 border">{item.negmarks}</td>
-                <td className="p-2 border">
-                  {item.noofquestions * item.posmarks}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      
-        <div className="flex pt-4 gap-2 justify-end max-sm:justify-center ">
-          <Link to="/dashboard/test-series">
-            <button
-              type="button"
-              className="flex bg-blue-50 hover:bg-blue-100 hover:text-blue-600 text-blue-500 font-medium rounded-lg text-base px-4 py-2.5 text-center  mb-2"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                className="w-6 h-6"
+        <div className="flex flex-col items-center  justify-center  w-full max-sm:overflow-x-scroll overflow-y-hidden ">
+          <div className=" max-w-5xl mx-auto px-4">
+            <table className="block border-collapse border text-center table-auto ">
+              <tbody>
+                <tr className="bg-gray-200">
+                  <td className="p-2  border">
+                    {" "}
+                    <p className="font-bold"> Subject </p>{" "}
+                  </td>
+                  <td className="p-2 border">
+                    {" "}
+                    <p className="font-bold"> No. of Questions </p>{" "}
+                  </td>
+                  <td className="p-2 border">
+                    {" "}
+                    <p className="font-bold"> Marks Awarded </p>{" "}
+                  </td>
+                  <td className="p-2 border">
+                    {" "}
+                    <p className="font-bold"> Negative Marking </p>{" "}
+                  </td>
+                  <td className="p-2 border">
+                    {" "}
+                    <p className="font-bold"> Marks </p>{" "}
+                  </td>
+                </tr>
+                {Data?.examinfo?.markingschema?.map((item, key) => (
+                  <tr key={key}>
+                    <td className="p-2 border">
+                      <p>{item.subname}</p>
+                    </td>
+                    <td className="p-2 border">{item.noofquestions}</td>
+                    <td className="p-2 border">{item.posmarks}</td>
+                    <td className="p-2 border">{item.negmarks}</td>
+                    <td className="p-2 border">
+                      {item.noofquestions * item.posmarks}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+
+            <div className="flex pt-4 gap-2 justify-end max-sm:justify-center ">
+              <Link to="/dashboard/test-series">
+                <button
+                  type="button"
+                  className="flex bg-blue-50 hover:bg-blue-100 hover:text-blue-600 text-blue-500 font-medium rounded-lg text-base px-4 py-2.5 text-center  mb-2"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M15.75 19.5 8.25 12l7.5-7.5"
+                    />
+                  </svg>
+                  Back
+                </button>
+              </Link>
+              <button
+                type="button"
+                className="text-white flex bg-cyan-500 border font-medium rounded-lg   text-sm px-4 py-2.5 text-center  mb-2 "
+                onClick={finalStart}
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M15.75 19.5 8.25 12l7.5-7.5"
-                />
-              </svg>
-              Back
-            </button>
-          </Link>
-          <button
-            type="button"
-            className="text-white flex bg-cyan-500 border font-medium rounded-lg   text-sm px-4 py-2.5 text-center  mb-2 "
-            onClick={finalStart}
-          >
-            {JSON.parse(sessionStorage.getItem("Data"))?.isResume
-              ? "Resume test"
-              : "Start test"}
-          </button>
+                {JSON.parse(sessionStorage.getItem("Data"))?.isResume
+                  ? "Resume test"
+                  : "Start test"}
+              </button>
+            </div>
+          </div>
         </div>
-        </div>
-      </div>
       </section>
     </>
   );
