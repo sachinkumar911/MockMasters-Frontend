@@ -205,6 +205,9 @@ const SamplePaper = () => {
       );
       dismiss();
       successnotify("New ExamSet created");
+      //
+      window.location.reload();
+      //
     } catch (error) {
       dismiss();
       errornotify(error.response.data.message);

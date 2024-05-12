@@ -98,6 +98,9 @@ const CreateQuestion = () => {
       );
       dismiss();
       successnotify(response.data.message);
+      //
+      window.location.reload();
+      //
     } catch (error) {
       dismiss();
       errornotify(error.response.data.message);
