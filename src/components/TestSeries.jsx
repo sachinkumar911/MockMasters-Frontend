@@ -111,10 +111,10 @@ const TestSeries = () => {
                     )}
                   </div>
                 </div>
-                <h5 className=" border-neutral-100 px-6 pt-2 md:text-xl text-sm font-medium leading-tight">
+                <h5 className=" border-neutral-100 px-6 max-sm:px-4 pt-2 md:text-xl text-sm font-medium leading-tight">
                   {item.qpname}
                 </h5>
-                <div className="p-5 max-sm:p-3  flex  md:text-lg text-xs">
+                <div className="p-5 pt-4 max-sm:p-3 max-sm:pt-2  flex  md:text-lg text-xs">
                   <p className="px-1">{item.noofquestions} Questions</p>
                   <p className="px-1 text-gray-400">|</p>
                   <p className="px-1">{item.totalmarks} marks</p>
