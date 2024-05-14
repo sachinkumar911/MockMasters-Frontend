@@ -1,7 +1,7 @@
-import mocktestimg from "../assets/Mockup1.webp";
-import mobile1 from "../assets/mobile1.jpg";
-import mobile2 from "../assets/mobile2.jpg";
-import mobile3 from "../assets/mobile3.jpg";
+import mocktestimg from "../assets/mockup1.webp";
+import mockup2 from "../assets/mockup2.webp";
+import mockup3 from "../assets/mockup3.webp";
+import mockup4 from "../assets/mockup4.webp";
 import sideimg from "../assets/testbookside.svg";
 
 const Mockup = () => {
@@ -107,14 +107,14 @@ const Mockup = () => {
           </div>
         </div>
 
-        <div className="md:flex hidden flex-col justify-center items-center w-fit mt-5 ">
-          <div className="bg-orange-100 flex flex-col justify-center items-center rounded-xl w-full gap-4  ">
+        <div className="md:flex hidden flex-col justify-center items-center w-[88%] mt-5">
+          <div className="bg-orange-100 flex flex-col justify-center items-center rounded-xl w-full gap-4">
             <div className="flex flex-col justify-center items-center  pt-3">
-              <h2 className="text-2xl font-bold text-gray-800 uppercase">
-                Ace Your Tests
+              <h2 className="text-xl font-bold text-gray-800 uppercase">
+              Test Series Dashboard
               </h2>
               <p className=" text-gray-800">
-                Boost your success with our free mock tests.
+              Efficiently organize and navigate through comprehensive test series options
               </p>
             </div>
 
@@ -142,21 +142,21 @@ const Mockup = () => {
 
           {/* //mobile images */}
 
-          <div className="flex justify-between gap-4 mx-4 mt-5 ">
+          <div className="flex justify-between gap-4">
             <div className="bg-blue-100 pt-8 px-10 mt-12 rounded-xl h-min">
               <div className="flex flex-col justify-center items-center mb-8">
-                <h2 className="lg:text-2xl font-bold text-gray-800 uppercase">
-                  Ace Your Tests
+                <h2 className="text-xl font-bold text-gray-800 uppercase">
+                Diverse functionalities 
                 </h2>
-                <p className=" text-gray-800">
-                  Boost your success with our free mock tests.
+                <p className=" text-gray-800 text-sm text-center">
+                Simplify user journey with accessible sidebar menu options
                 </p>
               </div>
               <figure className="mx-auto max-w-full lg:w-60 h-auto">
                 <div className="p-1.5 bg-gray-800 rounded-tl-2xl rounded-tr-2xl pb-0 ">
                   <img
                     className="max-w-full h-auto rounded-tl-2xl rounded-tr-2xl border-0"
-                    src={mobile1}
+                    src={mockup2}
                     alt="mobile1image"
                   />
                 </div>
@@ -164,18 +164,18 @@ const Mockup = () => {
             </div>
             <div className="bg-green-100 pt-8 px-10 mt-12 rounded-xl h-min">
               <div className="flex flex-col justify-center items-center mb-8">
-                <h2 className="lg:text-2xl font-bold text-gray-800 uppercase">
-                  Ace Your Tests
+                <h2 className="text-xl font-bold text-gray-800 uppercase">
+                Performance Analysis
                 </h2>
-                <p className=" text-gray-800">
-                  Boost your success with our free mock tests.
+                <p className=" text-gray-800 text-sm text-center">
+                Performance highlights strengths and areas for improvement
                 </p>
               </div>
               <figure className="mx-auto max-w-full lg:w-60 h-auto">
                 <div className="p-1.5 bg-gray-800 rounded-tl-2xl rounded-tr-2xl pb-0 ">
                   <img
                     className="max-w-full h-auto rounded-tl-2xl rounded-tr-2xl border-0"
-                    src={mobile2}
+                    src={mockup3}
                     alt="mobile1image"
                   />
                 </div>
@@ -184,18 +184,18 @@ const Mockup = () => {
 
             <div className="bg-pink-100 pt-8 px-10 mt-12 rounded-xl h-min ">
               <div className="flex flex-col justify-center items-center  mb-8">
-                <h2 className="lg:text-2xl font-bold text-gray-800 uppercase">
-                  Ace Your Tests
+                <h2 className="text-xl font-bold text-gray-800 uppercase">
+                Referral Rewards
                 </h2>
-                <p className=" text-gray-800 ">
-                  Boost your success with our free mock tests.
+                <p className=" text-gray-800 text-sm text-center ">
+                Earn coins through referrals, explore rewards at MockMasters Store
                 </p>
               </div>
               <figure className="mx-auto w-full lg:w-60 h-auto">
                 <div className="p-1.5 bg-gray-800 rounded-tl-2xl rounded-tr-2xl pb-0 ">
                   <img
                     className="max-w-full h-auto rounded-tl-2xl rounded-tr-2xl border-0"
-                    src={mobile3}
+                    src={mockup4}
                     alt="mobile3image"
                   />
                 </div>
