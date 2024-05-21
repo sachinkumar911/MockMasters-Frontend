@@ -75,7 +75,7 @@ const SamplePaper = () => {
   const ExamTypeArray = [
     "NIMCET",
     "TACTM",
-    "DBMS",
+    "DBMS SET",
     "Operating System",
     "Computer Networks",
     "Oops",
@@ -241,7 +241,7 @@ const SamplePaper = () => {
                 >
                   <Tab label="NIMCET" />
                   <Tab label="TACTM" />
-                  <Tab label="DBMS" />
+                  <Tab label="DBMS SET" />
                   <Tab label="Operating System" />
                   <Tab label="Computer Networks" />
                   <Tab label="Oops" />
