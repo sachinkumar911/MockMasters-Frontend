@@ -23,6 +23,7 @@ const DashBoard = ({ side, handleside }) => {
   useEffect(() => {
     setcc(userdetail.elitecoin);
   }, [userdetail]);
+
   return (
     <>
       <section id="sidebar-section" className="flex justify-center relative">
@@ -36,7 +37,7 @@ const DashBoard = ({ side, handleside }) => {
         ></div>
         <aside
           id="default-sidebar"
-          className={`min-[1024px]:w-[262px] transition-transform -translate-x-full  lg:translate-x-0  shadow-2xl lg:flex  w-0  ${
+          className={` min-[1024px]:w-[262px] transition-transform -translate-x-full  lg:translate-x-0  shadow-2xl lg:flex  w-0  ${
             side
               ? "max-lg:absolute   left-[0rem] top-0 bottom-0  duration-300 transition-transform translate-x-[0]   w-[40%] z-20 rounded-md min-[320px]:w-[222px]   sm:w-[222px] "
               : " "
@@ -307,7 +308,7 @@ const DashBoard = ({ side, handleside }) => {
           </div>
         </aside>
 
-        <section id="" className=" w-full h-screen overflow-y-scroll">
+        <section id="" className=" w-full min-h-screen overflow-y-scroll">
           <Routes>
             <Route path="/" element={<Navigate to="test-series" />} />
             <Route path="/profile" element={<Profile />} />
