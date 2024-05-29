@@ -20,6 +20,12 @@ import avatar2 from "../assets/avatar2.webp";
 import avatar3 from "../assets/avatar3.webp";
 import avatar4 from "../assets/avatar4.webp";
 import avatar5 from "../assets/avatar5.webp";
+import {
+  Drawer,
+  Button,
+  Typography,
+  IconButton,
+} from "@material-tailwind/react";
 
 var socket = null;
 
@@ -33,6 +39,11 @@ const style = {
 };
 
 const OnlineExam = () => {
+  const [oopen, setOopen] = React.useState(false);
+
+  const openDrawer = () => setOopen(true);
+  const closeDrawer = () => setOopen(false);
+
   let avatars = [avatar1, avatar2, avatar3, avatar4, avatar5];
   const { userdetail } = useContext(UserContext);
 
@@ -265,6 +276,7 @@ const OnlineExam = () => {
     setcurrsubject(newValue);
     setcurrentDisplay(AllData?.questions[newValue].questionIds[0]);
     setcurrquesindex(0);
+    closeDrawer();
 
     //socket-updating TimeLeft on DB
     socket.emit("updateTimeLeft", sessionStorage.getItem("startTest_id"));
@@ -278,6 +290,7 @@ const OnlineExam = () => {
     // console.log(currentDisplay?.txtquestion);
     setcurrentDisplay(currentPanel[key]);
     setcurrquesindex(key);
+    closeDrawer();
 
     setTimeLeft(TestExpiry - Date.now());
   };
@@ -586,6 +599,119 @@ const OnlineExam = () => {
           </div>
         </div>
 
+        <div className="lg:hidden">
+          <button
+            onClick={openDrawer}
+            className="bg-gray-400 absolute right-0 top-[50%] z-10 p-1 rounded-xl"
+          >
+            <svg
+              className="w-6 h-6 text-white"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="m15 19-7-7 7-7"
+              />
+            </svg>
+          </button>
+          <Drawer
+            placement="right"
+            open={oopen}
+            onClose={closeDrawer}
+            className="p-4 z-20"
+          >
+            <Box
+              className=""
+              sx={{
+                bgcolor: "#fafafa",
+              }}
+            >
+              <Tabs
+                orientation="vertical"
+                value={currsubject}
+                onChange={changesubjectpanel}
+                variant="scrollable"
+                scrollButtons="auto"
+                aria-label="scrollable auto tabs example"
+              >
+                {AllData?.questions?.map((item, key) => (
+                  <Tab
+                    key={key}
+                    sx={{ fontSize: 12, fontWeight: "bold" }}
+                    label={item.subjectname}
+                  />
+                ))}
+              </Tabs>
+            </Box>
+            <div className="border-2 border-gray-400 rounded-md bg-white h-full lg:flex  lg:flex-col">
+              <div className="flex flex-wrap w-full justify-between items-center lg:gap-3  my-2  px-5">
+                <div className=" flex  gap-2 py-2 text-sm">
+                  <div className=" h-7 w-7 bg-green-500"></div>
+                  Answered
+                </div>
+                <div className=" flex  gap-2 py-2 text-sm">
+                  <div className="  h-7 w-7 bg-violet-500"></div>
+                  Marked for Review
+                </div>
+
+                <div className=" flex  gap-2 py-2 text-sm">
+                  <div className="  h-7 w-7 bg-gray-300"></div>
+                  Not Visited
+                </div>
+                {/* <div className=" flex  gap-2 py-2 text-sm  pr-4 mr-3 ">
+                      <div className=" h-5 w-5 bg-red-500  "></div>
+                      Not Answered
+                    </div> */}
+              </div>
+              <hr />
+
+              <div className="flex flex-wrap cursor-pointer">
+                {currentPanel?.map((item, key) => (
+                  <div
+                    key={key}
+                    onClick={() => {
+                      // console.log(item);
+                      changeDisplay(key);
+                    }}
+                    className={`w-8 h-8 bg-gray-300 m-2 flex justify-center items-center rounded-sm ${
+                      currquesindex === key ? "border border-black" : ""
+                    } ${
+                      Answers[AllData?.questions[currsubject]?.subjectname] &&
+                      Answers[AllData?.questions[currsubject]?.subjectname][
+                        item._id
+                      ]
+                        ? "bg-green-500 text-white"
+                        : ""
+                    } ${
+                      MarkReview[
+                        AllData?.questions[currsubject]?.subjectname
+                      ] &&
+                      (MarkReview[AllData?.questions[currsubject]?.subjectname][
+                        item?._id
+                      ] ||
+                        MarkReview[
+                          AllData?.questions[currsubject]?.subjectname
+                        ][item?._id] === "")
+                        ? "bg-violet-500 text-white"
+                        : ""
+                    }`}
+                  >
+                    {key + 1}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Drawer>
+        </div>
+
         {loading ? (
           <LoadingSpinner />
         ) : (
@@ -611,7 +737,7 @@ const OnlineExam = () => {
 
             <div className="max-h-[8vh] bg-gray-200 flex justify-between items-center max-2xl:px-24  max-xl:px-[80px]  max-md:px-1 lg:px-24 ">
               <Box
-                className="max-xl:w-[78%] max-lg:w-[63%] max-sm:w-[50%] "
+                className="max-xl:w-[78%] max-lg:w-[63%] max-sm:w-[50%] lg:flex hidden"
                 sx={{
                   bgcolor: "#fafafa",
                 }}
@@ -633,8 +759,8 @@ const OnlineExam = () => {
                 </Tabs>
               </Box>
 
-              <div className="self-center md:text-xl text-sm font-semibold">
-                Time :
+              <div className="self-center md:text-xl text-md font-semibold py-2">
+                Time Left :
                 <span id="ExamTImer" className=" self-center px-2">
                   <Countdown date={Date.now() + TimeLeft} renderer={renderer} />
                 </span>
