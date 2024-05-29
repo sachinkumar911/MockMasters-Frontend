@@ -642,7 +642,7 @@ const OnlineExam = () => {
             </div>
             {/* question and side showbar */}
 
-            <div className="flex h-[88vh] justify-center items-center lg:mx-24 md:mx-14 mx-1 my-0">
+            <div className="flex h-[88vh] justify-center lg:mx-24 md:mx-14 mx-1 my-0">
               {/* question section and option */}
               <div className=" h-full flex flex-col lg:w-[75vw] w-full ">
                 {/* question no and positve negative marking section */}
@@ -729,20 +729,20 @@ const OnlineExam = () => {
                 </div>
               </div>
               {/* side show bar */}
-              <div className="flex flex-col h-[100%] justify-start   ">
-                <div className="h-[70vh] border-x border-y border-black bg-white lg:w-[23vw]   hidden lg:flex  lg:flex-col ">
+              <div className="flex flex-col h-[80vh] justify-start">
+                <div className="border-2 border-gray-400 rounded-sm bg-white lg:w-[23vw] h-full hidden lg:flex  lg:flex-col ">
                   <div className="flex flex-wrap w-full justify-between items-center lg:gap-3  my-2  px-5">
-                    <div className=" flex  gap-2 py-2 text-sm  ">
-                      <div className=" h-6 w-6 bg-green-500"></div>
+                    <div className=" flex  gap-2 py-2 text-sm">
+                      <div className=" h-7 w-7 bg-green-500"></div>
                       Answered
                     </div>
-                    <div className=" flex  gap-2 py-2 text-sm ">
-                      <div className="  h-6 w-6 bg-violet-500"></div>
+                    <div className=" flex  gap-2 py-2 text-sm">
+                      <div className="  h-7 w-7 bg-violet-500"></div>
                       Marked for Review
                     </div>
 
-                    <div className=" flex  gap-2 py-2 text-sm  ">
-                      <div className="  h-6 w-6 bg-gray-300"></div>
+                    <div className=" flex  gap-2 py-2 text-sm">
+                      <div className="  h-7 w-7 bg-gray-300"></div>
                       Not Visited
                     </div>
                     {/* <div className=" flex  gap-2 py-2 text-sm  pr-4 mr-3 ">
@@ -750,8 +750,9 @@ const OnlineExam = () => {
                       Not Answered
                     </div> */}
                   </div>
+                  <hr />
 
-                  <div className="flex flex-wrap">
+                  <div className="flex flex-wrap cursor-pointer">
                     {currentPanel?.map((item, key) => (
                       <div
                         key={key}
