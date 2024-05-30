@@ -715,7 +715,7 @@ const OnlineExam = () => {
         {loading ? (
           <LoadingSpinner />
         ) : (
-          <div className="relative flex flex-col ">
+          <div className="relative flex flex-col overflow-hidden">
             {/* fullscreen mod and */}
             <div
               className={`absolute top-0 left-0 backdrop-blur w-full h-full z-10 ${
@@ -735,29 +735,31 @@ const OnlineExam = () => {
 
             {/* subject section */}
 
-            <div className="h-[5vh] bg-gray-200 flex justify-between items-center max-2xl:px-24  max-xl:px-[80px]  max-md:px-1 lg:px-24 ">
-              <Box
-                className="max-xl:w-[78%] max-lg:w-[63%] max-sm:w-[50%] lg:flex hidden"
-                sx={{
-                  bgcolor: "#fafafa",
-                }}
-              >
-                <Tabs
-                  value={currsubject}
-                  onChange={changesubjectpanel}
-                  variant="scrollable"
-                  scrollButtons="auto"
-                  aria-label="scrollable auto tabs example"
+            <div className="h-[7vh] bg-white flex justify-between items-center max-2xl:px-24  max-xl:px-[80px]  max-md:px-1 lg:px-24 overflow-hidden border-2 border-gray-300">
+              <div className="bg-white max-xl:w-[75%] max-lg:w-[63%] max-sm:w-[50%] lg:flex hidden h-fit">
+                <Box
+                  className=""
+                  sx={{
+                    bgcolor: "#fff",
+                  }}
                 >
-                  {AllData?.questions?.map((item, key) => (
-                    <Tab
-                      key={key}
-                      sx={{ fontSize: 12, fontWeight: "bold" }}
-                      label={item.subjectname}
-                    />
-                  ))}
-                </Tabs>
-              </Box>
+                  <Tabs
+                    value={currsubject}
+                    onChange={changesubjectpanel}
+                    variant="scrollable"
+                    scrollButtons="auto"
+                    aria-label="scrollable auto tabs example"
+                  >
+                    {AllData?.questions?.map((item, key) => (
+                      <Tab
+                        key={key}
+                        sx={{ fontSize: 11, fontWeight: "bold" }}
+                        label={item.subjectname}
+                      />
+                    ))}
+                  </Tabs>
+                </Box>
+              </div>
 
               <div className="self-center md:text-xl text-md font-semibold py-2">
                 Time Left :
@@ -768,7 +770,7 @@ const OnlineExam = () => {
             </div>
             {/* question and side showbar */}
 
-            <div className="flex h-[78vh] justify-center lg:mx-24 md:mx-14 mx-1 my-0 ">
+            <div className="flex h-[76vh] justify-center lg:mx-24 md:mx-14 mx-1 my-0 ">
               {/* question section and option */}
               <div className=" h-full flex flex-col lg:w-[75vw] w-full">
                 {/* question no and positve negative marking section */}
@@ -919,13 +921,11 @@ const OnlineExam = () => {
               </div>
             </div>
             {/* button area */}
-            <div className="max-h-[10vh] w-full lg:px-20 md:px-4 px-0 bg-white border-2 border-gray-300">
-              <div
-                className={`flex flex-col space-x-4 px-4 py-2 justify-between border-2 border-red-500`}
-              >
-                <div className="flex justify-between max-md:flex-col items-center   py-3 px-2 gap-2 border-t ">
-                  <div className="flex justify-between items-center w-[74%] max-md:w-full max-lg:w-[85%] border-2 border-red-500 ">
-                    <div className="flex gap-2 justify-center items-center max-md:flex-col ">
+            <div className="md:max-h-[10vh] w-full lg:px-20 md:px-4 px-0 bg-white border-2 border-gray-400">
+              <div className={`flex flex-col space-x-4 justify-between`}>
+                <div className="flex justify-between max-md:flex-col items-center   sm:py-3 px-2 py-1 gap-2 border-t">
+                  <div className="flex justify-between items-center w-[74%] max-md:w-full max-lg:w-[85%]">
+                    <div className="flex gap-1 sm:gap-2 justify-center items-center max-sm:flex-col  ">
                       <button
                         className={`px-4 py-2  max-sm:text-[10px]  max-xl:text-[14px] max-md:px-7  transition-colors duration-300 bg-white text-gray-600 font-semibold border hover:text-gray-900 border-gray-500`}
                         id="save"
@@ -942,7 +942,7 @@ const OnlineExam = () => {
                         Save &amp; Next
                       </button>
                     </div>
-                    <div className="flex gap-2 max-md:flex-col">
+                    <div className="flex gap-1 sm:gap-2 max-sm:flex-col">
                       <button
                         className={`px-4 py-2  max-sm:text-[10px] max-xl:text-[14px] max-sm:px-2 max-sm:py-2    transition-colors duration-300 text-white bg-cyan-500 hover:bg-cyan-600`}
                         id="clear"
@@ -959,7 +959,7 @@ const OnlineExam = () => {
                       </button>
                     </div>
                   </div>
-                  <div className="flex justify-center  items-center gap-4 py-3 max-md:w-full  ">
+                  <div className="flex justify-center  items-center gap-4 max-md:w-full">
                     <button
                       className={`px-4 py-2 max-md:w-full  max-sm:text-[10px] max-sm:px-2  transition-colors duration-300 text-white bg-[#08bd80] `}
                       id="submit"
@@ -967,108 +967,108 @@ const OnlineExam = () => {
                     >
                       Submit
                     </button>
-                    <Modal
-                      open={open}
-                      onClose={handleClose}
-                      aria-labelledby="modal-modal-title"
-                      aria-describedby="modal-modal-description"
-                    >
-                      <Box sx={style} className="md:w-[400px] w-[300px]">
-                        <div className="modal-content ">
-                          <div className=" flex flex-col items-center justify-center bg-blue-500 text-white py-4 px-4 ">
-                            <div className="mo-header-logo text-center px-5 pb-2">
-                              <div className="h5  mtsmh uppercase">
-                                "Are you sure you want to submit the test ?"
-                              </div>
-                            </div>
-                          </div>
-                          <div className="modal-body py-5 px-12 max-sm:px-8">
-                            <ul className="list-group space-y-2">
-                              <li className="flex ">
-                                <img
-                                  src="https://www.mockers.in/frontend/img/red-alarm.svg"
-                                  alt=""
-                                  className="me-2"
-                                />{" "}
-                                Time Left:
-                                <span className="ms-auto list-span timeLeftSpanId">
-                                  <Countdown
-                                    date={Date.now() + TimeLeft}
-                                    renderer={renderer}
-                                  />
-                                </span>
-                              </li>
-                              <li className="flex ">
-                                <img
-                                  src="https://www.mockers.in/frontend/img/checked.svg"
-                                  alt=""
-                                  className="me-2"
-                                />{" "}
-                                Attempted:
-                                <span
-                                  className="ms-auto list-span"
-                                  id="totalAttemptedQuestionCountId"
-                                >
-                                  {attemptCount}
-                                </span>
-                              </li>
-                              <li className="flex ">
-                                <img
-                                  src="https://www.mockers.in/frontend/img/unattempt.svg"
-                                  alt=""
-                                  className="me-2"
-                                />{" "}
-                                Unattempt:
-                                <span
-                                  className="ms-auto list-span"
-                                  id="totalUnAttemptedQuestionCountId"
-                                >
-                                  {AllData?.noofquestions - attemptCount}
-                                </span>
-                              </li>
-                              <li className="flex ">
-                                <img
-                                  src="https://www.mockers.in/frontend/img/marked.svg"
-                                  alt=""
-                                  className="me-2"
-                                />{" "}
-                                Marked for Review:
-                                <span
-                                  className="ms-auto list-span"
-                                  id="totalReviewQuestionCountId"
-                                >
-                                  {markedCount}
-                                </span>
-                              </li>
-                            </ul>
-                          </div>
-                          <div className="flex justify-center items-center space-x-4 p-2">
-                            <button
-                              type="button"
-                              className="bg-gray-300 py-2 px-8 text-center text-sm rounded-sm font-medium "
-                              data-bs-dismiss="modal"
-                              onClick={handleClose}
-                            >
-                              Cancel
-                            </button>
-                            <button
-                              type="button"
-                              className="bg-blue-600 py-2 px-8 text-center text-white text-sm rounded-sm font-medium"
-                              id="submitToServerBtn"
-                              onClick={sendFinalResponse}
-                            >
-                              Submit
-                            </button>
-                          </div>
-                        </div>
-                      </Box>
-                    </Modal>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         )}
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style} className="md:w-[400px] w-[300px]">
+            <div className="modal-content ">
+              <div className=" flex flex-col items-center justify-center bg-blue-500 text-white py-4 px-4 ">
+                <div className="mo-header-logo text-center px-5 pb-2">
+                  <div className="h5  mtsmh uppercase">
+                    "Are you sure you want to submit the test ?"
+                  </div>
+                </div>
+              </div>
+              <div className="modal-body py-5 px-12 max-sm:px-8">
+                <ul className="list-group space-y-2">
+                  <li className="flex ">
+                    <img
+                      src="https://www.mockers.in/frontend/img/red-alarm.svg"
+                      alt=""
+                      className="me-2"
+                    />{" "}
+                    Time Left:
+                    <span className="ms-auto list-span timeLeftSpanId">
+                      <Countdown
+                        date={Date.now() + TimeLeft}
+                        renderer={renderer}
+                      />
+                    </span>
+                  </li>
+                  <li className="flex ">
+                    <img
+                      src="https://www.mockers.in/frontend/img/checked.svg"
+                      alt=""
+                      className="me-2"
+                    />{" "}
+                    Attempted:
+                    <span
+                      className="ms-auto list-span"
+                      id="totalAttemptedQuestionCountId"
+                    >
+                      {attemptCount}
+                    </span>
+                  </li>
+                  <li className="flex ">
+                    <img
+                      src="https://www.mockers.in/frontend/img/unattempt.svg"
+                      alt=""
+                      className="me-2"
+                    />{" "}
+                    Unattempt:
+                    <span
+                      className="ms-auto list-span"
+                      id="totalUnAttemptedQuestionCountId"
+                    >
+                      {AllData?.noofquestions - attemptCount}
+                    </span>
+                  </li>
+                  <li className="flex ">
+                    <img
+                      src="https://www.mockers.in/frontend/img/marked.svg"
+                      alt=""
+                      className="me-2"
+                    />{" "}
+                    Marked for Review:
+                    <span
+                      className="ms-auto list-span"
+                      id="totalReviewQuestionCountId"
+                    >
+                      {markedCount}
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              <div className="flex justify-center items-center space-x-4 p-2">
+                <button
+                  type="button"
+                  className="bg-gray-300 py-2 px-8 text-center text-sm rounded-sm font-medium "
+                  data-bs-dismiss="modal"
+                  onClick={handleClose}
+                >
+                  Cancel
+                </button>
+                <button
+                  type="button"
+                  className="bg-blue-600 py-2 px-8 text-center text-white text-sm rounded-sm font-medium"
+                  id="submitToServerBtn"
+                  onClick={sendFinalResponse}
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          </Box>
+        </Modal>
       </section>
     </>
   );
