@@ -11,6 +11,8 @@ const Pattern = () => {
   const errornotify = (msg) => toast.error(msg);
   const successnotify = (msg) => toast.success(msg);
 
+  const [disablebtn, setdisablebtn] = useState(false);
+
   const [Data, setData] = useState();
   const Navigate = useNavigate();
   useEffect(() => {
@@ -25,6 +27,7 @@ const Pattern = () => {
   const { userdetail } = useContext(UserContext);
 
   const finalStart = async () => {
+    setdisablebtn(true);
     // Deduct Coins
     // console.log(Data);
     if (JSON.parse(sessionStorage.getItem("Data"))?.isResume) {
@@ -156,6 +159,7 @@ const Pattern = () => {
                 type="button"
                 className="text-white flex bg-cyan-500 border font-medium rounded-lg   text-sm px-4 py-2.5 text-center  mb-2 "
                 onClick={finalStart}
+                disabled={disablebtn}
               >
                 {JSON.parse(sessionStorage.getItem("Data"))?.isResume
                   ? "Resume test"
