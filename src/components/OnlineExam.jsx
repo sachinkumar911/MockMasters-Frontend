@@ -579,7 +579,7 @@ const OnlineExam = () => {
     <>
       <section>
         {/* header */}
-        <div className=" h-fit flex justify-between items-center md:mx-[6rem] mx-1">
+        <div className="h-[7vh] flex justify-between items-center md:mx-[6rem] mx-1">
           <div
             onClick={enterFullscreen}
             className="text-center md:text-2xl select-none  font-semibold w-[4rem]"
@@ -735,7 +735,7 @@ const OnlineExam = () => {
 
             {/* subject section */}
 
-            <div className="max-h-[8vh] bg-gray-200 flex justify-between items-center max-2xl:px-24  max-xl:px-[80px]  max-md:px-1 lg:px-24 ">
+            <div className="h-[5vh] bg-gray-200 flex justify-between items-center max-2xl:px-24  max-xl:px-[80px]  max-md:px-1 lg:px-24 ">
               <Box
                 className="max-xl:w-[78%] max-lg:w-[63%] max-sm:w-[50%] lg:flex hidden"
                 sx={{
@@ -768,9 +768,9 @@ const OnlineExam = () => {
             </div>
             {/* question and side showbar */}
 
-            <div className="flex h-[88vh] justify-center lg:mx-24 md:mx-14 mx-1 my-0">
+            <div className="flex h-[78vh] justify-center lg:mx-24 md:mx-14 mx-1 my-0 ">
               {/* question section and option */}
-              <div className=" h-full flex flex-col lg:w-[75vw] w-full ">
+              <div className=" h-full flex flex-col lg:w-[75vw] w-full">
                 {/* question no and positve negative marking section */}
                 <div className="  flex justify-between items-center  border-b-2 border-slate-300 mb-1 ">
                   <h2 className="py-3 text-center px-2 font-semibold">
@@ -797,8 +797,8 @@ const OnlineExam = () => {
                   </h2>
                 </div>
                 {/* question  area */}
-                <div className=" overflow-scroll pb-[100px] flex flex-col justify-between h-full">
-                  <pre className="px-2 text-lg text-wrap h-fit  font-normal">
+                <div className="flex flex-col justify-between h-full overflow-hidden">
+                  <pre className="text-lg text-wrap max-h-[55%]  font-normal overflow-y-scroll">
                     {currentDisplay?.txtquestion ? (
                       currentDisplay?.txtquestion
                     ) : (
@@ -807,7 +807,7 @@ const OnlineExam = () => {
                   </pre>
                   {/* option area */}
 
-                  <div className="flex- flex-col justify-center items-center">
+                  <div className="flex- flex-col justify-center  max-h-[35%] overflow-y-scroll items-center">
                     {currentDisplay?.options?.map((item, key) => (
                       <div
                         key={key}
@@ -919,12 +919,12 @@ const OnlineExam = () => {
               </div>
             </div>
             {/* button area */}
-            <div className=" w-full lg:px-20 md:px-4 px-0 absolute bottom-0 -left-2 bg-white ">
+            <div className="max-h-[10vh] w-full lg:px-20 md:px-4 px-0 bg-white border-2 border-gray-300">
               <div
-                className={`flex flex-col space-x-4 px-4 py-2 justify-between`}
+                className={`flex flex-col space-x-4 px-4 py-2 justify-between border-2 border-red-500`}
               >
-                <div className="   flex justify-between max-md:flex-col items-center   py-3 px-2 gap-2 border-t   ">
-                  <div className="flex justify-between items-center w-[74%] max-md:w-full max-lg:w-[85%]  ">
+                <div className="flex justify-between max-md:flex-col items-center   py-3 px-2 gap-2 border-t ">
+                  <div className="flex justify-between items-center w-[74%] max-md:w-full max-lg:w-[85%] border-2 border-red-500 ">
                     <div className="flex gap-2 justify-center items-center max-md:flex-col ">
                       <button
                         className={`px-4 py-2  max-sm:text-[10px]  max-xl:text-[14px] max-md:px-7  transition-colors duration-300 bg-white text-gray-600 font-semibold border hover:text-gray-900 border-gray-500`}
