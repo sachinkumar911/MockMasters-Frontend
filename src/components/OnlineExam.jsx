@@ -20,6 +20,10 @@ import avatar2 from "../assets/avatar2.webp";
 import avatar3 from "../assets/avatar3.webp";
 import avatar4 from "../assets/avatar4.webp";
 import avatar5 from "../assets/avatar5.webp";
+import unattempt_ico from "../assets/unattempt.svg";
+import redalarm_ico from "../assets/red-alarm.svg";
+import checked_ico from "../assets/checked.svg";
+import marked_ico from "../assets/marked.svg";
 import {
   Drawer,
   Button,
@@ -991,12 +995,8 @@ const OnlineExam = () => {
               <div className="modal-body py-5 px-12 max-sm:px-8">
                 <ul className="list-group space-y-2">
                   <li className="flex ">
-                    <img
-                      src="https://www.mockers.in/frontend/img/red-alarm.svg"
-                      alt=""
-                      className="me-2"
-                    />{" "}
-                    Time Left:
+                    <img src={redalarm_ico} alt="" className="me-2" /> Time
+                    Left:
                     <span className="ms-auto list-span timeLeftSpanId">
                       <Countdown
                         date={Date.now() + TimeLeft}
@@ -1005,12 +1005,7 @@ const OnlineExam = () => {
                     </span>
                   </li>
                   <li className="flex ">
-                    <img
-                      src="https://www.mockers.in/frontend/img/checked.svg"
-                      alt=""
-                      className="me-2"
-                    />{" "}
-                    Attempted:
+                    <img src={checked_ico} alt="" className="me-2" /> Attempted:
                     <span
                       className="ms-auto list-span"
                       id="totalAttemptedQuestionCountId"
@@ -1019,11 +1014,7 @@ const OnlineExam = () => {
                     </span>
                   </li>
                   <li className="flex ">
-                    <img
-                      src="https://www.mockers.in/frontend/img/unattempt.svg"
-                      alt=""
-                      className="me-2"
-                    />{" "}
+                    <img src={unattempt_ico} alt="" className="me-2" />{" "}
                     Unattempt:
                     <span
                       className="ms-auto list-span"
@@ -1033,12 +1024,8 @@ const OnlineExam = () => {
                     </span>
                   </li>
                   <li className="flex ">
-                    <img
-                      src="https://www.mockers.in/frontend/img/marked.svg"
-                      alt=""
-                      className="me-2"
-                    />{" "}
-                    Marked for Review:
+                    <img src={marked_ico} alt="" className="me-2" /> Marked for
+                    Review:
                     <span
                       className="ms-auto list-span"
                       id="totalReviewQuestionCountId"
