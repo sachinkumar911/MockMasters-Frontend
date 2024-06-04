@@ -515,8 +515,10 @@ const OnlineExam = () => {
   };
 
   const [loading, setLoading] = useState(true);
+  const [disablebtn, setdisablebtn] = useState(false);
 
   const sendFinalResponse = async () => {
+    setdisablebtn(true);
     setLoading(true);
     await socket.disconnect();
     try {
@@ -1049,6 +1051,7 @@ const OnlineExam = () => {
                   className="bg-blue-600 py-2 px-8 text-center text-white text-sm rounded-sm font-medium"
                   id="submitToServerBtn"
                   onClick={sendFinalResponse}
+                  disabled={disablebtn}
                 >
                   Submit
                 </button>
