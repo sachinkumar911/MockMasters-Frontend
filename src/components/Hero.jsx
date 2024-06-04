@@ -3,16 +3,15 @@ import mockimage from "../assets/mock.webp";
 import rewardimg from "../assets/reward.webp";
 import usersimg from "../assets/usersimage.webp";
 import graphimg from "../assets/graph.webp";
-import { Link } from "react-scroll";
+import { Link } from "react-router-dom";
+import { UserContext } from "../context/UserContext.jsx";
+import { useContext } from "react";
 
 const Hero = () => {
+  const { islogin } = useContext(UserContext);
   return (
     <>
-      <section
-        id="hero-section"
-        
-        className="h-[90vh] pt-[90px] relative z-10"
-      >
+      <section id="hero-section" className="h-[90vh] pt-[90px] relative z-10">
         <div className="relative max-w-screen-xl mx-auto">
           <div className="container mx-auto">
             <div className="flex flex-wrap ">
@@ -31,7 +30,7 @@ const Hero = () => {
                   <ul className="flex flex-wrap items-center">
                     <li>
                       <Link
-                        to="about"
+                        to={islogin ? "/Dashboard/test-series" : "/login"}
                         className=" inline-flex  hover:cursor-pointer items-center text-white justify-center px-6 py-3 text-base font-medium text-center rounded-md bg-gray-700 hover:bg-gray-800 lg:px-9"
                       >
                         Get Started
