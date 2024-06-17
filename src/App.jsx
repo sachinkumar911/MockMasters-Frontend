@@ -23,6 +23,7 @@ import OnlineExam from "./components/OnlineExam.jsx";
 import Pattern from "./components/Pattern.jsx";
 import FinalSubmit from "./components/FinalSubmit.jsx";
 // import Faq from "./components/Faq.jsx";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   const [userdetail, setuserdetail] = useState();
@@ -60,51 +61,54 @@ function App() {
 
   const values = { userdetail, setuserdetail, islogin, setislogin };
   return (
-    <UserContext.Provider value={values}>
-      <Router>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Header />
-                <Element name="hero">
-                  <Hero />
-                </Element>
+    <>
+      <UserContext.Provider value={values}>
+        <Router>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <Header />
+                  <Element name="hero">
+                    <Hero />
+                  </Element>
 
-                <Element name="about">
-                  <About />
-                </Element>
-                <Element name="mockup">
-                  <Mockup />
-                </Element>
+                  <Element name="about">
+                    <About />
+                  </Element>
+                  <Element name="mockup">
+                    <Mockup />
+                  </Element>
 
-                <Element name="team">
-                  <TeamMember />{" "}
-                </Element>
-                {/* <Element name="faq">
+                  <Element name="team">
+                    <TeamMember />{" "}
+                  </Element>
+                  {/* <Element name="faq">
                   <Faq/>
                 </Element> */}
 
-                <Element name="contact">
-                  <Contact />
-                </Element>
-                <Footer />
-              </>
-            }
-          />
-          <Route path="/login" element={<AuthLogin />} />
-          <Route path="/Signup" element={<AuthSignup />} />
-          <Route path="/EmailVerify" element={<AuthEmailVerify />} />
-          <Route path="/dashboard/*" element={<AuthDashboard />} />
-          <Route path="/Forgotpassword" element={<AuthForgetPass />} />
-          <Route path="/verifyotp" element={<AuthForgetVerifyOTP />} />
-          <Route path="/test/finalresult" element={<FinalSubmit />} />
-          <Route path="/test/marking-scheme" element={<Pattern />} />
-          <Route path="/test/ongoing" element={<OnlineExam />} />
-        </Routes>
-      </Router>
-    </UserContext.Provider>
+                  <Element name="contact">
+                    <Contact />
+                  </Element>
+                  <Footer />
+                </>
+              }
+            />
+            <Route path="/login" element={<AuthLogin />} />
+            <Route path="/Signup" element={<AuthSignup />} />
+            <Route path="/EmailVerify" element={<AuthEmailVerify />} />
+            <Route path="/dashboard/*" element={<AuthDashboard />} />
+            <Route path="/Forgotpassword" element={<AuthForgetPass />} />
+            <Route path="/verifyotp" element={<AuthForgetVerifyOTP />} />
+            <Route path="/test/finalresult" element={<FinalSubmit />} />
+            <Route path="/test/marking-scheme" element={<Pattern />} />
+            <Route path="/test/ongoing" element={<OnlineExam />} />
+          </Routes>
+        </Router>
+      </UserContext.Provider>
+      <Analytics />
+    </>
   );
 }
 
