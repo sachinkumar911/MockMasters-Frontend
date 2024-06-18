@@ -58,7 +58,7 @@ export const TestAnalysis = () => {
         setcurrentDisplay(
           response.data.data?.qpset?.questions[0]?.questionIds[0]
         );
-        // console.log(response?.data?.data);
+        console.log(response?.data?.data);
       } catch (error) {
         console.error(error.response?.data?.message);
       }
@@ -258,25 +258,54 @@ export const TestAnalysis = () => {
                   <h2 className="py-3 text-center px-2 font-semibold">
                     Question {currquesindex + 1}
                   </h2>
-                  <h2 className="py-3 text-center text-wrap px-2 font-semibold">
-                    {" "}
-                    <span className="text-[#08bd80] ">
-                      +
-                      {data?.qpset?.questions[currsubject]?.posM
-                        ? (data?.qpset?.questions[currsubject]?.posM).toFixed(1)
-                        : ""}
-                    </span>{" "}
-                    <span className="text-red-500 ">
-                      -
-                      {data?.qpset?.questions[currsubject]?.negM
-                        ? (data?.qpset?.questions[currsubject]?.negM).toFixed(1)
-                        : ""}
-                    </span>
-                  </h2>
+                  <div className="flex items-center">
+                    {currentDisplay?.complexity === 1 ? (
+                      <p
+                        className={`select-none drop-shadow-2xl font-semibold text-[#00b8a3]`}
+                      >
+                        Easy
+                      </p>
+                    ) : (
+                      <></>
+                    )}
+                    {currentDisplay?.complexity === 2 ? (
+                      <p className={`select-none font-semibold text-[#ffc01e]`}>
+                        Medium
+                      </p>
+                    ) : (
+                      <></>
+                    )}
+                    {currentDisplay?.complexity === 3 ? (
+                      <p className={`select-none font-semibold text-[#ff375f]`}>
+                        Hard
+                      </p>
+                    ) : (
+                      <></>
+                    )}
+                    <h2 className="py-3 text-center text-wrap px-2 font-semibold ml-4">
+                      {" "}
+                      <span className="text-[#08bd80] ">
+                        +
+                        {data?.qpset?.questions[currsubject]?.posM
+                          ? (data?.qpset?.questions[currsubject]?.posM).toFixed(
+                              1
+                            )
+                          : ""}
+                      </span>{" "}
+                      <span className="text-red-500 ">
+                        -
+                        {data?.qpset?.questions[currsubject]?.negM
+                          ? (data?.qpset?.questions[currsubject]?.negM).toFixed(
+                              1
+                            )
+                          : ""}
+                      </span>
+                    </h2>
+                  </div>
                 </div>
                 {/* question  area */}
                 <div className="flex flex-col justify-between h-full overflow-hidden">
-                  <pre className="text-lg text-wrap max-h-[50%]  font-normal overflow-y-scroll">
+                  <pre className="select-none text-lg text-wrap max-h-[50%]  font-normal overflow-y-scroll">
                     {currentDisplay?.txtquestion ? (
                       currentDisplay?.txtquestion
                     ) : (
@@ -284,7 +313,7 @@ export const TestAnalysis = () => {
                     )}
                   </pre>
 
-                  <div className="flex- flex-col justify-center  max-h-[38%] overflow-y-scroll items-center">
+                  <div className="select-none flex- flex-col justify-center  max-h-[38%] overflow-y-scroll items-center">
                     {currentDisplay?.options?.map((item, key) => (
                       <div
                         key={key}
