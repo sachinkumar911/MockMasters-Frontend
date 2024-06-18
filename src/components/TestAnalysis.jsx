@@ -288,7 +288,7 @@ export const TestAnalysis = () => {
                     {currentDisplay?.options?.map((item, key) => (
                       <div
                         key={key}
-                        className={`px-2 text-lg  flex items-center p-1.5 gap-2 border-2 ${
+                        className={`px-2 text-lg  flex items-center p-1.5 gap-2 border-2 rounded-md ${
                           data?.qpset?.questions?.[currsubject]?.questionIds?.[
                             currquesindex
                           ]?.correctanswer === item
@@ -300,7 +300,7 @@ export const TestAnalysis = () => {
                               data?.response[
                                 data?.qpset?.questions[currsubject]?.subjectname
                               ][currentDisplay?._id]?.userOption === item
-                            ? "border-red-500 bg-red-300"
+                            ? "border-red-700 bg-red-500"
                             : ""
                         }`}
                       >
@@ -339,11 +339,11 @@ export const TestAnalysis = () => {
                               data?.response[
                                 data?.qpset?.questions[currsubject].subjectname
                               ][item?._id]?.userOption
-                              ? "bg-green-400"
-                              : "bg-red-300"
+                              ? "bg-green-500"
+                              : "bg-red-500"
                             : "bg-gray-300"
                         } ${
-                          currquesindex === key ? "border border-black" : ""
+                          currquesindex === key ? "border-2 border-black" : ""
                         }`}
                       >
                         {key + 1}
