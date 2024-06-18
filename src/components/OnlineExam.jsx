@@ -588,7 +588,7 @@ const OnlineExam = () => {
         <div className="h-[7vh] flex justify-between items-center md:mx-[6rem] mx-1">
           <div
             onClick={enterFullscreen}
-            className="text-center md:text-2xl select-none  font-semibold w-[4rem]"
+            className="text-center md:text-2xl select-none  font-semibold w-[4rem] hidden lg:flex"
           >
             MockMasters.
           </div>
