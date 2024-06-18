@@ -24,6 +24,7 @@ import Pattern from "./components/Pattern.jsx";
 import FinalSubmit from "./components/FinalSubmit.jsx";
 // import Faq from "./components/Faq.jsx";
 import { Analytics } from "@vercel/analytics/react";
+import { TestAnalysis } from "./components/TestAnalysis.jsx";
 
 function App() {
   const [userdetail, setuserdetail] = useState();
@@ -104,6 +105,7 @@ function App() {
             <Route path="/test/finalresult" element={<FinalSubmit />} />
             <Route path="/test/marking-scheme" element={<Pattern />} />
             <Route path="/test/ongoing" element={<OnlineExam />} />
+            <Route path="/test/test-analysis" element={<TestAnalysis />} />
           </Routes>
         </Router>
       </UserContext.Provider>
