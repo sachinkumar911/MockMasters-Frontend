@@ -12,7 +12,7 @@ const Footer = () => {
           >
             <span className="self-center text-xl font-bold whitespace-nowrap text-white">
               MockMasters <span className="text-red-600 -ml-1">.</span>{" "}
-            </span>
+            </span> 
           </a>
           <ul className="flex flex-wrap items-center text-sm text-gray-500 sm:mb-0">
             <li>

@@ -47,13 +47,13 @@ const DashBoard = ({ side, handleside }) => {
           <div className=" w-full h-full  px-0 overflow-y-auto bg-gray-50">
             <ul className="space-y-4 font-medium ">
               <li>
-                <a
+                {/* <a
                   href="/"
                   className="flex text-white items-center p-4 bg-blue-400 rounded-lg hover:bg-gray-400  group bg-gradient-to-br from-slate-900 via-slate-600 to-slate-800"
                 >
                   <img src={coin} alt="" className=" h-6" />
                   <span className="ms-3">{cc} Elite Coins</span>
-                </a>
+                </a> */}
               </li>
               <li>
                 <Link
@@ -175,7 +175,7 @@ const DashBoard = ({ side, handleside }) => {
                 </Link>
               </li>
               <li>
-                <Link
+                {/* <Link
                   to="/Dashboard/refer&earn"
                   onClick={handleside}
                   className={`flex items-center ${
@@ -203,7 +203,7 @@ const DashBoard = ({ side, handleside }) => {
                   <span className="flex-1 whitespace-nowrap ms-3">
                     Refer & Earn
                   </span>
-                </Link>
+                </Link> */}
               </li>
               <li>
                 <Link
